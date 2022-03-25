@@ -25,14 +25,15 @@ duration = 0
 
 # Program state
 ssd_connected = False
-capture_ID = 0
-capture_L1_name = "capture_L1" + str(capture_ID)
-capture_L2_name = "capture_L2" + str(capture_ID)
+capture_L1_ID = 0
+capture_L2_ID = 0
+capture_L1_name = "capture_L1_" + str(capture_L1_ID)
+capture_L2_name = "capture_L2_" + str(capture_L2_ID)
 
 # Paths
 path_ssd = "/media/ns/lidar_ssd"
 path_capture = os.path.join(path_ssd, "capture")
 path_dir_1 = os.path.join(path_capture, "lidar_1")
 path_dir_2 = os.path.join(path_capture, "lidar_2")
-path_lidar_1 = os.path.join(capture_L1_name + ".pcap")
-path_lidar_2 = os.path.join(capture_L2_name + ".pcap")
+path_lidar_1 = os.path.join(path_dir_1, capture_L1_name + ".pcap")
+path_lidar_2 = os.path.join(path_dir_2, capture_L2_name + ".pcap")

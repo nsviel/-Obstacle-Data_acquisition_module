@@ -5,6 +5,7 @@ from src import fct_param
 from src import fct_io
 
 import sys
+import os
 
 
 def loop_nb_packet():
@@ -18,9 +19,9 @@ def loop_nb_packet():
 def show_parameter():
     #-------------
 
-    print("[\033[92mOPT\033[0m] Parameters:")
+    print("[\033[92mOPT\033[0m] Parameters: [Y]")
     print("----------------------")
-
+    
     print(" path SSD - [\033[94m%s\033[0m]" % fct_param.path_ssd)
     print(" Velodium IP - [\033[94m%s\033[0m]" % fct_param.velo_IP)
     print(" Velodium port - [\033[94m%d\033[0m]" % fct_param.velo_port)

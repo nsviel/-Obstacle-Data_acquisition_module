@@ -1,7 +1,22 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from src import fct_param
+
 import pcapy
+
+
+def select_lidar_devices():
+    #-------------
+
+    #LiDAR 1 device
+    fct_param.lidar_1_dev = select_device("LiDAR 1", fct_param.lidar_1_dev)
+
+    #LiDAR 2 device
+    if(fct_param.with_two_lidar):
+        fct_param.lidar_2_dev = select_device("LiDAR 2", fct_param.lidar_2_dev)
+
+    #-------------
 
 
 #ask user to enter device name to sniff

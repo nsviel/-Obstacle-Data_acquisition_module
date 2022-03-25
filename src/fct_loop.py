@@ -16,11 +16,24 @@ from scapy.all import *
 
 
 #Main program loop
-def lidar_1_loop():
+def lidar_loop():
     #-------------
 
-    #Sniffing device
-    fct_param.lidar_1_dev = fct_device.select_device("LiDAR 1", fct_param.lidar_1_dev)
+    lidar_1 = loop_lidar_1()
+    lidar_2 = loop_lidar_2()
+
+    while(fct_param.run):
+        #Display number of captured packets
+        fct_display.loop_nb_packet();
+
+    lidar_1.join()
+    lidar_2.join()
+
+    #-------------
+
+
+def loop_lidar_1():
+    #-------------
 
     #Create thread
     lidar_1 = threading.Thread(target=lidar_1_thread)
@@ -29,28 +42,21 @@ def lidar_1_loop():
     print("[\033[92mLID\033[0m] Start lidar 1 loop")
     lidar_1.start()
 
-    while(fct_param.run):
-        #Display number of captured packets
-        fct_display.loop_nb_packet();
-
-    lidar_1.join()
-
+    return lidar_1
     #-------------
 
-def lidar_2_loop():
+def loop_lidar_2():
     #-------------
 
     if(fct_param.with_two_lidar):
-        #Sniffing device
-        fct_param.lidar_2_dev = fct_device.select_device("LiDAR 2", fct_param.lidar_2_dev)
-
         #Create thread
-        lidar_2 = threading.Thread(target=lidar_2_thread, args=(1,))
+        lidar_2 = threading.Thread(target=lidar_2_thread)
 
         #Start thread
         print("[\033[92mLID\033[0m] Start lidar 2 loop")
         lidar_2.start()
 
+    return lidar_2
     #-------------
 
 def lidar_1_thread():

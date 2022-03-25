@@ -2,27 +2,30 @@
 from src import fct_file
 from src import fct_loop
 from src import fct_signal
+from src import fct_device
 from src import fct_display
+from src import fct_terminal
 
-import os
 
-
-os.system('clear')
 print("---- Start program ----")
 #-------------
 
-#Show parameters
+#Argument
+fct_terminal.clear()
+fct_terminal.compute_argument()
+
+# [OPT] Show parameters
 fct_display.show_parameter()
 
 # [SSD] Create directories
 fct_file.check_directories()
-fct_file.capture_save_name()
+fct_file.check_capture_ID()
 
-# [LIDAR] Ask for ethernet network
-fct_loop.lidar_2_loop()
-fct_loop.lidar_1_loop()
+# [DEV] LiDAr portforwarding
+fct_device.select_lidar_devices()
+fct_loop.lidar_loop()
 
-# [STATS] Show final statistics
+# [STA] Show final statistics
 fct_display.show_stat()
 
 #-------------

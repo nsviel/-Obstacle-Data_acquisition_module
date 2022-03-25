@@ -8,8 +8,9 @@ import os
 
 #Check existence, or create, directories
 def check_directories():
-    sucess = True
     #-------------
+
+    sucess = True
 
     if(os.path.exists(fct_param.path_ssd) == False):
         print("[\033[91mERR\033[0m] No SSD detected: " + fct_param.path_ssd)
@@ -38,7 +39,32 @@ def check_directories():
 
     #-------------
 
+def check_capture_ID():
+    #-------------
+
+    # Retrieve capture ID
+    path, dirs, files = next(os.walk(fct_param.path_dir_1))
+    nb_file_L1 = len(files)
+
+    path, dirs, files = next(os.walk(fct_param.path_dir_2))
+    nb_file_L2 = len(files)
+
+    # Set new capture ID & path
+    fct_param.capture_L1_ID = nb_file_L1
+    fct_param.capture_L2_ID = nb_file_L2
+
+    fct_param.capture_L1_name = "capture_L1_" + str(fct_param.capture_L1_ID)
+    fct_param.capture_L2_name = "capture_L2_" + str(fct_param.capture_L2_ID)
+
+    fct_param.path_lidar_1 = os.path.join(fct_param.path_dir_1, fct_param.capture_L1_name + ".pcap")
+    fct_param.path_lidar_2 = os.path.join(fct_param.path_dir_2, fct_param.capture_L2_name + ".pcap")
+
+    #-------------
+
+
 def capture_save_name():
+    #-------------
+
     if(fct_param.with_manual_naming):
         #LiDAR 1 capture name
         name = input("[\033[92mNAM\033[0m] Name for \033[96mLiDAR 1\033[0m [y]: " + fct_param.capture_L1_name)
@@ -49,3 +75,5 @@ def capture_save_name():
         name = input("[\033[92mNAM\033[0m] Name for \033[96mLiDAR 2\033[0m [y]: " + fct_param.capture_L2_name)
         if(name != "" and name != "y" and name != "Y"):
             fct_param.capture_L2_name = name
+
+    #-------------
