@@ -27,8 +27,9 @@ def compute_argument():
         # Parsing
         args = parser.parse_args()
 
-        #Compute arg 
+        #Compute arg
         fct_param.with_two_lidar = str2bool(args.two_lidar)
+        print(fct_param.with_two_lidar)
 
     #-------------
 
