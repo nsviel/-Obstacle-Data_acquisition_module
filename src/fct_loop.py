@@ -19,15 +19,20 @@ from scapy.all import *
 def lidar_loop():
     #-------------
 
+    # Build lidar thread
     lidar_1 = loop_lidar_1()
-    lidar_2 = loop_lidar_2()
+    if(fct_param.with_two_lidar):
+        lidar_2 = loop_lidar_2()
 
+    # Display package captured
     while(fct_param.run):
         #Display number of captured packets
         fct_display.loop_nb_packet();
 
+    # Join lidar thread
     lidar_1.join()
-    lidar_2.join()
+    if(fct_param.with_two_lidar):
+        lidar_2.join()
 
     #-------------
 
@@ -48,13 +53,12 @@ def loop_lidar_1():
 def loop_lidar_2():
     #-------------
 
-    if(fct_param.with_two_lidar):
-        #Create thread
-        lidar_2 = threading.Thread(target=lidar_2_thread)
+    #Create thread
+    lidar_2 = threading.Thread(target=lidar_2_thread)
 
-        #Start thread
-        print("[\033[92mLID\033[0m] Start lidar 2 loop")
-        lidar_2.start()
+    #Start thread
+    print("[\033[92mLID\033[0m] Start lidar 2 loop")
+    lidar_2.start()
 
     return lidar_2
     #-------------

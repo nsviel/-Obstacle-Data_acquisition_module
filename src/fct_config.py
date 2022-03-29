@@ -1,0 +1,78 @@
+#! /usr/bin/python
+#---------------------------------------------
+
+from src import fct_param
+from src import fct_device
+from src import fct_display
+
+
+def make_config():
+    #-------------
+
+    fct_display.show_parameter()
+
+    while(fct_param.config_ok == False):
+        select_boolean_option(fct_param.with_two_lidar, "With two lidar")
+        select_forwarding_ip()
+        fct_device.select_lidar_devices()
+
+        fct_display.show_parameter()
+
+    #-------------
+
+def select_boolean_option(option, name):
+    #-------------
+
+    choice = input("[\033[92mOPT\033[0m] - " + name + " [\033[92mY\033[0m/n]: ")
+    option = str2bool(choice)
+
+    #-------------
+
+def select_forwarding_ip():
+    #-------------
+
+    print("[\033[92mOPT\033[0m] - Forwarding IP are:")
+    print("\033[90m----------------------\033[0m")
+
+    cpt = 0
+    for name, ip in fct_param.IP.items() :
+        print(cpt," - ",name, "[\033[94m", ip, "\033[0m]")
+        cpt = cpt + 1
+
+    print("\033[90m----------------------\033[0m")
+    in_ip = input("Enter forwarding IP [\033[92m" + fct_param.velo_IP + "\033[0m] : ")
+
+    #Check for default
+    if(in_ip == ""):
+        print("Selected default \033[92m" + fct_param.velo_IP + "\033[0m")
+        return
+
+    #Check if input is an integer
+    try:
+        val = int(in_ip)
+    except ValueError:
+        print('[\033[91mERR\033[0m] An integer is required')
+        exit()
+
+    #Check for good selected command
+    good_choice = False
+    if(in_ip > 0 and in_ip < cpt):
+        good_choice = True
+
+    if(good_choice == False):
+        print('[\033[91mERR\033[0m] Not in list')
+        exit();
+
+    print("Selected IP \033[92m" + in_ip + "\033[0m")
+
+    #-------------
+
+def str2bool(v):
+    if isinstance(v, bool):
+        return v
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        return True

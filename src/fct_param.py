@@ -8,15 +8,19 @@ import os
 
 # Parameters
 run = True;
+config_ok = True;
+
 with_two_lidar = False
 with_writing = True
 with_forwarding = True
 with_manual_naming = False
 
-velo_IP = "127.0.0.1";
+IP = {"localhost":"127.0.0.1", "Server MINE":"10.201.224.13"}
+velo_IP = "127.0.0.1"
 velo_port = 2370
 lidar_1_dev = "enp34s0"
 lidar_2_dev = "enxf8e43b6cdf6c"
+lidar_speed = 600
 
 # Statistics
 lidar_1_nb_packet = 0

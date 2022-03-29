@@ -24,8 +24,8 @@ def select_device(name, default):
     #-------------
     devices = pcapy.findalldevs()
 
-    print("[\033[92mDEV\033[0m] Available devices for \033[96m" + name + "\033[0m are:")
-    print("----------------------")
+    print("[\033[92mOPT\033[0m] - Devices for \033[96m" + name + "\033[0m are:")
+    print("\033[90m----------------------\033[0m")
 
     cpt = 0
     for d in devices :
@@ -35,20 +35,20 @@ def select_device(name, default):
             print(cpt, ' - ', d)
         cpt += 1
 
-    print("----------------------")
-    in_dev = input("Enter device to sniff [\033[92m" + default + "\033[0m] : ")
+    print("\033[90m----------------------\033[0m")
+    in_dev = input("Enter device to sniff [\033[92m" + default + "\033[0m]: ")
 
     #Check for default
     if(in_dev == ""):
-        print("[\033[92mDEV\033[0m] Selected default \033[92m" + default + "\033[0m")
+        print("Selected default \033[92m" + default + "\033[0m")
         return default;
 
+    #Check if input is an integer
     try:
         val = int(in_dev)
     except ValueError:
         print('[\033[91mERR\033[0m] An integer is required')
         exit()
-
 
     #Check for good selected command
     good_choice = False
@@ -64,7 +64,7 @@ def select_device(name, default):
         print('[\033[91mERR\033[0m] Not in list')
         exit();
 
-    print("[\033[92mDEV\033[0m] Selected device \033[92m" + dev + "\033[0m")
+    print("Selected device \033[92m" + dev + "\033[0m")
 
     return dev
     #-------------
