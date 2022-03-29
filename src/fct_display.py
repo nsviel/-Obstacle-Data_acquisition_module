@@ -31,6 +31,7 @@ def show_parameter():
     print(" with_manual_naming - [\033[94m%s\033[0m]" % str(fct_param.with_manual_naming))
     print(" LiDAR 1 device - [\033[94m%s\033[0m]" % str(fct_param.lidar_1_dev))
     print(" LiDAR 2 device - [\033[94m%s\033[0m]" % str(fct_param.lidar_2_dev))
+    print(" LiDAR speed - [\033[94m%s\033[0m]" % str(fct_param.lidar_speed))
 
     print("\033[90m----------------------\033[0m")
     ok = input("Accept [\033[92mY\033[0m/n/q]: ")

@@ -44,11 +44,7 @@ def select_device(name, default):
         return default;
 
     #Check if input is an integer
-    try:
-        val = int(in_dev)
-    except ValueError:
-        print('[\033[91mERR\033[0m] An integer is required')
-        exit()
+    check_if_integer(in_dev)
 
     #Check for good selected command
     good_choice = False
@@ -68,3 +64,11 @@ def select_device(name, default):
 
     return dev
     #-------------
+
+def check_if_integer(value):
+    #Check if input is an integer
+    try:
+        val = int(in_dev)
+    except ValueError:
+        print('[\033[91mERR\033[0m] An integer is required')
+        exit()

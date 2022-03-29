@@ -10,6 +10,7 @@ from src import fct_signal
 from src import fct_device
 from src import fct_terminal
 from src import fct_config
+from src import fct_lidar
 
 
 print("---- Start program ----")
