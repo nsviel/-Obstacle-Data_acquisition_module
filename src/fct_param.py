@@ -15,7 +15,7 @@ with_writing = True
 with_forwarding = True
 with_manual_naming = False
 
-IP = {"localhost":"127.0.0.1", "Server MINE":"10.201.224.13"}
+IP = {"localhost":"127.0.0.1", "Server MINE":"10.201.224.13", "Ordi Louis":"10.201.20.110"}
 velo_IP = "127.0.0.1"
 velo_port = 2370
 lidar_1_dev = "enp34s0"
