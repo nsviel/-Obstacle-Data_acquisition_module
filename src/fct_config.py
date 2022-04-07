@@ -14,6 +14,7 @@ def make_config():
     while(fct_param.config_ok == False):
         #Specific options
         fct_param.with_two_lidar = select_boolean_option("With two lidar")
+        fct_param.with_writing = select_boolean_option("With writing on SSD")
         fct_param.lidar_speed = select_integer_option(fct_param.lidar_speed, "Lidar speed")
 
         #Connection parameters
@@ -70,7 +71,7 @@ def select_forwarding_ip():
 
     #Check for good selected command
     good_choice = False
-    if(in_ip > 0 and in_ip < cpt):
+    if(int(in_ip) > 0 and int(in_ip) < cpt):
         good_choice = True
 
     if(good_choice == False):

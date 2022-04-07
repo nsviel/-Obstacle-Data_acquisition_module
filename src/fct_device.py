@@ -68,7 +68,7 @@ def select_device(name, default):
 def check_if_integer(value):
     #Check if input is an integer
     try:
-        val = int(in_dev)
+        val = int(value)
     except ValueError:
         print('[\033[91mERR\033[0m] An integer is required')
         exit()
