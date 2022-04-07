@@ -19,97 +19,63 @@ from scapy.all import *
 def lidar_loop():
     #-------------
 
-    # Build lidar thread
-    lidar_1 = loop_lidar_1()
-    if(fct_param.with_two_lidar):
-        lidar_2 = loop_lidar_2()
+    #Socket stuff
+    #- device name, max_bytes, promiscuous, read_timeout
+    lidar_1_capture = pcapy.open_live(fct_param.lidar_1_dev , 1248 , 1 , 0)
+    lidar_2_capture = pcapy.open_live(fct_param.lidar_2_dev , 1248 , 1 , 0)
+    sock_out = fct_socket.create_client_socket()
 
     # Display package captured
+    start = time.time()
+    print("[\033[92mLID\033[0m] Start lidar loops")
     while(fct_param.run):
+        #LiDAR 1 loop
+        lidar_1 = loop_lidar_1(lidar_1_capture, sock_out)
+
+        #LiDAR 2 loop
+        if(fct_param.with_two_lidar):
+            lidar_2 = loop_lidar_2(lidar_2_capture)
+
         #Display number of captured packets
         fct_display.loop_nb_packet();
 
-    # Join lidar thread
-    lidar_1.join()
-    if(fct_param.with_two_lidar):
-        lidar_2.join()
-
-    #-------------
-
-
-def loop_lidar_1():
-    #-------------
-
-    #Create thread
-    lidar_1 = threading.Thread(target=lidar_1_thread)
-
-    #Start thread
-    print("[\033[92mLID\033[0m] Start lidar 1 loop")
-    lidar_1.start()
-
-    return lidar_1
-    #-------------
-
-def loop_lidar_2():
-    #-------------
-
-    #Create thread
-    lidar_2 = threading.Thread(target=lidar_2_thread)
-
-    #Start thread
-    print("[\033[92mLID\033[0m] Start lidar 2 loop")
-    lidar_2.start()
-
-    return lidar_2
-    #-------------
-
-def lidar_1_thread():
-    #-------------
-
-    #Socket stuff
-    #- device name, max_bytes, promiscuous, read_timeout
-    capture = pcapy.open_live(fct_param.lidar_1_dev , 1300 , 1 , 0)
-    client_sock = fct_socket.create_client_socket()
-
-    #Main lidar loop
-    start = time.time()
-    while(fct_param.run):
-        #Receive packet
-        (header, packet) = capture.next()
-        fct_param.lidar_1_nb_packet += 1
-
-        #write packet
-        if(fct_param.with_writing and fct_param.ssd_connected):
-            wrpcap(fct_param.path_lidar_1, packet, append=True)
-
-        # Send packet to velodium server
-        if(fct_param.with_forwarding):
-            #Remove network queue data
-            packet = packet[42:]
-
-            #Send Pur data
-            client_sock.sendto(packet, (fct_param.velo_IP, fct_param.velo_port))
-
+    #End loop
     end = time.time()
     fct_param.duration = end - start
 
     #-------------
 
-def lidar_2_thread():
+
+def loop_lidar_1(capture, sock):
     #-------------
 
-    #Socket stuff
-    #- device name, max_bytes, promiscuous, read_timeout
-    capture = pcapy.open_live(fct_param.lidar_2_dev, 1300 , 1 , 0)
-    client_sock = fct_socket.create_client_socket()
+    #Receive packet
+    (header, packet) = capture.next()
+    fct_param.lidar_1_nb_packet += 1
 
-    while(fct_param.run):
-        #Receive packet
-        (header, packet) = capture.next()
-        fct_param.lidar_2_nb_packet += 1
+    #write packet
+    if(fct_param.with_writing and fct_param.ssd_connected):
+        wrpcap(fct_param.path_lidar_1, packet, append=True)
 
-        #write packet
-        if(fct_param.with_writing and fct_param.ssd_connected):
-            wrpcap(fct_param.path_lidar_2, packet, append=True)
+    # Send packet to velodium server
+    if(fct_param.with_forwarding):
+        #Remove network queue data
+        packet = packet[42:]
+
+        #Send Pur data
+        sock.sendto(packet, (fct_param.velo_IP, fct_param.velo_port))
+
+    #-------------
+
+def loop_lidar_2(capture):
+    #-------------
+
+    #Receive packet
+    (header, packet) = capture.next()
+    fct_param.lidar_2_nb_packet += 1
+
+    #write packet
+    if(fct_param.with_writing and fct_param.ssd_connected):
+        wrpcap(fct_param.path_lidar_2, packet, append=True)
 
     #-------------

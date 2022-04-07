@@ -71,14 +71,20 @@ def select_forwarding_ip():
 
     #Check for good selected command
     good_choice = False
-    if(int(in_ip) > 0 and int(in_ip) < cpt):
+    if(int(in_ip) >= 0 and int(in_ip) < cpt):
         good_choice = True
 
     if(good_choice == False):
         print('[\033[91mERR\033[0m] Not in list')
         exit();
 
-    print("Selected IP \033[92m" + in_ip + "\033[0m")
+    cpt = 0
+    for name, ip in fct_param.IP.items() :
+        if(int(in_ip) == cpt):
+            fct_param.velo_IP = ip
+        cpt = cpt + 1
+
+    print("Selected IP \033[92m" + fct_param.velo_IP + "\033[0m")
 
     #-------------
 
