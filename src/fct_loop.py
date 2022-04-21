@@ -27,7 +27,7 @@ def lidar_loop():
 
     # Display package captured
     start = time.time()
-    print("[\033[92mLID\033[0m] Start lidar loops")
+    print("[\033[92mLID\033[0m] Start lidar loop")
     while(fct_param.run):
         #LiDAR 1 loop
         lidar_1 = loop_lidar_1(lidar_1_capture, sock_out)
