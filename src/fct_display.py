@@ -65,4 +65,4 @@ def str2bool(v):
     elif v.lower() in ('no', 'false', 'f', 'n', '0'):
         return False
     else:
-        return True
+        return False
