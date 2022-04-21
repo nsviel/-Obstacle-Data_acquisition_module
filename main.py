@@ -28,7 +28,9 @@ fct_file.check_directories()
 fct_file.check_capture_ID()
 
 # [DEV] LiDAR portforwarding
+fct_lidar.lidar_start_motor()
 fct_loop.lidar_loop()
+fct_lidar.lidar_stop_motor()
 
 # [STA] Show final statistics
 fct_display.show_stat()
