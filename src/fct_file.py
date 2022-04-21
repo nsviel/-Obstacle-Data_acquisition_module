@@ -9,14 +9,14 @@ import os
 #Check existence, or create, directories
 def check_directories():
     #-------------
+    fct_param.ssd_connected = False
 
-    sucess = True
+    if(fct_param.with_writing):
+        if(os.path.exists(fct_param.path_ssd) == False):
+            print("[\033[91mERR\033[0m] No SSD detected: " + fct_param.path_ssd)
 
-    if(os.path.exists(fct_param.path_ssd) == False):
-        print("[\033[91mERR\033[0m] No SSD detected: " + fct_param.path_ssd)
-        fct_param.ssd_connected = False
-    else:
-        fct_param.ssd_connected = True
+        else:
+            fct_param.ssd_connected = True
 
     # Create directory capture
     if(fct_param.ssd_connected):
@@ -43,21 +43,22 @@ def check_capture_ID():
     #-------------
 
     # Retrieve capture ID
-    path, dirs, files = next(os.walk(fct_param.path_dir_1))
-    nb_file_L1 = len(files)
+    if(fct_param.ssd_connected):
+        path, dirs, files = next(os.walk(fct_param.path_dir_1))
+        nb_file_L1 = len(files)
 
-    path, dirs, files = next(os.walk(fct_param.path_dir_2))
-    nb_file_L2 = len(files)
+        path, dirs, files = next(os.walk(fct_param.path_dir_2))
+        nb_file_L2 = len(files)
 
-    # Set new capture ID & path
-    fct_param.capture_L1_ID = nb_file_L1
-    fct_param.capture_L2_ID = nb_file_L2
+        # Set new capture ID & path
+        fct_param.capture_L1_ID = nb_file_L1
+        fct_param.capture_L2_ID = nb_file_L2
 
-    fct_param.capture_L1_name = "capture_L1_" + str(fct_param.capture_L1_ID)
-    fct_param.capture_L2_name = "capture_L2_" + str(fct_param.capture_L2_ID)
+        fct_param.capture_L1_name = "capture_L1_" + str(fct_param.capture_L1_ID)
+        fct_param.capture_L2_name = "capture_L2_" + str(fct_param.capture_L2_ID)
 
-    fct_param.path_lidar_1 = os.path.join(fct_param.path_dir_1, fct_param.capture_L1_name + ".pcap")
-    fct_param.path_lidar_2 = os.path.join(fct_param.path_dir_2, fct_param.capture_L2_name + ".pcap")
+        fct_param.path_lidar_1 = os.path.join(fct_param.path_dir_1, fct_param.capture_L1_name + ".pcap")
+        fct_param.path_lidar_2 = os.path.join(fct_param.path_dir_2, fct_param.capture_L2_name + ".pcap")
 
     #-------------
 
