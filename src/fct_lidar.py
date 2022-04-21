@@ -9,7 +9,7 @@ import requests
 
 
 def lidar_start_motor():
-    print("[\033[92mLID\033[0m] - LiDAR motor activated at \033[96m" + fct_param.lidar_speed + "\033[0m rpm")
+    print("[\033[92mLID\033[0m] - LiDAR motor activated at \033[96m%d\033[0m rpm" % fct_param.lidar_speed)
     #-------------
 
     data = {
