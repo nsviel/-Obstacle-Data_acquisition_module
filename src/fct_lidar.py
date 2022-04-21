@@ -43,7 +43,7 @@ def lidar_send_data(data):
     except ConnectionError:
         print('%s does not exist' % fct_param.lidar_1_url)
     else:
-        response = requests.post('http://192.168.1.201/cgi/setting', data=data)
+        response = requests.post(fct_param.lidar_1_url, data=data)
         time.sleep(1)
 
     #LiDAR 2
@@ -52,7 +52,7 @@ def lidar_send_data(data):
     except ConnectionError:
         print('%s does not exist' % fct_param.lidar_2_url)
     else:
-        response = requests.post('http://192.168.1.201/cgi/setting', data=data)
+        response = requests.post(fct_param.lidar_2_url, data=data)
         time.sleep(1)
 
     #-------------
