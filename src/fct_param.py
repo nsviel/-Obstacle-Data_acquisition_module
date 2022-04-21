@@ -15,8 +15,8 @@ with_writing = True
 with_forwarding = True
 with_manual_naming = False
 
-lidar_1_url = "http://192.168.1.201/"
-lidar_2_url = "http://192.168.1.202/"
+lidar_1_url = "http://192.168.1.201/cgi/setting"
+lidar_2_url = "http://192.168.1.202/cgi/setting"
 IP = {"localhost":"127.0.0.1", \
     "Server MINE":"10.201.224.13", \
     "Mine Louis":"10.201.20.110", \
