@@ -2,7 +2,7 @@
 #---------------------------------------------
 
 from src import fct_param
-
+from requests.exceptions import ConnectionError
 
 import time
 import requests
