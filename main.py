@@ -11,6 +11,7 @@ from src import fct_device
 from src import fct_terminal
 from src import fct_config
 from src import fct_lidar
+from src import fct_display
 
 
 print("---- Start program ----")
