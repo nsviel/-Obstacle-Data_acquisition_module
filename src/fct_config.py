@@ -15,8 +15,8 @@ def make_config():
         #Specific options
         fct_param.with_two_lidar = select_boolean_option("With two lidar")
         fct_param.with_writing = select_boolean_option("With writing on SSD")
-        fct_param.lidar_speed = select_integer_option(fct_param.lidar_speed, "Lidar speed")
-
+        fct_param.lidar_speed = select_integer_option(fct_param.lidar_speed, "Lidar speed", 60)
+        print(fct_param.lidar_speed)
         #Connection parameters
         select_forwarding_ip()
         fct_device.select_lidar_devices()
@@ -43,6 +43,23 @@ def select_integer_option(option, name):
         return option
     else:
         check_if_integer(choice)
+
+    return choice
+    #-------------
+
+def select_integer_option(option, name, multiple):
+    #-------------
+
+    choice = input("[\033[92mOPT\033[0m] - " + name + " [\033[92m" + str(option) + "\033[0m]: ")
+    if(choice == ""):
+        return option
+    else:
+        check_if_integer(choice)
+
+    #Check if the integer is a multiple of 60
+    if(int(choice) % multiple != 0):
+        print('[\033[91mERR\033[0m] Number must be a multiple of %d' % multiple)
+        exit();
 
     return choice
     #-------------
