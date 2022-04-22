@@ -19,7 +19,7 @@ WORKDIR /app
 EXPOSE 2370
 
 # Final command
-CMD [ "python3", "main.py"]
+CMD [ "sudo", "python3", "main.py"]
 
 
 
