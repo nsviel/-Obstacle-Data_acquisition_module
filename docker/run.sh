@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker run -it pywardium /bin/bash
+docker run -it -p 2369 pywardium /bin/bash
