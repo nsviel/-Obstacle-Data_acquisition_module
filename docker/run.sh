@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker run -it -p 2369 pywardium /bin/bash
+docker run -it -p 2369 --network host pywardium /bin/bash
