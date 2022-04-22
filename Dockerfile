@@ -16,10 +16,11 @@ COPY . /app
 WORKDIR /app
 
 # Open port
-EXPOSE 2370
+EXPOSE 2369
+EXPOSE 2370 
 
 # Final command
-CMD [ "sudo", "python3", "main.py"]
+CMD [ "python3", "main.py"]
 
 
 
