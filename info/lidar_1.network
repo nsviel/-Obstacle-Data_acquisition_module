@@ -1,0 +1,17 @@
+#/etc/systemd/network
+
+[Match]
+Name=enxf8e43b6cecab
+MACAddress=F8:E4:3B:6C:EC:AB
+
+[Network]
+Description=File for LiDAR 1 connectivity
+Address=192.168.1.201/24
+LinkLocalAddressing=no
+IPv6AcceptRA=no
+
+[Link]
+Promiscuous=yes
+
+[DHCPv4]
+UseDNS=no
