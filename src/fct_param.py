@@ -43,14 +43,6 @@ capture_L2_ID = 0
 capture_L1_name = "capture_L1_" + str(capture_L1_ID)
 capture_L2_name = "capture_L2_" + str(capture_L2_ID)
 
-# HTTP client for geolocalization
-geo_connection = 0
-geo_server_ip = "127.0.0.1"
-geo_server_port = 80
-geo_coordinate = [0, 0]
-geo_border = [48.862725, 2.287592]
-geo_country = "France"
-
 # Paths
 path_ssd = "/media/ns/lidar_ssd"
 path_capture = os.path.join(path_ssd, "capture")
