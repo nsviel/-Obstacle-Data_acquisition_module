@@ -10,7 +10,7 @@ def check_position():
         fct_param.velo_IP = fct_param.IP["EDGE France"]
         fct_param.geo_country = "France"
     else:
-        fct_param.velo_IP = fct_param.IP["EDGE Espagne"]
-        fct_param.geo_country = "Espagne"
+        fct_param.velo_IP = fct_param.IP["EDGE Spain"]
+        fct_param.geo_country = "Spain"
 
     #-------------
