@@ -11,7 +11,17 @@ import os
 def loop_nb_packet():
     #-------------
 
-    sys.stdout.write("LiDAR 1 packet: [\033[94m%d\033[0m] - LiDAR 2 packet: [\033[94m%d\033[0m]\r" % (fct_param.lidar_1_nb_packet, fct_param.lidar_2_nb_packet))
+    if(fct_param.with_geolocalization):
+        sys.stdout.write("[%s] \
+        LiDAR 1 packet: [\033[94m%d\033[0m] - \
+        LiDAR 2 packet: [\033[94m%d\033[0m]\r" \
+        % (fct_param.geo_country, fct_param.lidar_1_nb_packet, fct_param.lidar_2_nb_packet))
+    else:
+        sys.stdout.write("\
+        LiDAR 1 packet: [\033[94m%d\033[0m] - \
+        LiDAR 2 packet: [\033[94m%d\033[0m]\r" \
+        % (fct_param.lidar_1_nb_packet, fct_param.lidar_2_nb_packet))
+
     sys.stdout.flush()
 
     #-------------
@@ -29,6 +39,7 @@ def show_parameter():
     print(" with_writing - [\033[94m%s\033[0m]" % str(fct_param.with_writing))
     print(" with_forwarding - [\033[94m%s\033[0m]" % str(fct_param.with_forwarding))
     print(" with_manual_naming - [\033[94m%s\033[0m]" % str(fct_param.with_manual_naming))
+    print(" with_geolocalization - [\033[94m%s\033[0m]" % str(fct_param.with_geolocalization))
     print(" LiDAR 1 device - [\033[94m%s\033[0m]" % str(fct_param.lidar_1_dev))
     print(" LiDAR 2 device - [\033[94m%s\033[0m]" % str(fct_param.lidar_2_dev))
     print(" LiDAR speed - [\033[94m%s\033[0m]" % str(fct_param.lidar_speed))

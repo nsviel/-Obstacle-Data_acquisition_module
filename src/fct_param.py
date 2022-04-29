@@ -14,17 +14,20 @@ with_two_lidar = False
 with_writing = True
 with_forwarding = True
 with_manual_naming = False
+with_geolocalization = False
 
 lidar_1_url = "http://192.168.1.201/cgi/setting"
 lidar_2_url = "http://192.168.1.202/cgi/setting"
 IP = {"localhost":"127.0.0.1", \
+    "EDGE France":"1.1.1.1", \
+    "EDGE Espagne":"1.1.1.1", \
     "Server MINE":"10.201.224.13", \
     "Mine Louis":"10.201.20.110", \
     "Mine Nathan":"10.201.20.106", \
     "Portable Nathan":"192.168.153.147"}
 velo_IP = "127.0.0.1"
 velo_port = 2370
-lidar_1_dev = "enp34s0"
+lidar_1_dev = "enxf8e43b6cecab"
 lidar_2_dev = "enxf8e43b6cdf6c"
 lidar_speed = 600
 
@@ -39,6 +42,14 @@ capture_L1_ID = 0
 capture_L2_ID = 0
 capture_L1_name = "capture_L1_" + str(capture_L1_ID)
 capture_L2_name = "capture_L2_" + str(capture_L2_ID)
+
+# HTTP client for geolocalization
+geo_connection = 0
+geo_server_ip = "127.0.0.1"
+geo_server_port = 80
+geo_coordinate = [0, 0]
+geo_border = [48.862725, 2.287592]
+geo_country = "France"
 
 # Paths
 path_ssd = "/media/ns/lidar_ssd"

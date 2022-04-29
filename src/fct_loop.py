@@ -5,6 +5,8 @@ from src import fct_param
 from src import fct_device
 from src import fct_socket
 from src import fct_display
+from src import fct_http
+from src import fct_coordinate
 
 import threading
 import pcapy
@@ -29,6 +31,11 @@ def lidar_loop():
     start = time.time()
     print("[\033[92mLID\033[0m] Start lidar loop")
     while(fct_param.run):
+        #Ask for geolocalization
+        if(fct_param.with_geolocalization):
+            fct_http.geo_request()
+            fct_coordinate.check_position()
+
         #LiDAR 1 loop
         lidar_1 = loop_lidar_1(lidar_1_capture, sock_out)
 
