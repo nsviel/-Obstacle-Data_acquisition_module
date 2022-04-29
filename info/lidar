@@ -6,6 +6,15 @@
 -Configuration sur terminal :
     nmtui
 
+-Configuration file for NetworkManager:
+    /etc/NetworkManager/system-connections
+
+    sudo cp Lidar_1 /etc/NetworkManager/system-connections/Lidar_1.nmconnection
+    sudo cp Lidar_2 /etc/NetworkManager/system-connections/Lidar_2.nmconnection
+    sudo cp Lidar_1.nmconnection /etc/NetworkManager/system-connections/Lidar_1.nmconnection
+    sudo cp Lidar_2.nmconnection /etc/NetworkManager/system-connections/Lidar_2.nmconnection
+    systemctl restart NetworkManager
+
 
 LiDAR 1:
 -----------
