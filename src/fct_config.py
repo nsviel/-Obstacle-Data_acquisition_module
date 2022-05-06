@@ -16,7 +16,8 @@ def make_config():
         fct_param.with_two_lidar = select_boolean_option("With two lidar")
         fct_param.with_writing = select_boolean_option("With writing on SSD")
         fct_param.lidar_speed = select_integer_option(fct_param.lidar_speed, "Lidar speed", 60)
-        print(fct_param.lidar_speed)
+        fct_param.with_forwarding = select_integer_option(fct_param.with_forwarding, "LiDAR forwarding")
+
         #Connection parameters
         select_forwarding_ip()
         fct_device.select_lidar_devices()
