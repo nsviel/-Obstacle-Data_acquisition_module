@@ -5,10 +5,13 @@ from src import fct_param
 from src import fct_device
 from src import fct_display
 
+import pandas as pd
+from collections import defaultdict
 
 def make_config():
     #-------------
 
+    read_wallet()
     fct_display.show_parameter()
 
     while(fct_param.config_ok == False):
@@ -16,7 +19,7 @@ def make_config():
         fct_param.with_two_lidar = select_boolean_option("With two lidar")
         fct_param.with_writing = select_boolean_option("With writing on SSD")
         fct_param.lidar_speed = select_integer_option(fct_param.lidar_speed, "Lidar speed", 60)
-        fct_param.with_forwarding = select_integer_option(fct_param.with_forwarding, "LiDAR forwarding")
+        fct_param.with_forwarding = select_boolean_option("LiDAR forwarding")
 
         #Connection parameters
         select_forwarding_ip()
@@ -123,3 +126,13 @@ def str2bool(v):
         return False
     else:
         return False
+
+def read_wallet():
+    #-------------
+
+    X = pd.read_csv('src/wallet.txt', sep=" ", header=None)
+
+    for i in range(0, len(X[0])):
+        fct_param.IP[str(X[0][i])] = str(X[1][i])
+
+    #-------------

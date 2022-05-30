@@ -1,0 +1,7 @@
+localhost 127.0.0.1
+EDGE_France 1.1.1.1
+EDGE_Spain 1.1.1.1
+Server_MINE 10.201.224.13
+Mine_Louis 10.201.20.110
+Mine_Nathan 10.201.20.106
+Portable_Nathan 192.168.153.147
