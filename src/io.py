@@ -9,7 +9,8 @@ import pcapy
 
 
 def open_pcap(path):
-    return pcap = scapy.utils.rdpcap(path)
+    pcap = scapy.utils.rdpcap(path)
+    return pcap
 
 def get_nb_paquet(pcap):
     nb = 0

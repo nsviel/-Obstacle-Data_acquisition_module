@@ -26,5 +26,3 @@ def callback_event():
 def callback_path():
     parameter.path_ssd = dpg.get_value("ssdp")
     saver.determine_path()
-    dpg.set_value("l1p", parameter.path_file_l1)
-    dpg.set_value("l2p", parameter.path_file_l2)
