@@ -70,7 +70,7 @@ def loop_lidar_1(capture, sock):
         packet = packet[42:]
 
         #Send Pur data
-        sock.sendto(packet, (fct_param.velo_IP, fct_param.velo_port))
+        sock.sendto(packet, (fct_param.velo_ip, fct_param.velo_port))
 
     #-------------
 
