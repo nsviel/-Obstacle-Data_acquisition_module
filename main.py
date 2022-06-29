@@ -1,4 +1,5 @@
 from src import gui
+from src import signal
 
 import os
 

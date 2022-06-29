@@ -9,7 +9,7 @@ import os
 # Parameters
 run = True;
 gui_width = 600;
-gui_height = 500;
+gui_height = 600;
 
 # Options
 with_two_lidar = False
@@ -33,18 +33,15 @@ lidar_2_nb_packet = 0
 lidar_speed = 600
 
 # State
+time_capture = 0
 geo_country = "France"
 ssd_connected = False
-capture_L1_ID = 0
-capture_L2_ID = 0
-capture_L1_name = "capture_L1_" + str(capture_L1_ID)
-capture_L2_name = "capture_L2_" + str(capture_L2_ID)
-time_capture = 0
+capture_ID = 0
 
 # Paths
 path_ssd = "/media/ns/lidar_ssd"
-path_capture = os.path.join(path_ssd, "capture")
-path_dir_1 = os.path.join(path_capture, "lidar_1")
-path_dir_2 = os.path.join(path_capture, "lidar_2")
-path_lidar_1 = os.path.join(path_dir_1, capture_L1_name + ".pcap")
-path_lidar_2 = os.path.join(path_dir_2, capture_L2_name + ".pcap")
+path_capture = ""
+path_dir_l1 = ""
+path_dir_l2 = ""
+path_file_l1 = ""
+path_file_l2 = ""

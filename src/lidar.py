@@ -8,31 +8,29 @@ import time
 import requests
 
 
-def start_motor(ip):
+def start_l1_motor():
     print("[\033[92mLID\033[0m] - LiDAR motor activated at \033[96m%d\033[0m rpm" % parameter.lidar_speed)
-    #-------------
-
-    #Motor speed value
-    data = {
-        'rpm': str(parameter.lidar_speed),
-    }
-
-    send_parameter(data, ip)
-
-    #-------------
-
-def stop_motor():
-    print("[\033[92mLID\033[0m] - LiDAR motor desactivated")
-    #-------------
     ip = parameter.lidar_1_ip
-    #Motor speed value
-    data = {
-        'rpm': '0',
-    }
-
+    data = {'rpm': str(parameter.lidar_speed),}
     send_parameter(data, ip)
 
-    #-------------
+def stop_l1_motor():
+    print("[\033[92mLID\033[0m] - LiDAR motor desactivated")
+    ip = parameter.lidar_1_ip
+    data = {'rpm': '0',}
+    send_parameter(data, ip)
+
+def start_l2_motor():
+    print("[\033[92mLID\033[0m] - LiDAR motor activated at \033[96m%d\033[0m rpm" % parameter.lidar_speed)
+    ip = parameter.lidar_2_ip
+    data = {'rpm': str(parameter.lidar_speed),}
+    send_parameter(data, ip)
+
+def stop_l2_motor():
+    print("[\033[92mLID\033[0m] - LiDAR motor desactivated")
+    ip = parameter.lidar_2_ip
+    data = {'rpm': '0',}
+    send_parameter(data, ip)
 
 def send_parameter(data, ip):
     #-------------

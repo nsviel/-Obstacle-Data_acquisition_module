@@ -1,14 +1,14 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import fct_param
+from src import parameter
 
 import signal
 import time
 
 
+# Manage Ctrl+C input
 def handler(signum, frame):
-    print("[\033[92mLID\033[0m] - Stop LiDAR loop")
-    fct_param.run = False
+    parameter.run = False
 
 signal.signal(signal.SIGINT, handler)

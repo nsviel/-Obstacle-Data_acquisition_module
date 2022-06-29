@@ -2,6 +2,7 @@
 #---------------------------------------------
 
 from src import parameter
+from src import saver
 
 import dearpygui.dearpygui as dpg
 
@@ -11,7 +12,6 @@ def callback_parameter():
     parameter.with_writing = dpg.get_value("cwws")
     parameter.with_forwarding = dpg.get_value("cwf")
     parameter.lidar_speed = dpg.get_value("ls")
-    parameter.path_ssd = dpg.get_value("ssdp")
     parameter.with_geolocalization = dpg.get_value("wgeo")
 
     parameter.velo_ip = dpg.get_value("veloip")
@@ -22,3 +22,9 @@ def callback_parameter():
 
 def callback_event():
     parameter.run = dpg.get_value("bclo")
+
+def callback_path():
+    parameter.path_ssd = dpg.get_value("ssdp")
+    saver.determine_path()
+    dpg.set_value("l1p", parameter.path_file_l1)
+    dpg.set_value("l2p", parameter.path_file_l2)
