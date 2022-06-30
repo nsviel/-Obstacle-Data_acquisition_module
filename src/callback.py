@@ -2,7 +2,8 @@
 #---------------------------------------------
 
 from src import parameter
-from src import saver
+from src import saving
+from src import device
 
 import dearpygui.dearpygui as dpg
 
@@ -25,4 +26,17 @@ def callback_event():
 
 def callback_path():
     parameter.path_ssd = dpg.get_value("ssdp")
-    saver.determine_path()
+    parameter.path_name = dpg.get_value("pnam")
+    saving.determine_path()
+
+def callback_device():
+    devices = device.get_all_device()
+    dpg.set_value("l1d", devices)
+    dpg.set_value("l2d", devices)
+
+def callback_comboip():
+    adress = dpg.get_value("comboip")
+    for i in range(0, len(parameter.wallet_add)):
+        if(adress == parameter.wallet_add[i]):
+            parameter.velo_ip = parameter.wallet_ip[i]
+    dpg.set_value("veloip", parameter.velo_ip)
