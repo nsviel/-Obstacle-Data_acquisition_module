@@ -8,6 +8,8 @@ from src import io
 from src import lidar
 from src import saving
 from src import loop
+
+from src import gui_connection
 from src import gui_runtime
 from src import gui_parameter
 
@@ -21,6 +23,7 @@ def start():
     #Build GUI
     with dpg.window(tag="window", label="Pywardium"):
         gui_parameter.build_parameter()
+        gui_connection.build_connection()
         gui_runtime.build_runtime()
         build_end()
         #demo.show_demo()

@@ -15,11 +15,22 @@ def callback_parameter():
     parameter.lidar_speed = dpg.get_value("ls")
     parameter.with_geolocalization = dpg.get_value("wgeo")
 
-    parameter.velo_ip = dpg.get_value("veloip")
-    parameter.velo_port = dpg.get_value("velopo")
+    parameter.hubium_ip = dpg.get_value("hubiump")
+    parameter.hubium_sock_port = dpg.get_value("hubiumpos")
+    parameter.hubium_http_port = dpg.get_value("hubiumpoh")
 
     parameter.lidar_1_dev = dpg.get_value("l1d")
     parameter.lidar_2_dev = dpg.get_value("l2d")
+
+def callback_connection():
+    if(parameter.http_connected):
+        dpg.set_value("httpconn", "ON")
+    else:
+        dpg.set_value("httpconn", "OFF")
+    if(parameter.socket_connected):
+        dpg.set_value("socketconn", "ON")
+    else:
+        dpg.set_value("socketconn", "OFF")
 
 def callback_event():
     parameter.run = dpg.get_value("bclo")
@@ -38,5 +49,5 @@ def callback_comboip():
     adress = dpg.get_value("comboip")
     for i in range(0, len(parameter.wallet_add)):
         if(adress == parameter.wallet_add[i]):
-            parameter.velo_ip = parameter.wallet_ip[i]
-    dpg.set_value("veloip", parameter.velo_ip)
+            parameter.hubium_ip = parameter.wallet_ip[i]
+    dpg.set_value("hubiump", parameter.hubium_ip)

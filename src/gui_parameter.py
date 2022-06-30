@@ -34,8 +34,9 @@ def build_option():
         dpg.add_text("")
         saving.read_wallet()
         dpg.add_combo(parameter.wallet_add, tag="comboip", label="Adresse", default_value="localhost", width=125, callback=callback.callback_comboip)
-        dpg.add_input_text(tag="veloip", label="Velodium IP", default_value=parameter.velo_ip, width=125, callback=callback.callback_parameter);
-        dpg.add_input_int(tag="velopo", label="Velodium port", default_value=parameter.velo_port, min_value=0, min_clamped=True, width=125, callback=callback.callback_parameter);
+        dpg.add_input_text(tag="hubiump", label="Hubium IP", default_value=parameter.hubium_ip, width=125, callback=callback.callback_parameter);
+        dpg.add_input_int(tag="hubiumpos", label="Hubium socket port", default_value=parameter.hubium_sock_port, min_value=0, min_clamped=True, width=125, callback=callback.callback_parameter);
+        dpg.add_input_int(tag="hubiumpoh", label="Hubium HTTP port", default_value=parameter.hubium_http_port, min_value=0, min_clamped=True, width=125, callback=callback.callback_parameter);
 
 def build_device():
     with dpg.group():

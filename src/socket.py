@@ -24,3 +24,12 @@ def init_socket():
         parameter.listener_l2 = pcapy.open_live(parameter.lidar_2_dev , 1248 , 1 , 0)
         parameter.socket_out = socket.create_socket_udp()
         parameter.socket_ready = True
+
+def send_packet(packet):
+    # Send packet to velodium server
+    if(parameter.with_forwarding):
+        #Remove network queue data
+        packet = packet[42:]
+
+        #Send Pur data
+        parameter.socket_out.sendto(packet, (parameter.hubium_ip, parameter.hubium_sock_port))
