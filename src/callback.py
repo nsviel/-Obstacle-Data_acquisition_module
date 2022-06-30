@@ -4,6 +4,8 @@
 from src import parameter
 from src import saving
 from src import device
+from src import socket
+from src import http
 
 import dearpygui.dearpygui as dpg
 
@@ -23,6 +25,8 @@ def callback_parameter():
     parameter.lidar_2_dev = dpg.get_value("l2d")
 
 def callback_connection():
+    http.test_connection()
+    socket.test_connection()
     if(parameter.http_connected):
         dpg.set_value("httpconn", "ON")
     else:

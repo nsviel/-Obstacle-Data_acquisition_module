@@ -4,14 +4,14 @@
 from src import parameter
 from src import socket
 from src import saving
-from src import http
+from src import callback
 
 
 def init():
     saving.determine_path()
     saving.read_wallet()
     socket.init_socket()
-    http.test_connection()
+    callback.callback_connection()
 
 def loop():
     loop_lidar_1()

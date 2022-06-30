@@ -13,6 +13,14 @@ import pcapy
 def create_socket_udp():
     return socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
+def test_connection():
+    try:
+        parameter.socket_out.send("some more data")
+        parameter.socket_connected = True
+    except:
+        print("No socket connection")
+        parameter.socket_connected = False
+
 def init_socket():
     #Socket stuff
     l1_dev = device.check_if_device_exists(parameter.lidar_1_dev)
