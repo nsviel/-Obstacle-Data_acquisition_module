@@ -18,18 +18,16 @@ def build_parameter():
     with dpg.group(horizontal=True):
         build_option()
         build_device()
+    build_lidar()
     build_saving()
 
 def build_option():
     with dpg.group():
         dpg.add_text("Parameter", color=(125, 125, 125))
         dpg.add_checkbox(tag="wgeo", label="With geolocalization", default_value=parameter.with_geolocalization, callback=callback.callback_parameter);
-        dpg.add_checkbox(tag="cwf", label="With LiDAR forwarding", default_value=parameter.with_forwarding, callback=callback.callback_parameter);
+        dpg.add_checkbox(tag="cwf", label="With Lidar forwarding", default_value=parameter.with_forwarding, callback=callback.callback_parameter);
         dpg.add_checkbox(tag="cwtl", label="With two lidar", default_value=parameter.with_two_lidar, callback=callback.callback_parameter);
         dpg.add_checkbox(tag="cwws", label="With writing on SSD", default_value=parameter.with_writing, callback=callback.callback_parameter);
-
-        dpg.add_text("")
-        dpg.add_input_int(tag="ls", label="Lidar speed", default_value=parameter.lidar_speed, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=callback.callback_parameter);
 
         dpg.add_text("")
         saving.read_wallet()
@@ -38,19 +36,25 @@ def build_option():
         dpg.add_input_int(tag="hubiumpos", label="Hubium socket port", default_value=parameter.hubium_sock_port, min_value=0, min_clamped=True, width=125, callback=callback.callback_parameter);
         dpg.add_input_int(tag="hubiumpoh", label="Hubium HTTP port", default_value=parameter.hubium_http_port, min_value=0, min_clamped=True, width=125, callback=callback.callback_parameter);
 
+def build_lidar():
+    dpg.add_input_int(tag="ls", label="Lidar speed", default_value=parameter.lidar_speed, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=callback.callback_parameter);
+    dpg.add_input_text(tag="l1ip", label="Lidar 1 IP", default_value=parameter.ip_l1, width=300, callback=callback.callback_parameter);
+    dpg.add_input_text(tag="l2ip", label="Lidar 2 IP", default_value=parameter.ip_l2, width=300, callback=callback.callback_parameter);
+
 def build_device():
     with dpg.group():
-        dpg.add_text("Device", color=(125, 125, 125))
+        with dpg.group(horizontal=True):
+            dpg.add_text("Device", color=(125, 125, 125))
+            dpg.add_button(label="Refresh", callback=callback.callback_refresh_device)
         with dpg.group(horizontal=True):
             devices = device.get_all_device()
             with dpg.group():
-                dpg.add_text("LiDAR 1")
-                dpg.add_listbox(devices, tag="l1d", callback=callback.callback_parameter, default_value=parameter.lidar_1_dev, width=150, num_items=len(devices))
+                dpg.add_text("Lidar 1")
+                dpg.add_listbox(devices, tag="l1d", callback=callback.callback_choice_device, default_value=parameter.device_l1, width=150, num_items=len(devices))
 
             with dpg.group():
-                dpg.add_text("LiDAR 2")
-                dpg.add_listbox(devices, tag="l2d", callback=callback.callback_parameter, default_value=parameter.lidar_2_dev, width=150, num_items=len(devices))
-        dpg.add_button(label="Refresh", callback=callback.callback_device)
+                dpg.add_text("Lidar 2")
+                dpg.add_listbox(devices, tag="l2d", callback=callback.callback_choice_device, default_value=parameter.device_l2, width=150, num_items=len(devices))
 
 def build_saving():
     dpg.add_separator()

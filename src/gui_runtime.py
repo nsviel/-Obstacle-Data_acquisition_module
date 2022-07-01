@@ -35,7 +35,7 @@ def build_lidar_1():
         dpg.add_text("LiDAR 1 -")
         with dpg.group(horizontal=True):
             dpg.add_text("packet captured: [")
-            dpg.add_text(parameter.nb_packet_l1, color=(31, 140, 250))
+            dpg.add_text(parameter.nb_packet_l1, tag="l1nbpck", color=(31, 140, 250))
             dpg.add_text("]")
         with dpg.group(horizontal=True):
             dpg.add_button(label="Start", tag="l1dstart", callback=lidar.start_l1_motor)
@@ -46,7 +46,7 @@ def build_lidar_2():
         dpg.add_text("LiDAR 2 -")
         with dpg.group(horizontal=True):
             dpg.add_text("packet captured: [")
-            dpg.add_text(parameter.nb_packet_l2, color=(31, 140, 250))
+            dpg.add_text(parameter.nb_packet_l2, tag="l2nbpck", color=(31, 140, 250))
             dpg.add_text("]")
         with dpg.group(horizontal=True):
             dpg.add_button(label="Start", tag="l2dstart", callback=lidar.start_l2_motor)

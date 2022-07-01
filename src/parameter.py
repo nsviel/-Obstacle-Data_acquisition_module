@@ -4,10 +4,13 @@
 #---------------------------------------------
 
 import os
+import pcapy
 
 
 # Parameters
 run = True;
+run_thread_l1 = False
+run_thread_l2 = False
 gui_width = 600;
 gui_height = 750;
 
@@ -20,8 +23,8 @@ with_geolocalization = False
 # Connection information
 wallet_add = ("localhost",)
 wallet_ip = ("127.0.0.1",)
-lidar_1_ip = "http://192.168.1.201/cgi/setting"
-lidar_2_ip = "http://192.168.1.202/cgi/setting"
+ip_l1 = "http://192.168.1.201/cgi/setting"
+ip_l2 = "http://192.168.1.202/cgi/setting"
 hubium_ip = "127.0.0.1"
 hubium_sock_port = 2370
 hubium_http_port = 8000
@@ -30,21 +33,20 @@ http_connected = False
 socket_connected = False
 
 # LiDAR
-lidar_1_dev = "enxf8e43b6cecab"
-lidar_2_dev = "enxf8e43b6cdf6c"
+device_l1 = "enxf8e43b6cecab"
+device_l2 = "enxf8e43b6cdf6c"
 nb_packet_l1 = 0
 nb_packet_l2 = 0
 lidar_speed = 600
+thread_l1 = 0
+thread_l2 = 0
 
 # State
 time_capture = 0
 geo_country = "France"
 ssd_connected = False
 capture_ID = 0
-listener_l1 = 0
-listener_l2 = 0
 socket_out = 0
-socket_ready = False
 
 # Paths
 path_ssd = "/media/ns/lidar_ssd"

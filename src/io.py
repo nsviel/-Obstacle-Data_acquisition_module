@@ -8,8 +8,8 @@ import os
 import pcapy
 
 
-def write_lidar_data(path):
-    if(parameter.with_writing and parameter.ssd_connected):
+def write_lidar_data(path, packet):
+    if(parameter.with_writing and parameter.ssd_connected and packet != None):
         wrpcap(path, packet, append=True)
 
 def open_pcap(path):

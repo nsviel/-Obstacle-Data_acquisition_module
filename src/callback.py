@@ -6,6 +6,9 @@ from src import saving
 from src import device
 from src import socket
 from src import http
+from src import socket
+from src import capture
+from src import gui_state
 
 import dearpygui.dearpygui as dpg
 
@@ -21,12 +24,12 @@ def callback_parameter():
     parameter.hubium_sock_port = dpg.get_value("hubiumpos")
     parameter.hubium_http_port = dpg.get_value("hubiumpoh")
 
-    parameter.lidar_1_dev = dpg.get_value("l1d")
-    parameter.lidar_2_dev = dpg.get_value("l2d")
+    parameter.ip_l1 = dpg.get_value("l1ip")
+    parameter.ip_l2 = dpg.get_value("l2ip")
 
 def callback_connection():
     http.test_connection()
-    socket.test_connection()
+    socket.test_socket_connection()
     if(parameter.http_connected):
         dpg.set_value("httpconn", "ON")
     else:
@@ -44,7 +47,12 @@ def callback_path():
     parameter.path_name = dpg.get_value("pnam")
     saving.determine_path()
 
-def callback_device():
+def callback_choice_device():
+    parameter.device_l1 = str(dpg.get_value("l1d"))
+    capture.stop_lidar_capture()
+    capture.start_lidar_capture()
+
+def callback_refresh_device():
     devices = device.get_all_device()
     dpg.set_value("l1d", devices)
     dpg.set_value("l2d", devices)
@@ -55,3 +63,7 @@ def callback_comboip():
         if(adress == parameter.wallet_add[i]):
             parameter.hubium_ip = parameter.wallet_ip[i]
     dpg.set_value("hubiump", parameter.hubium_ip)
+
+def callback_loop():
+    dpg.set_value("l1nbpck", parameter.nb_packet_l1)
+    dpg.set_value("l2nbpck", parameter.nb_packet_l2)

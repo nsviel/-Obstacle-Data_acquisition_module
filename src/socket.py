@@ -13,7 +13,7 @@ import pcapy
 def create_socket_udp():
     return socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-def test_connection():
+def test_socket_connection():
     try:
         parameter.socket_out.send("some more data")
         parameter.socket_connected = True
@@ -22,22 +22,15 @@ def test_connection():
         parameter.socket_connected = False
 
 def init_socket():
-    #Socket stuff
-    l1_dev = device.check_if_device_exists(parameter.lidar_1_dev)
-    l2_dev = device.check_if_device_exists(parameter.lidar_1_dev)
-
-    #- device name, max_bytes, promiscuous, read_timeout
-    if(l1_dev and l2_dev):
-        parameter.listener_l1 = pcapy.open_live(parameter.lidar_1_dev , 1248 , 1 , 0)
-        parameter.listener_l2 = pcapy.open_live(parameter.lidar_2_dev , 1248 , 1 , 0)
-        parameter.socket_out = socket.create_socket_udp()
-        parameter.socket_ready = True
+    parameter.socket_out = create_socket_udp()
+    parameter.socket_ready = True
 
 def send_packet(packet):
     # Send packet to velodium server
-    if(parameter.with_forwarding):
+    if(parameter.with_forwarding and packet != None):
         #Remove network queue data
         packet = packet[42:]
 
         #Send Pur data
-        parameter.socket_out.sendto(packet, (parameter.hubium_ip, parameter.hubium_sock_port))
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.sendto(packet, (parameter.hubium_ip, parameter.hubium_sock_port))
