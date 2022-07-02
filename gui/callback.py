@@ -8,7 +8,8 @@ from src import socket
 from src import http
 from src import socket
 from src import capture
-from src import gui_state
+
+from gui import gui_state
 
 import dearpygui.dearpygui as dpg
 
@@ -64,6 +65,5 @@ def callback_comboip():
             parameter.hubium_ip = parameter.wallet_ip[i]
     dpg.set_value("hubiump", parameter.hubium_ip)
 
-def callback_loop():
-    dpg.set_value("l1nbpck", parameter.nb_packet_l1)
-    dpg.set_value("l2nbpck", parameter.nb_packet_l2)
+def callback_button():
+    dpg.configure_item("layer2", color=(255,0,0))

@@ -3,20 +3,24 @@
 
 from src import parameter
 from src import device
-from src import callback
 from src import io
 from src import lidar
 from src import saving
 from src import loop
 
-from src import gui_connection
-from src import gui_runtime
-from src import gui_parameter
-from src import gui_state
+from gui import callback
+from gui import gui_connection
+from gui import gui_runtime
+from gui import gui_parameter
+from gui import gui_state
 
 import dearpygui.dearpygui as dpg
 import dearpygui.demo as demo
 
+
+def gui_loop():
+    dpg.set_value("l1nbpck", parameter.nb_packet_l1)
+    dpg.set_value("l2nbpck", parameter.nb_packet_l2)
 
 def start():
     dpg.create_context()

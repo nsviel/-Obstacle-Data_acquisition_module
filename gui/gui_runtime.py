@@ -2,17 +2,20 @@
 #---------------------------------------------
 
 from src import parameter
-from src import callback
 from src import io
 from src import lidar
 from src import http
+
+from gui import callback
 
 import dearpygui.dearpygui as dpg
 
 
 def build_runtime():
-    build_connection()
-    build_stat()
+    with dpg.collapsing_header(label="Runtime"):
+        build_connection()
+    with dpg.collapsing_header(label="Stats"):
+        build_stat()
 
 def build_connection():
     dpg.add_separator()

@@ -3,23 +3,27 @@
 
 from src import parameter
 from src import device
-from src import callback
 from src import io
 from src import lidar
 from src import saving
 from src import loop
-from src import gui_runtime
+
+from gui import callback
+from gui import gui_runtime
 
 import dearpygui.dearpygui as dpg
 import dearpygui.demo as demo
 
 
 def build_parameter():
-    with dpg.group(horizontal=True):
-        build_option()
-        build_device()
-    build_lidar()
-    build_saving()
+    with dpg.collapsing_header(label="Parameter"):
+        with dpg.group(horizontal=True):
+            build_option()
+            build_device()
+    with dpg.collapsing_header(label="Lidar"):
+        build_lidar()
+    with dpg.collapsing_header(label="File saving"):
+        build_saving()
 
 def build_option():
     with dpg.group():
