@@ -3,7 +3,7 @@
 
 from src import parameter
 
-from gui import callback
+from gui import callback_gui
 
 import dearpygui.dearpygui as dpg
 
@@ -20,5 +20,4 @@ def build_connection():
             dpg.add_text("Hubium socket: [")
             dpg.add_text("OFF", tag="socketconn", color=(31, 140, 250))
             dpg.add_text("]")
-        dpg.add_button(label="Refresh", callback=callback.callback_connection)
-        dpg.add_button(label="Button", callback=callback.callback_button)
+        dpg.add_button(label="Refresh", callback=callback_gui.callback_connection)

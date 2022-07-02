@@ -1,27 +1,2 @@
-def get_red_colors():
-    # Green
-    green = dpg.add_theme()
-    with dpg.theme_component(dpg.mvNodeLink, parent=green):
-      link_theme_color = dpg.add_theme_color(dpg.mvNodeCol_Link, (20, 255, 20), category=dpg.mvThemeCat_Nodes)
-
-    # Red
-    red = dpg.add_theme()
-    with dpg.theme_component(dpg.mvNodeLink, parent=red):
-      link_theme_color = dpg.add_theme_color(dpg.mvNodeCol_Link, (255, 20, 20), category=dpg.mvThemeCat_Nodes)
-
-def init_scheme():
-    red = dpg.add_theme()
-    with dpg.theme_component(dpg.mvNodeLink, parent=red):
-      link_theme_color = dpg.add_theme_color(dpg.mvNodeCol_Link, (255, 20, 20), category=dpg.mvThemeCat_Nodes)
-
-
-    dpg.bind_item_theme("link_py_hu_sock", red)
-    dpg.bind_item_theme("link_hu_sncf", red)
-    dpg.bind_item_theme("link_hu_ve", red)
-    dpg.bind_item_theme("link_hu_ed", red)
-
-
-
-    dpg.add_node_link("hu_client", "sncf_mqtt_port", tag="link_hu_sncf")
-    dpg.add_node_link("hu_client", "ve_sock_port", tag="link_hu_ve")
-    dpg.add_node_link("hu_client", "ed_sock_port", tag="link_hu_ed")
+todo:
+Faire function qui check les connexions toutes les x secondes

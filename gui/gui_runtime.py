@@ -6,8 +6,6 @@ from src import io
 from src import lidar
 from src import http
 
-from gui import callback
-
 import dearpygui.dearpygui as dpg
 
 

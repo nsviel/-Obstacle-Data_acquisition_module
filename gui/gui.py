@@ -8,7 +8,7 @@ from src import lidar
 from src import saving
 from src import loop
 
-from gui import callback
+from gui import callback_gui
 from gui import gui_connection
 from gui import gui_runtime
 from gui import gui_parameter
@@ -60,4 +60,4 @@ def start():
 
 def build_end():
     dpg.add_separator()
-    dpg.add_button(label="close", tag="bclo", callback=callback.callback_event)
+    dpg.add_button(label="close", tag="bclo", callback=callback_gui.callback_event)

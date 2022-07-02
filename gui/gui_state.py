@@ -3,7 +3,7 @@
 
 from src import parameter
 
-from gui import callback
+from gui import callback_node
 
 import dearpygui.dearpygui as dpg
 
@@ -26,6 +26,8 @@ def create_scheme():
                     dpg.add_text(parameter.pywardium_ip, color=color_info);
             with dpg.node_attribute(tag="py_sock_port", attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 dpg.add_text("Socket")
+            with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+                dpg.add_button(label="False alarm", tag="but_fal", callback=callback_node.callback_false_alarm)
 
         # Hubium node
         with dpg.node(label="Hubium", tag="node_hu", pos=[200, 150]):
@@ -82,6 +84,10 @@ def create_link():
     dpg.add_node_link("hu_client", "ed_sock_port", tag="link_hu_ed")
 
 def init_scheme():
+    red = dpg.add_theme()
+    with dpg.theme_component(dpg.mvButton, parent=red):
+      link_theme_color = dpg.add_theme_color(dpg.mvThemeCol_Button, (117, 16, 16))
+
     layer_train = dpg.add_theme()
     with dpg.theme_component(dpg.mvNode, parent=layer_train):
       link_theme_color = dpg.add_theme_color(dpg.mvNodeCol_TitleBar, (52, 82, 92), category=dpg.mvThemeCat_Nodes)
@@ -99,3 +105,4 @@ def init_scheme():
     dpg.bind_item_theme("node_ve", layer_edge)
     dpg.bind_item_theme("node_ed", layer_cloud)
     dpg.bind_item_theme("node_sncf", layer_cloud)
+    dpg.bind_item_theme("but_fal", red)

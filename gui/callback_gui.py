@@ -64,6 +64,3 @@ def callback_comboip():
         if(adress == parameter.wallet_add[i]):
             parameter.hubium_ip = parameter.wallet_ip[i]
     dpg.set_value("hubiump", parameter.hubium_ip)
-
-def callback_button():
-    dpg.configure_item("layer2", color=(255,0,0))
