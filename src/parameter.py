@@ -5,6 +5,7 @@
 
 import os
 import pcapy
+import json
 
 
 # Parameters
@@ -41,6 +42,7 @@ nb_packet_l2 = 0
 lidar_speed = 600
 thread_l1 = 0
 thread_l2 = 0
+thread_con = False
 
 # State
 time_capture = 0
@@ -65,3 +67,5 @@ mqtt_port = 8888
 edge_ip = "127.0.0.1"
 edge_port = 8888
 valeo_ip = "127.0.0.1"
+mqtt_connected = False
+hubium_state = json.load(open('src/state.json', "r"))

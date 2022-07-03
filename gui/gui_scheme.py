@@ -47,6 +47,11 @@ def create_scheme():
             with dpg.node_attribute(tag="hu_client", attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 dpg.add_text("Client");
 
+        # SSD node
+        with dpg.node(label="SSD", tag="node_ssd", pos=[210, 25]):
+            with dpg.node_attribute(tag="ssd_input", attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+                dpg.add_text("Stokage");
+
         # Edge node
         with dpg.node(label="Edge", tag="node_ed", pos=[430, 10]):
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
@@ -102,6 +107,7 @@ def create_scheme():
 def create_link():
     dpg.add_node_link("py_sock_port", "hu_sock_port", tag="link_py_hu_sock")
     dpg.add_node_link("py_sock_port", "hu_http_port", tag="link_py_hu_http")
+    dpg.add_node_link("py_sock_port", "ssd_input", tag="link_py_ssd")
     dpg.add_node_link("va_http_port", "hu_http_port", tag="link_va_hu")
     dpg.add_node_link("hu_client", "sncf_mqtt_port", tag="link_hu_sncf")
     dpg.add_node_link("hu_client", "ve_sock_port", tag="link_hu_ve")
@@ -126,6 +132,7 @@ def init_scheme():
       link_theme_color = dpg.add_theme_color(dpg.mvNodeCol_TitleBar, (106, 106, 105), category=dpg.mvThemeCat_Nodes)
 
     dpg.bind_item_theme("node_py", layer_train)
+    dpg.bind_item_theme("node_ssd", layer_train)
     dpg.bind_item_theme("node_hu", layer_edge)
     dpg.bind_item_theme("node_ve", layer_edge)
     dpg.bind_item_theme("node_ai", layer_edge)

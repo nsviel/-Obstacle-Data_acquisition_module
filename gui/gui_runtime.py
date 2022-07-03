@@ -4,7 +4,6 @@
 from src import parameter
 from src import io
 from src import lidar
-from src import http
 
 import dearpygui.dearpygui as dpg
 
@@ -23,7 +22,6 @@ def build_connection():
             build_geolocalization()
             build_lidar_1()
             build_lidar_2()
-        dpg.add_button(label="False alarm", indent=300, callback=http.send_false_alarm)
 
 def build_geolocalization():
     with dpg.group(horizontal=True):

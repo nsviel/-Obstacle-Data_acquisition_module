@@ -4,22 +4,18 @@
 from src import parameter
 
 import json
-import http.client
+import http.client as client
 
 
 def test_connection():
-    connection = http.client.HTTPConnection(parameter.hubium_ip, parameter.hubium_http_port, timeout=1)
+    sock = client.HTTPConnection(parameter.hubium_ip, parameter.hubium_http_port, timeout=1)
     try:
-        connection.request("GET", "/test")
+        sock.request("GET", "/test")
         parameter.http_connected = True
     except:
-        parameter.http_connected = False
-    connection.close()
+        connection_closed()
+    sock.close()
 
-def send_false_alarm():
-    connection = http.client.HTTPConnection(parameter.hubium_ip, parameter.hubium_http_port, timeout=1)
-    try:
-        connection.request("GET", "/falsealarm")
-    except:
-        print("No HTTP connection")
-    connection.close()
+def connection_closed():
+    parameter.http_connected = False
+    parameter.mqtt_connected = False

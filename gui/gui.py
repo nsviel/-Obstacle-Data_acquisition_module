@@ -7,6 +7,7 @@ from src import io
 from src import lidar
 from src import saving
 from src import loop
+from src import connection
 
 from gui import callback_gui
 from gui import gui_connection
@@ -52,6 +53,9 @@ def start():
         loop.loop()
         gui_loop.loop()
         dpg.render_dearpygui_frame()
+
+    # End thread
+    connection.stop_thread()
 
     # Finish program
     dpg.destroy_context()

@@ -1,0 +1,7 @@
+{
+  "mqtt_connected" : false,
+  "velo_connected" : false,
+  "vale_connected" : false,
+  "ia_connectes" : false,
+  "edge_conncted" : false
+}
