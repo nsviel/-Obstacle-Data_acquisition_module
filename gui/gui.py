@@ -12,22 +12,19 @@ from gui import callback_gui
 from gui import gui_connection
 from gui import gui_runtime
 from gui import gui_parameter
-from gui import gui_state
+from gui import gui_scheme
+from gui import gui_loop
 
 import dearpygui.dearpygui as dpg
 import dearpygui.demo as demo
 
-
-def gui_loop():
-    dpg.set_value("l1nbpck", parameter.nb_packet_l1)
-    dpg.set_value("l2nbpck", parameter.nb_packet_l2)
 
 def start():
     dpg.create_context()
 
     #Build GUI
     with dpg.window(tag="window", label="Pywardium"):
-        gui_state.build_state()
+        gui_scheme.build_scheme()
         gui_parameter.build_parameter()
         gui_connection.build_connection()
         gui_runtime.build_runtime()
@@ -53,6 +50,7 @@ def start():
     # Start main loop program
     while parameter.run and dpg.is_dearpygui_running():
         loop.loop()
+        gui_loop.loop()
         dpg.render_dearpygui_frame()
 
     # Finish program

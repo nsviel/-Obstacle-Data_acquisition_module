@@ -58,9 +58,10 @@ path_file_l1 = ""
 path_file_l2 = ""
 path_name = ""
 
-# Via hubium
+# Hubium
 mqtt_topic = "ai_obstacle"
 mqtt_ip = "127.0.0.1"
 mqtt_port = 8888
 edge_ip = "127.0.0.1"
 edge_port = 8888
+valeo_ip = "127.0.0.1"

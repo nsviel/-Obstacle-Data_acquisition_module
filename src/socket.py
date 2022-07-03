@@ -18,7 +18,6 @@ def test_socket_connection():
         parameter.socket_out.send("some more data")
         parameter.socket_connected = True
     except:
-        print("No socket connection")
         parameter.socket_connected = False
 
 def init_socket():

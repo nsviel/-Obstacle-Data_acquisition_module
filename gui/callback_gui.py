@@ -9,8 +9,6 @@ from src import http
 from src import socket
 from src import capture
 
-from gui import gui_state
-
 import dearpygui.dearpygui as dpg
 
 

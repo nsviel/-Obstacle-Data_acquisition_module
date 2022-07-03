@@ -13,7 +13,6 @@ def test_connection():
         connection.request("GET", "/test")
         parameter.http_connected = True
     except:
-        print("No HTTP connection")
         parameter.http_connected = False
     connection.close()
 

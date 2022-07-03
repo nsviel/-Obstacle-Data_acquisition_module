@@ -19,4 +19,4 @@ def init():
     capture.start_l2_capture()
 
 def loop():
-    gui.gui_loop()
+    connection.test_connection()
