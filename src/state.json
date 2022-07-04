@@ -3,7 +3,8 @@
   "mqtt": {
       "connected": false,
       "ip": "127.0.0.1",
-      "port": 8888
+      "port": 8888,
+      "topic": "ai_obstacle"
   },
   "velodium": {
       "connected": false,

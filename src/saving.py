@@ -1,7 +1,8 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import parameter
+from src import param_py
+from src import param_li
 from datetime import datetime
 
 import dearpygui.dearpygui as dpg
@@ -10,13 +11,13 @@ import pandas as pd
 
 def determine_path():
     date = get_formated_time()
-    parameter.path_capture = os.path.join(parameter.path_ssd, "capture")
-    parameter.path_dir_l1 = os.path.join(parameter.path_capture, "lidar_1")
-    parameter.path_dir_l2 = os.path.join(parameter.path_capture, "lidar_2")
-    parameter.path_file_l1 = os.path.join(parameter.path_dir_l1, "capture_" + date + "_" + parameter.path_name + ".pcap")
-    parameter.path_file_l2 = os.path.join(parameter.path_dir_l2, "capture_" + date + "_" + parameter.path_name + ".pcap")
-    dpg.set_value("l1p", parameter.path_file_l1)
-    dpg.set_value("l2p", parameter.path_file_l2)
+    param_py.path_capture = os.path.join(param_py.path_ssd, "capture")
+    param_py.path_dir_l1 = os.path.join(param_py.path_capture, "lidar_1")
+    param_py.path_dir_l2 = os.path.join(param_py.path_capture, "lidar_2")
+    param_li.path_file_l1 = os.path.join(param_py.path_dir_l1, "capture_" + date + "_" + param_li.path_name + ".pcap")
+    param_li.path_file_l2 = os.path.join(param_py.path_dir_l2, "capture_" + date + "_" + param_li.path_name + ".pcap")
+    dpg.set_value("l1p", param_li.path_file_l1)
+    dpg.set_value("l2p", param_li.path_file_l2)
 
 def get_formated_time():
     date = datetime.now().strftime('%d-%m-%Y_%Hh%M')
@@ -24,32 +25,32 @@ def get_formated_time():
 
 def read_wallet():
     X = pd.read_csv('src/wallet.txt', sep=" ", header=None)
-    parameter.wallet_add = list()
-    parameter.wallet_ip = list()
+    param_py.wallet_add = list()
+    param_py.wallet_ip = list()
     for i in range(0, len(X[0])):
-        parameter.wallet_add.append(str(X[0][i]))
-        parameter.wallet_ip.append(str(X[1][i]))
+        param_py.wallet_add.append(str(X[0][i]))
+        param_py.wallet_ip.append(str(X[1][i]))
 
 def test_is_ssd():
-    if(os.path.exists(parameter.path_ssd) == False):
-        parameter.ssd_connected = False
+    if(os.path.exists(param_py.path_ssd) == False):
+        param_py.ssd_connected = False
     else:
-        parameter.ssd_connected = True
+        param_py.ssd_connected = True
 
 def check_directories():
     #Check existence, or create, directories
     #-------------
 
     # Create directory capture
-    if(parameter.ssd_connected):
-        if(os.path.exists(parameter.path_capture) == False):
-            os.mkdir(parameter.path_capture)
+    if(param_py.ssd_connected):
+        if(os.path.exists(param_py.path_capture) == False):
+            os.mkdir(param_py.path_capture)
             print("[\033[92mSSD\033[0m] Directory capture created")
         # Create directory 1
-        if(os.path.exists(parameter.path_dir_1) == False):
-            os.mkdir(parameter.path_dir_1)
+        if(os.path.exists(param_py.path_dir_1) == False):
+            os.mkdir(param_py.path_dir_1)
             print("[\033[92mSSD\033[0m] Directory 1 created")
         # Create directory 2
-        if(os.path.exists(parameter.path_dir_2) == False):
-            os.mkdir(parameter.path_dir_2)
+        if(os.path.exists(param_py.path_dir_2) == False):
+            os.mkdir(param_py.path_dir_2)
             print("[\033[92mSSD\033[0m] Directory 2 created")

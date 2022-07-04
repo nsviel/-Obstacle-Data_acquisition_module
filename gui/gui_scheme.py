@@ -1,9 +1,6 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import parameter
-
-from gui import callback_node
 from gui import scheme_link
 from gui import scheme_node
 from gui import scheme_color

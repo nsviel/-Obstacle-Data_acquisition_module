@@ -1,21 +1,22 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import parameter
+from src import param_hu
+from src import param_py
 
 import json
 import http.client as client
 
 
 def test_connection():
-    sock = client.HTTPConnection(parameter.hubium_ip, parameter.hubium_http_port, timeout=1)
+    sock = client.HTTPConnection(param_hu.hubium_ip, param_hu.hubium_http_port, timeout=1)
     try:
         sock.request("GET", "/test")
-        parameter.http_connected = True
+        param_py.http_connected = True
     except:
         connection_closed()
     sock.close()
 
 def connection_closed():
-    parameter.http_connected = False
-    parameter.mqtt_connected = False
+    param_py.http_connected = False
+    param_py.mqtt_connected = False

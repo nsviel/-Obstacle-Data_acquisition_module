@@ -1,28 +1,35 @@
 #! /usr/bin/python
 #---------------------------------------------
-#Data and parameters for network connections
-#---------------------------------------------
 
-import os
-import pcapy
 import json
 
-# Connection information
+
+# Hubium
+hubium_json = json.load(open('src/state.json', "r"))
+hubium_status = "-"
 hubium_ip = "127.0.0.1"
 hubium_sock_port = 2370
 hubium_http_port = 8000
 
-# Hubium
+# MQTT
+mqtt_connected = False
 mqtt_topic = "ai_obstacle"
 mqtt_ip = "127.0.0.1"
 mqtt_port = 8888
+
+# Edge
+edge_connected = False
 edge_ip = "127.0.0.1"
 edge_port = 8888
-valeo_ip = "127.0.0.1"
 
-hubium_state = json.load(open('src/state.json', "r"))
-mqtt_connected = False
-velo_connected = False
+# Valeo
 vale_connected = False
-edge_connected = False
-ia_connected = False
+valeo_ip = "127.0.0.1"
+valeo_port = 8888
+
+# Velodium
+velo_connected = False
+velo_port = 8888
+
+# AI
+ai_connected = False

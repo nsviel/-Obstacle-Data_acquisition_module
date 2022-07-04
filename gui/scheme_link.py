@@ -1,7 +1,8 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import parameter
+from src import param_py
+from src import param_hu
 
 from gui import scheme_color
 
@@ -21,15 +22,19 @@ def create_link():
     dpg.add_node_link("hu_client", "ai_input", tag="link_hu_ai")
 
 def update_link_color():
-    update_link(parameter.http_connected, "link_py_hu_http")
-    update_link(parameter.socket_connected, "link_py_hu_sock")
-    update_link(parameter.mqtt_connected, "link_hu_sncf")
-    update_link(parameter.ssd_connected, "link_py_ssd")
+    # Pywardium connections
+    update_link(param_py.http_connected, "link_py_hu_http")
+    update_link(param_py.socket_connected, "link_py_hu_sock")
+    update_link(param_py.ssd_connected, "link_py_ssd")
 
-    #update_link(parameter.hubium_state['velo_connected'], "link_hu_ve")
-    #update_link(parameter.hubium_state['vale_connected'], "link_va_hu")
-    #update_link(parameter.hubium_state['ia_connectes'], "link_hu_ai")
-    #update_link(parameter.hubium_state['edge_conncted'], "link_hu_ed")
+    # Hubium connections
+    update_link(param_hu.mqtt_connected, "link_hu_sncf")
+
+
+    #update_link(param_hu.hubium_json['velo_connected'], "link_hu_ve")
+    #update_link(param_hu.hubium_json['vale_connected'], "link_va_hu")
+    #update_link(param_hu.hubium_json['ia_connectes'], "link_hu_ai")
+    #update_link(param_hu.hubium_json['edge_conncted'], "link_hu_ed")
 
 def update_link(state, tag):
     if(state):

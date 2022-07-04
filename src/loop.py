@@ -1,15 +1,10 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import parameter
-from src import socket
 from src import saving
 from src import connection
 from src import capture
 
-from gui import gui
-
-import pcapy
 
 def init():
     saving.determine_path()

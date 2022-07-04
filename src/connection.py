@@ -1,7 +1,8 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import parameter
+from src import param_py
+from src import param_hu
 from src import socket
 from src import http
 from src import http_get
@@ -15,7 +16,7 @@ import time
 
 
 def thread_test_connection():
-    while parameter.thread_con:
+    while param_py.thread_con:
         http.test_connection()
         socket.test_socket_connection()
         http_get.get_is_mqtt_connected()
@@ -26,16 +27,16 @@ def thread_test_connection():
         pass
 
 def start_thread_test_conn():
-    parameter.thread_con = True
+    param_py.thread_con = True
     thread_con = Thread(target = thread_test_connection)
     thread_con.start()
 
 def stop_thread():
-    parameter.thread_con = False
+    param_py.thread_con = False
 
 def parse_state_json():
-    parameter.mqtt_connected = parameter.hubium_state["mqtt"]["connected"]
-    parameter.velo_connected = parameter.hubium_state["velodium"]["connected"]
-    parameter.vale_connected = parameter.hubium_state["valeo"]["connected"]
-    parameter.edge_connected = parameter.hubium_state["edge"]["connected"]
-    parameter.ia_connected = parameter.hubium_state["ai"]["connected"]
+    param_hu.mqtt_connected = param_hu.hubium_json["mqtt"]["connected"]
+    param_hu.velo_connected = param_hu.hubium_json["velodium"]["connected"]
+    param_hu.vale_connected = param_hu.hubium_json["valeo"]["connected"]
+    param_hu.edge_connected = param_hu.hubium_json["edge"]["connected"]
+    param_hu.ai_connected = param_hu.hubium_json["ai"]["connected"]

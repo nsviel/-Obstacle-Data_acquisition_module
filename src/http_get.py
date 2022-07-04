@@ -2,7 +2,8 @@
 #---------------------------------------------
 
 from src import http
-from src import parameter
+from src import param_hu
+from src import param_py
 from src import connection
 
 import json
@@ -12,9 +13,9 @@ import http.client as client
 
 def get_falsealarm():
 
-    if(parameter.http_connected):
+    if(param_py.http_connected):
         try:
-            sock = client.HTTPConnection(parameter.hubium_ip, parameter.hubium_http_port, timeout=1)
+            sock = client.HTTPConnection(param_hu.hubium_ip, param_hu.hubium_http_port, timeout=1)
             sock.request("GET", "/falsealarm")
             print("[#] False alarm sended")
         except:
@@ -22,13 +23,13 @@ def get_falsealarm():
 
 def get_is_mqtt_connected():
     is_loaded = False
-    if(parameter.http_connected):
+    if(param_py.http_connected):
         try:
-            sock = client.HTTPConnection(parameter.hubium_ip, parameter.hubium_http_port, timeout=1)
+            sock = client.HTTPConnection(param_hu.hubium_ip, param_hu.hubium_http_port, timeout=1)
             sock.request("GET", "/is_mqtt_connected")
             response = sock.getresponse()
             data = response.read()
-            parameter.hubium_state = json.loads(data)
+            param_hu.hubium_json = json.loads(data)
             sock.close()
         except:
             http.connection_closed()

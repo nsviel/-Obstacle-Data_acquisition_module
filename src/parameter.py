@@ -9,7 +9,7 @@ import json
 
 
 # Parameters
-run = True;
+run_loop = True;
 run_thread_l1 = False
 run_thread_l2 = False
 gui_width = 600;
@@ -68,9 +68,9 @@ edge_ip = "127.0.0.1"
 edge_port = 8888
 valeo_ip = "127.0.0.1"
 
-hubium_state = json.load(open('src/state.json', "r"))
+hubium_json = json.load(open('src/state.json', "r"))
 mqtt_connected = False
 velo_connected = False
 vale_connected = False
 edge_connected = False
-ia_connected = False
+ai_connected = False
