@@ -1,9 +1,9 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import param_py
-from src import param_hu
-from src import param_li
+from param import param_py
+from param import param_hu
+from param import param_li
 from src import device
 from src import io
 from src import lidar
@@ -69,7 +69,7 @@ def build_saving():
         dpg.add_text("Capture ID: [")
         dpg.add_text(param_li.capture_ID, color=(31, 140, 250))
         dpg.add_text("]")
-    dpg.add_input_text(tag="ssdp", label="Path SSD", default_value=param_py.path_ssd, width=200, callback=gui_callback.callback_path);
+    dpg.add_input_text(tag="ssdp", label="Path SSD", default_value=param_py.ssd_path, width=200, callback=gui_callback.callback_path);
     dpg.add_input_text(tag="pnam", label="Path name", default_value=param_li.path_name, width=200, callback=gui_callback.callback_path);
     dpg.add_text(param_li.path_file_l1, tag="l1p", color=(31, 140, 250));
     dpg.add_text(param_li.path_file_l2, tag="l2p", color=(31, 140, 250));

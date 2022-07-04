@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import param_py
+from param import param_py
 
 import signal
 import time

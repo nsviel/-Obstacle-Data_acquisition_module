@@ -1,46 +1,55 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import param_li
+from param import param_li
 from requests.exceptions import ConnectionError
 
 import time
 import requests
 
 
+def test_lidar_connection():
+    l1_connected = send_lidar_parameter({}, param_li.ip_l1)
+    l2_connected = send_lidar_parameter({}, param_li.ip_l2)
+    if(l1_connected == False):
+        param_li.nb_packet_l1 = 0
+    if(l2_connected == False):
+        param_li.nb_packet_l2 = 0
+    param_li.l1_connected = l1_connected
+    param_li.l2_connected = l2_connected
+
 def start_l1_motor():
     print("[\033[92mLID\033[0m] - LiDAR motor activated at \033[96m%d\033[0m rpm" % param_li.lidar_speed)
     ip = param_li.ip_l1
     data = {'rpm': str(param_li.lidar_speed),}
-    send_param_py(data, ip)
+    if(send_lidar_parameter(data, ip) == False):
+        print("[\033[92mLID\033[0m] - %s does not exist" % ip)
+
 
 def stop_l1_motor():
     print("[\033[92mLID\033[0m] - LiDAR motor desactivated")
     ip = param_li.ip_l1
     data = {'rpm': '0',}
-    send_param_py(data, ip)
+    if(send_lidar_parameter(data, ip) == False):
+        print("[\033[92mLID\033[0m] - %s does not exist" % ip)
 
 def start_l2_motor():
     print("[\033[92mLID\033[0m] - LiDAR motor activated at \033[96m%d\033[0m rpm" % param_li.lidar_speed)
     ip = param_li.ip_l2
     data = {'rpm': str(param_li.lidar_speed),}
-    send_param_py(data, ip)
+    if(send_lidar_parameter(data, ip) == False):
+        print("[\033[92mLID\033[0m] - %s does not exist" % ip)
 
 def stop_l2_motor():
     print("[\033[92mLID\033[0m] - LiDAR motor desactivated")
     ip = param_li.ip_l2
     data = {'rpm': '0',}
-    send_param_py(data, ip)
-
-def send_param_py(data, ip):
-    #-------------
-
-    try:
-        request = requests.get(ip, timeout=1)
-    except ConnectionError:
+    if(send_lidar_parameter(data, ip) == False):
         print("[\033[92mLID\033[0m] - %s does not exist" % ip)
-    else:
-        response = requests.post(ip, data=data)
-        time.sleep(1)
 
-    #-------------
+def send_lidar_parameter(data, ip):
+    try:
+        response = requests.post(ip, data=data, timeout=1)
+        return True
+    except:
+        return False

@@ -1,9 +1,9 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import param_py
-from src import param_hu
-from src import param_li
+from param import param_py
+from param import param_hu
+from param import param_li
 from src import saving
 from src import device
 from src import socket
@@ -44,12 +44,13 @@ def callback_close():
     param_py.run_loop = dpg.get_value("bclo")
 
 def callback_path():
-    param_py.path_ssd = dpg.get_value("ssdp")
+    param_py.ssd_path = dpg.get_value("ssdp")
     param_li.path_name = dpg.get_value("pnam")
     saving.determine_path()
 
 def callback_choice_device():
     param_li.device_l1 = str(dpg.get_value("l1d"))
+    param_li.device_l2 = str(dpg.get_value("l2d"))
     capture.stop_lidar_capture()
     capture.start_lidar_capture()
 

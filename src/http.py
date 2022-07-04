@@ -1,8 +1,8 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import param_hu
-from src import param_py
+from param import param_hu
+from param import param_py
 
 import json
 import http.client as client
@@ -19,4 +19,4 @@ def test_connection():
 
 def connection_closed():
     param_py.http_connected = False
-    param_py.mqtt_connected = False
+    param_hu.mqtt_connected = False

@@ -8,7 +8,6 @@ from gui import scheme_color
 import dearpygui.dearpygui as dpg
 
 
-
 def build_scheme():
     create_scheme()
     init_scheme()
@@ -30,15 +29,13 @@ def create_scheme():
         scheme_link.create_link()
 
 def init_scheme():
-    red = scheme_color.color_red()
     layer_train = scheme_color.color_layer_train()
     layer_edge = scheme_color.color_layer_edge()
     layer_cloud = scheme_color.color_layer_cloud()
 
     dpg.bind_item_theme("node_py", layer_train)
-    dpg.bind_item_theme("node_hard", layer_train)
+    dpg.bind_item_theme("node_train", layer_train)
     dpg.bind_item_theme("node_hu", layer_edge)
     dpg.bind_item_theme("node_local", layer_edge)
     dpg.bind_item_theme("node_ed", layer_cloud)
     dpg.bind_item_theme("node_sncf", layer_cloud)
-    dpg.bind_item_theme("but_fal", red)

@@ -25,8 +25,10 @@ ssd_connected = False
 geo_country = "France"
 socket = None
 
-# Path
-path_ssd = "/media/" + os.getlogin() + "/lidar_ssd"
+# SSD
+ssd_path = "/media/" + os.getlogin() + "/lidar_ssd"
+ssd_space_total = 0
+ssd_space_used = 0
 
 # Wallet
 wallet_add = ("localhost",)

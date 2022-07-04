@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import param_py
+from param import param_py
 from src import device
 from src import io
 from src import lidar
@@ -10,11 +10,10 @@ from src import loop
 from src import connection
 
 from gui import gui_callback
-from gui import gui_connection
 from gui import gui_runtime
 from gui import gui_parameter
-from gui import gui_scheme
 from gui import gui_loop
+from gui import scheme
 
 import dearpygui.dearpygui as dpg
 import dearpygui.demo as demo
@@ -25,9 +24,8 @@ def start():
 
     #Build GUI
     with dpg.window(tag="window", label="Pywardium"):
-        gui_scheme.build_scheme()
+        scheme.build_scheme()
         gui_parameter.build_parameter()
-        gui_connection.build_connection()
         gui_runtime.build_runtime()
         build_end()
         #demo.show_demo()

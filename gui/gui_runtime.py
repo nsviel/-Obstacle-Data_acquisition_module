@@ -1,8 +1,8 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import param_py
-from src import param_li
+from param import param_py
+from param import param_li
 from src import io
 from src import lidar
 

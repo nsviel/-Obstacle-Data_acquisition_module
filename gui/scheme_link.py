@@ -1,8 +1,9 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from src import param_py
-from src import param_hu
+from param import param_py
+from param import param_hu
+from param import param_li
 
 from gui import scheme_color
 
@@ -14,7 +15,9 @@ def create_link():
     dpg.add_node_link("py_sock_port", "hu_http_port", tag="link_py_hu_http")
     dpg.add_node_link("py_sock_port", "l1_input", tag="link_py_l1")
     dpg.add_node_link("py_sock_port", "l2_input", tag="link_py_l2")
+    dpg.add_node_link("py_sock_port", "geo_input", tag="link_py_geo")
     dpg.add_node_link("py_sock_port", "ssd_input", tag="link_py_ssd")
+
     dpg.add_node_link("va_http_port", "hu_http_port", tag="link_va_hu")
     dpg.add_node_link("hu_client", "sncf_mqtt_port", tag="link_hu_sncf")
     dpg.add_node_link("hu_client", "ve_input", tag="link_hu_ve")
@@ -26,6 +29,8 @@ def update_link_color():
     update_link(param_py.http_connected, "link_py_hu_http")
     update_link(param_py.socket_connected, "link_py_hu_sock")
     update_link(param_py.ssd_connected, "link_py_ssd")
+    update_link(param_li.l1_connected, "link_py_l1")
+    update_link(param_li.l2_connected, "link_py_l2")
 
     # Hubium connections
     update_link(param_hu.mqtt_connected, "link_hu_sncf")
