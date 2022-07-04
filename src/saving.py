@@ -30,16 +30,15 @@ def read_wallet():
         parameter.wallet_add.append(str(X[0][i]))
         parameter.wallet_ip.append(str(X[1][i]))
 
+def test_is_ssd():
+    if(os.path.exists(parameter.path_ssd) == False):
+        parameter.ssd_connected = False
+    else:
+        parameter.ssd_connected = True
+
 def check_directories():
     #Check existence, or create, directories
     #-------------
-    parameter.ssd_connected = False
-
-    if(parameter.with_writing):
-        if(os.path.exists(parameter.path_ssd) == False):
-            print("[\033[91mERR\033[0m] No SSD detected: " + parameter.path_ssd)
-        else:
-            parameter.ssd_connected = True
 
     # Create directory capture
     if(parameter.ssd_connected):

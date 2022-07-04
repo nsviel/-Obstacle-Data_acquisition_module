@@ -1,7 +1,25 @@
 {
-  "mqtt_connected" : false,
-  "velo_connected" : false,
-  "vale_connected" : false,
-  "ia_connectes" : false,
-  "edge_conncted" : false
+  "status" : "ok",
+  "mqtt": {
+      "connected": false,
+      "ip": "127.0.0.1",
+      "port": 8888
+  },
+  "velodium": {
+      "connected": false,
+      "port": 8888
+  },
+  "valeo": {
+      "connected": false,
+      "ip": "127.0.0.1",
+      "port": 8888
+  },
+  "edge": {
+      "connected": false,
+      "ip": "127.0.0.1",
+      "port": 8888
+  },
+  "ai": {
+      "connected": false
+  }
 }
