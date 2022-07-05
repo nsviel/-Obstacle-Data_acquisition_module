@@ -1,0 +1,25 @@
+{
+    "status": "Online",
+    "mqtt": {
+        "connected": true,
+        "ip": "127.0.0.1",
+        "port": 1883
+    },
+    "velodium": {
+        "connected": false,
+        "port": 2370
+    },
+    "valeo": {
+        "connected": false,
+        "ip": "127.0.0.1",
+        "port": 443
+    },
+    "edge": {
+        "connected": false,
+        "ip": "127.0.0.1",
+        "port": 8001
+    },
+    "ai": {
+        "connected": false
+    }
+}

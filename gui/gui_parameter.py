@@ -40,7 +40,7 @@ def build_option():
         dpg.add_combo(param_py.wallet_add, tag="comboip", label="Adresse", default_value="localhost", width=125, callback=gui_callback.callback_comboip)
         dpg.add_input_text(tag="hubiump", label="Hubium IP", default_value=param_hu.hubium_ip, width=125, callback=gui_callback.callback_parameter);
         dpg.add_input_int(tag="hubiumpos", label="Hubium socket port", default_value=param_hu.hubium_sock_port, min_value=0, min_clamped=True, width=125, callback=gui_callback.callback_parameter);
-        dpg.add_input_int(tag="hubiumpoh", label="Hubium HTTP port", default_value=param_hu.hubium_http_port, min_value=0, min_clamped=True, width=125, callback=gui_callback.callback_parameter);
+        dpg.add_input_int(tag="hubiumpoh", label="Hubium HTTP port", default_value=param_hu.hubium_httpd_port, min_value=0, min_clamped=True, width=125, callback=gui_callback.callback_parameter);
 
 def build_lidar():
     dpg.add_input_int(tag="ls", label="Lidar speed", default_value=param_li.lidar_speed, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=gui_callback.callback_parameter);

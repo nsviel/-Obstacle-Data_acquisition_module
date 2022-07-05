@@ -4,10 +4,10 @@ from src import signal
 import os
 
 
+os.system('clear')
 print("---- Start program ----")
 #-------------
 
-os.system('clear')
 gui.start()
 
 #-------------

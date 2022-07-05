@@ -9,7 +9,7 @@ import http.client as client
 
 
 def test_connection():
-    sock = client.HTTPConnection(param_hu.hubium_ip, param_hu.hubium_http_port, timeout=1)
+    sock = client.HTTPConnection(param_hu.hubium_ip, param_hu.hubium_httpd_port, timeout=1)
     try:
         sock.request("GET", "/test")
         param_py.http_connected = True

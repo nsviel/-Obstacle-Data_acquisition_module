@@ -12,15 +12,19 @@ import pcapy
 
 
 def test_socket_connection():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock_client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock_server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock_server.bind(("127.0.0.1", param_py.socket_port))
+    sock_server.settimeout(0.1)
     try:
-        sock.sendto(" ", (param_hu.hubium_ip, param_hu.hubium_sock_port))
-        param_py.socket_connected = True
+        sock_client.sendto(str.encode("test"), (param_hu.hubium_ip, param_hu.hubium_sock_port))
+        data, (address, port) = sock_server.recvfrom(4096)
+        msg = data.decode('utf-8')
+        if(msg == "ok"):
+            param_py.socket_connected = True
     except:
         param_py.socket_connected = False
-    #print(param_py.socket_connected)
 
-#Create new client socket
 def connection():
     if(param_py.socket_connected):
         param_py.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

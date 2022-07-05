@@ -14,16 +14,18 @@ run_thread_con = False
 gui_width = 600;
 gui_height = 750;
 with_geolocalization = False
+path_state = "param/state.json"
 
 # Connection
 pywardium_ip = "127.0.0.1"
 http_connected = False
 socket_connected = False
 ssd_connected = False
-
-# State
-geo_country = "France"
 socket = None
+socket_port = 2371
+
+# Geolocalization
+geo_country = "France"
 
 # SSD
 ssd_path = "/media/" + os.getlogin() + "/lidar_ssd"

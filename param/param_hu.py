@@ -1,15 +1,17 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from param import param_py
+
 import json
 
 
 # Hubium
-hubium_json = json.load(open('src/state.json', "r"))
+hubium_json = {}
 hubium_status = "-"
 hubium_ip = "127.0.0.1"
 hubium_sock_port = 2370
-hubium_http_port = 8000
+hubium_httpd_port = 8000
 
 # MQTT
 mqtt_connected = False

@@ -23,7 +23,7 @@ def callback_parameter():
 
     param_hu.hubium_ip = dpg.get_value("hubiump")
     param_hu.hubium_sock_port = dpg.get_value("hubiumpos")
-    param_hu.hubium_http_port = dpg.get_value("hubiumpoh")
+    param_hu.hubium_httpd_port = dpg.get_value("hubiumpoh")
 
     param_li.ip_l1 = dpg.get_value("l1ip")
     param_li.ip_l2 = dpg.get_value("l2ip")

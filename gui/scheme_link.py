@@ -11,18 +11,20 @@ import dearpygui.dearpygui as dpg
 
 
 def create_link():
-    dpg.add_node_link("py_sock_port", "hu_sock_port", tag="link_py_hu_sock")
-    dpg.add_node_link("py_sock_port", "hu_http_port", tag="link_py_hu_http")
-    dpg.add_node_link("py_sock_port", "l1_input", tag="link_py_l1")
-    dpg.add_node_link("py_sock_port", "l2_input", tag="link_py_l2")
-    dpg.add_node_link("py_sock_port", "geo_input", tag="link_py_geo")
-    dpg.add_node_link("py_sock_port", "ssd_input", tag="link_py_ssd")
+    dpg.add_node_link("py_client", "hu_sock_port", tag="link_py_hu_sock")
+    dpg.add_node_link("py_client", "hu_httpd_port", tag="link_py_hu_http")
+    dpg.add_node_link("py_client", "ssd_input", tag="link_py_ssd")
+    dpg.add_node_link("py_server", "l1_input", tag="link_py_l1")
+    dpg.add_node_link("py_server", "l2_input", tag="link_py_l2")
+    dpg.add_node_link("py_server", "geo_input", tag="link_py_geo")
 
-    dpg.add_node_link("va_http_port", "hu_http_port", tag="link_va_hu")
     dpg.add_node_link("hu_client", "sncf_mqtt_port", tag="link_hu_sncf")
-    dpg.add_node_link("hu_client", "ve_input", tag="link_hu_ve")
-    dpg.add_node_link("hu_client", "ed_sock_port", tag="link_hu_ed")
-    dpg.add_node_link("hu_client", "ai_input", tag="link_hu_ai")
+    dpg.add_node_link("hu_client", "ed_server", tag="link_hu_ed")
+    dpg.add_node_link("hu_server", "ed_client", tag="link_ed_hu")
+    dpg.add_node_link("hu_stockage", "ve_input", tag="link_hu_ve")
+    dpg.add_node_link("hu_stockage", "ai_input", tag="link_hu_ai")
+
+    dpg.add_node_link("va_httpd_port", "hu_httpd_port", tag="link_va_hu")
 
 def update_link_color():
     # Pywardium connections
