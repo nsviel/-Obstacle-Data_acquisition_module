@@ -1,6 +1,8 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from param import param_py
+
 from gui import scheme_link
 from gui import scheme_node
 from gui import scheme_color
@@ -13,19 +15,15 @@ def build_scheme():
     init_scheme()
 
 def create_scheme():
-    # Node editor parameter
-    editeur_height = 360
-    color_info = (0, 200, 200)
-
     # Construct node editor
-    with dpg.node_editor(height = editeur_height):
-        scheme_node.node_pywardium(color_info)
-        scheme_node.node_hubium(color_info)
-        scheme_node.node_hardware(color_info)
-        scheme_node.node_edge(color_info)
-        scheme_node.node_edge_local(color_info)
-        scheme_node.node_sncf(color_info)
-        scheme_node.node_valeo(color_info)
+    with dpg.node_editor(height = param_py.scheme_height):
+        scheme_node.node_pywardium()
+        scheme_node.node_hubium()
+        scheme_node.node_hardware()
+        scheme_node.node_edge()
+        scheme_node.node_edge_local()
+        scheme_node.node_sncf()
+        scheme_node.node_valeo()
         scheme_link.create_link()
 
 def init_scheme():

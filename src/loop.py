@@ -19,7 +19,7 @@ def init():
     param_py.status = "Online"
 
 def loop():
-    a=1#connection.test_connection()
+    a=1
 
 def end():
     param_py.status = "Offline"

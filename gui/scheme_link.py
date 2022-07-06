@@ -11,9 +11,9 @@ import dearpygui.dearpygui as dpg
 
 
 def create_link():
-    dpg.add_node_link("py_client", "hu_sock_port", tag="link_py_hu_sock")
-    dpg.add_node_link("py_client", "hu_httpd_port", tag="link_py_hu_http")
-    dpg.add_node_link("py_client", "ssd_input", tag="link_py_ssd")
+    dpg.add_node_link("py_port_sock", "hu_sock_port", tag="link_py_hu_sock")
+    dpg.add_node_link("py_server", "hu_httpd_port", tag="link_py_hu_http")
+    dpg.add_node_link("py_server", "ssd_input", tag="link_py_ssd")
     dpg.add_node_link("py_server", "l1_input", tag="link_py_l1")
     dpg.add_node_link("py_server", "l2_input", tag="link_py_l2")
     dpg.add_node_link("py_server", "geo_input", tag="link_py_geo")
@@ -36,6 +36,7 @@ def update_link_color():
 
     # Hubium connections
     update_link(param_hu.mqtt_connected, "link_hu_sncf")
+    update_link(param_hu.velo_connected, "link_hu_ve")
 
 
     #update_link(param_hu.hubium_json['velo_connected'], "link_hu_ve")

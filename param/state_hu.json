@@ -1,22 +1,23 @@
 {
     "status": "Online",
+    "hubium": {
+        "sock_client": 317,
+        "sock_listen": 315,
+        "sock_connection": 320,
+        "httpd_port": 316
+    },
     "pywardium": {
         "ip": "127.0.0.1",
         "port": 314
     },
-    "hubium": {
-        "sock_client": 317,
-        "sock_listen": 315,
-        "httpd_port": 316
-    },
     "mqtt": {
         "connected": false,
         "ip": "127.0.0.1",
-        "port": 318
+        "port": 1883
     },
     "velodium": {
         "connected": false,
-        "port": 319
+        "port": 2370
     },
     "valeo": {
         "connected": false,

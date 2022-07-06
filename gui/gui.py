@@ -16,7 +16,6 @@ from gui import gui_loop
 from gui import scheme
 
 import dearpygui.dearpygui as dpg
-import dearpygui.demo as demo
 
 
 def start():
@@ -61,3 +60,4 @@ def start():
 def build_end():
     dpg.add_separator()
     dpg.add_button(label="close", tag="bclo", callback=gui_callback.callback_close)
+    dpg.add_checkbox(tag="demo", label="demo", default_value=False, callback=gui_callback.callback_demo);

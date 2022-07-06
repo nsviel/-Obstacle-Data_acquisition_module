@@ -12,6 +12,7 @@ from src import socket
 from src import capture
 
 import dearpygui.dearpygui as dpg
+import dearpygui.demo as demo
 
 
 def callback_parameter():
@@ -25,6 +26,11 @@ def callback_parameter():
 
     param_li.ip_l1 = dpg.get_value("l1ip")
     param_li.ip_l2 = dpg.get_value("l2ip")
+
+def callback_demo():
+    is_demo = dpg.get_value("demo")
+    if(is_demo):
+        demo.show_demo()
 
 def callback_connection():
     http.test_connection()

@@ -29,6 +29,7 @@ def thread_test_connection():
 
         # Update state
         file.update_state_file()
+        file.upload_hu_state()
         gui_update.update_gui()
 
         # Wait for 1 second
@@ -45,7 +46,6 @@ def start_thread_test_conn():
     param_py.run_thread_con = True
     thread_con = Thread(target = thread_test_connection)
     thread_con.start()
-
     thread_lid = Thread(target = thread_test_lidar)
     thread_lid.start()
 

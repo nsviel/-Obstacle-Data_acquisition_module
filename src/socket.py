@@ -17,13 +17,9 @@ def test_socket_connection():
     sock_server.bind(("127.0.0.1", param_py.socket_listen))
     sock_server.settimeout(0.1)
     try:
-        print("----")
         sock_client.sendto(str.encode("test"), (param_hu.hubium_ip, param_hu.hubium_sock_port))
-        print("hello")
         data, (address, port) = sock_server.recvfrom(4096)
-        print("hello")
         msg = data.decode('utf-8')
-        print(msg)
         if(msg == "ok"):
             param_py.socket_connected = True
     except:

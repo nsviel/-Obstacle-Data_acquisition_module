@@ -24,6 +24,23 @@ def upload_config_file():
     param_hu.hubium_sock_port = parser_json.upload_state_lvl2_json(param_py.path_config, "hubium", "port_sock")
     param_hu.hubium_httpd_port = parser_json.upload_state_lvl2_json(param_py.path_config, "hubium", "port_http")
 
+def upload_hu_state():
+    param_hu.hubium_status = parser_json.upload_state_lvl1_json(param_py.path_state_hu, "status")
+    param_hu.hubium_sock_port = parser_json.upload_state_lvl2_json(param_py.path_state_hu, "hubium", "sock_listen")
+    param_hu.hubium_sock_connection = parser_json.upload_state_lvl2_json(param_py.path_state_hu, "hubium", "sock_connection")
+    param_hu.hubium_httpd_port = parser_json.upload_state_lvl2_json(param_py.path_state_hu, "hubium", "httpd_port")
+
+    param_hu.mqtt_connected = parser_json.upload_state_lvl2_json(param_py.path_state_hu, "mqtt", "connected")
+    param_hu.velo_connected = parser_json.upload_state_lvl2_json(param_py.path_state_hu, "velodium", "connected")
+    param_hu.vale_connected = parser_json.upload_state_lvl2_json(param_py.path_state_hu, "valeo", "connected")
+    param_hu.edge_connected = parser_json.upload_state_lvl2_json(param_py.path_state_hu, "edge", "connected")
+    param_hu.ai_connected = parser_json.upload_state_lvl2_json(param_py.path_state_hu, "ai", "connected")
+
+    param_hu.mqtt_port = parser_json.upload_state_lvl2_json(param_py.path_state_hu, "mqtt", "port")
+    param_hu.velo_port = parser_json.upload_state_lvl2_json(param_py.path_state_hu, "velodium", "port")
+    param_hu.vale_port = parser_json.upload_state_lvl2_json(param_py.path_state_hu, "valeo", "port")
+    param_hu.edge_port = parser_json.upload_state_lvl2_json(param_py.path_state_hu, "edge", "port")
+
 def update_state_file():
     parser_json.update_state_lvl1_json(param_py.path_state_py, "status", param_py.status)
     parser_json.update_state_lvl2_json(param_py.path_state_py, "pywardium", "socket_listen", param_py.socket_listen)

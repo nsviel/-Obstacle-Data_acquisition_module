@@ -13,8 +13,9 @@ socket_connected = False
 ssd_connected = False
 
 # Parameter
-gui_width = 600;
-gui_height = 750;
+gui_width = 600
+gui_height = 800
+scheme_height = 400
 path_state_py = "param/state_py.json"
 path_state_hu = "param/state_hu.json"
 path_config = "param/config.json"
@@ -25,7 +26,7 @@ run_thread_con = False
 
 # Socket
 socket = None
-socket_listen = 2370
+socket_listen = 1
 
 # Geolocalization
 geo_country = "France"

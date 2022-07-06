@@ -11,12 +11,12 @@ import requests
 def test_lidar_connection():
     l1_connected = send_lidar_parameter({}, param_li.ip_l1)
     l2_connected = send_lidar_parameter({}, param_li.ip_l2)
+    param_li.l1_connected = l1_connected
+    param_li.l2_connected = l2_connected
     if(l1_connected == False):
         param_li.nb_packet_l1 = 0
     if(l2_connected == False):
         param_li.nb_packet_l2 = 0
-    param_li.l1_connected = l1_connected
-    param_li.l2_connected = l2_connected
 
 def start_l1_motor():
     print("[\033[92mLID\033[0m] - LiDAR motor activated at \033[96m%d\033[0m rpm" % param_li.lidar_speed)
