@@ -9,7 +9,6 @@ run_thread_l2 = False
 # Options
 with_two_lidar = False
 with_writing = True
-with_forwarding = True
 
 # Connection information
 ip_l1 = "http://192.168.1.201/cgi/setting"

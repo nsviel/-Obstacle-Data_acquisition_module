@@ -10,8 +10,9 @@ from src import http_get
 from src import saving
 from src import lidar
 from src import capture
+from src import file
 
-from gui import scheme_link
+from gui import gui_update
 
 from threading import Thread
 
@@ -20,11 +21,17 @@ import time
 
 def thread_test_connection():
     while param_py.run_thread_con:
+        # Test connections
         http.test_connection()
         socket.test_socket_connection()
         http_get.get_state()
         saving.test_is_ssd()
-        scheme_link.update_link_color()
+
+        # Update state
+        file.update_state_file()
+        gui_update.update_gui()
+
+        # Wait for 1 second
         time.sleep(1)
         pass
 

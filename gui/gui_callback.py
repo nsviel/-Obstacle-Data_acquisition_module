@@ -17,9 +17,7 @@ import dearpygui.dearpygui as dpg
 def callback_parameter():
     param_li.with_two_lidar = dpg.get_value("cwtl")
     param_li.with_writing = dpg.get_value("cwws")
-    param_li.with_forwarding = dpg.get_value("cwf")
     param_li.lidar_speed = dpg.get_value("ls")
-    param_py.with_geolocalization = dpg.get_value("wgeo")
 
     param_hu.hubium_ip = dpg.get_value("hubiump")
     param_hu.hubium_sock_port = dpg.get_value("hubiumpos")

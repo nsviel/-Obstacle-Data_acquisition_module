@@ -10,7 +10,7 @@ import json
 hubium_json = {}
 hubium_status = "-"
 hubium_ip = "127.0.0.1"
-hubium_sock_port = 2370
+hubium_sock_port = 2371
 hubium_httpd_port = 8000
 
 # MQTT

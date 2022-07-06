@@ -6,23 +6,26 @@
 import os
 
 
-# Thread
-run_loop = True;
-run_thread_con = False
+# State
+status = "Offline"
+http_connected = False
+socket_connected = False
+ssd_connected = False
 
 # Parameter
 gui_width = 600;
 gui_height = 750;
-with_geolocalization = False
-path_state = "param/state.json"
+path_state_py = "param/state_py.json"
+path_state_hu = "param/state_hu.json"
+path_config = "param/config.json"
 
-# Connection
-pywardium_ip = "127.0.0.1"
-http_connected = False
-socket_connected = False
-ssd_connected = False
+# Thread
+run_loop = True;
+run_thread_con = False
+
+# Socket
 socket = None
-socket_port = 2371
+socket_listen = 2370
 
 # Geolocalization
 geo_country = "France"

@@ -14,12 +14,16 @@ import pcapy
 def test_socket_connection():
     sock_client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock_server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock_server.bind(("127.0.0.1", param_py.socket_port))
+    sock_server.bind(("127.0.0.1", param_py.socket_listen))
     sock_server.settimeout(0.1)
     try:
+        print("----")
         sock_client.sendto(str.encode("test"), (param_hu.hubium_ip, param_hu.hubium_sock_port))
+        print("hello")
         data, (address, port) = sock_server.recvfrom(4096)
+        print("hello")
         msg = data.decode('utf-8')
+        print(msg)
         if(msg == "ok"):
             param_py.socket_connected = True
     except:
@@ -32,7 +36,7 @@ def connection():
 
 def send_packet(packet):
     # Send packet to velodium server
-    if(param_py.socket_connected and param_li.with_forwarding and packet != None):
+    if(param_py.socket_connected and packet != None):
         #Remove network queue data
         packet = packet[42:]
 

@@ -14,19 +14,23 @@ import dearpygui.dearpygui as dpg
 
 def node_pywardium(color_info):
     with dpg.node(label="Pywardium", tag="node_py", pos=[10, 75]):
+        with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+            with dpg.group(horizontal=True):
+                dpg.add_text("Status:");
+                dpg.add_text(param_py.status, tag="py_status", color=color_info);
         with dpg.node_attribute(tag="py_server", attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
             dpg.add_text("Server")
         with dpg.node_attribute(tag="py_client", attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
             dpg.add_text("Client")
         with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-            with dpg.group(horizontal=True):
-                dpg.add_text("IP:");
-                dpg.add_text(param_py.pywardium_ip, color=color_info);
-        with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
             dpg.add_button(label="False alarm", tag="but_fal", callback=scheme_callback.callback_false_alarm)
 
 def node_hubium(color_info):
     with dpg.node(label="Hubium", tag="node_hu", pos=[210, 175]):
+        with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+            with dpg.group(horizontal=True):
+                dpg.add_text("Status:");
+                dpg.add_text(param_hu.hubium_status, tag="hu_status", color=color_info);
         with dpg.node_attribute(tag="hu_stockage", attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
             dpg.add_text("Stockage")
         with dpg.node_attribute(tag="hu_server", attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
@@ -51,15 +55,15 @@ def node_hardware(color_info):
         with dpg.node_attribute(tag="l1_input", attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
             with dpg.group(horizontal=True):
                 dpg.add_text("Lidar 1:");
-                dpg.add_text(param_li.nb_packet_l1, tag="l1_packet", color=color_info);
                 dpg.add_button(label="Start", callback=lidar.start_l1_motor)
                 dpg.add_button(label="Stop", callback=lidar.stop_l1_motor)
+                dpg.add_text(param_li.nb_packet_l1, tag="l1_packet", color=color_info);
         with dpg.node_attribute(tag="l2_input", attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
             with dpg.group(horizontal=True):
                 dpg.add_text("Lidar 2:");
-                dpg.add_text(param_li.nb_packet_l2, tag="l2_packet", color=color_info);
                 dpg.add_button(label="Start", callback=lidar.start_l2_motor)
                 dpg.add_button(label="Stop", callback=lidar.stop_l2_motor)
+                dpg.add_text(param_li.nb_packet_l2, tag="l2_packet", color=color_info);
         with dpg.node_attribute(tag="geo_input", attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
             with dpg.group(horizontal=True):
                 dpg.add_text("Geo: [")

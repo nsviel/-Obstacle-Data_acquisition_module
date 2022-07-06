@@ -1,0 +1,26 @@
+{
+    "status": "Offline",
+    "pywardium": {
+        "socket_listen": 314
+    },
+    "lidar": {
+        "with_two_lidar": false,
+        "with_writing": false,
+        "ip_l1": "http://192.168.1.201/cgi/setting",
+        "ip_l2": "http://192.168.1.202/cgi/setting",
+        "device_l1": "enxf8e43b6cecab",
+        "device_l2": "enxf8e43b6cdf6c"
+    },
+    "hubium": {
+        "ip": "127.0.0.1",
+        "port_sock": 315,
+        "port_http": 316
+    },
+    "connection": {
+        "lidar_1": false,
+        "lidar_2": false,
+        "hu_sock": false,
+        "hu_http": false,
+        "ssd": false
+    }
+}

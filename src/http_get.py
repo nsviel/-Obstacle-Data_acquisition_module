@@ -30,7 +30,7 @@ def get_state():
             sock.request("GET", "/state")
             response = sock.getresponse()
             data = response.read()
-            parser_json.upload_json_file(param_py.path_state, data)
+            parser_json.upload_json_file(param_py.path_state_hu, data)
             sock.close()
             is_loaded = True
         except:

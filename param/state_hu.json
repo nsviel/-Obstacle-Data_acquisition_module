@@ -1,13 +1,22 @@
 {
     "status": "Online",
-    "mqtt": {
-        "connected": true,
+    "pywardium": {
         "ip": "127.0.0.1",
-        "port": 1883
+        "port": 314
+    },
+    "hubium": {
+        "sock_client": 317,
+        "sock_listen": 315,
+        "httpd_port": 316
+    },
+    "mqtt": {
+        "connected": false,
+        "ip": "127.0.0.1",
+        "port": 318
     },
     "velodium": {
         "connected": false,
-        "port": 2370
+        "port": 319
     },
     "valeo": {
         "connected": false,
@@ -17,7 +26,7 @@
     "edge": {
         "connected": false,
         "ip": "127.0.0.1",
-        "port": 8001
+        "port": 316
     },
     "ai": {
         "connected": false

@@ -30,8 +30,6 @@ def build_parameter():
 def build_option():
     with dpg.group():
         dpg.add_text("Parameter", color=(125, 125, 125))
-        dpg.add_checkbox(tag="wgeo", label="With geolocalization", default_value=param_py.with_geolocalization, callback=gui_callback.callback_parameter);
-        dpg.add_checkbox(tag="cwf", label="With Lidar forwarding", default_value=param_li.with_forwarding, callback=gui_callback.callback_parameter);
         dpg.add_checkbox(tag="cwtl", label="With two lidar", default_value=param_li.with_two_lidar, callback=gui_callback.callback_parameter);
         dpg.add_checkbox(tag="cwws", label="With writing on SSD", default_value=param_li.with_writing, callback=gui_callback.callback_parameter);
 

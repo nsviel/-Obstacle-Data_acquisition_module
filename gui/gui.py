@@ -53,7 +53,7 @@ def start():
         dpg.render_dearpygui_frame()
 
     # End thread
-    connection.stop_thread()
+    loop.end()
 
     # Finish program
     dpg.destroy_context()
