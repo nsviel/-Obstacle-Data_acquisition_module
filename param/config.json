@@ -10,9 +10,8 @@
         "device_l1": "enxf8e43b6cecab",
         "device_l2": "enxf8e43b6cdf6c"
     },
-    "hubium": {
+    "edge": {
         "ip": "127.0.0.1",
-        "port_sock": 315,
-        "port_http": 316
+        "port": 315
     }
 }

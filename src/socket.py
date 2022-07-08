@@ -2,7 +2,6 @@
 #---------------------------------------------
 
 from param import param_py
-from param import param_hu
 from param import param_li
 from src import device
 from scapy.all import *
@@ -11,13 +10,13 @@ import socket
 import pcapy
 
 
-def test_socket_connection():
+def test_con_sock():
     sock_client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock_server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock_server.bind(("127.0.0.1", param_py.socket_listen))
     sock_server.settimeout(0.1)
     try:
-        sock_client.sendto(str.encode("test"), (param_hu.hubium_ip, param_hu.hubium_sock_port))
+        sock_client.sendto(str.encode("test"), (param_py.edge_ip, param_py.edge_port))
         data, (address, port) = sock_server.recvfrom(4096)
         msg = data.decode('utf-8')
         if(msg == "ok"):
@@ -38,4 +37,4 @@ def send_packet(packet):
 
         #Send Pur data
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.sendto(packet, (param_hu.hubium_ip, param_hu.hubium_sock_port))
+        sock.sendto(packet, (param_py.edge_ip, param_py.edge_port))

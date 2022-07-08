@@ -8,7 +8,7 @@ import time
 import requests
 
 
-def test_lidar_connection():
+def test_con_lidar():
     l1_connected = send_lidar_parameter({}, param_li.ip_l1)
     l2_connected = send_lidar_parameter({}, param_li.ip_l2)
     param_li.l1_connected = l1_connected
