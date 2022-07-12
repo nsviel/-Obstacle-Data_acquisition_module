@@ -16,5 +16,5 @@ def get_state(self):
     self.send_response(200)
     self.send_header("Content-type", "application/json")
     self.end_headers()
-    data = parser_json.get_json_encoded()
+    data = parser_json.load_file_to_sock_data_encoded()
     self.wfile.write(data)

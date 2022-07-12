@@ -2,39 +2,42 @@
 #---------------------------------------------
 
 from param import param_py
-from param import param_li
+
 from src import device
+
 from scapy.all import *
 
 import socket
 import pcapy
 
 
-def test_con_sock():
+def test_connection():
     sock_client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock_server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock_server.bind(("127.0.0.1", param_py.socket_listen))
+    sock_server.bind(("127.0.0.1", param_py.socket_server))
     sock_server.settimeout(0.1)
     try:
         sock_client.sendto(str.encode("test"), (param_py.edge_ip, param_py.edge_port))
         data, (address, port) = sock_server.recvfrom(4096)
         msg = data.decode('utf-8')
         if(msg == "ok"):
-            param_py.socket_connected = True
+            param_py.state_py["self"]["sock_connected"] = True
     except:
-        param_py.socket_connected = False
+        param_py.state_py["self"]["sock_connected"] = False
 
 def connection():
-    if(param_py.socket_connected):
-        param_py.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        param_py.socket_ready = True
+    connected = param_py.state_py["self"]["sock_connected"]
+    if(connected):
+        param_py.sock_client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 def send_packet(packet):
-    # Send packet to velodium server
-    if(param_py.socket_connected and packet != None):
+    connected = param_py.state_py["self"]["sock_connected"]
+    ip = param_py.state_py["hubium"]["ip"]
+    port = param_py.state_py["hubium"]["sock_server_port"]
+    if(connected and packet != None):
         #Remove network queue data
         packet = packet[42:]
 
-        #Send Pur data
+        #Send raw data
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.sendto(packet, (param_py.edge_ip, param_py.edge_port))
+        sock.sendto(packet, (ip, port))

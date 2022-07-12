@@ -3,11 +3,12 @@
 
 from param import param_py
 
-from src import saving
 from src import connection
 from src import capture
 from src import socket
 from src import file
+from src import http_server
+from src import parser_json
 
 
 #Main function
@@ -24,11 +25,9 @@ def program():
 
 #Sub-function
 def init():
-    file.config_from_file()
-    saving.determine_path()
-    saving.read_wallet()
-    http_server.start_http_daemon()
-    connection.start_thread_test_conn()
+    file.load_configuration()
+    http_server.start_daemon()
+    connection.start_daemon()
     socket.connection()
     param_py.status = "Online"
 
@@ -37,5 +36,5 @@ def loop():
 
 def end():
     param_py.status = "Offline"
-    file.update_state_file()
+    parser_json.upload_file(param_py.path_state_py, param_py.state_py)
     connection.stop_thread()

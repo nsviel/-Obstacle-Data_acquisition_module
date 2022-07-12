@@ -1,0 +1,45 @@
+{
+    "self": {
+        "status": "Offline",
+        "ip": "127.0.0.1",
+        "http_server_port": 314,
+        "sock_connected": false
+    },
+    "lidar_1": {
+        "connected": false,
+        "activated": false,
+        "ip": "http://192.168.1.201/cgi/setting",
+        "device": "enxf8e43b6cecab",
+        "speed": 600,
+        "nb_packet": 0,
+        "dir": "",
+        "file": "",
+        "sock_connected": false
+    },
+    "lidar_2": {
+        "connected": false,
+        "activated": false,
+        "ip": "http://192.168.1.202/cgi/setting",
+        "device": "enxf8e43b6cdf6c",
+        "speed": 600,
+        "nb_packet": 0,
+        "dir": "",
+        "file": ""
+    },
+    "hubium": {
+        "ip": "127.0.0.1",
+        "sock_server_port": 315,
+        "sock_server_ip": "127.0.0.1"
+    },
+    "geolocalization": {
+        "country": "France"
+    },
+    "device": {
+        "a": 1
+    },
+    "path": {
+        "capture": "",
+        "additional": "",
+        "name": ""
+    }
+}

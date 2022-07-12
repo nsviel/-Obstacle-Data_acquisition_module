@@ -1,7 +1,8 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_li
+from param import param_py
+
 from src import device
 from src import socket
 from src import io
@@ -18,34 +19,35 @@ def start_lidar_capture():
     thread_l2.start()
 
 def stop_lidar_capture():
-    param_li.run_thread_l1 = False
-    param_li.run_thread_l2 = False
+    param_py.run_thread_l1 = False
+    param_py.run_thread_l2 = False
 
 def start_l1_capture():
-    if(param_li.l1_connected):
-        device_ok = device.check_if_device_exists(param_li.device_l1)
+    connected = param_py.state_py["lidar_1"]["connected"]
+    device = param_py.state_py["lidar_1"]["device"]
+    if(connected):
+        device_ok = device.check_if_device_exists(device)
         if(device_ok):
-            param_li.nb_packet_l1 = 0
-            listener = pcapy.open_live(param_li.device_l1 , 1248 , 1 , 0)
-            param_li.run_thread_l1 = True
-            while param_li.run_thread_l1:
+            param_py.state_py["lidar_1"]["nb_packet"] = 0
+            listener = pcapy.open_live(device , 1248 , 1 , 0)
+            param_py.run_thread_l1 = True
+            while param_py.run_thread_l1:
                 (header, packet) = listener.next()
                 if(len(packet) == 1248):
-                    io.write_lidar_data(param_li.path_file_l1, packet)
                     socket.send_packet(packet)
-                    param_li.nb_packet_l1 += 1
-                pass
+                    param_py.state_py["lidar_1"]["nb_packet"] += 1
 
 def start_l2_capture():
-    if(param_li.l2_connected):
-        device_ok = device.check_if_device_exists(param_li.device_l2)
+    connected = param_py.state_py["lidar_2"]["connected"]
+    device = param_py.state_py["lidar_2"]["device"]
+    if(connected):
+        device_ok = device.check_if_device_exists(device)
         if(device_ok):
-            param_li.nb_packet_l2 = 0
-            param_li.run_thread_l2 = True
-            listener = pcapy.open_live(param_li.device_l2 , 1248 , 1 , 0)
-            while param_li.run_thread_l2:
+            param_py.state_py["lidar_2"]["nb_packet"] = 0
+            param_py.run_thread_l2 = True
+            listener = pcapy.open_live(device , 1248 , 1 , 0)
+            while param_py.run_thread_l2:
                 (header, packet) = listener.next()
                 if(len(packet) == 1248):
-                    io.write_lidar_data(param_li.path_file_l2, packet)
-                    param_li.nb_packet_l2 += 1
-                pass
+                    socket.send_packet(packet)
+                    param_py.state_py["lidar_2"]["nb_packet"] += 1

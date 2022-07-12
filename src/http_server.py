@@ -4,7 +4,6 @@
 from param import param_py
 
 from src import io
-from src import mqtt
 from src import http_get
 
 from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
@@ -23,8 +22,8 @@ class S(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         return
 
-def start_http_daemon(server_class=HTTPServer, handler_class=S):
-    address = (param_py.ip, param_py.http_port)
+def start_daemon(server_class=HTTPServer, handler_class=S):
+    address = ("", param_py.state_py["self"]["http_server_port"])
     server = ThreadingHTTPServer(address, handler_class)
     httpd = threading.Thread(target=server.serve_forever)
     httpd.daemon = True
@@ -35,7 +34,7 @@ def manage_post(self):
     content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
     post_data = self.rfile.read(content_length) # <--- Gets the data itself
     path = str(self.path)
-    if(param_py.httpd_verbose):
+    if(param_py.http_verbose):
         print("---- POST request ----")
         print("Path: \033[94m%s\033[0m" % path)
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
@@ -47,12 +46,13 @@ def manage_post(self):
 
 def manage_get(self):
     path = str(self.path)
-    if(param_py.httpd_verbose):
+    print(path)
+    if(param_py.http_verbose):
         print("---- GET request ----")
         print("Path: \033[94m%s\033[0m" % path)
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
         print("Body:\n \033[94m%s\033[0m" % post_data.decode('utf-8'))
     if(path == '/geo'):
         http_get.get_geo(self)
-    elif(path == '/test' || path == '/state'):
+    elif(path == '/test' or path == '/state'):
        http_get.get_test(self)
