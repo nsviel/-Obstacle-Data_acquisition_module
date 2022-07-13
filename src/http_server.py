@@ -4,7 +4,7 @@
 from param import param_py
 
 from src import io
-from src import http_get
+from src import http_server_get
 
 from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 
@@ -23,7 +23,8 @@ class S(BaseHTTPRequestHandler):
         return
 
 def start_daemon(server_class=HTTPServer, handler_class=S):
-    address = ("", param_py.state_py["self"]["http_server_port"])
+    port = param_py.state_py["self"]["http_server_port"]
+    address = ("", port)
     server = ThreadingHTTPServer(address, handler_class)
     httpd = threading.Thread(target=server.serve_forever)
     httpd.daemon = True
@@ -53,6 +54,8 @@ def manage_get(self):
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
         print("Body:\n \033[94m%s\033[0m" % post_data.decode('utf-8'))
     if(path == '/geo'):
-        http_get.get_geo(self)
+        http_server_get.get_geo(self)
     elif(path == '/test' or path == '/state'):
-       http_get.get_test(self)
+        http_server_get.get_test(self)
+    elif(path == '/state_py'):
+        http_server_get.get_state_py(self)

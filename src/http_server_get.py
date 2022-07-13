@@ -1,6 +1,8 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from param import param_py
+
 from src import parser_json
 
 import json
@@ -12,9 +14,12 @@ def get_geo(self):
 def get_test(self):
     self.send_response(200)
 
-def get_state(self):
+def get_state_py(self):
     self.send_response(200)
     self.send_header("Content-type", "application/json")
     self.end_headers()
-    data = parser_json.load_file_to_sock_data_encoded()
-    self.wfile.write(data)
+    try:
+        data = parser_json.load_file_to_sock_data_encoded(param_py.path_state_py)
+        self.wfile.write(data)
+    except:
+        print('not valid JSON')

@@ -1,14 +1,23 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from param import param_py
 import pcapy
+
+
+def update_list():
+    devices = get_all_device()
+    cpt = 0
+    for d in devices :
+        y = {str(cpt): str(d)}
+        param_py.state_py["device"].update(y)
+        cpt = cpt + 1
+
 
 
 def get_all_device():
     return pcapy.findalldevs()
 
-
-#ask user to enter device name to sniff
 def check_if_device_exists(name):
     devices = get_all_device()
     exist = False

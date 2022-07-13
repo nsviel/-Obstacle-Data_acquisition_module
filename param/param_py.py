@@ -15,6 +15,7 @@ run_thread_l2 = False
 sock_connected = False
 sock_client = None
 socket_server = 999
+http_verbose = False
 
 # Path
 path_state_py = "state/state_py.json"

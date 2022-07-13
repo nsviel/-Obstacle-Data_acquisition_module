@@ -16,8 +16,10 @@ def test_connection():
     sock_server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock_server.bind(("127.0.0.1", param_py.socket_server))
     sock_server.settimeout(0.1)
+    ip = param_py.state_py["hubium"]["ip"]
+    port = param_py.state_py["hubium"]["sock_server_port"]
     try:
-        sock_client.sendto(str.encode("test"), (param_py.edge_ip, param_py.edge_port))
+        sock_client.sendto(str.encode("test"), (ip, sock_server_port))
         data, (address, port) = sock_server.recvfrom(4096)
         msg = data.decode('utf-8')
         if(msg == "ok"):

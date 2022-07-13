@@ -7,6 +7,7 @@ from src import socket
 from src import lidar
 from src import capture
 from src import parser_json
+from src import device
 
 from threading import Thread
 
@@ -27,6 +28,7 @@ def thread_test_connection():
         # Test connections
         socket.test_connection()
         lidar.test_connection()
+        device.update_list()
 
         # Update state
         parser_json.upload_file(param_py.path_state_py, param_py.state_py)
