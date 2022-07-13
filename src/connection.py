@@ -30,6 +30,8 @@ def thread_test_connection():
         lidar.test_connection()
         device.update_list()
 
+        print(param_py.state_py["lidar_1"]["device"])
+
         # Update state
         parser_json.upload_file(param_py.path_state_py, param_py.state_py)
 

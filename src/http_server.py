@@ -5,6 +5,7 @@ from param import param_py
 
 from src import io
 from src import http_server_get
+from src import http_server_post
 
 from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 
@@ -32,22 +33,16 @@ def start_daemon(server_class=HTTPServer, handler_class=S):
 
 #Command functions
 def manage_post(self):
-    content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
-    post_data = self.rfile.read(content_length) # <--- Gets the data itself
     path = str(self.path)
     if(param_py.http_verbose):
         print("---- POST request ----")
         print("Path: \033[94m%s\033[0m" % path)
         print("Headers:\n \033[94m%s\033[0m" % str(self.headers))
-        print("Body:\n \033[94m%s\033[0m" % post_data.decode('utf-8'))
-    if(path == '/velodyne'):
-        print("velodyne !")
-    if(path == '/scala'):
-        print("scala !")
+    if(path == '/new_state_py'):
+        http_server_post.post_new_state_py(self)
 
 def manage_get(self):
     path = str(self.path)
-    print(path)
     if(param_py.http_verbose):
         print("---- GET request ----")
         print("Path: \033[94m%s\033[0m" % path)

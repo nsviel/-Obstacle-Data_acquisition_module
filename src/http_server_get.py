@@ -13,6 +13,8 @@ def get_geo(self):
 
 def get_test(self):
     self.send_response(200)
+    self.send_header('Content-type','text/html')
+    self.end_headers()
 
 def get_state_py(self):
     self.send_response(200)

@@ -9,6 +9,7 @@ from src import socket
 from src import file
 from src import http_server
 from src import parser_json
+from src import device
 
 
 #Main function
