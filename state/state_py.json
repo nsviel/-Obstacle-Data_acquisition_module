@@ -2,14 +2,15 @@
     "self": {
         "status": "Offline",
         "ip": "127.0.0.1",
-        "http_server_port": "314",
-        "sock_connected": false
+        "http_server_port": 314,
+        "sock_connected": false,
+        "sock_server_port": 350
     },
     "lidar_1": {
         "connected": false,
         "activated": false,
         "ip": "http://192.168.1.201/cgi/setting",
-        "device": "bluetooth0",
+        "device": "enxf8e43b6cecab",
         "speed": 600,
         "nb_packet": 0,
         "dir": "",
@@ -20,7 +21,7 @@
         "connected": false,
         "activated": false,
         "ip": "http://192.168.1.202/cgi/setting",
-        "device": "ztwdjfturv",
+        "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "nb_packet": 0,
         "dir": "",
@@ -28,7 +29,7 @@
     },
     "hubium": {
         "ip": "127.0.0.1",
-        "sock_server_port": 315,
+        "sock_server_port": 344,
         "sock_server_ip": "127.0.0.1"
     },
     "geolocalization": {

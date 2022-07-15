@@ -1,6 +1,7 @@
 {
   "self": {
-      "http_server_port": 314
+      "http_server_port": 314,
+      "sock_server_port": 350
   },
   "lidar_1": {
       "ip": "http://192.168.1.201/cgi/setting",
@@ -14,6 +15,6 @@
   },
   "hubium": {
       "sock_server_ip": "127.0.0.1",
-      "sock_server_port": 315
+      "sock_server_port": 344
   }
 }

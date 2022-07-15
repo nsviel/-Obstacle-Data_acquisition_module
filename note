@@ -1,2 +1,41 @@
-todo:
-Faire function qui check les connexions toutes les x secondes
+def test_connection():
+    ip = param_py.state_py["hubium"]["ip"]
+    port = param_py.state_py["hubium"]["sock_server_port"]
+    print("test")
+    try:
+        # Create socket
+        t1 = time.time()
+        sock_client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        t2 = time.time()
+        sock_client.connect((ip, port))
+        t3 = time.time()
+
+        # Send test data
+        BUFSIZE = 1024000
+        count = 1000
+        testdata = 'x' * (BUFSIZE-1) + '\n'
+        i = 0
+        print(ip)
+        print(port)
+        while i < count:
+            i = i+1
+            sock_client.send(bytearray(testdata,"utf-8"))
+        print("ok")
+        # Wait response
+        sock_client.shutdown(1)
+        t4 = time.time()
+        data = sock_client.recv(BUFSIZE)
+        msg = data.decode('utf-8')
+        t5 = time.time()
+        print("ok")
+        #Keep connection values
+        print (msg)
+        print ('ping:', (t3-t2)+(t5-t4)/2)
+        print ('Time:', t4-t3)
+        print ('Bandwidth:', round((BUFSIZE*count*0.001) / (t4-t3), 3),)
+        print ('Kb/sec.')
+
+        if(msg == "ok"):
+            param_py.state_py["self"]["sock_connected"] = True
+    except:
+        param_py.state_py["self"]["sock_connected"] = False

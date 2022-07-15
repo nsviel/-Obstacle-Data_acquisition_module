@@ -11,7 +11,7 @@ import json
 def get_geo(self):
     print("geo !")
 
-def get_test(self):
+def get_test_http_conn(self):
     self.send_response(200)
     self.send_header('Content-type','text/html')
     self.end_headers()

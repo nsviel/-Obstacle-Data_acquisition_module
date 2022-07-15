@@ -2,8 +2,7 @@
 #---------------------------------------------
 
 from param import param_py
-
-from src import socket
+from conn import socket_client
 from src import lidar
 from src import capture
 from src import parser_json
@@ -18,7 +17,7 @@ def start_daemon():
     thread_con = Thread(target = thread_test_connection)
     thread_con.start()
 
-def stop_thread():
+def stop_daemon():
     param_py.run_thread_con = False
     capture.stop_lidar_capture()
 
@@ -26,14 +25,12 @@ def thread_test_connection():
     param_py.run_thread_con = True
     while param_py.run_thread_con:
         # Test connections
-        socket.test_connection()
+        socket_client.test_connection()
         lidar.test_connection()
         device.update_list()
 
-        print(param_py.state_py["lidar_1"]["device"])
-
         # Update state
-        parser_json.upload_file(param_py.path_state_py, param_py.state_py)
+        parser_json.upload_state()
 
         # Wait for 1 second
         time.sleep(1)

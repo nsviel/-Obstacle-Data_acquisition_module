@@ -3,11 +3,12 @@
 
 from param import param_py
 
-from src import connection
-from src import capture
-from src import socket
+from conn import connection
+from conn import http_server
+from conn import socket_client
+
 from src import file
-from src import http_server
+from src import capture
 from src import parser_json
 from src import device
 
@@ -27,9 +28,9 @@ def program():
 #Sub-function
 def init():
     file.load_configuration()
-    http_server.start_daemon()
     connection.start_daemon()
-    socket.connection()
+    http_server.start_daemon()
+    socket_client.connection()
     param_py.status = "Online"
 
 def loop():
@@ -38,4 +39,5 @@ def loop():
 def end():
     param_py.status = "Offline"
     parser_json.upload_file(param_py.path_state_py, param_py.state_py)
-    connection.stop_thread()
+    connection.stop_daemon()
+    http_server.stop_daemon()
