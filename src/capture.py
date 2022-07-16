@@ -2,7 +2,7 @@
 #---------------------------------------------
 
 from param import param_py
-from conn import socket_client
+from SOCK import socket_client
 from src import device
 from src import io
 

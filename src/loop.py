@@ -3,10 +3,10 @@
 
 from param import param_py
 
-from conn import connection
-from conn import http_server
-from conn import socket_client
+from HTTP import http_server
+from SOCK import socket_client
 
+from src import connection
 from src import file
 from src import capture
 from src import parser_json

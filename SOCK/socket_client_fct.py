@@ -33,11 +33,6 @@ def test_connection():
     except:
         param_py.state_py["self"]["sock_connected"] = False
 
-def connection():
-    connected = param_py.state_py["self"]["sock_connected"]
-    if(connected):
-        param_py.sock_client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
 def send_packet(packet):
     connected = param_py.state_py["self"]["sock_connected"]
     ip = param_py.state_py["hubium"]["ip"]
