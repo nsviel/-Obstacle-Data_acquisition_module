@@ -12,7 +12,6 @@ run_thread_l1 = False
 run_thread_l2 = False
 
 # Socket
-sock_connected = False
 sock_client = None
 sock_server_port = 1
 

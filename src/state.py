@@ -32,5 +32,5 @@ def upload_config_file():
 
 def reset_value():
     param_py.state_py["self"]["status"] = "Offline"
-    param_py.state_py["lidar_1"]["sock_connected"] = False
+    param_py.state_py["lidar_1"]["connected"] = False
     param_py.state_py["lidar_2"]["connected"] = False

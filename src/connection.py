@@ -25,7 +25,6 @@ def thread_test_connection():
     param_py.run_thread_con = True
     while param_py.run_thread_con:
         # Test connections
-        socket_client.test_connection()
         lidar.test_connection()
         device.update_list()
 

@@ -7,7 +7,7 @@ from HTTP import http_server
 from SOCK import socket_client
 
 from src import connection
-from src import file
+from src import state
 from src import capture
 from src import parser_json
 from src import device
@@ -27,7 +27,7 @@ def program():
 
 #Sub-function
 def init():
-    file.load_configuration()
+    state.load_configuration()
     connection.start_daemon()
     http_server.start_daemon()
     socket_client.connection()

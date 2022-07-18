@@ -1,41 +1,90 @@
-def test_connection():
+def test_conn():
+    count = 4
+    BUFSIZE = 1024
     ip = param_py.state_py["hubium"]["ip"]
     port = param_py.state_py["hubium"]["sock_server_port"]
+    print(ip)
+    print(port)
     print("test")
-    try:
-        # Create socket
-        t1 = time.time()
+    testdata = 'x' * (BUFSIZE-1) + '\n'
+    t1 = time.time()
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    t2 = time.time()
+    sock.connect((ip, int(port)))
+    t3 = time.time()
+    i = 0
+    while i < count:
+        print(i)
+        i = i+1
+        sock.send(bytearray(testdata,"utf-8"))
+
+    print("1")
+    t4 = time.time()
+    data = sock.recvfrom(BUFSIZE)
+    print("2")
+    t5 = time.time()
+    sock.shutdown(1)
+    print (data.decode())
+    print ('ping:', (t3-t2)+(t5-t4)/2)
+    print ('Time:', t4-t3)
+    print ('Bandwidth:', round((BUFSIZE*count*0.001) / (t4-t3), 3),)
+    print ('Kb/sec.')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    def test_connection():
+        ip = param_py.state_py["hubium"]["ip"]
+        hu_port = param_py.state_py["hubium"]["sock_server_port"]
+        py_port = param_py.state_py["self"]["sock_server_port"]
+
+        # Create sockets
         sock_client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock_server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock_server.settimeout(1)
+
+        # Bind server socket
         t2 = time.time()
-        sock_client.connect((ip, port))
+        sock_server.bind(("127.0.0.1", py_port))
         t3 = time.time()
 
-        # Send test data
-        BUFSIZE = 1024000
-        count = 1000
-        testdata = 'x' * (BUFSIZE-1) + '\n'
-        i = 0
-        print(ip)
-        print(port)
-        while i < count:
-            i = i+1
-            sock_client.send(bytearray(testdata,"utf-8"))
-        print("ok")
-        # Wait response
-        sock_client.shutdown(1)
-        t4 = time.time()
-        data = sock_client.recv(BUFSIZE)
-        msg = data.decode('utf-8')
-        t5 = time.time()
-        print("ok")
-        #Keep connection values
-        print (msg)
-        print ('ping:', (t3-t2)+(t5-t4)/2)
-        print ('Time:', t4-t3)
-        print ('Bandwidth:', round((BUFSIZE*count*0.001) / (t4-t3), 3),)
-        print ('Kb/sec.')
+        try:
+            # Prepare data to send
+            i = 0
+            while i < count:
+                print(i)
+                i = i+1
+                sock.send(bytearray(testdata,"utf-8"))
+                sock_client.sendto(str.encode(testdata), (ip, hu_port))
 
-        if(msg == "ok"):
-            param_py.state_py["self"]["sock_connected"] = True
-    except:
-        param_py.state_py["self"]["sock_connected"] = False
+            # Send ping
+
+
+
+            # Wait response
+            t4 = time.time()
+            data, (address, port) = sock_server.recvfrom(4096)
+            t5 = time.time()
+
+            # Process response
+            msg = data.decode('utf-8')
+            if(msg == "ok"):
+                param_py.state_py["self"]["sock_connected"] = True
+
+                print ('ping:', (t3-t2)+(t5-t4)/2)
+                print ('Time:', t4-t3)
+                print ('Bandwidth:', round((BUFSIZE*count*0.001) / (t4-t3), 3),)
+                print ('Kb/sec.')
+        except:
+            param_py.state_py["self"]["sock_connected"] = False
