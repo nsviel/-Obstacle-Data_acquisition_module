@@ -2,7 +2,7 @@
 #---------------------------------------------
 
 from param import param_py
-from SOCK import socket_client
+from SOCK import sock_client
 from src import lidar
 from src import capture
 from src import parser_json

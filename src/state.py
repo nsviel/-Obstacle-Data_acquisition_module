@@ -17,7 +17,6 @@ def load_json_file():
 def upload_config_file():
     config = parser_json.load_file(param_py.path_config)
     param_py.state_py["self"]["http_server_port"] = config["self"]["http_server_port"]
-    param_py.state_py["self"]["sock_server_port"] = config["self"]["sock_server_port"]
 
     param_py.state_py["lidar_1"]["ip"] = config["lidar_1"]["ip"]
     param_py.state_py["lidar_1"]["device"] = config["lidar_1"]["device"]

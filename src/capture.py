@@ -2,7 +2,7 @@
 #---------------------------------------------
 
 from param import param_py
-from SOCK import socket_client
+from SOCK import sock_client
 from src import device
 from src import io
 
@@ -33,7 +33,7 @@ def start_l1_capture():
             while param_py.run_thread_l1:
                 (header, packet) = listener.next()
                 if(len(packet) == 1248):
-                    socket_client.send_packet(packet)
+                    sock_client.send_packet(packet)
                     param_py.state_py["lidar_1"]["nb_packet"] += 1
 
 def start_l2_capture():
@@ -48,5 +48,5 @@ def start_l2_capture():
             while param_py.run_thread_l2:
                 (header, packet) = listener.next()
                 if(len(packet) == 1248):
-                    socket_client.send_packet(packet)
+                    sock_client.send_packet(packet)
                     param_py.state_py["lidar_2"]["nb_packet"] += 1

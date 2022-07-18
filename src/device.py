@@ -13,8 +13,6 @@ def update_list():
         param_py.state_py["device"].update(y)
         cpt = cpt + 1
 
-
-
 def get_all_device():
     return pcapy.findalldevs()
 
@@ -26,3 +24,7 @@ def check_if_device_exists(name):
             exist = True
             break
     return exist
+
+def update_device():
+    print(param_py.state_py["lidar_1"]["device"])
+    print(param_py.state_py["lidar_2"]["device"])

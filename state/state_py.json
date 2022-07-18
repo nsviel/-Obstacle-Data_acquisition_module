@@ -2,8 +2,7 @@
     "self": {
         "status": "Offline",
         "ip": "127.0.0.1",
-        "http_server_port": 314,
-        "sock_server_port": 350
+        "http_server_port": 314
     },
     "lidar_1": {
         "connected": false,
@@ -41,10 +40,11 @@
         "4": "any",
         "5": "docker0",
         "6": "br-bf1cd95e8d83",
-        "7": "bluetooth-monitor",
-        "8": "nflog",
-        "9": "nfqueue",
-        "10": "bluetooth0"
+        "7": "enx00e04c680731",
+        "8": "bluetooth-monitor",
+        "9": "nflog",
+        "10": "nfqueue",
+        "11": "bluetooth0"
     },
     "path": {
         "capture": "",

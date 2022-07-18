@@ -4,7 +4,7 @@
 from param import param_py
 
 from HTTP import http_server
-from SOCK import socket_client
+from SOCK import sock_client
 
 from src import connection
 from src import state
@@ -30,7 +30,7 @@ def init():
     state.load_configuration()
     connection.start_daemon()
     http_server.start_daemon()
-    socket_client.connection()
+    sock_client.connection()
     param_py.status = "Online"
 
 def loop():
