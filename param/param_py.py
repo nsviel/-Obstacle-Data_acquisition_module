@@ -8,6 +8,7 @@ state_py = {}
 # Thread
 run_loop = True;
 run_thread_con = False
+run_thread_perf = False
 run_thread_l1 = False
 run_thread_l2 = False
 

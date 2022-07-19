@@ -10,6 +10,7 @@ from src import device
 
 from threading import Thread
 
+import threading
 import time
 
 
@@ -30,7 +31,11 @@ def thread_test_connection():
 
         # Update state
         parser_json.upload_state()
+        update_nb_thread()
 
         # Wait for 1 second
         time.sleep(1)
         pass
+
+def update_nb_thread():
+    param_py.state_py["self"]["nb_thread"] = threading.active_count()

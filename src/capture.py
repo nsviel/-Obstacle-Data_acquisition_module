@@ -32,6 +32,7 @@ def start_l1_capture():
             param_py.run_thread_l1 = True
             while param_py.run_thread_l1:
                 (header, packet) = listener.next()
+                print(len(packet))
                 if(len(packet) == 1248):
                     sock_client.send_packet(packet)
                     param_py.state_py["lidar_1"]["nb_packet"] += 1
@@ -47,6 +48,7 @@ def start_l2_capture():
             listener = pcapy.open_live(device , 1248 , 1 , 0)
             while param_py.run_thread_l2:
                 (header, packet) = listener.next()
+                print(len(packet))
                 if(len(packet) == 1248):
                     sock_client.send_packet(packet)
                     param_py.state_py["lidar_2"]["nb_packet"] += 1
