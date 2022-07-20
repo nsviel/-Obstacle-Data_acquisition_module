@@ -4,7 +4,7 @@
 from param import param_py
 from src import connection
 from src import parser_json
-from src import device
+from src import capture
 
 import http.client as client
 import json
@@ -17,6 +17,7 @@ def process_post_param(self):
     try:
         data = post_data.decode('utf8')
         data = json.loads(data)
+        print(data)
         for key, value in data.items():
             lvl1 = key
             for key_, value_ in data[key].items():
@@ -25,9 +26,9 @@ def process_post_param(self):
 
         param_py.state_py[lvl1][lvl2] = lvl3
         if(lvl2 == "device"):
-            device.update_device()
+            capture.restart_capture()
     except:
-        print('not valid JSON')
+        print('[error] Processing post param failed')
 
 def send_state(self, path):
     try:

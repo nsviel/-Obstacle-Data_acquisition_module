@@ -2,7 +2,6 @@
 #---------------------------------------------
 
 from param import param_py
-from src import capture
 import pcapy
 
 
@@ -25,7 +24,3 @@ def check_if_device_exists(name):
             exist = True
             break
     return exist
-
-def update_device():
-    capture.stop_lidar_capture()
-    capture.start_lidar_capture()

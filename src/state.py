@@ -33,3 +33,7 @@ def reset_value():
     param_py.state_py["self"]["status"] = "Offline"
     param_py.state_py["lidar_1"]["connected"] = False
     param_py.state_py["lidar_2"]["connected"] = False
+    param_py.state_py["lidar_1"]["nb_packet"] = 0
+    param_py.state_py["lidar_2"]["nb_packet"] = 0
+    param_py.state_py["lidar_1"]["bandwidth"] = 0
+    param_py.state_py["lidar_2"]["bandwidth"] = 0

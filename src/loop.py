@@ -11,7 +11,7 @@ from src import state
 from src import capture
 from src import parser_json
 from src import device
-from src import perf_client
+from src import perf
 
 
 #Main function
@@ -29,7 +29,7 @@ def program():
 #Sub-function
 def init():
     state.load_configuration()
-    perf_client.start_daemon()
+    perf.start_daemon()
     connection.start_daemon()
     http_server.start_daemon()
     sock_client.connection()
@@ -42,5 +42,5 @@ def end():
     param_py.status = "Offline"
     parser_json.upload_file(param_py.path_state_py, param_py.state_py)
     connection.stop_daemon()
-    perf_client.stop_daemon()
+    perf.stop_daemon()
     http_server.stop_daemon()

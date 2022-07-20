@@ -14,8 +14,6 @@ def test_connection():
     l2_ip = param_py.state_py["lidar_2"]["ip"]
     l1_connected = send_lidar_parameter({}, l1_ip)
     l2_connected = send_lidar_parameter({}, l2_ip)
-    print(l1_connected)
-    print(l2_connected)
     param_py.state_py["lidar_1"]["connected"] = l1_connected
     param_py.state_py["lidar_2"]["connected"] = l2_connected
     if(l1_connected == False):
