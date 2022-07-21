@@ -33,7 +33,7 @@ def init():
     connection.start_daemon()
     http_server.start_daemon()
     sock_client.connection()
-    param_py.status = "Online"
+    param_py.state_py["self"]["status"] = "Online"
     print("[\033[1;32mOK\033[0m] Program initialized...")
 
 def loop():
@@ -41,7 +41,7 @@ def loop():
 
 def end():
     print("[\033[1;32mOK\033[0m] Program terminating...")
-    param_py.status = "Offline"
+    param_py.state_py["self"]["status"] = "Offline"
     parser_json.upload_file(param_py.path_state_py, param_py.state_py)
     connection.stop_daemon()
     perf.stop_daemon()

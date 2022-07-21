@@ -49,6 +49,6 @@ def get_ip_adress():
     finally:
         s.close()
     return IP
-    
+
 def update_nb_thread():
     param_py.state_py["self"]["nb_thread"] = threading.active_count()

@@ -19,13 +19,17 @@ def thread_perf_client():
     param_py.run_thread_perf = True
     while param_py.run_thread_perf:
         try:
-            if(param_py.state_py["lidar_1"]["connected"]):
+            if(param_py.state_py["lidar_1"]["connected"] and param_py.state_py["lidar_1"]["activated"]):
                 l1_mbs = perf_device(param_py.state_py["lidar_1"]["device"])
                 param_py.state_py["lidar_1"]["bandwidth"] = l1_mbs
+            else:
+                param_py.state_py["lidar_1"]["bandwidth"] = 0
 
-            if(param_py.state_py["lidar_2"]["connected"]):
+            if(param_py.state_py["lidar_2"]["connected"] and param_py.state_py["lidar_2"]["activated"]):
                 l2_mbs = perf_device(param_py.state_py["lidar_2"]["device"])
                 param_py.state_py["lidar_2"]["bandwidth"] = l2_mbs
+            else:
+                param_py.state_py["lidar_2"]["bandwidth"] = 0
         except:
             time.sleep(1)
             pass
