@@ -17,7 +17,7 @@ def load_json_file():
 
 def init_state():
     param_py.state_py["self"]["status"] = "Offline"
-    param_hu.state_hu["self"]["ip"] = connection.get_ip_adress()
+    param_py.state_py["self"]["ip"] = connection.get_ip_adress()
 
     param_py.state_py["lidar_1"]["connected"] = False
     param_py.state_py["lidar_1"]["nb_packet"] = 0
