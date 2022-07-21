@@ -8,13 +8,26 @@ from src import parser_json
 
 def load_configuration():
     load_json_file()
-    upload_config_file()
-    reset_value()
+    init_state()
+    load_config_file()
+    upload_state()
 
 def load_json_file():
     param_py.state_py = parser_json.load_file(param_py.path_state_py)
 
-def upload_config_file():
+def init_state():
+    param_py.state_py["self"]["status"] = "Offline"
+    param_hu.state_hu["self"]["ip"] = connection.get_ip_adress()
+
+    param_py.state_py["lidar_1"]["connected"] = False
+    param_py.state_py["lidar_1"]["nb_packet"] = 0
+    param_py.state_py["lidar_1"]["bandwidth"] = 0
+
+    param_py.state_py["lidar_2"]["connected"] = False
+    param_py.state_py["lidar_2"]["nb_packet"] = 0
+    param_py.state_py["lidar_2"]["bandwidth"] = 0
+
+def load_config_file():
     config = parser_json.load_file(param_py.path_config)
     param_py.state_py["self"]["http_server_port"] = config["self"]["http_server_port"]
 
@@ -29,11 +42,5 @@ def upload_config_file():
     param_py.state_py["hubium"]["sock_server_ip"] = config["hubium"]["sock_server_ip"]
     param_py.state_py["hubium"]["sock_server_port"] = config["hubium"]["sock_server_port"]
 
-def reset_value():
-    param_py.state_py["self"]["status"] = "Offline"
-    param_py.state_py["lidar_1"]["connected"] = False
-    param_py.state_py["lidar_2"]["connected"] = False
-    param_py.state_py["lidar_1"]["nb_packet"] = 0
-    param_py.state_py["lidar_2"]["nb_packet"] = 0
-    param_py.state_py["lidar_1"]["bandwidth"] = 0
-    param_py.state_py["lidar_2"]["bandwidth"] = 0
+def upload_state():
+    parser_json.upload_file(param_py.path_state_py, param_py.state_py)

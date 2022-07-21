@@ -5,10 +5,10 @@ import os
 
 
 os.system('clear')
-print("---- Start program ----")
+print("--- \033[1;34mBegin program\033[0m ---")
 #-------------
 
 loop.program()
 
 #-------------
-print("---- Stop program ----")
+print("--- \033[1;34mClose program\033[0m ---")
