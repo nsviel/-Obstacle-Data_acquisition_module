@@ -3,7 +3,7 @@
         "status": "Offline",
         "add": "",
         "ip": "192.168.153.147",
-        "nb_thread": 10,
+        "nb_thread": 4,
         "http_server_port": 314
     },
     "lidar_1": {
@@ -30,8 +30,10 @@
     },
     "hubium": {
         "ip": "127.0.0.1",
-        "sock_server_port": 344,
-        "sock_server_ip": "127.0.0.1"
+        "sock_server_l1_port": 344,
+        "sock_server_l2_port": 345,
+        "sock_server_ip": "127.0.0.1",
+        "sock_server_port": 344
     },
     "geolocalization": {
         "country": "France"
