@@ -3,7 +3,7 @@
         "status": "Offline",
         "add": "",
         "ip": "192.168.153.147",
-        "nb_thread": 4,
+        "nb_thread": 0,
         "http_server_port": 314
     },
     "lidar_1": {
@@ -13,9 +13,7 @@
         "device": "enx00e04c680731",
         "speed": 600,
         "bandwidth": 0,
-        "nb_packet": 0,
-        "dir": "",
-        "file": ""
+        "nb_packet": 0
     },
     "lidar_2": {
         "connected": false,
@@ -24,9 +22,7 @@
         "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "bandwidth": 0,
-        "nb_packet": 0,
-        "dir": "",
-        "file": ""
+        "nb_packet": 0
     },
     "hubium": {
         "ip": "127.0.0.1",
@@ -49,12 +45,6 @@
         "7": "bluetooth-monitor",
         "8": "nflog",
         "9": "nfqueue",
-        "10": "bluetooth0",
-        "11": "bluetooth0"
-    },
-    "path": {
-        "capture": "",
-        "additional": "",
-        "name": ""
+        "10": "bluetooth0"
     }
 }
