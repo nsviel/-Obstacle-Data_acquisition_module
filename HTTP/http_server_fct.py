@@ -5,6 +5,7 @@ from param import param_py
 from src import connection
 from src import parser_json
 from src import capture
+from src import lidar
 
 import http.client as client
 import json
@@ -25,8 +26,11 @@ def process_post_param(self):
                 lvl3 = value_
 
         param_py.state_py[lvl1][lvl2] = lvl3
-        if(lvl2 == "device"):
+        if(lvl2 == "device" or lvl2 == "activated" or lvl2 == "ip"):
             capture.restart_capture()
+        if(lvl2 == "speed"):
+            lidar.start_l1_motor()
+            lidar.start_l2_motor()
     except:
         print('[error] Processing post param failed')
 

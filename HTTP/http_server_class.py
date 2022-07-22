@@ -46,3 +46,11 @@ def manage_get(self):
         http_server_get.get_test_http_conn(self)
     elif(path == '/state_py'):
         http_server_get.get_state_py(self)
+    elif(path == '/lidar_1_start'):
+         http_server_get.get_lidar_1_start(self)
+    elif(path == '/lidar_1_sttop'):
+         http_server_get.get_lidar_1_stop(self)
+    elif(path == '/lidar_2_start'):
+         http_server_get.get_lidar_2_start(self)
+    elif(path == '/lidar_2_stop'):
+         http_server_get.get_lidar_2_stop(self)
