@@ -26,7 +26,7 @@ def process_post_param(self):
                 lvl3 = value_
 
         param_py.state_py[lvl1][lvl2] = lvl3
-        if(lvl2 == "device" or lvl2 == "activated" or lvl2 == "ip"):
+        if(lvl2 == "device" or lvl2 == "ip"):
             capture.restart_capture()
         if(lvl2 == "speed"):
             lidar.start_l1_motor()

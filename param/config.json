@@ -1,5 +1,6 @@
 {
   "self": {
+      "add": "Mine_Nathan",
       "http_server_port": 314
   },
   "lidar_1": {
