@@ -14,6 +14,7 @@
   },
   "hubium": {
       "sock_server_ip": "127.0.0.1",
-      "sock_server_port": 344
+      "sock_server_l1_port": 344,
+      "sock_server_l2_port": 345
   }
 }
