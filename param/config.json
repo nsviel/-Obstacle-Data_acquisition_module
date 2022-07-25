@@ -4,12 +4,12 @@
       "http_server_port": 314
   },
   "lidar_1": {
-      "ip": "http://192.168.2.201/cgi/setting",
+      "ip": "http://192.168.1.201/cgi/setting",
       "device": "enx00e04c680731",
       "speed": 600
   },
   "lidar_2": {
-      "ip": "http://192.168.1.202/cgi/setting",
+      "ip": "http://192.168.2.201/cgi/setting",
       "device": "enxf8e43b6cdf6c",
       "speed": 600
   },
