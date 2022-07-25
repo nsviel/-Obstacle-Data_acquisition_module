@@ -32,7 +32,7 @@ def process_post_param(self):
             lidar.start_l1_motor()
             lidar.start_l2_motor()
     except:
-        print('[error] Processing post param failed')
+        print('[\033[1;31merror\033[0m] Processing post param failed')
 
 def send_state(self, path):
     try:
