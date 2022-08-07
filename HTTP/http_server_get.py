@@ -10,7 +10,7 @@ import json
 
 
 def get_geo(self):
-    print("geo !")
+    pass
 
 def get_test_http_conn(self):
     self.send_response(200)

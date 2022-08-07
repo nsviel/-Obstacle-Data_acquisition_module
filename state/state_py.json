@@ -1,16 +1,15 @@
 {
     "self": {
         "status": "Offline",
-        "add": "",
-        "ip": "192.168.153.147",
-        "nb_thread": 4,
+        "ip": "192.168.1.27",
+        "nb_thread": 5,
         "http_server_port": 314
     },
     "lidar_1": {
         "connected": false,
         "activated": true,
-        "ip": "http://192.168.2.201/cgi/setting",
-        "device": "enx00e04c680731",
+        "ip": "http://192.168.1.201/cgi/setting",
+        "device": "ztwdjfturv",
         "speed": 600,
         "bandwidth": 0,
         "nb_packet": 0
@@ -18,8 +17,8 @@
     "lidar_2": {
         "connected": false,
         "activated": true,
-        "ip": "http://192.168.1.202/cgi/setting",
-        "device": "enxf8e43b6cdf6c",
+        "ip": "http://192.168.2.201/cgi/setting",
+        "device": "wlp2s0",
         "speed": 600,
         "bandwidth": 0,
         "nb_packet": 0

@@ -29,7 +29,6 @@ def init_state():
 
 def load_config_file():
     config = parser_json.load_file(param_py.path_config)
-    param_py.state_py["self"]["add"] = config["self"]["add"]
     param_py.state_py["self"]["http_server_port"] = config["self"]["http_server_port"]
 
     param_py.state_py["lidar_1"]["ip"] = config["lidar_1"]["ip"]

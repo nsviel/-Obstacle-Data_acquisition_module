@@ -18,7 +18,6 @@ def process_post_param(self):
     try:
         data = post_data.decode('utf8')
         data = json.loads(data)
-        print(data)
         for key, value in data.items():
             lvl1 = key
             for key_, value_ in data[key].items():

@@ -24,7 +24,6 @@ def stop_lidar_capture():
 def start_l1_capture():
     connected = param_py.state_py["lidar_1"]["connected"]
     l1_device = param_py.state_py["lidar_1"]["device"]
-    print("[#] Start lidar 1 capture on %s" % l1_device)
     if(connected):
         device_ok = device.check_if_device_exists(l1_device)
         if(device_ok):
@@ -40,7 +39,6 @@ def start_l1_capture():
 def start_l2_capture():
     connected = param_py.state_py["lidar_2"]["connected"]
     l2_device = param_py.state_py["lidar_2"]["device"]
-    print("[#] Start lidar 2 capture on %s" % l2_device)
     if(connected):
         device_ok = device.check_if_device_exists(l2_device)
         if(device_ok):
