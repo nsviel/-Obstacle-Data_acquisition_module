@@ -1,7 +1,7 @@
 {
     "self": {
         "status": "Offline",
-        "ip": "192.168.1.27",
+        "ip": "192.168.153.147",
         "nb_thread": 5,
         "http_server_port": 314
     },
@@ -9,7 +9,7 @@
         "connected": false,
         "activated": true,
         "ip": "http://192.168.1.201/cgi/setting",
-        "device": "ztwdjfturv",
+        "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "bandwidth": 0,
         "nb_packet": 0
@@ -18,7 +18,7 @@
         "connected": false,
         "activated": true,
         "ip": "http://192.168.2.201/cgi/setting",
-        "device": "wlp2s0",
+        "device": "enxa0cec8737a9e",
         "speed": 600,
         "bandwidth": 0,
         "nb_packet": 0
@@ -33,15 +33,15 @@
         "country": "France"
     },
     "device": {
-        "0": "ztwdjfturv",
-        "1": "wlp2s0",
-        "2": "ztyxaz6f43",
-        "3": "lo",
-        "4": "any",
-        "5": "docker0",
-        "6": "br-bf1cd95e8d83",
-        "7": "bluetooth-monitor",
-        "8": "nflog",
+        "0": "wlp2s0",
+        "1": "any",
+        "2": "lo",
+        "3": "bluetooth0",
+        "4": "bluetooth-monitor",
+        "5": "nflog",
+        "6": "nfqueue",
+        "7": "dbus-system",
+        "8": "dbus-session",
         "9": "nfqueue",
         "10": "bluetooth0"
     }
