@@ -36,13 +36,13 @@
         "0": "wlp2s0",
         "1": "any",
         "2": "lo",
-        "3": "bluetooth0",
-        "4": "bluetooth-monitor",
-        "5": "nflog",
-        "6": "nfqueue",
-        "7": "dbus-system",
-        "8": "dbus-session",
-        "9": "nfqueue",
+        "3": "docker0",
+        "4": "bluetooth0",
+        "5": "bluetooth-monitor",
+        "6": "nflog",
+        "7": "nfqueue",
+        "8": "dbus-system",
+        "9": "dbus-session",
         "10": "bluetooth0"
     }
 }
