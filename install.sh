@@ -7,5 +7,3 @@ sudo python3 -m pip install pandas
 sudo python3 -m pip install iperf3
 pip install psutil
 
-#Start program
-sudo python3 main.py
