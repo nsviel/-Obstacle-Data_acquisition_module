@@ -18,6 +18,7 @@ def start_lidar_capture():
     thread_l2.start()
 
 def stop_lidar_capture():
+    print("[\033[1;32mOK\033[0m] Stop LiDAR capture...")
     param_py.run_thread_l1 = False
     param_py.run_thread_l2 = False
 
@@ -30,6 +31,7 @@ def start_l1_capture():
             param_py.state_py["lidar_1"]["nb_packet"] = 0
             listener = pcapy.open_live(l1_device , 1248 , 1 , 0)
             param_py.run_thread_l1 = True
+            print("[\033[1;32mOK\033[0m] LiDAR 1 capturing...")
             while param_py.run_thread_l1:
                 if(param_py.state_py["lidar_1"]["activated"]):
                     (header, packet) = listener.next()
@@ -45,6 +47,7 @@ def start_l2_capture():
             param_py.state_py["lidar_2"]["nb_packet"] = 0
             param_py.run_thread_l2 = True
             listener = pcapy.open_live(l2_device , 1248 , 1 , 0)
+            print("[\033[1;32mOK\033[0m] LiDAR 2 capturing...")
             while param_py.run_thread_l2:
                 if(param_py.state_py["lidar_2"]["activated"]):
                     (header, packet) = listener.next()
@@ -52,6 +55,5 @@ def start_l2_capture():
                     param_py.state_py["lidar_2"]["nb_packet"] += 1
 
 def restart_capture():
-    if(param_py.run_thread_l1 or param_py.run_thread_l2):
-        stop_lidar_capture()
-        start_lidar_capture()
+    stop_lidar_capture()
+    start_lidar_capture()
