@@ -18,7 +18,7 @@ def start_lidar_capture():
     thread_l2.start()
 
 def stop_lidar_capture():
-    print("[\033[1;32mOK\033[0m] Stop LiDAR capture...")
+    print("[\033[1;32mOK\033[0m] LiDAR capture deactivated")
     param_py.run_thread_l1 = False
     param_py.run_thread_l2 = False
 
