@@ -52,5 +52,6 @@ def start_l2_capture():
                     param_py.state_py["lidar_2"]["nb_packet"] += 1
 
 def restart_capture():
-    stop_lidar_capture()
-    start_lidar_capture()
+    if(param_py.run_thread_l1 or param_py.run_thread_l2):
+        stop_lidar_capture()
+        start_lidar_capture()
