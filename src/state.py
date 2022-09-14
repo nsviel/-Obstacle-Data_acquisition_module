@@ -20,12 +20,27 @@ def init_state():
     param_py.state_py["self"]["ip"] = connection.get_ip_adress()
 
     param_py.state_py["lidar_1"]["connected"] = False
-    param_py.state_py["lidar_1"]["nb_packet"] = 0
-    param_py.state_py["lidar_1"]["bandwidth"] = 0
-
     param_py.state_py["lidar_2"]["connected"] = False
-    param_py.state_py["lidar_2"]["nb_packet"] = 0
-    param_py.state_py["lidar_2"]["bandwidth"] = 0
+
+    param_py.state_py["lidar_1"]["packet"]["value"] = 0
+    param_py.state_py["lidar_1"]["packet"]["min"] = 0
+    param_py.state_py["lidar_1"]["packet"]["mean"] = 0
+    param_py.state_py["lidar_1"]["packet"]["max"] = 0
+
+    param_py.state_py["lidar_1"]["bandwidth"]["value"] = 0
+    param_py.state_py["lidar_1"]["bandwidth"]["min"] = 0
+    param_py.state_py["lidar_1"]["bandwidth"]["mean"] = 0
+    param_py.state_py["lidar_1"]["bandwidth"]["max"] = 0
+
+    param_py.state_py["lidar_2"]["packet"]["value"] = 0
+    param_py.state_py["lidar_2"]["packet"]["min"] = 0
+    param_py.state_py["lidar_2"]["packet"]["mean"] = 0
+    param_py.state_py["lidar_2"]["packet"]["max"] = 0
+
+    param_py.state_py["lidar_2"]["bandwidth"]["value"] = 0
+    param_py.state_py["lidar_2"]["bandwidth"]["min"] = 0
+    param_py.state_py["lidar_2"]["bandwidth"]["mean"] = 0
+    param_py.state_py["lidar_2"]["bandwidth"]["max"] = 0
 
 def load_config_file():
     config = parser_json.load_file(param_py.path_config)

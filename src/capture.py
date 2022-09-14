@@ -25,34 +25,34 @@ def stop_lidar_capture():
 def start_l1_capture():
     connected = param_py.state_py["lidar_1"]["connected"]
     l1_device = param_py.state_py["lidar_1"]["device"]
-    if(connected):
-        device_ok = device.check_if_device_exists(l1_device)
-        if(device_ok):
-            param_py.state_py["lidar_1"]["nb_packet"] = 0
-            listener = pcapy.open_live(l1_device , 1248 , 1 , 0)
-            param_py.run_thread_l1 = True
-            print("[\033[1;32mOK\033[0m] LiDAR 1 capturing...")
-            while param_py.run_thread_l1:
-                if(param_py.state_py["lidar_1"]["activated"]):
-                    (header, packet) = listener.next()
-                    sock_client.send_packet_l1(packet)
-                    param_py.state_py["lidar_1"]["nb_packet"] += 1
+    device_ok = device.check_if_device_exists(l1_device)
+    if(connected and device_ok):
+        param_py.state_py["lidar_1"]["packet"]["value"] = 0
+        listener = pcapy.open_live(l1_device , 1248 , 1 , 0)
+        param_py.run_thread_l1 = True
+        print("[\033[1;32mOK\033[0m] LiDAR 1 capture activated")
+
+        while param_py.run_thread_l1:
+            if(param_py.state_py["lidar_1"]["activated"]):
+                (header, packet) = listener.next()
+                sock_client.send_packet_l1(packet)
+                param_py.state_py["lidar_1"]["packet"]["value"] += 1
 
 def start_l2_capture():
     connected = param_py.state_py["lidar_2"]["connected"]
     l2_device = param_py.state_py["lidar_2"]["device"]
-    if(connected):
-        device_ok = device.check_if_device_exists(l2_device)
-        if(device_ok):
-            param_py.state_py["lidar_2"]["nb_packet"] = 0
-            param_py.run_thread_l2 = True
-            listener = pcapy.open_live(l2_device , 1248 , 1 , 0)
-            print("[\033[1;32mOK\033[0m] LiDAR 2 capturing...")
-            while param_py.run_thread_l2:
-                if(param_py.state_py["lidar_2"]["activated"]):
-                    (header, packet) = listener.next()
-                    sock_client.send_packet_l2(packet)
-                    param_py.state_py["lidar_2"]["nb_packet"] += 1
+    device_ok = device.check_if_device_exists(l2_device)
+    if(connected and device_ok):
+        param_py.state_py["lidar_2"]["packet"]["value"] = 0
+        param_py.run_thread_l2 = True
+        listener = pcapy.open_live(l2_device , 1248 , 1 , 0)
+        print("[\033[1;32mOK\033[0m] LiDAR 2 capture activated")
+
+        while param_py.run_thread_l2:
+            if(param_py.state_py["lidar_2"]["activated"]):
+                (header, packet) = listener.next()
+                sock_client.send_packet_l2(packet)
+                param_py.state_py["lidar_2"]["packet"]["value"] += 1
 
 def restart_capture():
     stop_lidar_capture()

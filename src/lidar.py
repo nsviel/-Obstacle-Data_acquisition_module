@@ -17,9 +17,15 @@ def test_connection():
     param_py.state_py["lidar_1"]["connected"] = l1_connected
     param_py.state_py["lidar_2"]["connected"] = l2_connected
     if(l1_connected == False):
-        param_py.state_py["lidar_1"]["nb_packet"] = 0
+        param_py.state_py["lidar_1"]["packet"]["value"] = 0
+        param_py.state_py["lidar_1"]["packet"]["min"] = 0
+        param_py.state_py["lidar_1"]["packet"]["mean"] = 0
+        param_py.state_py["lidar_1"]["packet"]["max"] = 0
     if(l2_connected == False):
-        param_py.state_py["lidar_2"]["nb_packet"] = 0
+        param_py.state_py["lidar_2"]["packet"]["value"] = 0
+        param_py.state_py["lidar_2"]["packet"]["min"] = 0
+        param_py.state_py["lidar_2"]["packet"]["mean"] = 0
+        param_py.state_py["lidar_2"]["packet"]["max"] = 0
 
 def start_l1_motor():
     speed = param_py.state_py["lidar_1"]["speed"]
