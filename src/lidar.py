@@ -2,6 +2,7 @@
 #---------------------------------------------
 
 from param import param_py
+from src import capture
 
 from requests.exceptions import ConnectionError
 
@@ -12,20 +13,20 @@ import requests
 def test_connection():
     l1_ip = param_py.state_py["lidar_1"]["ip"]
     l2_ip = param_py.state_py["lidar_2"]["ip"]
-    l1_connected = send_lidar_parameter({}, l1_ip)
-    l2_connected = send_lidar_parameter({}, l2_ip)
-    param_py.state_py["lidar_1"]["connected"] = l1_connected
-    param_py.state_py["lidar_2"]["connected"] = l2_connected
-    if(l1_connected == False):
+    l1_connected = param_py.state_py["lidar_1"]["connected"]
+    l2_connected = param_py.state_py["lidar_2"]["connected"]
+
+    l1_ok = send_lidar_parameter({}, l1_ip)
+    l2_ok = send_lidar_parameter({}, l2_ip)
+    param_py.state_py["lidar_1"]["connected"] = l1_ok
+    param_py.state_py["lidar_2"]["connected"] = l2_ok
+
+    if(l1_connected == False and l1_ok or l2_connected == False and l2_ok):
         param_py.state_py["lidar_1"]["packet"]["value"] = 0
-        param_py.state_py["lidar_1"]["packet"]["min"] = 0
-        param_py.state_py["lidar_1"]["packet"]["mean"] = 0
-        param_py.state_py["lidar_1"]["packet"]["max"] = 0
-    if(l2_connected == False):
+        param_py.state_py["lidar_1"]["bandwidth"]["value"] = 0
         param_py.state_py["lidar_2"]["packet"]["value"] = 0
-        param_py.state_py["lidar_2"]["packet"]["min"] = 0
-        param_py.state_py["lidar_2"]["packet"]["mean"] = 0
-        param_py.state_py["lidar_2"]["packet"]["max"] = 0
+        param_py.state_py["lidar_2"]["bandwidth"]["value"] = 0
+        capture.start_lidar_capture()
 
 def start_l1_motor():
     speed = param_py.state_py["lidar_1"]["speed"]
