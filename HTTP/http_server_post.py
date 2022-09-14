@@ -29,3 +29,12 @@ def post_param_py(self):
             lidar.start_l2_motor()
     except:
         print('[\033[1;31merror\033[0m] Processing post param failed')
+
+def post_new_state_py(self):
+    self.send_response(200)
+    try:
+        data = http_server_fct.decode_post_json(self)
+        param_py.state_py = data
+        parser_json.upload_state()
+    except:
+        print('[\033[1;31merror\033[0m] Processing post param failed')

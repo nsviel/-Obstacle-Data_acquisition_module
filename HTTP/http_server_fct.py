@@ -20,3 +20,10 @@ def send_state(self, path):
         self.wfile.write(data)
     except:
         pass
+
+def decode_post_json(self):
+    content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
+    post_data = self.rfile.read(content_length) # <--- Gets the data itself
+    data = post_data.decode('utf8')
+    data = json.loads(data)
+    return data

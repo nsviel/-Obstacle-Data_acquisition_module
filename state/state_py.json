@@ -1,18 +1,18 @@
 {
     "self": {
         "status": "Offline",
-        "ip": "192.168.153.147",
+        "ip": "10.201.20.68",
         "nb_thread": 5,
-        "l1_port": 1,
-        "l2_port": 1,
+        "l1_port": 8308,
+        "l2_port": 8309,
         "http_server_port": 314
     },
     "lidar_1": {
         "connected": false,
         "activated": true,
         "ip": "http://192.168.1.201/cgi/setting",
-        "port": 1,
-        "device": "enxf8e43b6cdf6c",
+        "port": 2368,
+        "device": "enx00e04c680731",
         "speed": 600,
         "bandwidth": 0,
         "nb_packet": 0
@@ -21,14 +21,14 @@
         "connected": false,
         "activated": true,
         "ip": "http://192.168.2.201/cgi/setting",
-        "port": 1,
-        "device": "enxa0cec8737a9e",
+        "port": 2369,
+        "device": "bluetooth-monitor",
         "speed": 600,
         "bandwidth": 0,
         "nb_packet": 0
     },
     "hubium": {
-        "ip": "192.168.153.147",
+        "ip": "10.201.20.68",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "sock_server_ip": "127.0.0.1"
@@ -37,16 +37,16 @@
         "country": "France"
     },
     "device": {
-        "0": "wlp2s0",
+        "0": "enx00e04c680731",
         "1": "any",
         "2": "lo",
         "3": "docker0",
-        "4": "bluetooth0",
-        "5": "bluetooth-monitor",
-        "6": "nflog",
-        "7": "nfqueue",
-        "8": "dbus-system",
-        "9": "dbus-session",
-        "10": "bluetooth0"
+        "4": "wlp2s0",
+        "5": "bluetooth0",
+        "6": "bluetooth-monitor",
+        "7": "nflog",
+        "8": "nfqueue",
+        "9": "dbus-system",
+        "10": "dbus-session"
     }
 }
