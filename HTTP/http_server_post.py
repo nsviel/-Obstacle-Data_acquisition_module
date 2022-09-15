@@ -27,6 +27,9 @@ def post_param_py(self):
         if(str(lvl2) == "speed"):
             lidar.start_l1_motor()
             lidar.start_l2_motor()
+        if(str(lvl2) == "lidar_1"):
+            lidar.start_l1_motor()
+            lidar.start_l2_motor()
     except:
         print('[\033[1;31merror\033[0m] Processing post param failed')
 

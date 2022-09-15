@@ -78,7 +78,7 @@ def thread_perf_l2():
 def compute_bandwidth(value, list, min, max):
     # Mean
     list.append(value)
-    if(len(list) == 10):
+    if(len(list) == 25):
         list.pop(0)
     val_mean = 0
     for bdw in list:

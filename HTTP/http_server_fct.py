@@ -11,7 +11,7 @@ import http.client as client
 import json
 
 
-def send_state(self, path):
+def post_state(self, path):
     try:
         self.send_response(200)
         self.send_header("Content-type", "application/json")

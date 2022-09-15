@@ -16,7 +16,7 @@ def get_test_http_conn(self):
     self.send_response(200)
 
 def get_state_py(self):
-    http_server_fct.send_state(self, param_py.path_state_py)
+    http_server_fct.post_state(self, param_py.path_state_py)
 
 def get_lidar_1_start():
     lidar.start_l1_motor()
