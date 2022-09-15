@@ -58,7 +58,7 @@ def thread_perf_l2():
                 l2_mbs = perf_device(param_py.state_py["lidar_2"]["device"])
                 [bdw_list, bdw_min, bdw_mean, bdw_max] = compute_bandwidth(l2_mbs, bdw_list, bdw_min, bdw_max)
 
-                param_py.state_py["lidar_2"]["bandwidth"] = l2_mbs
+                param_py.state_py["lidar_2"]["bandwidth"]["value"] = l2_mbs
                 param_py.state_py["lidar_2"]["bandwidth"]["min"] = bdw_min
                 param_py.state_py["lidar_2"]["bandwidth"]["mean"] = bdw_mean
                 param_py.state_py["lidar_2"]["bandwidth"]["max"] = bdw_max
@@ -78,7 +78,7 @@ def thread_perf_l2():
 def compute_bandwidth(value, list, min, max):
     # Mean
     list.append(value)
-    if(len(bandwidth_list) == 10):
+    if(len(list) == 10):
         list.pop(0)
     val_mean = 0
     for bdw in list:
@@ -88,8 +88,12 @@ def compute_bandwidth(value, list, min, max):
     # Min & max
     if(value > max):
         val_max = value
+    else:
+        val_max = max
     if(value < min):
         val_min = value
+    else:
+        val_min = min
     return [list, val_min, val_mean, val_max]
 
 def perf_device(device):
