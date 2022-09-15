@@ -1,5 +1,9 @@
 #! /usr/bin/python
 #---------------------------------------------
+# Possible POST command:
+# - /py_state
+# - /py_param
+#---------------------------------------------
 
 from param import param_py
 from HTTP import http_server_fct
@@ -9,18 +13,18 @@ from src import capture
 import json
 
 
-def post_param_py(self):
-    content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
-    post_data = self.rfile.read(content_length) # <--- Gets the data itself
-    self.send_response(200)
-    try:
-        data = post_data.decode('utf8')
-        data = json.loads(data)
-        for key, value in data.items():
-            lvl1 = key
-            for key_, value_ in data[key].items():
-                lvl2 = key_
-                lvl3 = value_
+def manage_post(self):
+    command = str(self.path)
+    if(command == '/py_state'):
+        http_server_post.manage_py_state(self)
+    elif(command == '/py_param'):
+        http_server_post.manage_py_param(self)
+
+def manage_py_param(self):
+    payload = http_server_fct.retrieve_post_data(self)
+    if(payload != None):
+        data = json.loads(payload)
+        [lvl1, lvl2, lvl3] = http_server_fct.decipher_json(data)
         param_py.state_py[lvl1][lvl2] = lvl3
         if(str(lvl2) == "device" or str(lvl2) == "ip"):
             capture.restart_capture()
@@ -30,14 +34,10 @@ def post_param_py(self):
         if(str(lvl2) == "lidar_1"):
             lidar.start_l1_motor()
             lidar.start_l2_motor()
-    except:
-        print('[\033[1;31merror\033[0m] Processing post param failed')
 
-def post_new_state_py(self):
-    self.send_response(200)
-    try:
-        data = http_server_fct.decode_post_json(self)
+def manage_py_state(self):
+    payload = http_server_fct.retrieve_post_data(self)
+    if(payload != None):
+        data = json.loads(payload)
         param_py.state_py = data
         parser_json.upload_state()
-    except:
-        print('[\033[1;31merror\033[0m] Processing post param failed')

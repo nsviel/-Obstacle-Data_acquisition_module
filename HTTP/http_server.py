@@ -2,15 +2,25 @@
 #---------------------------------------------
 
 from param import param_py
-from HTTP import http_server_class
+from HTTP import http_server_get
+from HTTP import http_server_post
 
 from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 
 import threading
-import http.server
 
 
-def start_daemon(server_class=HTTPServer, handler_class=http_server_class.S):
+class S(BaseHTTPRequestHandler):
+    def do_GET(self):
+        http_server_get.manage_get(self);
+
+    def do_POST(self):
+        http_server_post.manage_post(self);
+
+    def log_message(self, format, *args):
+        return
+
+def start_daemon(server_class=HTTPServer, handler_class=S):
     port = param_py.state_py["self"]["http_server_port"]
     address = ("", port)
     param_py.http_server = ThreadingHTTPServer(address, handler_class)
