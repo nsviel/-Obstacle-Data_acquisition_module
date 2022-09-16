@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from param import param_py
 
 from HTTP import http_server
@@ -12,6 +10,8 @@ from src import capture
 from src import parser_json
 from src import device
 from src import perf
+
+import time
 
 
 #Main function
@@ -37,7 +37,7 @@ def init():
     print("[\033[1;32mOK\033[0m] Program initialized...")
 
 def loop():
-    pass
+    time.sleep(1)
 
 def end():
     print("[\033[1;32mOK\033[0m] Program terminating...")

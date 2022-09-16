@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 
 def send_get_response(data, type):
     try:

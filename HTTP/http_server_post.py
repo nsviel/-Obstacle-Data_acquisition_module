@@ -1,4 +1,3 @@
-#! /usr/bin/python
 #---------------------------------------------
 # Possible POST command:
 # - /py_state
@@ -16,9 +15,9 @@ import json
 def manage_post(self):
     command = str(self.path)
     if(command == '/py_state'):
-        http_server_post.manage_py_state(self)
+        manage_py_state(self)
     elif(command == '/py_param'):
-        http_server_post.manage_py_param(self)
+        manage_py_param(self)
 
 def manage_py_param(self):
     payload = http_server_fct.retrieve_post_data(self)

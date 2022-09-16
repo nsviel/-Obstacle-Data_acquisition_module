@@ -1,4 +1,3 @@
-#! /usr/bin/python
 #---------------------------------------------
 # Possible GET command:
 # - /test_http_conn
