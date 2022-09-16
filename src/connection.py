@@ -34,7 +34,6 @@ def thread_test_connection():
 
         # Wait for 1 second
         time.sleep(1)
-        pass
 
 def get_ip_adress():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

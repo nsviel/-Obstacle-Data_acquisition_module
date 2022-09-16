@@ -42,8 +42,10 @@ def thread_perf_l1():
                 param_py.state_py["lidar_1"]["packet"]["min"] = 0
                 param_py.state_py["lidar_1"]["packet"]["mean"] = 0
                 param_py.state_py["lidar_1"]["packet"]["max"] = 0
+                time.sleep(1)
         except:
             time.sleep(1)
+        time.sleep(0.05)
 
 def thread_perf_l2():
     bdw_min = 1000
@@ -70,8 +72,10 @@ def thread_perf_l2():
                 param_py.state_py["lidar_2"]["packet"]["min"] = 0
                 param_py.state_py["lidar_2"]["packet"]["mean"] = 0
                 param_py.state_py["lidar_2"]["packet"]["max"] = 0
+                time.sleep(1)
         except:
             time.sleep(1)
+        time.sleep(0.05)
 
 def compute_bandwidth(value, list, min, max):
     # Mean

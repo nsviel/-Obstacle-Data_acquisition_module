@@ -11,10 +11,9 @@ def load_configuration():
     upload_state()
 
 def load_json_file():
-    param_py.state_py = parser_json.load_file(param_py.path_state_py)
+    param_py.state_py = parser_json.load_data_from_file(param_py.path_state_py)
 
 def init_state():
-    param_py.state_py["self"]["status"] = "Offline"
     param_py.state_py["self"]["ip"] = connection.get_ip_adress()
 
     param_py.state_py["lidar_1"]["connected"] = False
@@ -41,7 +40,7 @@ def init_state():
     param_py.state_py["lidar_2"]["bandwidth"]["max"] = 0
 
 def load_config_file():
-    config = parser_json.load_file(param_py.path_config)
+    config = parser_json.load_data_from_file(param_py.path_config)
     param_py.state_py["self"]["http_server_port"] = config["self"]["http_server_port"]
     param_py.state_py["self"]["l1_port"] = config["self"]["l1_port"]
     param_py.state_py["self"]["l2_port"] = config["self"]["l2_port"]

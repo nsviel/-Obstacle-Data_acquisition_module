@@ -1,6 +1,5 @@
 {
     "self": {
-        "status": "Offline",
         "ip": "10.201.20.68",
         "nb_thread": 5,
         "l1_port": 8308,
@@ -12,7 +11,7 @@
         "activated": true,
         "ip": "http://192.168.1.201/cgi/setting",
         "port": 2368,
-        "device": "enxa0cec8737a9e",
+        "device": "docker0",
         "speed": 600,
         "bandwidth": {
             "value": 0,
@@ -32,7 +31,7 @@
         "activated": true,
         "ip": "http://192.168.2.201/cgi/setting",
         "port": 2369,
-        "device": "enxf8e43b6cdf6c",
+        "device": "enx00e04c680731",
         "speed": 600,
         "bandwidth": {
             "value": 0,

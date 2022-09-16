@@ -17,5 +17,5 @@ def manage_get(self):
         manage_py_state(self)
 
 def manage_py_state(self):
-    data = parser_json.load_file_to_sock_data_encoded(param_py.path_state_py)
+    data = parser_json.load_data_from_file_utf8(param_py.path_state_py)
     http_server_fct.send_get_response(data, "application/json")
