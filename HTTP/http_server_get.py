@@ -18,4 +18,4 @@ def manage_get(self):
 
 def manage_py_state(self):
     data = parser_json.load_data_from_file_utf8(param_py.path_state_py)
-    http_server_fct.send_get_response(data, "application/json")
+    http_server_fct.send_get_response(self, data, "application/json")

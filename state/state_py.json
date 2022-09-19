@@ -8,10 +8,10 @@
     },
     "lidar_1": {
         "connected": false,
-        "activated": true,
+        "activated": false,
         "ip": "http://192.168.1.201/cgi/setting",
         "port": 2368,
-        "device": "docker0",
+        "device": "enx00e04c680731",
         "speed": 600,
         "bandwidth": {
             "value": 0,
@@ -31,8 +31,8 @@
         "activated": true,
         "ip": "http://192.168.2.201/cgi/setting",
         "port": 2369,
-        "device": "enx00e04c680731",
-        "speed": 600,
+        "device": "wlp2s0",
+        "speed": 660,
         "bandwidth": {
             "value": 0,
             "min": 0,
@@ -56,11 +56,11 @@
         "country": "France"
     },
     "device": {
-        "0": "enx00e04c680731",
-        "1": "any",
-        "2": "lo",
-        "3": "docker0",
-        "4": "wlp2s0",
+        "0": "wlp2s0",
+        "1": "enx00e04c680731",
+        "2": "any",
+        "3": "lo",
+        "4": "docker0",
         "5": "bluetooth0",
         "6": "bluetooth-monitor",
         "7": "nflog",

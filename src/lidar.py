@@ -28,34 +28,38 @@ def test_connection():
         capture.start_lidar_capture()
 
 def start_l1_motor():
-    speed = param_py.state_py["lidar_1"]["speed"]
     ip = param_py.state_py["lidar_1"]["ip"]
+    speed = param_py.state_py["lidar_1"]["speed"]
     data = {'rpm': str(speed),}
-    print("[\033[92mLID\033[0m] - LiDAR motor activated at \033[96m%d\033[0m rpm" % speed)
+
+    print("[\033[1;32mOK\033[0m] LiDAR 1 \033[1;32mstart\033[0m at \033[96m%d\033[0m rpm" % speed)
     if(send_lidar_parameter(data, ip) == False):
-        print("[\033[92mLID\033[0m] - %s does not exist" % ip)
+        print("[\033[1;31merror\033[0m] \033[96m%s\033[0m does not exist" % ip)
 
 def stop_l1_motor():
     ip = param_py.state_py["lidar_1"]["ip"]
     data = {'rpm': '0',}
-    print("[\033[92mLID\033[0m] - LiDAR motor desactivated")
+
+    print("[\033[1;32mOK\033[0m] LiDAR 1 \033[1;31mstop\033[0m")
     if(send_lidar_parameter(data, ip) == False):
-        print("[\033[92mLID\033[0m] - %s does not exist" % ip)
+        print("[\033[1;31merror\033[0m] \033[96m%s\033[0m does not exist" % ip)
 
 def start_l2_motor():
-    speed = param_py.state_py["lidar_2"]["speed"]
     ip = param_py.state_py["lidar_2"]["ip"]
+    speed = param_py.state_py["lidar_2"]["speed"]
     data = {'rpm': str(speed),}
-    print("[\033[92mLID\033[0m] - LiDAR motor activated at \033[96m%d\033[0m rpm" % speed)
+
+    print("[\033[1;32mOK\033[0m] LiDAR 2 \033[1;32mstart\033[0m at \033[96m%d\033[0m rpm" % speed)
     if(send_lidar_parameter(data, ip) == False):
-        print("[\033[92mLID\033[0m] - %s does not exist" % ip)
+        print("[\033[1;31merror\033[0m] \033[96m%s\033[0m does not exist" % ip)
 
 def stop_l2_motor():
     ip = param_py.state_py["lidar_2"]["ip"]
     data = {'rpm': '0',}
-    print("[\033[92mLID\033[0m] - LiDAR motor desactivated")
+
+    print("[\033[1;32mOK\033[0m] LiDAR 2 \033[1;31mstop\033[0m")
     if(send_lidar_parameter(data, ip) == False):
-        print("[\033[92mLID\033[0m] - %s does not exist" % ip)
+        print("[\033[1;31merror\033[0m] \033[96m%s\033[0m does not exist" % ip)
 
 def send_lidar_parameter(data, ip):
     try:

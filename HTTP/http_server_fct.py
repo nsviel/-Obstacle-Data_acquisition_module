@@ -1,6 +1,6 @@
 #---------------------------------------------
 
-def send_get_response(data, type):
+def send_get_response(self, data, type):
     try:
         self.send_response(200)
         self.send_header("Content-type", type)

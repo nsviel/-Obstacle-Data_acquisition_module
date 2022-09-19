@@ -7,7 +7,7 @@
 from param import param_py
 from HTTP import http_server_fct
 from src import parser_json
-from src import capture
+from src import command
 
 import json
 
@@ -19,24 +19,16 @@ def manage_post(self):
     elif(command == '/py_param'):
         manage_py_param(self)
 
-def manage_py_param(self):
-    payload = http_server_fct.retrieve_post_data(self)
-    if(payload != None):
-        data = json.loads(payload)
-        [lvl1, lvl2, lvl3] = http_server_fct.decipher_json(data)
-        param_py.state_py[lvl1][lvl2] = lvl3
-        if(str(lvl2) == "device" or str(lvl2) == "ip"):
-            capture.restart_capture()
-        if(str(lvl2) == "speed"):
-            lidar.start_l1_motor()
-            lidar.start_l2_motor()
-        if(str(lvl2) == "lidar_1"):
-            lidar.start_l1_motor()
-            lidar.start_l2_motor()
-
 def manage_py_state(self):
     payload = http_server_fct.retrieve_post_data(self)
     if(payload != None):
         data = json.loads(payload)
         param_py.state_py = data
         parser_json.upload_state()
+
+def manage_py_param(self):
+    payload = http_server_fct.retrieve_post_data(self)
+    if(payload != None):
+        data = json.loads(payload)
+        [lvl1, lvl2, lvl3] = http_server_fct.decipher_json(data)
+        command.manage_command(lvl1, lvl2, lvl3)
