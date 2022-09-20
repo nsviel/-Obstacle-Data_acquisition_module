@@ -15,10 +15,13 @@ def load_data_from_file_b(path):
     return data
 
 def load_data_from_file_utf8(path):
-    file = open(path)
-    data = json.load(file)
-    data_encoded = json.dumps(data).encode(encoding='utf_8')
-    return data_encoded
+    try:
+        file = open(path)
+        data = json.load(file)
+        data_encoded = json.dumps(data).encode(encoding='utf_8')
+        return data_encoded
+    except:
+        pass
 
 def upload_file(path, data):
     file = open(path, "w")
