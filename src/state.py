@@ -48,11 +48,13 @@ def load_config_file():
     param_py.state_py["lidar_1"]["ip"] = config["lidar_1"]["ip"]
     param_py.state_py["lidar_1"]["port"] = config["lidar_1"]["port"]
     param_py.state_py["lidar_1"]["device"] = config["lidar_1"]["device"]
+    param_py.state_py["lidar_1"]["activated"] = config["lidar_1"]["activated"]
     param_py.state_py["lidar_1"]["speed"] = config["lidar_1"]["speed"]
 
     param_py.state_py["lidar_2"]["ip"] = config["lidar_2"]["ip"]
     param_py.state_py["lidar_2"]["port"] = config["lidar_2"]["port"]
     param_py.state_py["lidar_2"]["device"] = config["lidar_2"]["device"]
+    param_py.state_py["lidar_2"]["activated"] = config["lidar_2"]["activated"]
     param_py.state_py["lidar_2"]["speed"] = config["lidar_2"]["speed"]
 
     param_py.state_py["hubium"]["sock_server_ip"] = config["hubium"]["sock_server_ip"]

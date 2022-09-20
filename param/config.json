@@ -8,12 +8,14 @@
       "ip": "http://192.168.1.201/cgi/setting",
       "port": 2368,
       "device": "enxa0cec8737a9e",
+      "activated": true,
       "speed": 600
   },
   "lidar_2": {
       "ip": "http://192.168.2.201/cgi/setting",
       "port": 2369,
       "device": "enxf8e43b6cdf6c",
+      "activated": true,
       "speed": 600
   },
   "hubium": {
