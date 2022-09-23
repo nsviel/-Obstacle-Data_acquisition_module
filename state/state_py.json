@@ -8,10 +8,10 @@
     },
     "lidar_1": {
         "connected": false,
-        "activated": false,
+        "activated": true,
         "ip": "http://192.168.1.201/cgi/setting",
         "port": 2368,
-        "device": "enx00e04c680731",
+        "device": "enxa0cec8737a9e",
         "speed": 600,
         "bandwidth": {
             "value": 0,
@@ -31,8 +31,8 @@
         "activated": true,
         "ip": "http://192.168.2.201/cgi/setting",
         "port": 2369,
-        "device": "wlp2s0",
-        "speed": 660,
+        "device": "enxf8e43b6cdf6c",
+        "speed": 600,
         "bandwidth": {
             "value": 0,
             "min": 0,
