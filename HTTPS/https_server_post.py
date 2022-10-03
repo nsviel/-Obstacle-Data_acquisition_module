@@ -5,7 +5,7 @@
 #---------------------------------------------
 
 from param import param_py
-from HTTP import http_server_fct
+from HTTPS import https_server_fct
 from src import parser_json
 from src import command
 
@@ -20,15 +20,15 @@ def manage_post(self):
         manage_py_param(self)
 
 def manage_py_state(self):
-    payload = http_server_fct.retrieve_post_data(self)
+    payload = https_server_fct.retrieve_post_data(self)
     if(payload != None):
         data = json.loads(payload)
         param_py.state_py = data
         parser_json.upload_state()
 
 def manage_py_param(self):
-    payload = http_server_fct.retrieve_post_data(self)
+    payload = https_server_fct.retrieve_post_data(self)
     if(payload != None):
         data = json.loads(payload)
-        [lvl1, lvl2, lvl3] = http_server_fct.decipher_json(data)
+        [lvl1, lvl2, lvl3] = https_server_fct.decipher_json(data)
         command.manage_command(lvl1, lvl2, lvl3)

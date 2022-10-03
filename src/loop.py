@@ -1,7 +1,7 @@
 #---------------------------------------------
 from param import param_py
 
-from HTTP import http_server
+from HTTPS import https_server
 from SOCK import sock_client
 
 from src import connection
@@ -31,7 +31,7 @@ def init():
     state.load_configuration()
     perf.start_daemon()
     connection.start_daemon()
-    http_server.start_daemon()
+    https_server.start_daemon()
     sock_client.connection()
     print("[\033[1;32mOK\033[0m] Program initialized...")
 
@@ -39,8 +39,15 @@ def loop():
     time.sleep(1)
 
 def end():
-    print("[\033[1;32mOK\033[0m] Program terminating...")
     parser_json.upload_file(param_py.path_state_py, param_py.state_py)
     connection.stop_daemon()
     perf.stop_daemon()
-    http_server.stop_daemon()
+    https_server.stop_daemon()
+    shutdown()
+
+def shutdown():
+    print("[\033[1;32mOK\033[0m] Program terminating", flush=True, end='')
+    print("...2", flush=True, end='')
+    time.sleep(1)
+    print("...1", flush=True)
+    time.sleep(1)

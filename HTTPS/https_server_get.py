@@ -5,7 +5,7 @@
 #---------------------------------------------
 
 from param import param_py
-from HTTP import http_server_fct
+from HTTPS import https_server_fct
 from src import parser_json
 
 
@@ -18,4 +18,4 @@ def manage_get(self):
 
 def manage_py_state(self):
     data = parser_json.load_data_from_file_utf8(param_py.path_state_py)
-    http_server_fct.send_get_response(self, data, "application/json")
+    https_server_fct.send_get_response(self, data, "application/json")

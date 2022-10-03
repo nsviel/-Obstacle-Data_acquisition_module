@@ -16,7 +16,7 @@ sock_client_ok = False
 sock_server_port = 1
 
 # HTTP
-http_server = None
+https_server = None
 http_server_daemon = None
 
 # Path
