@@ -17,7 +17,9 @@ def init_state():
     param_py.state_py["self"]["ip"] = connection.get_ip_adress()
 
     param_py.state_py["lidar_1"]["connected"] = False
+    param_py.state_py["lidar_1"]["running"] = False
     param_py.state_py["lidar_2"]["connected"] = False
+    param_py.state_py["lidar_2"]["running"] = False
 
     param_py.state_py["lidar_1"]["packet"]["value"] = 0
     param_py.state_py["lidar_1"]["packet"]["min"] = 0

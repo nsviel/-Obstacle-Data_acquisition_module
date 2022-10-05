@@ -1,6 +1,6 @@
 {
     "self": {
-        "ip": "192.168.153.180",
+        "ip": "10.201.20.68",
         "nb_thread": 5,
         "l1_port": 8308,
         "l2_port": 8309,
@@ -9,7 +9,8 @@
     "lidar_1": {
         "connected": false,
         "activated": true,
-        "ip": "http://192.168.1.201/cgi/setting",
+        "running": false,
+        "ip": "192.168.1.201",
         "port": 2368,
         "device": "enxa0cec8737a9e",
         "speed": 600,
@@ -29,7 +30,8 @@
     "lidar_2": {
         "connected": false,
         "activated": true,
-        "ip": "http://192.168.2.201/cgi/setting",
+        "running": false,
+        "ip": "192.168.2.201",
         "port": 2369,
         "device": "enxf8e43b6cdf6c",
         "speed": 600,
@@ -58,14 +60,15 @@
     "device": {
         "0": "wlp2s0",
         "1": "ztwdjfturv",
-        "2": "any",
-        "3": "lo",
-        "4": "docker0",
-        "5": "bluetooth0",
-        "6": "bluetooth-monitor",
-        "7": "nflog",
-        "8": "nfqueue",
-        "9": "dbus-system",
-        "10": "dbus-session"
+        "2": "enx00e04c680731",
+        "3": "any",
+        "4": "lo",
+        "5": "docker0",
+        "6": "bluetooth0",
+        "7": "bluetooth-monitor",
+        "8": "nflog",
+        "9": "nfqueue",
+        "10": "dbus-system",
+        "11": "dbus-session"
     }
 }
