@@ -12,6 +12,7 @@ def load_configuration():
 
 def load_json_file():
     param_py.state_py = parser_json.load_data_from_file(param_py.path_state_py)
+    param_py.state_net = parser_json.load_data_from_file(param_py.path_state_net)
 
 def init_state():
     param_py.state_py["self"]["ip"] = connection.get_ip_adress()
@@ -59,9 +60,9 @@ def load_config_file():
     param_py.state_py["lidar_2"]["activated"] = config["lidar_2"]["activated"]
     param_py.state_py["lidar_2"]["speed"] = config["lidar_2"]["speed"]
 
-    param_py.state_py["hubium"]["sock_server_ip"] = config["hubium"]["sock_server_ip"]
     param_py.state_py["hubium"]["sock_server_l1_port"] = config["hubium"]["sock_server_l1_port"]
     param_py.state_py["hubium"]["sock_server_l2_port"] = config["hubium"]["sock_server_l2_port"]
+    param_py.state_py["hubium"]["iperf_port"] = config["hubium"]["iperf_port"]
 
 def upload_state():
     parser_json.upload_file(param_py.path_state_py, param_py.state_py)
