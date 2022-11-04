@@ -26,17 +26,17 @@ def thread_perf_l1():
         try:
             if(param_py.state_py["lidar_1"]["connected"] and param_py.state_py["lidar_1"]["activated"]):
                 l1_mbs = perf_device(param_py.state_py["lidar_1"]["device"])
-                [bdw_list, bdw_min, bdw_mean, bdw_max] = compute_bandwidth(l1_mbs, bdw_list, bdw_min, bdw_max)
+                [bdw_list, bdw_min, bdw_mean, bdw_max] = compute_throughput(l1_mbs, bdw_list, bdw_min, bdw_max)
 
-                param_py.state_py["lidar_1"]["bandwidth"]["value"] = l1_mbs
-                param_py.state_py["lidar_1"]["bandwidth"]["min"] = bdw_min
-                param_py.state_py["lidar_1"]["bandwidth"]["mean"] = bdw_mean
-                param_py.state_py["lidar_1"]["bandwidth"]["max"] = bdw_max
+                param_py.state_py["lidar_1"]["throughput"]["value"] = l1_mbs
+                param_py.state_py["lidar_1"]["throughput"]["min"] = bdw_min
+                param_py.state_py["lidar_1"]["throughput"]["mean"] = bdw_mean
+                param_py.state_py["lidar_1"]["throughput"]["max"] = bdw_max
             else:
-                param_py.state_py["lidar_1"]["bandwidth"]["value"] = 0
-                param_py.state_py["lidar_1"]["bandwidth"]["min"] = 0
-                param_py.state_py["lidar_1"]["bandwidth"]["mean"] = 0
-                param_py.state_py["lidar_1"]["bandwidth"]["max"] = 0
+                param_py.state_py["lidar_1"]["throughput"]["value"] = 0
+                param_py.state_py["lidar_1"]["throughput"]["min"] = 0
+                param_py.state_py["lidar_1"]["throughput"]["mean"] = 0
+                param_py.state_py["lidar_1"]["throughput"]["max"] = 0
 
                 param_py.state_py["lidar_1"]["packet"]["value"] = 0
                 param_py.state_py["lidar_1"]["packet"]["min"] = 0
@@ -56,17 +56,17 @@ def thread_perf_l2():
         try:
             if(param_py.state_py["lidar_2"]["connected"] and param_py.state_py["lidar_2"]["activated"]):
                 l2_mbs = perf_device(param_py.state_py["lidar_2"]["device"])
-                [bdw_list, bdw_min, bdw_mean, bdw_max] = compute_bandwidth(l2_mbs, bdw_list, bdw_min, bdw_max)
+                [bdw_list, bdw_min, bdw_mean, bdw_max] = compute_throughput(l2_mbs, bdw_list, bdw_min, bdw_max)
 
-                param_py.state_py["lidar_2"]["bandwidth"]["value"] = l2_mbs
-                param_py.state_py["lidar_2"]["bandwidth"]["min"] = bdw_min
-                param_py.state_py["lidar_2"]["bandwidth"]["mean"] = bdw_mean
-                param_py.state_py["lidar_2"]["bandwidth"]["max"] = bdw_max
+                param_py.state_py["lidar_2"]["throughput"]["value"] = l2_mbs
+                param_py.state_py["lidar_2"]["throughput"]["min"] = bdw_min
+                param_py.state_py["lidar_2"]["throughput"]["mean"] = bdw_mean
+                param_py.state_py["lidar_2"]["throughput"]["max"] = bdw_max
             else:
-                param_py.state_py["lidar_2"]["bandwidth"]["value"] = 0
-                param_py.state_py["lidar_2"]["bandwidth"]["min"] = 0
-                param_py.state_py["lidar_2"]["bandwidth"]["mean"] = 0
-                param_py.state_py["lidar_2"]["bandwidth"]["max"] = 0
+                param_py.state_py["lidar_2"]["throughput"]["value"] = 0
+                param_py.state_py["lidar_2"]["throughput"]["min"] = 0
+                param_py.state_py["lidar_2"]["throughput"]["mean"] = 0
+                param_py.state_py["lidar_2"]["throughput"]["max"] = 0
 
                 param_py.state_py["lidar_2"]["packet"]["value"] = 0
                 param_py.state_py["lidar_2"]["packet"]["min"] = 0
@@ -77,7 +77,7 @@ def thread_perf_l2():
             time.sleep(1)
         time.sleep(0.05)
 
-def compute_bandwidth(value, list, min, max):
+def compute_throughput(value, list, min, max):
     # Mean
     list.append(value)
     if(len(list) == 25):
@@ -99,7 +99,7 @@ def compute_bandwidth(value, list, min, max):
     return [list, val_min, val_mean, val_max]
 
 def perf_device(device):
-    # Compute bandwidth
+    # Compute throughput
     net_stat = psutil.net_io_counters(pernic=True, nowrap=True)[device]
     net_in_1 = net_stat.bytes_recv
     time.sleep(1)

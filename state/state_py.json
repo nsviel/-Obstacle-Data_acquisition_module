@@ -1,6 +1,6 @@
 {
     "self": {
-        "ip": "192.168.167.42",
+        "ip": "192.168.17.42",
         "nb_thread": 6,
         "l1_port": 8308,
         "l2_port": 8309,
@@ -14,7 +14,7 @@
         "port": 2368,
         "device": "enxa0cec8737a9e",
         "speed": 600,
-        "bandwidth": {
+        "throughput": {
             "value": 0,
             "min": 0,
             "max": 0,
@@ -35,7 +35,7 @@
         "port": 2369,
         "device": "enxf8e43b6cdf6c",
         "speed": 600,
-        "bandwidth": {
+        "throughput": {
             "value": 0,
             "min": 0,
             "max": 0,
@@ -49,6 +49,7 @@
         }
     },
     "hubium": {
+        "connected": true,
         "ip": "127.0.0.1",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
@@ -62,9 +63,9 @@
         "1": "ztwdjfturv",
         "2": "any",
         "3": "lo",
-        "4": "br-7a750d0dd673",
-        "5": "br-8a34bbfcdb80",
-        "6": "docker0",
+        "4": "docker0",
+        "5": "br-7a750d0dd673",
+        "6": "br-8a34bbfcdb80",
         "7": "bluetooth0",
         "8": "bluetooth-monitor",
         "9": "nflog",

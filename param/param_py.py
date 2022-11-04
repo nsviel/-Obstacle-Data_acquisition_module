@@ -21,6 +21,11 @@ sock_server_port = 1
 https_server = None
 http_server_daemon = None
 
+# Network interruption
+has_been_connected = False
+has_been_deconnected = False
+interruption_time = 0
+
 # Path
 path_state_py = "state/state_py.json"
 path_state_net = "state/state_net.json"
