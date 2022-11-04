@@ -19,10 +19,10 @@ def ping(ip, list_latency, list_interruption):
         param_py.has_been_connected = True
         latency = float(data[id_b:id_e])
         specific.list_stack(list_latency, latency, 10)
-        param_py.state_net["local_cloud"]["latency"]["value"] = latency
-        param_py.state_net["local_cloud"]["latency"]["min"] = min(list_latency)
-        param_py.state_net["local_cloud"]["latency"]["max"] = max(list_latency)
-        param_py.state_net["local_cloud"]["latency"]["mean"] = specific.mean(list_latency)
+        param_py.state_perf["local_cloud"]["latency"]["value"] = latency
+        param_py.state_perf["local_cloud"]["latency"]["min"] = min(list_latency)
+        param_py.state_perf["local_cloud"]["latency"]["max"] = max(list_latency)
+        param_py.state_perf["local_cloud"]["latency"]["mean"] = specific.mean(list_latency)
 
         # Compute network interruption time
         if(param_py.has_been_deconnected):
@@ -30,10 +30,10 @@ def ping(ip, list_latency, list_interruption):
             interruption_end = datetime.datetime.now()
             delta = interruption_end - interruption_time
             specific.list_stack(list_interruption, delta, 10)
-            param_py.state_net["local_cloud"]["interruption"]["value"] = delta
-            param_py.state_net["local_cloud"]["interruption"]["min"] = min(list_interruption)
-            param_py.state_net["local_cloud"]["interruption"]["max"] = max(list_interruption)
-            param_py.state_net["local_cloud"]["interruption"]["mean"] = specific.mean(list_interruption)
+            param_py.state_perf["local_cloud"]["interruption"]["value"] = delta
+            param_py.state_perf["local_cloud"]["interruption"]["min"] = min(list_interruption)
+            param_py.state_perf["local_cloud"]["interruption"]["max"] = max(list_interruption)
+            param_py.state_perf["local_cloud"]["interruption"]["mean"] = specific.mean(list_interruption)
 
     # If any, compute interruption time
     if(data.find("100% packet loss") != -1 and param_py.has_been_connected):

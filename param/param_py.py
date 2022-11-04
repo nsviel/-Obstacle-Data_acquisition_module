@@ -2,7 +2,7 @@
 
 # State
 state_py = {}
-state_net = {}
+state_perf = {}
 
 # Thread
 run_loop = True;
@@ -10,7 +10,8 @@ run_thread_con = False
 run_thread_perf = False
 run_thread_l1 = False
 run_thread_l2 = False
-run_thread_net = False
+run_thread_perf_client = False
+run_thread_perf_server = False
 
 # Socket
 sock_client = None
@@ -28,5 +29,5 @@ interruption_time = 0
 
 # Path
 path_state_py = "state/state_py.json"
-path_state_net = "state/state_net.json"
+path_state_perf = "state/state_perf.json"
 path_config = "param/config.json"

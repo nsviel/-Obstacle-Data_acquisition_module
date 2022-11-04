@@ -2,7 +2,8 @@
   "self": {
       "l1_port": 8308,
       "l2_port": 8309,
-      "http_server_port": 314
+      "http_server_port": 314,
+      "iperf_port": 6970
   },
   "lidar_1": {
       "ip": "192.168.1.201",

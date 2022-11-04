@@ -4,7 +4,8 @@ from param import param_py
 from HTTPS import https_server
 from SOCK import sock_client
 from perf import perf_lidar_bandwidth
-from perf import perf_network_client
+from perf import perf_client_network
+from perf import perf_server_network
 
 from src import connection
 from src import state
@@ -34,7 +35,8 @@ def init():
     connection.start_daemon()
     https_server.start_daemon()
     sock_client.connection()
-    perf_network_client.start_daemon()
+    perf_client_network.start_daemon()
+    perf_server_network.start_daemon()
     print("[\033[1;32mOK\033[0m] Program initialized...")
 
 def loop():
@@ -43,9 +45,10 @@ def loop():
 def end():
     parser_json.upload_file(param_py.path_state_py, param_py.state_py)
     connection.stop_daemon()
-    perf_lidar_bandwidth.stop_daemon()
     https_server.stop_daemon()
-    perf_network_client.stop_daemon()
+    perf_lidar_bandwidth.stop_daemon()
+    perf_client_network.stop_daemon()
+    perf_server_network.stop_daemon()
     shutdown()
 
 def shutdown():

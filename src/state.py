@@ -7,13 +7,13 @@ from src import parser_json
 def load_configuration():
     load_json_file()
     init_state_py()
-    init_state_net()
+    init_state_perf()
     load_config_file()
     upload_state()
 
 def load_json_file():
     param_py.state_py = parser_json.load_data_from_file(param_py.path_state_py)
-    param_py.state_net = parser_json.load_data_from_file(param_py.path_state_net)
+    param_py.state_perf = parser_json.load_data_from_file(param_py.path_state_perf)
 
 def init_state_py():
     param_py.state_py["self"]["ip"] = connection.get_ip_adress()
@@ -43,39 +43,53 @@ def init_state_py():
     param_py.state_py["lidar_2"]["throughput"]["mean"] = 0
     param_py.state_py["lidar_2"]["throughput"]["max"] = 0
 
-def init_state_net():
-    param_py.state_net["local_cloud"]["time"] = 0
+def init_state_perf():
+    param_py.state_perf["local_cloud"]["time"] = 0
+    param_py.state_perf["local_cloud"]["bandwidth"]["value"] = 0
+    param_py.state_perf["local_cloud"]["bandwidth"]["min"] = 0
+    param_py.state_perf["local_cloud"]["bandwidth"]["max"] = 0
+    param_py.state_perf["local_cloud"]["bandwidth"]["mean"] = 0
+    param_py.state_perf["local_cloud"]["latency"]["value"] = 0
+    param_py.state_perf["local_cloud"]["latency"]["min"] = 0
+    param_py.state_perf["local_cloud"]["latency"]["max"] = 0
+    param_py.state_perf["local_cloud"]["latency"]["mean"] = 0
+    param_py.state_perf["local_cloud"]["jitter"]["value"] = 0
+    param_py.state_perf["local_cloud"]["jitter"]["min"] = 0
+    param_py.state_perf["local_cloud"]["jitter"]["max"] = 0
+    param_py.state_perf["local_cloud"]["jitter"]["mean"] = 0
+    param_py.state_perf["local_cloud"]["reliability"]["value"] = 0
+    param_py.state_perf["local_cloud"]["reliability"]["min"] = 0
+    param_py.state_perf["local_cloud"]["reliability"]["max"] = 0
+    param_py.state_perf["local_cloud"]["reliability"]["mean"] = 0
+    param_py.state_perf["local_cloud"]["interruption"]["value"] = 0
+    param_py.state_perf["local_cloud"]["interruption"]["min"] = 0
+    param_py.state_perf["local_cloud"]["interruption"]["max"] = 0
+    param_py.state_perf["local_cloud"]["interruption"]["mean"] = 0
 
-    param_py.state_net["local_cloud"]["bandwidth"]["value"] = 0
-    param_py.state_net["local_cloud"]["bandwidth"]["min"] = 0
-    param_py.state_net["local_cloud"]["bandwidth"]["max"] = 0
-    param_py.state_net["local_cloud"]["bandwidth"]["mean"] = 0
-
-    param_py.state_net["local_cloud"]["latency"]["value"] = 0
-    param_py.state_net["local_cloud"]["latency"]["min"] = 0
-    param_py.state_net["local_cloud"]["latency"]["max"] = 0
-    param_py.state_net["local_cloud"]["latency"]["mean"] = 0
-
-    param_py.state_net["local_cloud"]["jitter"]["value"] = 0
-    param_py.state_net["local_cloud"]["jitter"]["min"] = 0
-    param_py.state_net["local_cloud"]["jitter"]["max"] = 0
-    param_py.state_net["local_cloud"]["jitter"]["mean"] = 0
-
-    param_py.state_net["local_cloud"]["reliability"]["value"] = 0
-    param_py.state_net["local_cloud"]["reliability"]["min"] = 0
-    param_py.state_net["local_cloud"]["reliability"]["max"] = 0
-    param_py.state_net["local_cloud"]["reliability"]["mean"] = 0
-
-    param_py.state_net["local_cloud"]["interruption"]["value"] = 0
-    param_py.state_net["local_cloud"]["interruption"]["min"] = 0
-    param_py.state_net["local_cloud"]["interruption"]["max"] = 0
-    param_py.state_net["local_cloud"]["interruption"]["mean"] = 0
+    param_py.state_perf["cloud_local"]["time"] = 0
+    param_py.state_perf["cloud_local"]["bandwidth"]["value"] = 0
+    param_py.state_perf["cloud_local"]["bandwidth"]["min"] = 0
+    param_py.state_perf["cloud_local"]["bandwidth"]["max"] = 0
+    param_py.state_perf["cloud_local"]["bandwidth"]["mean"] = 0
+    param_py.state_perf["cloud_local"]["latency"]["value"] = 0
+    param_py.state_perf["cloud_local"]["latency"]["min"] = 0
+    param_py.state_perf["cloud_local"]["latency"]["max"] = 0
+    param_py.state_perf["cloud_local"]["latency"]["mean"] = 0
+    param_py.state_perf["cloud_local"]["jitter"]["value"] = 0
+    param_py.state_perf["cloud_local"]["jitter"]["min"] = 0
+    param_py.state_perf["cloud_local"]["jitter"]["max"] = 0
+    param_py.state_perf["cloud_local"]["jitter"]["mean"] = 0
+    param_py.state_perf["cloud_local"]["reliability"]["value"] = 0
+    param_py.state_perf["cloud_local"]["reliability"]["min"] = 0
+    param_py.state_perf["cloud_local"]["reliability"]["max"] = 0
+    param_py.state_perf["cloud_local"]["reliability"]["mean"] = 0
 
 def load_config_file():
     config = parser_json.load_data_from_file(param_py.path_config)
     param_py.state_py["self"]["http_server_port"] = config["self"]["http_server_port"]
     param_py.state_py["self"]["l1_port"] = config["self"]["l1_port"]
     param_py.state_py["self"]["l2_port"] = config["self"]["l2_port"]
+    param_py.state_py["self"]["iperf_port"] = config["self"]["iperf_port"]
 
     param_py.state_py["lidar_1"]["ip"] = config["lidar_1"]["ip"]
     param_py.state_py["lidar_1"]["port"] = config["lidar_1"]["port"]
@@ -95,4 +109,4 @@ def load_config_file():
 
 def upload_state():
     parser_json.upload_file(param_py.path_state_py, param_py.state_py)
-    parser_json.upload_file(param_py.path_state_net, param_py.state_net)
+    parser_json.upload_file(param_py.path_state_perf, param_py.state_perf)

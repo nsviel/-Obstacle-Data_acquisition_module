@@ -1,14 +1,14 @@
 # Required
-uplink_data_rate 5-20 Mb/s -> iperf                     -> ok
+uplink_data_rate 5-20 Mb/s -> iperf                            -> ok
 downlink_data_rate 5- 20 Mb/s -> iperf
-uplink_cloud_end_to_end_latency < 200 ms -> ping        -> ok
+uplink_cloud_end_to_end_latency < 200 ms -> ping                -> ok
 downlink_cloud_end_to_end_latency < 200 ms -> ping
-uplink_reliability >= 99 % -> iperf                     -> ok
+uplink_reliability >= 99 % -> iperf                             -> ok
 downlink_reliability >= 99 % -> iperf
-time_for_service_warning 1.6 - 2 s -> end to end time
-mobility_interruption_time <1s -> time for no connection
+time_for_service_warning 1.6 - 2 s -> 1 frame -> time slam + AI
+mobility_interruption_time <1s -> time for no connection        -> ok
 
 # Added
-data_throughput = lidar_bandwitch -> psutil             -> ok
-uplink_cloud_jitter -> iperf                            -> ok
-downlink_cloud_jitter -> iperf                          -> ok
+data_throughput = lidar_bandwitch -> psutil                     -> ok
+uplink_cloud_jitter -> iperf                                    -> ok
+downlink_cloud_jitter -> iperf                                  -> ok
