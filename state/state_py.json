@@ -51,7 +51,7 @@
     },
     "hubium": {
         "connected": true,
-        "ip": "192.168.17.42",
+        "ip": "127.0.0.1",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "iperf_port": 6969

@@ -14,7 +14,6 @@ def process_perf_server(ip, port):
     client.blksize = 1240
     client.protocol = 'udp'
     client.verbose = False
-    client.reverse = True
     client.json_output = True
     result = client.run()
     parse_result(result)

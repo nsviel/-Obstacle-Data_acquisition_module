@@ -84,6 +84,10 @@ def init_state_perf():
     param_py.state_perf["cloud_local"]["reliability"]["max"] = 0
     param_py.state_perf["cloud_local"]["reliability"]["mean"] = 0
 
+    param_py.state_perf["end_to_end"]["time_slam"] = 0
+    param_py.state_perf["end_to_end"]["time_ai"] = 0
+    param_py.state_perf["end_to_end"]["time_total"] = 0
+
 def load_config_file():
     config = parser_json.load_data_from_file(param_py.path_config)
     param_py.state_py["self"]["http_server_port"] = config["self"]["http_server_port"]
