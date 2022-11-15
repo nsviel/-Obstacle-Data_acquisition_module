@@ -30,6 +30,8 @@ def thread_perf_server():
         port = param_py.state_py["hubium"]["iperf_port"]
         process_net = mp.Process(target = perf_client_iperf.process_perf_server, args = (ip, port))
         process_net.start()
+        time.sleep(1)
+        process_net.terminate()
         process_net.join()
         perf_client_iperf.compute_net_state(list_bandwidth, list_reliability, list_jitter)
         perf_client_ping.ping(ip, list_latency, list_interruption)

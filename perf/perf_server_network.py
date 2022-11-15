@@ -6,7 +6,7 @@ from perf import perf_server_iperf
 import multiprocessing as mp
 
 import os
-
+import time
 
 def start_daemon():
     thread_con = Thread(target = thread_perf_server)
@@ -24,4 +24,6 @@ def thread_perf_server():
         port = param_py.state_py["self"]["iperf_port"]
         process_net = mp.Process(target = perf_server_iperf.process_perf_server, args = (port,))
         process_net.start()
+        time.sleep(1)
+        process_net.terminate()
         process_net.join()
