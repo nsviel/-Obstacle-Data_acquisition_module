@@ -6,6 +6,7 @@ from HTTPS import https_server_post
 from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 
 import threading
+import os
 
 
 class S(BaseHTTPRequestHandler):
@@ -19,12 +20,16 @@ class S(BaseHTTPRequestHandler):
         return
 
 def start_daemon(server_class=HTTPServer, handler_class=S):
-    port = param_py.state_py["self"]["http_server_port"]
-    address = ("", port)
-    param_py.https_server = ThreadingHTTPServer(address, handler_class)
-    param_py.http_server_daemon = threading.Thread(target=param_py.https_server.serve_forever)
-    param_py.http_server_daemon.daemon = True
-    param_py.http_server_daemon.start()
+    address = ("", param_py.state_py["self"]["http_server_port"])
+
+    try:
+        param_py.https_server = ThreadingHTTPServer(address, handler_class)
+        param_py.http_server_daemon = threading.Thread(target=param_py.https_server.serve_forever)
+        param_py.http_server_daemon.daemon = True
+        param_py.http_server_daemon.start()
+    except:
+        print("[\033[1;31merror\033[0m] Address already in use")
+        os.system("sudo kill -9 $(ps -A | grep python | awk '{print $1}')")
 
 def stop_daemon():
     param_py.https_server.shutdown()

@@ -1,15 +1,15 @@
 #---------------------------------------------
 from param import param_py
-from threading import Thread
 from perf import perf_server_iperf
 
 import multiprocessing as mp
-
+import threading
 import os
 import time
 
+
 def start_daemon():
-    thread_con = Thread(target = thread_perf_server)
+    thread_con = threading.Thread(target = thread_perf_server)
     thread_con.start()
 
 def stop_daemon():

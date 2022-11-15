@@ -6,15 +6,13 @@ from src import capture
 from src import parser_json
 from src import device
 
-from threading import Thread
-
 import threading
 import socket
 import time
 
 
 def start_daemon():
-    thread_con = Thread(target = thread_test_connection)
+    thread_con = threading.Thread(target = thread_test_connection)
     thread_con.start()
 
 def stop_daemon():

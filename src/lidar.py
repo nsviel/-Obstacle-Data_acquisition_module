@@ -32,29 +32,29 @@ def start_l1_motor():
     speed = param_py.state_py["lidar_1"]["speed"]
     data = {'rpm': str(speed),}
     if(send_lidar_parameter(ip, data)):
-        print("[\033[1;32mOK\033[0m] LiDAR 1 \033[1;32mstart\033[0m at \033[96m%d\033[0m rpm" % speed)
+        print("[\033[1;32mOK\033[0m] LiDAR \033[96m1\033[0m motor \033[1;32mON\033[0m at \033[96m%d\033[0m rpm" % speed)
         param_py.state_py["lidar_1"]["running"] = True
 
 def stop_l1_motor():
     ip = param_py.state_py["lidar_1"]["ip"]
     data = {'rpm': '0',}
     if(send_lidar_parameter(ip, data)):
-        print("[\033[1;32mOK\033[0m] LiDAR 1 \033[1;31mstop\033[0m")
+        print("[\033[1;32mOK\033[0m] LiDAR \033[96m1\033[0m motor \033[1;31mOFF\033[0m")
         param_py.state_py["lidar_1"]["running"] = False
 
 def start_l2_motor():
     ip = param_py.state_py["lidar_2"]["ip"]
     speed = param_py.state_py["lidar_2"]["speed"]
-    data = {'rpm': str(speed),}
-    if(send_lidar_parameter(ip, data) == False):
-        print("[\033[1;32mOK\033[0m] LiDAR 2 \033[1;32mstart\033[0m at \033[96m%d\033[0m rpm" % speed)
+    data = {'rpm': speed,}
+    if(send_lidar_parameter(ip, data)):
+        print("[\033[1;32mOK\033[0m] LiDAR \033[96m2\033[0m motor \033[1;32mON\033[0m at \033[96m%d\033[0m rpm" % speed)
         param_py.state_py["lidar_2"]["running"] = True
 
 def stop_l2_motor():
     ip = param_py.state_py["lidar_2"]["ip"]
     data = {'rpm': '0',}
     if(send_lidar_parameter(ip, data)):
-        print("[\033[1;32mOK\033[0m] LiDAR 2 \033[1;31mstop\033[0m")
+        print("[\033[1;32mOK\033[0m] LiDAR \033[96m2\033[0m motor \033[1;31mOFF\033[0m")
         param_py.state_py["lidar_2"]["running"] = False
 
 def send_lidar_parameter(ip, data):

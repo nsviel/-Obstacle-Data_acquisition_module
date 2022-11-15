@@ -1,16 +1,15 @@
 #---------------------------------------------
 from param import param_py
 
-from threading import Thread
-
+import threading
 import queue
 import time
 import psutil
 
 
 def start_daemon():
-    thread_l1 = Thread(target = thread_perf_l1)
-    thread_l2 = Thread(target = thread_perf_l2)
+    thread_l1 = threading.Thread(target = thread_perf_l1)
+    thread_l2 = threading.Thread(target = thread_perf_l2)
     thread_l1.start()
     thread_l2.start()
 
