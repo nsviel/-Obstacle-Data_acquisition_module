@@ -1,6 +1,6 @@
 {
     "self": {
-        "ip": "192.168.17.42",
+        "ip": "10.201.20.68",
         "nb_thread": 7,
         "l1_port": 8308,
         "l2_port": 8309,
@@ -62,17 +62,17 @@
     "device": {
         "0": "wlp2s0",
         "1": "ztwdjfturv",
-        "2": "any",
-        "3": "lo",
-        "4": "docker0",
-        "5": "br-7a750d0dd673",
-        "6": "br-8a34bbfcdb80",
-        "7": "bluetooth0",
-        "8": "bluetooth-monitor",
-        "9": "nflog",
-        "10": "nfqueue",
-        "11": "dbus-system",
-        "12": "dbus-session",
+        "2": "enx00e04c680731",
+        "3": "any",
+        "4": "lo",
+        "5": "docker0",
+        "6": "br-7a750d0dd673",
+        "7": "br-8a34bbfcdb80",
+        "8": "bluetooth0",
+        "9": "bluetooth-monitor",
+        "10": "nflog",
+        "11": "nfqueue",
+        "12": "dbus-system",
         "13": "dbus-session"
     }
 }

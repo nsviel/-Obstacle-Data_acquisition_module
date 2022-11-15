@@ -8,10 +8,10 @@
             "mean": 0.0
         },
         "latency": {
-            "value": 0.051,
-            "min": 0.025,
-            "max": 0.051,
-            "mean": 0.038
+            "value": 0.06,
+            "min": 0.022,
+            "max": 0.06,
+            "mean": 0.04
         },
         "jitter": {
             "value": 0,
