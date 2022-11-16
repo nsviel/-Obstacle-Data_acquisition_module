@@ -1,7 +1,7 @@
 {
     "self": {
         "ip": "192.168.153.38",
-        "nb_thread": 9,
+        "nb_thread": 8,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314,
@@ -13,7 +13,7 @@
         "running": false,
         "ip": "192.168.1.201",
         "port": 2368,
-        "device": "enxf8e43b6cdf6c",
+        "device": "enxa0cec8737a9e",
         "speed": 600,
         "throughput": {
             "value": 0,
@@ -38,12 +38,12 @@
         "speed": 600,
         "throughput": {
             "value": 0.959,
-            "min": 0.048,
-            "max": 0.963,
-            "mean": 0.9593750000000001
+            "min": 0.954,
+            "max": 0.962,
+            "mean": 0.9591666666666664
         },
         "packet": {
-            "value": 63181,
+            "value": 89358,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -60,20 +60,21 @@
         "country": "France"
     },
     "device": {
-        "0": "enxf8e43b6cdf6c",
-        "1": "wlp2s0",
-        "2": "ztwdjfturv",
+        "0": "wlp2s0",
+        "1": "ztwdjfturv",
+        "2": "enxf8e43b6cdf6c",
         "3": "any",
         "4": "lo",
-        "5": "enx00e04c680731",
-        "6": "docker0",
-        "7": "br-7a750d0dd673",
-        "8": "br-8a34bbfcdb80",
+        "5": "docker0",
+        "6": "br-7a750d0dd673",
+        "7": "br-8a34bbfcdb80",
+        "8": "enx00e04c680731",
         "9": "bluetooth0",
         "10": "bluetooth-monitor",
         "11": "nflog",
         "12": "nfqueue",
         "13": "dbus-system",
-        "14": "dbus-session"
+        "14": "dbus-session",
+        "15": "dbus-session"
     }
 }

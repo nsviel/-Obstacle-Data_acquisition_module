@@ -17,20 +17,20 @@ def stop_daemon():
     param_py.run_thread_perf = False
 
 def thread_perf_l1():
-    bdw_min = 1000
-    bdw_max = 0
-    bdw_list = []
+    tgp_min = 1000
+    tgp_max = 0
+    tgp_list = []
     param_py.run_thread_perf = True
     while param_py.run_thread_perf:
         try:
             if(param_py.state_py["lidar_1"]["connected"] and param_py.state_py["lidar_1"]["activated"]):
                 l1_mbs = perf_device(param_py.state_py["lidar_1"]["device"])
-                [bdw_list, bdw_min, bdw_mean, bdw_max] = compute_throughput(l1_mbs, bdw_list, bdw_min, bdw_max)
+                [tgp_list, tgp_min, tgp_mean, tgp_max] = compute_throughput(l1_mbs, tgp_list, tgp_min, tgp_max)
 
                 param_py.state_py["lidar_1"]["throughput"]["value"] = l1_mbs
-                param_py.state_py["lidar_1"]["throughput"]["min"] = bdw_min
-                param_py.state_py["lidar_1"]["throughput"]["mean"] = bdw_mean
-                param_py.state_py["lidar_1"]["throughput"]["max"] = bdw_max
+                param_py.state_py["lidar_1"]["throughput"]["min"] = tgp_min
+                param_py.state_py["lidar_1"]["throughput"]["mean"] = tgp_mean
+                param_py.state_py["lidar_1"]["throughput"]["max"] = tgp_max
             else:
                 param_py.state_py["lidar_1"]["throughput"]["value"] = 0
                 param_py.state_py["lidar_1"]["throughput"]["min"] = 0
@@ -47,20 +47,20 @@ def thread_perf_l1():
         time.sleep(0.05)
 
 def thread_perf_l2():
-    bdw_min = 1000
-    bdw_max = 0
-    bdw_list = [0]
+    tgp_min = 1000
+    tgp_max = 0
+    tgp_list = [0]
     param_py.run_thread_perf = True
     while param_py.run_thread_perf:
         try:
             if(param_py.state_py["lidar_2"]["connected"] and param_py.state_py["lidar_2"]["activated"]):
                 l2_mbs = perf_device(param_py.state_py["lidar_2"]["device"])
-                [bdw_list, bdw_min, bdw_mean, bdw_max] = compute_throughput(l2_mbs, bdw_list, bdw_min, bdw_max)
+                [tgp_list, tgp_min, tgp_mean, tgp_max] = compute_throughput(l2_mbs, tgp_list, tgp_min, tgp_max)
 
                 param_py.state_py["lidar_2"]["throughput"]["value"] = l2_mbs
-                param_py.state_py["lidar_2"]["throughput"]["min"] = bdw_min
-                param_py.state_py["lidar_2"]["throughput"]["mean"] = bdw_mean
-                param_py.state_py["lidar_2"]["throughput"]["max"] = bdw_max
+                param_py.state_py["lidar_2"]["throughput"]["min"] = tgp_min
+                param_py.state_py["lidar_2"]["throughput"]["mean"] = tgp_mean
+                param_py.state_py["lidar_2"]["throughput"]["max"] = tgp_max
             else:
                 param_py.state_py["lidar_2"]["throughput"]["value"] = 0
                 param_py.state_py["lidar_2"]["throughput"]["min"] = 0

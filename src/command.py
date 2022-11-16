@@ -5,7 +5,12 @@ from src import lidar
 
 
 def manage_command(lvl1, lvl2, lvl3):
-    if(lvl1 != None and lvl1 != "null"):
+    if(lvl1 == "hubium" and lvl2 == "ip"):
+        if(lvl3 == param_py.state_py["self"]["ip"]):
+            param_py.state_py["hubium"]["ip"] = "127.0.0.1"
+        else:
+            param_py.state_py["hubium"]["ip"] = lvl3
+    elif(lvl1 != None and lvl1 != "null"):
         param_py.state_py[lvl1][lvl2] = lvl3
         if(str(lvl2) == "device"):
             capture.restart_capture()
