@@ -6,7 +6,7 @@ ENV TZ Europe/Paris
 # Install dependancy packages
 RUN apt update \
     && apt install -y \
-    python3 python3-pip python3-pcapy python3-scapy libiperf0 \
+    python3 python3-pip python3-pcapy python3-scapy libiperf0 iputils-ping \
     && pip3 install scapy requests pandas psutil iperf3 \
     && rm -rf /var/lib/apt/lists/*
 
