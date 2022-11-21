@@ -39,11 +39,11 @@
         "throughput": {
             "value": 0.959,
             "min": 0.954,
-            "max": 0.962,
-            "mean": 0.9591666666666664
+            "max": 1.021,
+            "mean": 0.9592499999999998
         },
         "packet": {
-            "value": 89358,
+            "value": 2492651,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -61,20 +61,20 @@
     },
     "device": {
         "0": "wlp2s0",
-        "1": "ztwdjfturv",
-        "2": "enxf8e43b6cdf6c",
+        "1": "enxf8e43b6cdf6c",
+        "2": "ztwdjfturv",
         "3": "any",
         "4": "lo",
-        "5": "docker0",
-        "6": "br-7a750d0dd673",
-        "7": "br-8a34bbfcdb80",
-        "8": "enx00e04c680731",
-        "9": "bluetooth0",
-        "10": "bluetooth-monitor",
-        "11": "nflog",
-        "12": "nfqueue",
-        "13": "dbus-system",
+        "5": "enx00e04c680731",
+        "6": "docker0",
+        "7": "bluetooth0",
+        "8": "bluetooth-monitor",
+        "9": "nflog",
+        "10": "nfqueue",
+        "11": "dbus-system",
+        "12": "dbus-session",
+        "13": "dbus-session",
         "14": "dbus-session",
-        "15": "dbus-session"
+        "15": "vethef9f831"
     }
 }
