@@ -12,7 +12,28 @@ def update_list():
         cpt = cpt + 1
 
 def get_all_device():
-    return pcapy.findalldevs()
+    devices = pcapy.findalldevs()
+    for d in devices :
+        if(d == "any"):
+            devices.remove("any")
+        elif(d == "lo"):
+            devices.remove("lo")
+        elif(d == "docker0"):
+            devices.remove("docker0")
+        elif(d == "dbus-system"):
+            devices.remove("dbus-system")
+        elif(d == "dbus-session"):
+            devices.remove("dbus-session")
+        elif(d == "bluetooth0"):
+            devices.remove("bluetooth0")
+        elif(d == "bluetooth-monitor"):
+            devices.remove("bluetooth-monitor")
+        elif(d == "nflog"):
+            devices.remove("nflog")
+        elif(d == "nfqueue"):
+            devices.remove("nfqueue")
+
+    return devices
 
 def check_if_device_exists(name):
     devices = get_all_device()
