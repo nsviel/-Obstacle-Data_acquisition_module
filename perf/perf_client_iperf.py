@@ -11,6 +11,7 @@ def process_perf_client(ip, port):
     client.duration = 1
     client.server_hostname = ip
     client.port = port
+    client.bandwidth = 20000000
     client.blksize = 1230
     client.protocol = 'udp'
     client.verbose = False
