@@ -1,10 +1,11 @@
 #---------------------------------------------
+from param import param_py
 import iperf3
 
 
 def process_perf_server(port):
     server = iperf3.Server()
-    server.bind_address = '127.0.0.1'
+    server.bind_address = param_py.state_py["self"]["ip"]
     server.port = port
     server.verbose = False
     server.json_output = True

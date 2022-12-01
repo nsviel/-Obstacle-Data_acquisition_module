@@ -11,7 +11,7 @@ def process_perf_server(ip, port):
     client.duration = 1
     client.server_hostname = ip
     client.port = port
-    client.blksize = 1240
+    client.blksize = 1230
     client.protocol = 'udp'
     client.verbose = False
     client.json_output = True
