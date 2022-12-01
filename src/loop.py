@@ -36,6 +36,7 @@ def init():
     sock_client.connection()
     perf_throughput.start_daemon()
     perf_client_network.start_daemon()
+    perf_server_network.start_daemon()
     print("[\033[1;32mOK\033[0m] Program initialized...")
 
 def loop():
@@ -47,6 +48,7 @@ def end():
     https_server.stop_daemon()
     perf_throughput.stop_daemon()
     perf_client_network.stop_daemon()
+    perf_server_network.stop_daemon()
     shutdown()
 
 def shutdown():
