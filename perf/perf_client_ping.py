@@ -28,8 +28,8 @@ def ping(ip, list_latency, list_interruption):
         if(param_py.has_been_deconnected):
             param_py.has_been_deconnected = False
             interruption_end = datetime.datetime.now()
-            delta = interruption_end - interruption_time
-            specific.list_stack(list_interruption, delta, 10)
+            delta = interruption_end - param_py.interruption_time
+            specific.list_stack(list_interruption, delta.total_seconds(), 10)
             param_py.state_perf["local_cloud"]["interruption"]["value"] = delta
             param_py.state_perf["local_cloud"]["interruption"]["min"] = min(list_interruption)
             param_py.state_perf["local_cloud"]["interruption"]["max"] = max(list_interruption)
@@ -38,4 +38,4 @@ def ping(ip, list_latency, list_interruption):
     # If any, compute interruption time
     if(data.find("100% packet loss") != -1 and param_py.has_been_connected):
         param_py.has_been_deconnected = True
-        interruption_time = datetime.datetime.now()
+        param_py.interruption_time = datetime.datetime.now()
