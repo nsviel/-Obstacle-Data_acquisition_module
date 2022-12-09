@@ -4,12 +4,15 @@ import iperf3
 
 
 def process_perf_server(port):
-    server = iperf3.Server()
-    server.bind_address = param_py.state_py["self"]["ip"]
-    server.port = port
-    server.verbose = False
-    server.json_output = True
-    result = server.run()
+    try:
+        server = iperf3.Server()
+        server.bind_address = param_py.state_py["self"]["ip"]
+        server.port = port
+        server.verbose = False
+        server.json_output = True
+        result = server.run()
+    except:
+        pass
 
 def print_result(result):
     try:

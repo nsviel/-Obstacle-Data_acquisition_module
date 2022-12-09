@@ -48,3 +48,14 @@ def get_ip_adress():
 
 def update_nb_thread():
     param_py.state_py["self"]["nb_thread"] = threading.active_count()
+
+def check_port_open(port):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    result = sock.connect_ex(('127.0.0.1', port))
+    is_open = False
+    if result == 0:
+       is_open = True
+    else:
+        print("[\033[1;31merror\033[0m] Port \033[1;32m%d\033[0m is closed"% port)
+    sock.close()
+    return is_open;

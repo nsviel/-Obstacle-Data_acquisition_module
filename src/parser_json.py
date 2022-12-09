@@ -24,8 +24,11 @@ def load_data_from_file_utf8(path):
         pass
 
 def upload_file(path, data):
-    file = open(path, "w")
-    json.dump(data, file, indent=4)
+    try:
+        file = open(path, "w")
+        json.dump(data, file, indent=4)
+    except:
+        pass
 
 def upload_state():
     file = open(param_py.path_state_py, "w")
