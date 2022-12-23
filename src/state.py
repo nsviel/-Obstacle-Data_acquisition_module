@@ -27,6 +27,7 @@ def init_state_py():
     param_py.state_py["lidar_1"]["packet"]["min"] = 0
     param_py.state_py["lidar_1"]["packet"]["mean"] = 0
     param_py.state_py["lidar_1"]["packet"]["max"] = 0
+    param_py.state_py["lidar_1"]["packet"]["sent"] = 0
 
     param_py.state_py["lidar_1"]["throughput"]["value"] = 0
     param_py.state_py["lidar_1"]["throughput"]["min"] = 0
@@ -37,6 +38,7 @@ def init_state_py():
     param_py.state_py["lidar_2"]["packet"]["min"] = 0
     param_py.state_py["lidar_2"]["packet"]["mean"] = 0
     param_py.state_py["lidar_2"]["packet"]["max"] = 0
+    param_py.state_py["lidar_2"]["packet"]["sent"] = 0
 
     param_py.state_py["lidar_2"]["throughput"]["value"] = 0
     param_py.state_py["lidar_2"]["throughput"]["min"] = 0
@@ -93,7 +95,9 @@ def load_config_file():
     param_py.state_py["self"]["http_server_port"] = config["self"]["http_server_port"]
     param_py.state_py["self"]["l1_port"] = config["self"]["l1_port"]
     param_py.state_py["self"]["l2_port"] = config["self"]["l2_port"]
-    param_py.state_py["self"]["iperf_port"] = config["self"]["iperf_port"]
+
+    param_py.state_py["perf"]["iperf_activated"] = config["perf"]["iperf_activated"]
+    param_py.state_py["perf"]["iperf_port"] = config["perf"]["iperf_port"]
 
     param_py.state_py["lidar_1"]["ip"] = config["lidar_1"]["ip"]
     param_py.state_py["lidar_1"]["port"] = config["lidar_1"]["port"]

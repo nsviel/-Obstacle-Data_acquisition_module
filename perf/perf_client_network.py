@@ -15,8 +15,9 @@ def start_daemon():
 
 def stop_daemon():
     param_py.run_thread_perf_client = False
-    param_py.process_client_iperf.terminate()
-    param_py.process_client_iperf.join()
+    if(param_py.state_py["perf"]["iperf_activated"]):
+        param_py.process_client_iperf.terminate()
+        param_py.process_client_iperf.join()
 
 def thread_perf_server():
     list_bandwidth = []
@@ -42,6 +43,7 @@ def thread_perf_server():
         time.sleep(1)
 
 def process_iperf(ip, port):
-    param_py.process_client_iperf = mp.Process(target = perf_client_iperf.process_perf_client, args = (ip, port))
-    param_py.process_client_iperf.start()
-    param_py.process_client_iperf.join()
+    if(param_py.state_py["perf"]["iperf_activated"]):
+        param_py.process_client_iperf = mp.Process(target = perf_client_iperf.process_perf_client, args = (ip, port))
+        param_py.process_client_iperf.start()
+        param_py.process_client_iperf.join()

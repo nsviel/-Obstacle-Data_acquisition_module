@@ -1,10 +1,13 @@
 {
     "self": {
         "ip": "192.168.153.38",
-        "nb_thread": 13,
+        "nb_thread": 7,
         "l1_port": 8308,
         "l2_port": 8309,
-        "http_server_port": 314,
+        "http_server_port": 314
+    },
+    "perf": {
+        "iperf_activated": false,
         "iperf_port": 6970
     },
     "lidar_1": {
@@ -26,34 +29,36 @@
             "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0
+            "mean": 0,
+            "sent": 0
         }
     },
     "lidar_2": {
-        "connected": true,
+        "connected": false,
         "activated": true,
-        "running": true,
+        "running": false,
         "add": "-",
         "ip": "192.168.2.201",
         "port": 2369,
         "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "throughput": {
-            "value": 0.961,
-            "min": 0.0,
-            "max": 1.787,
-            "mean": 0.9594166666666665
-        },
-        "packet": {
-            "value": 9137722,
+            "value": 0,
             "min": 0,
             "max": 0,
             "mean": 0
+        },
+        "packet": {
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "sent": 0
         }
     },
     "hubium": {
         "connected": true,
-        "ip": "192.168.153.38",
+        "ip": "127.0.0.1",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "iperf_port": 6969
@@ -63,14 +68,14 @@
     },
     "device": {
         "0": "wlp2s0",
-        "1": "enxf8e43b6cdf6c",
-        "2": "ztwdjfturv",
-        "3": "lo",
-        "4": "enx00e04c680731",
-        "5": "br-de470ff68a90",
-        "6": "br-fc5d7334c3b2",
-        "7": "bluetooth0",
-        "8": "nflog",
+        "1": "ztwdjfturv",
+        "2": "lo",
+        "3": "br-fc5d7334c3b2",
+        "4": "br-de470ff68a90",
+        "5": "bluetooth-monitor",
+        "6": "nfqueue",
+        "7": "dbus-session",
+        "8": "dbus-session",
         "9": "dbus-system",
         "10": "dbus-system",
         "11": "veth5fd752f",
