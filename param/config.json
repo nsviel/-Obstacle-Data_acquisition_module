@@ -11,7 +11,7 @@
   "lidar_1": {
       "ip": "192.168.1.201",
       "port": 2368,
-      "device": "enxa0cec8737a9e",
+      "device": "enxf8e43b6cdf6c",
       "activated": true,
       "speed": 600
   },

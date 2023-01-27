@@ -22,9 +22,10 @@ def stop_daemon():
         os.system(command)
 
 def thread_perf_server():
-    param_py.run_thread_perf_server = True
-    while param_py.run_thread_perf_server :
-        port = param_py.state_py["perf"]["iperf_port"]
-        param_py.process_server_iperf = mp.Process(target = perf_server_iperf.process_perf_server, args = (port,))
-        param_py.process_server_iperf.start()
-        param_py.process_server_iperf.join()
+    if(param_py.state_py["perf"]["iperf_activated"]):
+        param_py.run_thread_perf_server = True
+        while param_py.run_thread_perf_server :
+            port = param_py.state_py["perf"]["iperf_port"]
+            param_py.process_server_iperf = mp.Process(target = perf_server_iperf.process_perf_server, args = (port,))
+            param_py.process_server_iperf.start()
+            param_py.process_server_iperf.join()

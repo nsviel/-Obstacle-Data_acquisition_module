@@ -1,5 +1,6 @@
 #---------------------------------------------
 from src import connection
+from src import terminal
 from param import param_py
 
 import socket
@@ -13,6 +14,7 @@ import sys
 # Manage Ctrl+C input
 def handler(signum, frame):
     param_py.run_loop = False
+    print("")
 signal.signal(signal.SIGINT, handler)
 
 def system_clear():
@@ -20,7 +22,8 @@ def system_clear():
 
 def check_for_root():
     if not os.geteuid() == 0:
-        sys.exit("\nOnly root can run this script\n")
+        terminal.addLog("error", "Only root can run this script")
+        sys.exit()
 
 def system_information(prog_name):
     check_for_root()
@@ -40,12 +43,12 @@ def system_information(prog_name):
         OS = platform.system()
 
     #Header
-    print("Program \033[1;34m%s\033[0m"% program)
+    print("    : : \033[1;34m%s\033[0m : :    "% program)
     print("-----------------------")
-    print("IP \033[1;34m%s\033[0m"% ip)
-    print("Hostname \033[1;34m%s\033[0m"% hostname)
-    print("Arch \033[1;34m%s\033[0m, \033[1;34m%s\033[0m"% (arch, proc))
-    print("OS \033[1;34m%s\033[0m"% OS)
-    print("Core \033[1;34m%s\033[0m"% core)
-    print("Python \033[1;34m%s\033[0m"% python)
+    print('%-10s' '\033[1;34m%s\033[0m' % ("IP", ip))
+    print('%-10s' '\033[1;34m%s\033[0m' % ("Hostname", hostname))
+    print('%-10s' '\033[1;34m%s\033[0m, \033[1;34m%s\033[0m' % ("Arch", arch, proc))
+    print('%-10s' '\033[1;34m%s\033[0m' % ("OS", OS))
+    print('%-10s' '\033[1;34m%s\033[0m' % ("Core", core))
+    print('%-10s' '\033[1;34m%s\033[0m' % ("Python", python))
     print("-----------------------")

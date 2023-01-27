@@ -5,6 +5,7 @@ from src import lidar
 from src import capture
 from src import parser_json
 from src import device
+from src import terminal
 
 import threading
 import socket
@@ -12,12 +13,17 @@ import time
 
 
 def start_daemon():
-    thread_con = threading.Thread(target = thread_test_connection)
-    thread_con.start()
+    try:
+        thread_con = threading.Thread(target = thread_test_connection)
+        thread_con.start()
+        terminal.addDaemon("#", "ON", "Connection tests")
+    except:
+        pass
 
 def stop_daemon():
     param_py.run_thread_con = False
     capture.stop_lidar_capture()
+    terminal.addDaemon("#", "OFF", "Connection tests")
 
 def thread_test_connection():
     param_py.run_thread_con = True

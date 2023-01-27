@@ -1,7 +1,7 @@
 {
     "self": {
-        "ip": "192.168.153.38",
-        "nb_thread": 7,
+        "ip": "192.168.152.67",
+        "nb_thread": 6,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314
@@ -17,7 +17,7 @@
         "add": "-",
         "ip": "192.168.1.201",
         "port": 2368,
-        "device": "enxa0cec8737a9e",
+        "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "throughput": {
             "value": 0,
@@ -58,7 +58,7 @@
     },
     "hubium": {
         "connected": true,
-        "ip": "127.0.0.1",
+        "ip": "192.168.1.221",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "iperf_port": 6969
@@ -70,13 +70,13 @@
         "0": "wlp2s0",
         "1": "ztwdjfturv",
         "2": "lo",
-        "3": "br-fc5d7334c3b2",
+        "3": "enx00e04c680731",
         "4": "br-de470ff68a90",
-        "5": "bluetooth-monitor",
-        "6": "nfqueue",
-        "7": "dbus-session",
+        "5": "br-fc5d7334c3b2",
+        "6": "bluetooth-monitor",
+        "7": "nfqueue",
         "8": "dbus-session",
-        "9": "dbus-system",
+        "9": "dbus-session",
         "10": "dbus-system",
         "11": "veth5fd752f",
         "12": "veth83826ab"

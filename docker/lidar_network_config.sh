@@ -34,5 +34,3 @@ else
     sudo nmcli connection up $connection_name
     echo -e "[\e[92mok\e[0m] \e[36m$connection_name\e[0m [\e[36m$ip\e[0m] on device \e[36m$device\e[0m created"
 fi
-
-

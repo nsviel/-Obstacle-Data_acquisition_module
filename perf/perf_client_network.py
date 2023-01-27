@@ -3,6 +3,7 @@ from param import param_py
 from perf import perf_client_ping
 from perf import perf_client_iperf
 from src import parser_json
+from src import terminal
 
 import multiprocessing as mp
 import threading
@@ -10,11 +11,16 @@ import time
 
 
 def start_daemon():
-    thread_con = threading.Thread(target = thread_perf_server)
-    thread_con.start()
+    try:
+        thread_con = threading.Thread(target = thread_perf_server)
+        thread_con.start()
+        terminal.addDaemon("#", "ON", "Network performance")
+    except:
+        print("[\033[1;32merror\033[0m]   Network performances")
 
 def stop_daemon():
     param_py.run_thread_perf_client = False
+    terminal.addDaemon("#", "OFF", "Network performance")
     if(param_py.state_py["perf"]["iperf_activated"]):
         param_py.process_client_iperf.terminate()
         param_py.process_client_iperf.join()

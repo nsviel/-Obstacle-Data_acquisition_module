@@ -1,5 +1,6 @@
 #---------------------------------------------
 from param import param_py
+from src import terminal
 
 import threading
 import queue
@@ -8,13 +9,18 @@ import psutil
 
 
 def start_daemon():
-    thread_l1 = threading.Thread(target = thread_perf_l1)
-    thread_l2 = threading.Thread(target = thread_perf_l2)
-    thread_l1.start()
-    thread_l2.start()
+    try:
+        thread_l1 = threading.Thread(target = thread_perf_l1)
+        thread_l2 = threading.Thread(target = thread_perf_l2)
+        thread_l1.start()
+        thread_l2.start()
+        terminal.addDaemon("#", "ON", "Throughput")
+    except:
+        print("[\033[1;32merro\033[0m]   Daemon - HTTPS")
 
 def stop_daemon():
     param_py.run_thread_perf = False
+    terminal.addDaemon("#", "OFF", "Throughput")
 
 def thread_perf_l1():
     tgp_min = 1000

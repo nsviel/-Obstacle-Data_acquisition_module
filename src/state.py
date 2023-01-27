@@ -2,6 +2,7 @@
 from param import param_py
 from src import connection
 from src import parser_json
+from src import terminal
 
 
 def load_configuration():
@@ -10,6 +11,7 @@ def load_configuration():
     init_state_perf()
     load_config_file()
     upload_state()
+    terminal.addLog("#", "Configuration loaded")
 
 def load_json_file():
     param_py.state_py = parser_json.load_data_from_file(param_py.path_state_py)
