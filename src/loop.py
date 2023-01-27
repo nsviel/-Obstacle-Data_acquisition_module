@@ -13,6 +13,7 @@ from src import capture
 from src import parser_json
 from src import device
 from src import terminal
+from src import lidar
 
 import time
 
@@ -33,22 +34,24 @@ def program():
 def init():
     state.load_configuration()
     sock_client.connection()
-    connection.start_daemon()
+    lidar.display_connection_status()
     https_server.start_daemon()
     perf_throughput.start_daemon()
     perf_client_network.start_daemon()
     perf_server_network.start_daemon()
+    connection.start_daemon()
     terminal.addLog("OK", "Program initialized")
+    terminal.addLine()
 
 def loop():
     time.sleep(1)
 
 def end():
-    terminal.addLog("OK", "Program ending ...")
+    terminal.shutdown()
     parser_json.upload_file(param_py.path_state_py, param_py.state_py)
+    capture.stop_lidar_capture()
     connection.stop_daemon()
     https_server.stop_daemon()
     perf_throughput.stop_daemon()
     perf_client_network.stop_daemon()
     perf_server_network.stop_daemon()
-    terminal.shutdown()

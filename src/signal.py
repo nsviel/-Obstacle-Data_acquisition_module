@@ -15,7 +15,9 @@ import sys
 def handler(signum, frame):
     param_py.run_loop = False
     print("")
+    
 signal.signal(signal.SIGINT, handler)
+signal.signal(signal.SIGTERM, handler)
 
 def system_clear():
     os.system('clear')

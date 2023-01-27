@@ -2,7 +2,6 @@
 from param import param_py
 from SOCK import sock_client
 from src import lidar
-from src import capture
 from src import parser_json
 from src import device
 from src import terminal
@@ -22,7 +21,6 @@ def start_daemon():
 
 def stop_daemon():
     param_py.run_thread_con = False
-    capture.stop_lidar_capture()
     terminal.addDaemon("#", "OFF", "Connection tests")
 
 def thread_test_connection():
@@ -62,6 +60,6 @@ def check_port_open(port):
     if result == 0:
        is_open = True
     else:
-        print("[\033[1;31merror\033[0m] Port \033[1;32m%d\033[0m is closed"% port)
+        terminal.addLog("error", "Port \033[1;32m%d\033[0m is closed"% port)
     sock.close()
     return is_open;

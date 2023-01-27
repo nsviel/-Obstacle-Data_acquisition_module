@@ -11,6 +11,19 @@ def addLog(type, message):
         print("[\033[1;32mOK\033[0m]    "+ message)
     elif(type == "error"):
         print("[\033[1;31merror\033[0m] "+ message)
+    elif(type == "com"):
+        print("[\033[1;30mCOM\033[0m] "+ message)
+    time.sleep(0.05)
+
+def addPost(dest, c1, c2, c3):
+    if(dest == "py"):
+        message = "Received [%s, %s, %s]"%(c1, c2, c3)
+    else:
+        message = "To %s [%s, %s, %s]"%(dest, c1, c2, c3)
+    if(c1 == "" and c2 == "" and c3 == ""):
+        message = dest
+
+    print("[\033[1;30mPOST\033[0m]   " + message)
     time.sleep(0.05)
 
 def addDaemon(type, status, message):
@@ -25,11 +38,17 @@ def addDaemon(type, status, message):
         print("\033[1;32m"+status+"\033[0m - "+message)
     elif(status == "OFF"):
         print("\033[1;31m"+status+"\033[0m - "+message)
+    elif(status == "restart"):
+        print("\033[1;34m"+status+"\033[0m - "+message)
 
     time.sleep(0.05)
 
+def addLine():
+    print("")
+
 def shutdown():
-    print("[\033[1;34m#\033[0m]     Program shutdown", flush=True, end='')
+    addLine()
+    print("[\033[1;32mOK\033[0m]    Program shutdown", flush=True, end='')
     print("...2", flush=True, end='')
     time.sleep(1)
     print("...1", flush=True)
