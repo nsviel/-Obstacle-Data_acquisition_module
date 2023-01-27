@@ -4,6 +4,19 @@ from param import param_py
 import json
 
 
+def load_state(path):
+    try:
+        file = open(path, "r")
+        data = json.load(file)
+        return data
+    except:
+        dir = os.path.dirname(os.path.abspath(path))
+        name = os.path.basename(path)
+        generic = dir + "/generic/" + name
+        file = open(generic, "r")
+        data = json.load(file)
+        return data
+
 def load_data_from_file(path):
     file = open(path, "r")
     data = json.load(file)
@@ -14,7 +27,7 @@ def load_data_from_file_b(path):
     data = json.dumps(json.load(f))
     return data
 
-def load_data_from_file_utf8(path):
+def load_state_utf8(path):
     try:
         file = open(path)
         data = json.load(file)

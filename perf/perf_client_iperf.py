@@ -39,7 +39,7 @@ def parse_result(result):
 
 def compute_net_state(list_bandwidth, list_reliability, list_jitter):
     # Reload network state
-    param_py.state_perf = parser_json.load_data_from_file(param_py.path_state_perf)
+    param_py.state_perf = parser_json.load_state(param_py.path_state_perf)
     #------------------
 
     # Bandwidth

@@ -29,7 +29,7 @@ def start_daemon(server_class=HTTPServer, handler_class=S):
         param_py.http_server_daemon.start()
         terminal.addDaemon("#", "ON", "HTTPS server")
     except:
-        print("[\033[1;31merror\033[0m] Address already in use - restart needed")
+        terminal.fatal_error()
         os.system("sudo kill -9 $(ps -A | grep python | awk '{print $1}')")
 
 def stop_daemon():

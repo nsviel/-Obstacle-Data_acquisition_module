@@ -14,8 +14,8 @@ def load_configuration():
     terminal.addLog("#", "Configuration loaded")
 
 def load_json_file():
-    param_py.state_py = parser_json.load_data_from_file(param_py.path_state_py)
-    param_py.state_perf = parser_json.load_data_from_file(param_py.path_state_perf)
+    param_py.state_py = parser_json.load_state(param_py.path_state_py)
+    param_py.state_perf = parser_json.load_state(param_py.path_state_perf)
 
 def init_state_py():
     param_py.state_py["self"]["ip"] = connection.get_ip_adress()

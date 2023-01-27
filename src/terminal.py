@@ -53,3 +53,6 @@ def shutdown():
     time.sleep(1)
     print("...1", flush=True)
     time.sleep(1)
+
+def fatal_error():
+    print("\033[1;31m--- Fatal error ---\033[0m")
