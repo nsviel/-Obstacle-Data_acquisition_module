@@ -9,6 +9,7 @@ from blessings import Terminal
 
 import threading
 import pcapy
+import re
 
 
 def start_lidar_capture():
@@ -86,6 +87,7 @@ def start_l2_capture():
                 (header, packet) = listener.next()
                 sock_client.send_packet_l2(packet)
                 param_py.state_py["lidar_2"]["packet"]["value"] += 1
+                val = term.get_location()
                 with term.location(term.width - 35, 10):
                     print("Capture L2 packets: [\033[1;34m%d\033[0m]"%(param_py.state_py["lidar_2"]["packet"]["value"]), end="")
         terminal.addDaemon("#", "OFF", "LiDAR 2 capture")

@@ -27,7 +27,7 @@ def start_daemon(server_class=HTTPServer, handler_class=S):
         param_py.http_server_daemon = threading.Thread(target=param_py.https_server.serve_forever)
         param_py.http_server_daemon.daemon = True
         param_py.http_server_daemon.start()
-        terminal.addDaemon("#", "ON", "HTTPS")
+        terminal.addDaemon("#", "ON", "HTTPS server")
     except:
         print("[\033[1;31merror\033[0m] Address already in use - restart needed")
         os.system("sudo kill -9 $(ps -A | grep python | awk '{print $1}')")
@@ -35,4 +35,4 @@ def start_daemon(server_class=HTTPServer, handler_class=S):
 def stop_daemon():
     param_py.https_server.shutdown()
     param_py.http_server_daemon.join()
-    terminal.addDaemon("#", "OFF", "HTTPS")
+    terminal.addDaemon("#", "OFF", "HTTPS server")
