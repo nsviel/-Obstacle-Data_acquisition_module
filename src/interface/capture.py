@@ -45,6 +45,8 @@ def start_l1_capture():
         port = param_py.state_py["hubium"]["sock_server_l2_port"]
 
         listener = pcapy.open_live(l1_device , 1500, 0, 1)
+        filter = "udp port 2368 or 2369 or port 8308 or port 8309"
+        listener.setfilter(filter)
         terminal.addDaemon("#", "ON" "LiDAR 1 capture")
 
         while param_py.run_thread_l1 and param_py.state_py["lidar_1"]["connected"]:
@@ -77,6 +79,8 @@ def start_l2_capture():
         port = param_py.state_py["hubium"]["sock_server_l2_port"]
 
         listener = pcapy.open_live(l2_device, 1500, 0 , 1)
+        filter = "udp port 2368 or 2369 or port 8308 or port 8309"
+        listener.setfilter(filter)
         terminal.addDaemon("#", "ON", "LiDAR 2 capture on \033[1;32m%s\033[0m"%l2_device)
 
         while param_py.run_thread_l2 and param_py.state_py["lidar_2"]["connected"]:

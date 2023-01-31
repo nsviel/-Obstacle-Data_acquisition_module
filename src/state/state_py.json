@@ -34,7 +34,7 @@
         }
     },
     "lidar_2": {
-        "connected": false,
+        "connected": true,
         "activated": true,
         "running": true,
         "add": "-",
@@ -43,13 +43,13 @@
         "device": "enx00e04c680731",
         "speed": 600,
         "throughput": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 0.959,
+            "min": 0.955,
+            "max": 0.962,
+            "mean": 0.9594166666666663
         },
         "packet": {
-            "value": 0,
+            "value": 26466,
             "min": 0,
             "max": 0,
             "mean": 0,
@@ -58,7 +58,7 @@
     },
     "hubium": {
         "connected": true,
-        "ip": "10.201.20.24",
+        "ip": "127.0.0.1",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "iperf_port": 6969
@@ -69,10 +69,10 @@
     "device": {
         "0": "wlp2s0",
         "1": "ztwdjfturv",
-        "2": "lo",
-        "3": "br-de470ff68a90",
-        "4": "br-fc5d7334c3b2",
-        "5": "enx00e04c680731",
+        "2": "enx00e04c680731",
+        "3": "lo",
+        "4": "br-de470ff68a90",
+        "5": "br-fc5d7334c3b2",
         "6": "bluetooth-monitor",
         "7": "nfqueue",
         "8": "dbus-session",
