@@ -52,8 +52,9 @@ def start_l1_capture():
                 (header, packet) = listener.next()
                 if(packet != None):
                     param_py.sock_client.sendto(packet, (ip, port))
-                    param_py.state_py["lidar_1"]["packet"]["value"] += 1
-                    terminal.addCstLog("cap", "LiDAR 2: [\033[1;32m%s\033[0m] packets"% param_py.state_py["lidar_2"]["packet"]["value"])
+                    if(len(packet) == 1248):
+                        param_py.state_py["lidar_1"]["packet"]["value"] += 1
+                        terminal.addCstLog("cap", "LiDAR 2: [\033[1;32m%s\033[0m] packets"% param_py.state_py["lidar_2"]["packet"]["value"])
         terminal.addDaemon("#", "OFF" "LiDAR 1 capture")
 
 def start_l2_capture():
@@ -83,8 +84,9 @@ def start_l2_capture():
                 (header, packet) = listener.next()
                 if(packet != None):
                     param_py.sock_client.sendto(packet, (ip, port))
-                    param_py.state_py["lidar_2"]["packet"]["value"] += 1
-                    terminal.addCstLog("cap", "LiDAR 2: [\033[1;32m%s\033[0m] packets"% param_py.state_py["lidar_2"]["packet"]["value"])
+                    if(len(packet) == 1248):
+                        param_py.state_py["lidar_2"]["packet"]["value"] += 1
+                        terminal.addCstLog("cap", "LiDAR 2: [\033[1;32m%s\033[0m] packets"% param_py.state_py["lidar_2"]["packet"]["value"])
         terminal.addDaemon("#", "OFF", "LiDAR 2 capture")
 
 def restart_capture():
