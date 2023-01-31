@@ -12,8 +12,15 @@ def addLog(type, message):
     elif(type == "error"):
         print("[\033[1;31merror\033[0m] "+ message)
     elif(type == "com"):
+        print("[\033[1;38mCOM\033[0m]  "+ message)
+    elif(type == "post"):
         print("[\033[1;30mPOST\033[0m]  "+ message)
     time.sleep(0.05)
+
+def addCstLog(type, message):
+    if(type == "cap"):
+        print("[\033[1;34mCAP\033[0m]   "+ message, end="\r")
+
 
 def addPost(dest, c1, c2, c3):
     if(dest == "py"):

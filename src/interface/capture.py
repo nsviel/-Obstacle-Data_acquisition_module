@@ -41,22 +41,19 @@ def start_l1_capture():
         param_py.state_py["lidar_1"]["packet"]["value"] = 0
         param_py.state_py["lidar_1"]["running"] = True
         param_py.run_thread_l1 = True
+        ip = param_py.state_py["hubium"]["ip"]
+        port = param_py.state_py["hubium"]["sock_server_l2_port"]
 
-        listener = pcapy.open_live(l1_device , 1248 , 1 , 0)
+        listener = pcapy.open_live(l1_device , 1500, 0, 1)
         terminal.addDaemon("#", "ON" "LiDAR 1 capture")
 
-        spinner = Halo(text='Capture packets: 0', spinner='dots')
-        spinner.start()
         while param_py.run_thread_l1 and param_py.state_py["lidar_1"]["connected"]:
             if(param_py.state_py["lidar_1"]["activated"]):
                 (header, packet) = listener.next()
-                sock_client.send_packet_l1(packet)
-                param_py.state_py["lidar_1"]["packet"]["value"] += 1
-                spinner.enabled = True
-                spinner.text = "Capture L2 packets: [\033[1;34m%d\033[0m]"%(param_py.state_py["lidar_2"]["packet"]["value"])
-            else:
-                spinner.enabled = False
-        spinner.stop()
+                if(packet != None):
+                    param_py.sock_client.sendto(packet, (ip, port))
+                    param_py.state_py["lidar_1"]["packet"]["value"] += 1
+                    terminal.addCstLog("cap", "LiDAR 2: [\033[1;32m%s\033[0m] packets"% param_py.state_py["lidar_2"]["packet"]["value"])
         terminal.addDaemon("#", "OFF" "LiDAR 1 capture")
 
 def start_l2_capture():
@@ -75,15 +72,19 @@ def start_l2_capture():
         param_py.state_py["lidar_2"]["packet"]["value"] = 0
         param_py.state_py["lidar_2"]["running"] = True
         param_py.run_thread_l2 = True
+        ip = param_py.state_py["hubium"]["ip"]
+        port = param_py.state_py["hubium"]["sock_server_l2_port"]
 
-        listener = pcapy.open_live(l2_device , 1248 , 1 , 0)
-        terminal.addDaemon("#", "ON", "LiDAR 2 capture")
+        listener = pcapy.open_live(l2_device, 1500, 0 , 1)
+        terminal.addDaemon("#", "ON", "LiDAR 2 capture on \033[1;32m%s\033[0m"%l2_device)
 
-        while param_py.run_thread_l2:
+        while param_py.run_thread_l2 and param_py.state_py["lidar_2"]["connected"]:
             if(param_py.state_py["lidar_2"]["activated"]):
                 (header, packet) = listener.next()
-                sock_client.send_packet_l2(packet)
-                param_py.state_py["lidar_2"]["packet"]["value"] += 1
+                if(packet != None):
+                    param_py.sock_client.sendto(packet, (ip, port))
+                    param_py.state_py["lidar_2"]["packet"]["value"] += 1
+                    terminal.addCstLog("cap", "LiDAR 2: [\033[1;32m%s\033[0m] packets"% param_py.state_py["lidar_2"]["packet"]["value"])
         terminal.addDaemon("#", "OFF", "LiDAR 2 capture")
 
 def restart_capture():

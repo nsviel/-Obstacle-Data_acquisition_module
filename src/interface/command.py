@@ -27,3 +27,9 @@ def manage_command(lvl1, lvl2, lvl3):
                 lidar.start_l2_motor()
             if(str(lvl3) == "stop"):
                 lidar.stop_l2_motor()
+    elif(lvl1 == "lidar_1"):
+        if(str(lvl2) == "speed"):
+            lidar.change_l1_speed()
+    elif(lvl1 == "lidar_2"):
+        if(str(lvl2) == "speed"):
+            lidar.change_l2_speed()

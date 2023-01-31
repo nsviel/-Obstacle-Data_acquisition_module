@@ -5,7 +5,7 @@ from src.misc import signal
 
 
 signal.system_clear()
-signal.system_information("Pywardium")
+signal.system_information("Data Acquisition Module")
 #-------------
 
 loop.program()

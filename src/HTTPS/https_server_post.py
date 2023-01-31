@@ -27,7 +27,7 @@ def manage_py_state(self):
         data = json.loads(payload)
         param_py.state_py = data
         parser_json.upload_state()
-        terminal.addLog("com", "New state received")
+        terminal.addLog("post", "New state received")
         capture.restart_lidar_capture()
 
 def manage_py_param(self):
@@ -35,5 +35,5 @@ def manage_py_param(self):
     if(payload != None):
         data = json.loads(payload)
         [lvl1, lvl2, lvl3] = https_server_fct.decipher_json(data)
-        command.manage_command(lvl1, lvl2, lvl3)
         terminal.addPost("py", lvl1, lvl2, lvl3)
+        command.manage_command(lvl1, lvl2, lvl3)

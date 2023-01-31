@@ -15,6 +15,7 @@ import sys
 def handler(signum, frame):
     param_py.run_loop = False
     print("")
+    print("")
 
 signal.signal(signal.SIGINT, handler)
 signal.signal(signal.SIGTERM, handler)
@@ -45,12 +46,13 @@ def system_information(prog_name):
         OS = platform.system()
 
     #Header
-    print("    : : \033[1;34m%s\033[0m : :    "% program)
+    #Header
+    print('%-12s' '\033[1;34m%s\033[0m' % ("[Obstacle]", program))
     print("-----------------------")
-    print('%-10s' '\033[1;34m%s\033[0m' % ("IP", ip))
-    print('%-10s' '\033[1;34m%s\033[0m' % ("Hostname", hostname))
-    print('%-10s' '\033[1;34m%s\033[0m, \033[1;34m%s\033[0m' % ("Arch", arch, proc))
-    print('%-10s' '\033[1;34m%s\033[0m' % ("OS", OS))
-    print('%-10s' '\033[1;34m%s\033[0m' % ("Core", core))
-    print('%-10s' '\033[1;34m%s\033[0m' % ("Python", python))
+    print('%-12s' '\033[1;34m%s\033[0m' % ("IP", ip))
+    print('%-12s' '\033[1;34m%s\033[0m' % ("Hostname", hostname))
+    print('%-12s' '\033[1;34m%s\033[0m, \033[1;34m%s\033[0m' % ("Arch", arch, proc))
+    print('%-12s' '\033[1;34m%s\033[0m' % ("OS", OS))
+    print('%-12s' '\033[1;34m%s\033[0m' % ("Core", core))
+    print('%-12s' '\033[1;34m%s\033[0m' % ("Python", python))
     print("-----------------------")

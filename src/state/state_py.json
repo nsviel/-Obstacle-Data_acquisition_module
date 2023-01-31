@@ -1,7 +1,7 @@
 {
     "self": {
         "ip": "192.168.152.67",
-        "nb_thread": 6,
+        "nb_thread": 7,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314
@@ -40,25 +40,25 @@
         "add": "-",
         "ip": "192.168.2.201",
         "port": 2369,
-        "device": "dbus-session",
+        "device": "enx00e04c680731",
         "speed": 600,
         "throughput": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 0.974,
+            "min": 0.96,
+            "max": 0.974,
+            "mean": 0.7714000000000001
         },
         "packet": {
-            "value": 4,
+            "value": 4528,
             "min": 0,
             "max": 0,
             "mean": 0,
-            "sent": 4
+            "sent": 0
         }
     },
     "hubium": {
         "connected": true,
-        "ip": "127.0.0.1",
+        "ip": "192.168.152.67",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "iperf_port": 6969
