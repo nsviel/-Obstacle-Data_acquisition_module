@@ -1,19 +1,19 @@
 #---------------------------------------------
-from param import param_py
+from src.param import param_py
 
-from HTTPS import https_server
-from SOCK import sock_client
-from perf import perf_throughput
-from perf import perf_client_network
-from perf import perf_server_network
+from src.HTTPS import https_server
+from src.SOCK import sock_client
+from src.perf import perf_throughput
+from src.perf import perf_client_network
+from src.perf import perf_server_network
 
-from src import connection
-from src import state
-from src import capture
-from src import parser_json
-from src import device
-from src import terminal
-from src import lidar
+from src.misc import connection
+from src.misc import state
+from src.misc import capture
+from src.misc import parser_json
+from src.misc import device
+from src.misc import terminal
+from src.misc import lidar
 
 import time
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #---------------------------------------------
 from src import loop
-from src import signal
+from src.misc import signal
 
 
 signal.system_clear()
