@@ -1,9 +1,9 @@
 #---------------------------------------------
 from src.param import param_py
 from src.SOCK import sock_client
-from src.misc import lidar
+from src.interface import lidar
 from src.misc import parser_json
-from src.misc import device
+from src.interface import device
 from src.misc import terminal
 
 import threading

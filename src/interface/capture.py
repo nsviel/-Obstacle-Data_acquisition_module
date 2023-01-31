@@ -1,11 +1,9 @@
 #---------------------------------------------
 from src.param import param_py
 from src.SOCK import sock_client
-from src.misc import device
-from src.misc import io
+from src.interface import device
 from src.misc import connection
 from src.misc import terminal
-from blessings import Terminal
 
 import threading
 import pcapy
@@ -81,15 +79,11 @@ def start_l2_capture():
         listener = pcapy.open_live(l2_device , 1248 , 1 , 0)
         terminal.addDaemon("#", "ON", "LiDAR 2 capture")
 
-        term = Terminal()
         while param_py.run_thread_l2:
             if(param_py.state_py["lidar_2"]["activated"]):
                 (header, packet) = listener.next()
                 sock_client.send_packet_l2(packet)
                 param_py.state_py["lidar_2"]["packet"]["value"] += 1
-                val = term.get_location()
-                with term.location(term.width - 35, 10):
-                    print("Capture L2 packets: [\033[1;34m%d\033[0m]"%(param_py.state_py["lidar_2"]["packet"]["value"]), end="")
         terminal.addDaemon("#", "OFF", "LiDAR 2 capture")
 
 def restart_capture():

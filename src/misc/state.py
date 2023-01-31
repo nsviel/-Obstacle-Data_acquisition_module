@@ -3,7 +3,7 @@ from src.param import param_py
 from src.misc import connection
 from src.misc import parser_json
 from src.misc import terminal
-from src.misc import device
+from src.interface import device
 
 def load_configuration():
     load_json_file()

@@ -9,11 +9,11 @@ from src.perf import perf_server_network
 
 from src.misc import connection
 from src.misc import state
-from src.misc import capture
+from src.interface import capture
 from src.misc import parser_json
-from src.misc import device
+from src.interface import device
 from src.misc import terminal
-from src.misc import lidar
+from src.interface import lidar
 
 import time
 

@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_py
-from src.misc import capture
+from src.interface import capture
 from src.misc import terminal
 
 from requests.exceptions import ConnectionError

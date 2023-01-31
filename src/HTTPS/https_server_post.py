@@ -7,9 +7,9 @@
 from src.param import param_py
 from src.HTTPS import https_server_fct
 from src.misc import parser_json
-from src.misc import command
+from src.interface import command
 from src.misc import terminal
-from src.misc import capture
+from src.interface import capture
 
 import json
 

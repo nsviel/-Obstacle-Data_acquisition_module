@@ -1,7 +1,7 @@
 #---------------------------------------------
 from src.param import param_py
-from src.misc import capture
-from src.misc import lidar
+from src.interface import capture
+from src.interface import lidar
 
 
 def manage_command(lvl1, lvl2, lvl3):

@@ -34,9 +34,9 @@
         }
     },
     "lidar_2": {
-        "connected": false,
+        "connected": true,
         "activated": true,
-        "running": false,
+        "running": true,
         "add": "-",
         "ip": "192.168.2.201",
         "port": 2369,
@@ -49,11 +49,11 @@
             "mean": 0
         },
         "packet": {
-            "value": 0,
+            "value": 4,
             "min": 0,
             "max": 0,
             "mean": 0,
-            "sent": 0
+            "sent": 4
         }
     },
     "hubium": {
@@ -69,10 +69,10 @@
     "device": {
         "0": "wlp2s0",
         "1": "ztwdjfturv",
-        "2": "lo",
-        "3": "br-de470ff68a90",
-        "4": "br-fc5d7334c3b2",
-        "5": "enx00e04c680731",
+        "2": "enx00e04c680731",
+        "3": "lo",
+        "4": "br-de470ff68a90",
+        "5": "br-fc5d7334c3b2",
         "6": "bluetooth-monitor",
         "7": "nfqueue",
         "8": "dbus-session",
