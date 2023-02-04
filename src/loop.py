@@ -55,3 +55,4 @@ def end():
     perf_throughput.stop_daemon()
     perf_client_network.stop_daemon()
     perf_server_network.stop_daemon()
+    terminal.delai()

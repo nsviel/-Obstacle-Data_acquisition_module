@@ -47,7 +47,7 @@ def start_l1_capture():
         listener = pcapy.open_live(l1_device , 1500, 0, 1)
         filter = "udp port 2368 or 2369 or port 8308 or port 8309"
         listener.setfilter(filter)
-        terminal.addDaemon("#", "ON" "LiDAR 1 capture")
+        terminal.addDaemon("#", "ON", "LiDAR 1 capture on [\033[1;32m%s\033[0m]"%l1_device)
 
         while param_py.run_thread_l1 and param_py.state_py["lidar_1"]["connected"]:
             if(param_py.state_py["lidar_1"]["activated"]):
@@ -57,7 +57,7 @@ def start_l1_capture():
                     if(len(packet) == 1248):
                         param_py.state_py["lidar_1"]["packet"]["value"] += 1
                         terminal.addCstLog("cap", "LiDAR 2: [\033[1;32m%s\033[0m] packets"% param_py.state_py["lidar_2"]["packet"]["value"])
-        terminal.addDaemon("#", "OFF" "LiDAR 1 capture")
+        terminal.addDaemon("#", "OFF", "LiDAR 1 capture")
 
 def start_l2_capture():
     l2_device = param_py.state_py["lidar_2"]["device"]
@@ -81,7 +81,7 @@ def start_l2_capture():
         listener = pcapy.open_live(l2_device, 1500, 0 , 1)
         filter = "udp port 2368 or 2369 or port 8308 or port 8309"
         listener.setfilter(filter)
-        terminal.addDaemon("#", "ON", "LiDAR 2 capture on \033[1;32m%s\033[0m"%l2_device)
+        terminal.addDaemon("#", "ON", "LiDAR 2 capture on [\033[1;32m%s\033[0m]"%l2_device)
 
         while param_py.run_thread_l2 and param_py.state_py["lidar_2"]["connected"]:
             if(param_py.state_py["lidar_2"]["activated"]):

@@ -55,7 +55,11 @@ def addLine():
 
 def shutdown():
     addLine()
-    print("[\033[1;32mOK\033[0m]    Program shutdown", flush=True, end='')
+    addLine()
+    print("[\033[1;32mOK\033[0m]    Program shutdown ...",)
+
+def delai():
+    print("[\033[1;34m#\033[0m]     Daemon closing", flush=True, end='')
     print("...2", flush=True, end='')
     time.sleep(1)
     print("...1", flush=True)

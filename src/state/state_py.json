@@ -1,7 +1,7 @@
 {
     "self": {
-        "ip": "192.168.152.67",
-        "nb_thread": 7,
+        "ip": "192.168.10.42",
+        "nb_thread": 6,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314
@@ -17,7 +17,7 @@
         "add": "-",
         "ip": "192.168.1.201",
         "port": 2368,
-        "device": "wlp2s0",
+        "device": "lo",
         "speed": 600,
         "throughput": {
             "value": 0,
@@ -34,22 +34,22 @@
         }
     },
     "lidar_2": {
-        "connected": true,
+        "connected": false,
         "activated": true,
-        "running": true,
+        "running": false,
         "add": "-",
         "ip": "192.168.2.201",
         "port": 2369,
-        "device": "enx00e04c680731",
+        "device": "wlp2s0",
         "speed": 600,
         "throughput": {
-            "value": 0.959,
-            "min": 0.955,
-            "max": 0.962,
-            "mean": 0.9594166666666663
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "packet": {
-            "value": 26466,
+            "value": 0,
             "min": 0,
             "max": 0,
             "mean": 0,
@@ -58,7 +58,7 @@
     },
     "hubium": {
         "connected": true,
-        "ip": "127.0.0.1",
+        "ip": "192.168.10.42",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "iperf_port": 6969
@@ -69,12 +69,12 @@
     "device": {
         "0": "wlp2s0",
         "1": "ztwdjfturv",
-        "2": "enx00e04c680731",
-        "3": "lo",
+        "2": "lo",
+        "3": "br-fc5d7334c3b2",
         "4": "br-de470ff68a90",
-        "5": "br-fc5d7334c3b2",
-        "6": "bluetooth-monitor",
-        "7": "nfqueue",
+        "5": "bluetooth-monitor",
+        "6": "nfqueue",
+        "7": "dbus-session",
         "8": "dbus-session",
         "9": "dbus-session",
         "10": "dbus-system",
