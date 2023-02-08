@@ -57,11 +57,12 @@
         }
     },
     "hubium": {
-        "connected": true,
+        "connected": false,
         "ip": "192.168.152.67",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
-        "iperf_port": 6969
+        "iperf_port": 6969,
+        "http_server_port": 443
     },
     "geolocalization": {
         "country": "France"

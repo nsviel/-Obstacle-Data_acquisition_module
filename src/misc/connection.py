@@ -5,7 +5,7 @@ from src.interface import lidar
 from src.misc import parser_json
 from src.interface import device
 from src.misc import terminal
-
+from src.HTTPS import https_client_con
 import threading
 import socket
 import time
@@ -27,6 +27,7 @@ def thread_test_connection():
     param_py.run_thread_con = True
     while param_py.run_thread_con:
         # Test connections
+        https_client_con.test_hu_con()
         lidar.test_connection()
         device.update_list()
 

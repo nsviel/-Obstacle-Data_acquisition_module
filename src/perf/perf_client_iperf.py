@@ -31,11 +31,10 @@ def print_result(result):
 
 def parse_result(result):
     if(result != None and result.error == None):
-        param_py.state_perf["local_cloud"]["time"] = result.time
+        param_py.state_perf["local_cloud"]["timestamp"] = str(result.time)
         param_py.state_perf["local_cloud"]["bandwidth"]["value"] = result.Mbps
         param_py.state_perf["local_cloud"]["reliability"]["value"] = 100 - result.lost_percent
         param_py.state_perf["local_cloud"]["jitter"]["value"] = result.jitter_ms
-        parser_json.upload_file(param_py.path_state_perf, param_py.state_perf)
 
 def compute_net_state(list_bandwidth, list_reliability, list_jitter):
     # Reload network state

@@ -2,6 +2,7 @@
 from src.param import param_py
 
 import json
+import os
 
 
 def load_state(path):
@@ -41,6 +42,7 @@ def upload_file(path, data):
         file = open(path, "w")
         json.dump(data, file, indent=4)
     except:
+        print("problem dumping state file")
         pass
 
 def upload_state():

@@ -1,29 +1,29 @@
 {
     "local_cloud": {
-        "time": 0,
+        "timestamp": 0,
         "bandwidth": {
             "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0.0
+            "mean": 0
         },
         "latency": {
-            "value": 0.114,
-            "min": 0.031,
-            "max": 0.115,
-            "mean": 0.0815
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "jitter": {
             "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0.0
+            "mean": 0
         },
         "reliability": {
             "value": 0,
             "min": 0,
             "max": 0,
-            "mean": 0.0
+            "mean": 0
         },
         "interruption": {
             "value": 0,

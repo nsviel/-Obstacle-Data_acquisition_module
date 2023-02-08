@@ -1,16 +1,6 @@
 {
-    "mongo": {
-        "ip": 0,
-        "port": 0,
-        "database": 0,
-        "collection": 0,
-        "username": 0,
-        "password": 0,
-        "nb_data": 0,
-        "connected": false
-    },
     "local_cloud": {
-        "time": 0,
+        "timestamp": 0,
         "bandwidth": {
             "value": 0,
             "min": 0,
@@ -41,37 +31,5 @@
             "max": 0,
             "mean": 0
         }
-    },
-    "cloud_local": {
-        "time": 0,
-        "bandwidth": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0.0
-        },
-        "latency": {
-            "value": 0.032,
-            "min": 0.028,
-            "max": 0.04,
-            "mean": 0.03440000000000001
-        },
-        "jitter": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0.0
-        },
-        "reliability": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0.0
-        }
-    },
-    "end_to_end": {
-        "time_slam": 0,
-        "time_ai": 0,
-        "time_total": 0
     }
 }
