@@ -70,28 +70,6 @@ def init_state_perf():
     param_py.state_perf["local_cloud"]["interruption"]["max"] = 0
     param_py.state_perf["local_cloud"]["interruption"]["mean"] = 0
 
-    param_py.state_perf["cloud_local"]["time"] = 0
-    param_py.state_perf["cloud_local"]["bandwidth"]["value"] = 0
-    param_py.state_perf["cloud_local"]["bandwidth"]["min"] = 0
-    param_py.state_perf["cloud_local"]["bandwidth"]["max"] = 0
-    param_py.state_perf["cloud_local"]["bandwidth"]["mean"] = 0
-    param_py.state_perf["cloud_local"]["latency"]["value"] = 0
-    param_py.state_perf["cloud_local"]["latency"]["min"] = 0
-    param_py.state_perf["cloud_local"]["latency"]["max"] = 0
-    param_py.state_perf["cloud_local"]["latency"]["mean"] = 0
-    param_py.state_perf["cloud_local"]["jitter"]["value"] = 0
-    param_py.state_perf["cloud_local"]["jitter"]["min"] = 0
-    param_py.state_perf["cloud_local"]["jitter"]["max"] = 0
-    param_py.state_perf["cloud_local"]["jitter"]["mean"] = 0
-    param_py.state_perf["cloud_local"]["reliability"]["value"] = 0
-    param_py.state_perf["cloud_local"]["reliability"]["min"] = 0
-    param_py.state_perf["cloud_local"]["reliability"]["max"] = 0
-    param_py.state_perf["cloud_local"]["reliability"]["mean"] = 0
-
-    param_py.state_perf["end_to_end"]["time_slam"] = 0
-    param_py.state_perf["end_to_end"]["time_ai"] = 0
-    param_py.state_perf["end_to_end"]["time_total"] = 0
-
 def load_config_file():
     config = parser_json.load_data_from_file(param_py.path_config)
     param_py.state_py["self"]["http_server_port"] = config["self"]["http_server_port"]

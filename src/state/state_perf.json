@@ -8,10 +8,10 @@
             "mean": 0.0
         },
         "latency": {
-            "value": 0.031,
+            "value": 0.114,
             "min": 0.031,
-            "max": 0.105,
-            "mean": 0.0623
+            "max": 0.115,
+            "mean": 0.0815
         },
         "jitter": {
             "value": 0,
@@ -31,37 +31,5 @@
             "max": 0,
             "mean": 0
         }
-    },
-    "cloud_local": {
-        "time": 0,
-        "bandwidth": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
-        },
-        "latency": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
-        },
-        "jitter": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
-        },
-        "reliability": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
-        }
-    },
-    "end_to_end": {
-        "time_slam": 0,
-        "time_ai": 0,
-        "time_total": 0
     }
 }
