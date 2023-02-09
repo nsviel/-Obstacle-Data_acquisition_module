@@ -72,6 +72,9 @@ def load_config_file():
     param_py.state_py["self"]["http_server_port"] = config["self"]["http_server_port"]
     param_py.state_py["self"]["l1_port"] = config["self"]["l1_port"]
     param_py.state_py["self"]["l2_port"] = config["self"]["l2_port"]
+    param_py.tic_connection = config["self"]["tic_connection"]
+    param_py.tic_network = config["self"]["tic_network"]
+    param_py.tic_throughput = config["self"]["tic_throughput"]
 
     param_py.state_py["lidar_1"]["ip"] = config["lidar_1"]["ip"]
     param_py.state_py["lidar_1"]["port"] = config["lidar_1"]["port"]

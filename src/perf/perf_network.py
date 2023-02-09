@@ -33,4 +33,4 @@ def thread_perf_server():
 
         # Update state file and sleep one second
         parser_json.upload_file(param_py.path_state_perf, param_py.state_perf)
-        time.sleep(1)
+        time.sleep(param_py.tic_network)

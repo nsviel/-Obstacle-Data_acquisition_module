@@ -50,7 +50,7 @@ def thread_perf_l1():
                 time.sleep(1)
         except:
             time.sleep(1)
-        time.sleep(0.05)
+        time.sleep(param_py.tic_throughput)
 
 def thread_perf_l2():
     tgp_min = 1000
@@ -80,7 +80,7 @@ def thread_perf_l2():
                 time.sleep(1)
         except:
             time.sleep(1)
-        time.sleep(0.05)
+        time.sleep(param_py.tic_throughput)
 
 def compute_throughput(value, list, min, max):
     # Mean

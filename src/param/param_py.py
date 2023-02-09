@@ -12,6 +12,13 @@ run_thread_l1 = False
 run_thread_l2 = False
 run_thread_perf = False
 
+# Tic delay
+tic_loop = 1
+tic_message = 0.05
+tic_connection = 0.5
+tic_network = 0.5
+tic_throughput = 0.05
+
 # Socket
 sock_client = None
 sock_client_ok = False
@@ -29,4 +36,4 @@ interruption_time = 0
 # Path
 path_state_py = "src/state/state_py.json"
 path_state_perf = "src/state/state_perf.json"
-path_config = "src/param/config.json"
+path_config = "config.json"

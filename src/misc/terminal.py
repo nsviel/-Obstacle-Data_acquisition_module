@@ -1,6 +1,8 @@
 #---------------------------------------------
 # Terminal output functions
 #---------------------------------------------
+from src.param import param_py
+
 import time
 
 
@@ -15,7 +17,7 @@ def addLog(type, message):
         print("[\033[1;38mCOM\033[0m]  "+ message)
     elif(type == "post"):
         print("[\033[1;30mPOST\033[0m]  "+ message)
-    time.sleep(0.05)
+    time.sleep(param_py.tic_message)
 
 def addCstLog(type, message):
     if(type == "cap"):
@@ -45,7 +47,7 @@ def addPost(dest, c1, c2, c3):
         message = dest
 
     print("[\033[1;30mPOST\033[0m]  " + message)
-    time.sleep(0.05)
+    time.sleep(param_py.tic_message)
 
 def addDaemon(type, status, message):
     if(type == "#"):
@@ -62,7 +64,7 @@ def addDaemon(type, status, message):
     elif(status == "restart"):
         print("\033[1;34m"+status+"\033[0m - "+message)
 
-    time.sleep(0.05)
+    time.sleep(param_py.tic_message)
 
 def addLine():
     print("")

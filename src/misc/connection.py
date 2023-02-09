@@ -36,7 +36,7 @@ def thread_test_connection():
         update_nb_thread()
 
         # Wait for 1 second
-        time.sleep(1)
+        time.sleep(param_py.tic_connection)
 
 def get_ip_adress():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
