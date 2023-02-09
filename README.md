@@ -1,4 +1,4 @@
-# [Obstacle System] Capture Data Module
+# [Obstacle] Data Acquisition Module
 
 ## Summary
 
