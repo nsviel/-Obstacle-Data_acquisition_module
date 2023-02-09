@@ -6,10 +6,6 @@
         "l2_port": 8309,
         "http_server_port": 314
     },
-    "perf": {
-        "iperf_activated": false,
-        "iperf_port": 6970
-    },
     "lidar_1": {
         "connected": false,
         "activated": true,
@@ -17,7 +13,7 @@
         "add": "-",
         "ip": "192.168.1.201",
         "port": 2368,
-        "device": "lo",
+        "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "throughput": {
             "value": 0,
@@ -40,7 +36,7 @@
         "add": "-",
         "ip": "192.168.2.201",
         "port": 2369,
-        "device": "wlp2s0",
+        "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "throughput": {
             "value": 0,
@@ -61,7 +57,6 @@
         "ip": "192.168.152.67",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
-        "iperf_port": 6969,
         "http_server_port": 443
     },
     "geolocalization": {
@@ -73,9 +68,9 @@
         "2": "lo",
         "3": "br-de470ff68a90",
         "4": "br-fc5d7334c3b2",
-        "5": "enx00e04c680731",
-        "6": "bluetooth-monitor",
-        "7": "nfqueue",
+        "5": "bluetooth-monitor",
+        "6": "nfqueue",
+        "7": "dbus-session",
         "8": "dbus-session",
         "9": "dbus-session",
         "10": "dbus-system",

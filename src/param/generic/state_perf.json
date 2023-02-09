@@ -1,7 +1,7 @@
 {
     "local_cloud": {
         "time": 0,
-        "bandwidth": {
+        "throughput": {
             "value": 0,
             "min": 0,
             "max": 0,
@@ -34,7 +34,7 @@
     },
     "cloud_local": {
         "time": 0,
-        "bandwidth": {
+        "throughput": {
             "value": 0,
             "min": 0,
             "max": 0,

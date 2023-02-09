@@ -4,8 +4,7 @@ from src.param import param_py
 from src.HTTPS import https_server
 from src.SOCK import sock_client
 from src.perf import perf_throughput
-from src.perf import perf_client_network
-from src.perf import perf_server_network
+from src.perf import perf_network
 
 from src.misc import connection
 from src.misc import state
@@ -37,8 +36,7 @@ def init():
     lidar.display_connection_status()
     https_server.start_daemon()
     perf_throughput.start_daemon()
-    perf_client_network.start_daemon()
-    perf_server_network.start_daemon()
+    perf_network.start_daemon()
     connection.start_daemon()
     terminal.addLog("OK", "Program initialized")
     terminal.addLine()
@@ -53,6 +51,5 @@ def end():
     connection.stop_daemon()
     https_server.stop_daemon()
     perf_throughput.stop_daemon()
-    perf_client_network.stop_daemon()
-    perf_server_network.stop_daemon()
+    perf_network.stop_daemon()
     terminal.delai()

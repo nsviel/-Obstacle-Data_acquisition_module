@@ -50,18 +50,14 @@ def init_state_py():
 
 def init_state_perf():
     param_py.state_perf["local_cloud"]["timestamp"] = 0
-    param_py.state_perf["local_cloud"]["bandwidth"]["value"] = 0
-    param_py.state_perf["local_cloud"]["bandwidth"]["min"] = 0
-    param_py.state_perf["local_cloud"]["bandwidth"]["max"] = 0
-    param_py.state_perf["local_cloud"]["bandwidth"]["mean"] = 0
+    param_py.state_perf["local_cloud"]["throughput"]["value"] = 0
+    param_py.state_perf["local_cloud"]["throughput"]["min"] = 0
+    param_py.state_perf["local_cloud"]["throughput"]["max"] = 0
+    param_py.state_perf["local_cloud"]["throughput"]["mean"] = 0
     param_py.state_perf["local_cloud"]["latency"]["value"] = 0
     param_py.state_perf["local_cloud"]["latency"]["min"] = 0
     param_py.state_perf["local_cloud"]["latency"]["max"] = 0
     param_py.state_perf["local_cloud"]["latency"]["mean"] = 0
-    param_py.state_perf["local_cloud"]["jitter"]["value"] = 0
-    param_py.state_perf["local_cloud"]["jitter"]["min"] = 0
-    param_py.state_perf["local_cloud"]["jitter"]["max"] = 0
-    param_py.state_perf["local_cloud"]["jitter"]["mean"] = 0
     param_py.state_perf["local_cloud"]["reliability"]["value"] = 0
     param_py.state_perf["local_cloud"]["reliability"]["min"] = 0
     param_py.state_perf["local_cloud"]["reliability"]["max"] = 0
@@ -77,9 +73,6 @@ def load_config_file():
     param_py.state_py["self"]["l1_port"] = config["self"]["l1_port"]
     param_py.state_py["self"]["l2_port"] = config["self"]["l2_port"]
 
-    param_py.state_py["perf"]["iperf_activated"] = config["perf"]["iperf_activated"]
-    param_py.state_py["perf"]["iperf_port"] = config["perf"]["iperf_port"]
-
     param_py.state_py["lidar_1"]["ip"] = config["lidar_1"]["ip"]
     param_py.state_py["lidar_1"]["port"] = config["lidar_1"]["port"]
     param_py.state_py["lidar_1"]["activated"] = config["lidar_1"]["activated"]
@@ -92,7 +85,6 @@ def load_config_file():
 
     param_py.state_py["hubium"]["sock_server_l1_port"] = config["hubium"]["sock_server_l1_port"]
     param_py.state_py["hubium"]["sock_server_l2_port"] = config["hubium"]["sock_server_l2_port"]
-    param_py.state_py["hubium"]["iperf_port"] = config["hubium"]["iperf_port"]
     param_py.state_py["hubium"]["http_server_port"] = config["hubium"]["http_server_port"]
 
     # Check if existing device exists, else take the config one

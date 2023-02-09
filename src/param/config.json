@@ -4,10 +4,6 @@
       "l2_port": 8309,
       "http_server_port": 314
   },
-  "perf": {
-    "iperf_activated": false,
-    "iperf_port": 6970
-  },
   "lidar_1": {
       "ip": "192.168.1.201",
       "port": 2368,
@@ -25,7 +21,6 @@
   "hubium": {
       "sock_server_l1_port": 344,
       "sock_server_l2_port": 345,
-      "iperf_port": 6969,
       "http_server_port": 443
   }
 }
