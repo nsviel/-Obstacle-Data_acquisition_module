@@ -2,7 +2,7 @@
 
 ## Summary
 
-Simply run the script file 
+Simply run the script file
 ```
 ./install.sh
 ```
@@ -19,3 +19,5 @@ cd docker
 ./build.sh
 ./run.sh
 ```
+
+The more important parameters could be changed in the ```config``` JSON file
