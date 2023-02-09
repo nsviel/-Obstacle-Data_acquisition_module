@@ -1,16 +1,23 @@
 #---------------------------------------------
 from src.param import param_py
 from src.misc import specific
+from src.misc import terminal
 
 import datetime
+import time
 import os
 
 
 def compute_ping(list_latency, list_interruption, list_reliability):
     data = make_ping()
+    compute_timestamp()
     compute_latency(data, list_latency)
     compute_reliability(data, list_reliability)
     compute_interruption(list_interruption)
+
+def compute_timestamp():
+    timestamp = time.time()
+    param_py.state_perf["local_cloud"]["timestamp"] = timestamp
 
 def make_ping():
     ip = param_py.state_py["hubium"]["ip"]
@@ -20,17 +27,16 @@ def make_ping():
     return data
 
 def compute_latency(data, list_latency):
-    id_b = data.find("time=") + 5
-    id_e = data.find(" ms")
-
     if(param_py.state_py["hubium"]["connected"] == True):
+        id_b = data.find("time=") + 5
+        id_e = data.find(" ms")
         latency = float(data[id_b:id_e])
         specific.list_stack(list_latency, latency, 10)
 
         param_py.state_perf["local_cloud"]["latency"]["value"] = latency
         param_py.state_perf["local_cloud"]["latency"]["min"] = min(list_latency)
         param_py.state_perf["local_cloud"]["latency"]["max"] = max(list_latency)
-        param_py.state_perf["local_cloud"]["latency"]["mean"] = round(specific.mean(list_latency))
+        param_py.state_perf["local_cloud"]["latency"]["mean"] = specific.mean(list_latency)
 
 def compute_reliability(data, list_reliability):
     if(param_py.state_py["hubium"]["connected"] == True):
@@ -45,19 +51,19 @@ def compute_reliability(data, list_reliability):
 
 def compute_interruption(list_interruption):
     if(param_py.state_py["hubium"]["connected"] == True):
-        param_py.has_been_connected = True
-        param_py.has_been_deconnected = False
-
         # Compute network interruption time
         if(param_py.has_been_deconnected):
             interruption_end = datetime.datetime.now()
             delta = interruption_end - param_py.interruption_time
-
             specific.list_stack(list_interruption, delta.total_seconds(), 10)
+
             param_py.state_perf["local_cloud"]["interruption"]["value"] = delta.total_seconds()
             param_py.state_perf["local_cloud"]["interruption"]["min"] = min(list_interruption)
             param_py.state_perf["local_cloud"]["interruption"]["max"] = max(list_interruption)
-            param_py.state_perf["local_cloud"]["interruption"]["mean"] = round(specific.mean(list_interruption))
+            param_py.state_perf["local_cloud"]["interruption"]["mean"] = specific.mean(list_interruption)
+
+        param_py.has_been_connected = True
+        param_py.has_been_deconnected = False
 
     # If any, compute interruption time
     if(param_py.state_py["hubium"]["connected"] == False and param_py.has_been_connected):
