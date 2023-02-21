@@ -3,7 +3,7 @@
 
 ## Screenshot
 
-![interface](https://user-images.githubusercontent.com/80487132/220365563-db2d5bef-4543-4256-b755-9b10cc209c93.png)
+![capture](https://user-images.githubusercontent.com/80487132/220365897-bfaf5de9-b103-4b8c-b224-64be1a14131a.png)
 
 ## Installation and execution
 
@@ -49,7 +49,8 @@ cd docker
 Full system repository: [link](https://github.com/nsviel/Obstacle_System)<br />
 - [x] Data acquisition module
 - [ ] Control Interface module: [link](https://github.com/nsviel/Obstacle-Control_Interface_Module)
-- [ ] Edge orchestrator module: [link](https://github.com/nsviel/Obstacle-Edge_Orchestration_Module)
+- [ ] Edge server module
+  - [ ] Edge orchestrator component: [link](https://github.com/nsviel/Obstacle-Edge_Orchestration_Module)
   - [ ] Data processing component: [link](https://github.com/nsviel/Velodium)
 
 </details>
