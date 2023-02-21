@@ -5,8 +5,8 @@ from src.interface import lidar
 
 
 def manage_command(lvl1, lvl2, lvl3):
-    if(lvl1 == "hubium" and lvl2 == "ip"):
-        param_py.state_py["hubium"]["ip"] = lvl3
+    if(lvl1 == "edge" and lvl2 == "ip"):
+        param_py.state_py["edge"]["ip"] = lvl3
     elif(lvl1 != None and lvl1 != "null"):
         param_py.state_py[lvl1][lvl2] = lvl3
         if(str(lvl2) == "device"):

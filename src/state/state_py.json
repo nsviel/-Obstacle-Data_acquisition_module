@@ -1,7 +1,7 @@
 {
     "self": {
-        "ip": "192.168.152.67",
-        "nb_thread": 7,
+        "ip": "192.168.153.195",
+        "nb_thread": 6,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314
@@ -36,7 +36,7 @@
         "add": "-",
         "ip": "192.168.2.201",
         "port": 2369,
-        "device": "enx00e04c680731",
+        "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "throughput": {
             "value": 0,
@@ -52,7 +52,7 @@
             "sent": 0
         }
     },
-    "hubium": {
+    "edge": {
         "connected": false,
         "ip": "127.0.0.1",
         "sock_server_l1_port": 344,
@@ -68,9 +68,9 @@
         "2": "lo",
         "3": "br-de470ff68a90",
         "4": "br-fc5d7334c3b2",
-        "5": "enx00e04c680731",
-        "6": "bluetooth-monitor",
-        "7": "nfqueue",
+        "5": "bluetooth-monitor",
+        "6": "nfqueue",
+        "7": "dbus-session",
         "8": "dbus-session",
         "9": "dbus-session",
         "10": "dbus-system",

@@ -21,7 +21,7 @@
       "activated": true,
       "speed": 600
   },
-  "hubium": {
+  "edge": {
       "sock_server_l1_port": 344,
       "sock_server_l2_port": 345,
       "http_server_port": 443

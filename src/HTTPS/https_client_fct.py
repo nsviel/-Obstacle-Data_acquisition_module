@@ -6,8 +6,8 @@ import http.client
 
 def network_info(dest):
     if(dest == "hu" or dest == "perf"):
-        ip = param_py.state_py["hubium"]["ip"]
-        port = param_py.state_py["hubium"]["http_server_port"]
+        ip = param_py.state_py["edge"]["ip"]
+        port = param_py.state_py["edge"]["http_server_port"]
 
     return [ip, port]
 

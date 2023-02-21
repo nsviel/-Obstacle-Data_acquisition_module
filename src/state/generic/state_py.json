@@ -52,7 +52,7 @@
             "sent": 0
         }
     },
-    "hubium": {
+    "edge": {
         "connected": false,
         "ip": "192.168.152.67",
         "sock_server_l1_port": 344,

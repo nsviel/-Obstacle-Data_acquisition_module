@@ -19,7 +19,7 @@ def load_json_file():
 
 def init_state_py():
     param_py.state_py["self"]["ip"] = connection.get_ip_adress()
-    param_py.state_py["hubium"]["connected"] = False
+    param_py.state_py["edge"]["connected"] = False
 
     param_py.state_py["lidar_1"]["connected"] = False
     param_py.state_py["lidar_1"]["running"] = False
@@ -86,9 +86,9 @@ def load_config_file():
     param_py.state_py["lidar_2"]["activated"] = config["lidar_2"]["activated"]
     param_py.state_py["lidar_2"]["speed"] = config["lidar_2"]["speed"]
 
-    param_py.state_py["hubium"]["sock_server_l1_port"] = config["hubium"]["sock_server_l1_port"]
-    param_py.state_py["hubium"]["sock_server_l2_port"] = config["hubium"]["sock_server_l2_port"]
-    param_py.state_py["hubium"]["http_server_port"] = config["hubium"]["http_server_port"]
+    param_py.state_py["edge"]["sock_server_l1_port"] = config["edge"]["sock_server_l1_port"]
+    param_py.state_py["edge"]["sock_server_l2_port"] = config["edge"]["sock_server_l2_port"]
+    param_py.state_py["edge"]["http_server_port"] = config["edge"]["http_server_port"]
 
     # Check if existing device exists, else take the config one
     if(device.check_if_device_exists(param_py.state_py["lidar_1"]["device"]) == False):

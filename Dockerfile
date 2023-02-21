@@ -12,7 +12,7 @@ RUN apt update \
 
 # Program parameters
 COPY . /app/pywardium
-VOLUME /app/hubium/data
+VOLUME /app/data
 WORKDIR /app/pywardium
 
 # Open port
