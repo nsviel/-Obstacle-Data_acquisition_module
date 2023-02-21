@@ -3,7 +3,7 @@
 
 ## Screenshot
 
-![gop](https://user-images.githubusercontent.com/80487132/220342717-b2e5fbe4-c6ff-40cb-95ba-4af57fbb31c9.png)
+![interface](https://user-images.githubusercontent.com/80487132/220365563-db2d5bef-4543-4256-b755-9b10cc209c93.png)
 
 ## Installation and execution
 
