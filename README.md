@@ -1,26 +1,22 @@
 # [Obstacle] Data Acquisition Module
 
 This module is in charge of receiving the LiDAR output data, transmiting it to an Edge server and assuring inter-communication between up-level modules and the LiDAR in order to remotly command the LiDAR parameters (e.g, motor activation, speed).
- 
+
 ![capture](https://user-images.githubusercontent.com/80487132/220365897-bfaf5de9-b103-4b8c-b224-64be1a14131a.png)
 
-## Installation and execution
+## Documentation
+<details><summary>Installation and execution</summary>
 
-<details><summary>Installation</summary>
-
-Simply run the script file
+To install dependencies, simply run the script file
 ```
 ./install.sh
 ```
-In the program directory.
-
-</details>
-<details><summary>Execution</summary>
-
-Simply run by the command
+in the program directory.
+Start the program by the command
 ```
 ./run.sh
 ```
+:warning: root privileges are required
 
 </details>
 <details><summary>Docker</summary>
@@ -35,11 +31,9 @@ cd docker
 
 </details>
 
-## Documentation
+<details><summary>Configuration</summary>
 
-<details><summary>General</summary>
-
-- The more important parameters could be changed in the ```config``` JSON file.
+The more important parameters could be changed in the ```config``` JSON file.
 
 </details>
 
@@ -52,6 +46,3 @@ Full system repository ( [link](https://github.com/nsviel/Obstacle_detection_sys
   - [ ] Data processing component ( [link](https://github.com/nsviel/-Obstacle-Data_processing_component) )
   - [ ] AI component
 - [ ] Control Interface module ( [link](https://github.com/nsviel/-Obstacle-Control_interface_module) )
-
-
-
