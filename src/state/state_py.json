@@ -52,9 +52,9 @@
             "sent": 0
         }
     },
-    "edge": {
+    "module_edge": {
         "connected": false,
-        "ip": "127.0.0.1",
+        "ip": "192.168.153.195",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "http_server_port": 443

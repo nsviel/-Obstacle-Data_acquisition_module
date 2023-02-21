@@ -41,8 +41,8 @@ def start_l1_capture():
         param_py.state_py["lidar_1"]["packet"]["value"] = 0
         param_py.state_py["lidar_1"]["running"] = True
         param_py.run_thread_l1 = True
-        ip = param_py.state_py["edge"]["ip"]
-        port = param_py.state_py["edge"]["sock_server_l2_port"]
+        ip = param_py.state_py["module_edge"]["ip"]
+        port = param_py.state_py["module_edge"]["sock_server_l2_port"]
 
         listener = pcapy.open_live(l1_device , 1500, 0, 1)
         filter = "udp port 2368 or 2369 or port 8308 or port 8309"
@@ -75,8 +75,8 @@ def start_l2_capture():
         param_py.state_py["lidar_2"]["packet"]["value"] = 0
         param_py.state_py["lidar_2"]["running"] = True
         param_py.run_thread_l2 = True
-        ip = param_py.state_py["edge"]["ip"]
-        port = param_py.state_py["edge"]["sock_server_l2_port"]
+        ip = param_py.state_py["module_edge"]["ip"]
+        port = param_py.state_py["module_edge"]["sock_server_l2_port"]
 
         listener = pcapy.open_live(l2_device, 1500, 0 , 1)
         filter = "udp port 2368 or 2369 or port 8308 or port 8309"

@@ -52,7 +52,7 @@
             "sent": 0
         }
     },
-    "edge": {
+    "module_edge": {
         "connected": false,
         "ip": "192.168.152.67",
         "sock_server_l1_port": 344,
