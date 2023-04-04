@@ -1,7 +1,7 @@
 #---------------------------------------------
 # Terminal output functions
 #---------------------------------------------
-from src.param import param_py
+from src.param import param_capture
 
 import time
 
@@ -17,16 +17,16 @@ def addLog(type, message):
         print("[\033[1;38mCOM\033[0m]  "+ message)
     elif(type == "post"):
         print("[\033[1;30mPOST\033[0m]  "+ message)
-    time.sleep(param_py.tic_message)
+    time.sleep(param_capture.tic_message)
 
 def addCstLog(type, message):
     if(type == "cap"):
         print("[\033[1;34mCAP\033[0m]   "+ message, end="\r")
 
 def addConnection(dest, state):
-    if(dest == "hu"):
+    if(dest == "edge"):
         dest = "Edge AI module"
-    elif(dest == "py"):
+    elif(dest == "capture"):
         dest = "Train module"
     elif(dest == "ve"):
         dest = "Data processing component"
@@ -39,7 +39,7 @@ def addConnection(dest, state):
         print("[\033[1;36mCON\033[0m]   Connection \033[1;31mOFF\033[0m - "+ dest)
 
 def addPost(dest, c1, c2, c3):
-    if(dest == "py"):
+    if(dest == "capture"):
         message = "Received [%s, %s, %s]"%(c1, c2, c3)
     else:
         message = "To %s [%s, %s, %s]"%(dest, c1, c2, c3)
@@ -47,7 +47,7 @@ def addPost(dest, c1, c2, c3):
         message = dest
 
     print("[\033[1;30mPOST\033[0m]  " + message)
-    time.sleep(param_py.tic_message)
+    time.sleep(param_capture.tic_message)
 
 def addDaemon(type, status, message):
     if(type == "#"):
@@ -64,7 +64,7 @@ def addDaemon(type, status, message):
     elif(status == "restart"):
         print("\033[1;34m"+status+"\033[0m - "+message)
 
-    time.sleep(param_py.tic_message)
+    time.sleep(param_capture.tic_message)
 
 def addLine():
     print("")

@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_py
+from src.param import param_capture
 import pcapy
 
 
@@ -8,7 +8,7 @@ def update_list():
     cpt = 0
     for d in devices :
         y = {str(cpt): str(d)}
-        param_py.state_py["device"].update(y)
+        param_capture.state_capture["device"].update(y)
         cpt = cpt + 1
 
 def get_all_device():

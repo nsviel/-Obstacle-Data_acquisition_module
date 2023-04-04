@@ -1,13 +1,13 @@
 #---------------------------------------------
-from src.param import param_py
+from src.param import param_capture
 
 import http.client
 
 
 def network_info(dest):
-    if(dest == "hu" or dest == "perf"):
-        ip = param_py.state_py["module_edge"]["ip"]
-        port = param_py.state_py["module_edge"]["http_server_port"]
+    if(dest == "edge" or dest == "network"):
+        ip = param_capture.state_capture["module_edge"]["ip"]
+        port = param_capture.state_capture["module_edge"]["http_server_port"]
 
     return [ip, port]
 

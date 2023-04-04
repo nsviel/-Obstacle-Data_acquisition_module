@@ -1,7 +1,7 @@
 #---------------------------------------------
 from src.misc import connection
 from src.misc import terminal
-from src.param import param_py
+from src.param import param_capture
 
 import socket
 import platform
@@ -13,7 +13,7 @@ import sys
 
 # Manage Ctrl+C input
 def handler(signum, frame):
-    param_py.run_loop = False
+    param_capture.run_loop = False
     print("")
     print("")
 

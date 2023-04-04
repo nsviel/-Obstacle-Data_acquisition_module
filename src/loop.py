@@ -1,10 +1,10 @@
 #---------------------------------------------
-from src.param import param_py
+from src.param import param_capture
 
 from src.HTTPS import https_server
 from src.SOCK import sock_client
-from src.perf import perf_throughput
-from src.perf import perf_network
+from src.network import network_throughput
+from src.network import network_perf
 
 from src.misc import connection
 from src.misc import state
@@ -23,7 +23,7 @@ def program():
     init()
 
     # Start main loop program
-    while param_py.run_loop:
+    while param_capture.run_loop:
         loop()
 
     # Join threads
@@ -35,21 +35,21 @@ def init():
     sock_client.connection()
     lidar.display_connection_status()
     https_server.start_daemon()
-    perf_throughput.start_daemon()
-    perf_network.start_daemon()
+    network_throughput.start_daemon()
+    network_perf.start_daemon()
     connection.start_daemon()
     terminal.addLog("OK", "Program initialized")
     terminal.addLine()
 
 def loop():
-    time.sleep(param_py.tic_loop)
+    time.sleep(param_capture.tic_loop)
 
 def end():
     terminal.shutdown()
-    parser_json.upload_file(param_py.path_state_py, param_py.state_py)
+    parser_json.upload_file(param_capture.path_state_capture, param_capture.state_capture)
     capture.stop_lidar_capture()
     connection.stop_daemon()
     https_server.stop_daemon()
-    perf_throughput.stop_daemon()
-    perf_network.stop_daemon()
+    network_throughput.stop_daemon()
+    network_perf.stop_daemon()
     terminal.delai()

@@ -1,8 +1,8 @@
 #---------------------------------------------
 
 # State
-state_py = {}
-state_perf = {}
+state_capture = {}
+state_network = {}
 
 # Thread
 run_loop = True;
@@ -34,6 +34,6 @@ has_been_deconnected = False
 interruption_time = 0
 
 # Path
-path_state_py = "src/state/state_py.json"
-path_state_perf = "src/state/state_perf.json"
+path_state_capture = "src/state/state_capture.json"
+path_state_network = "src/state/state_network.json"
 path_config = "config.json"

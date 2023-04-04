@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_py
+from src.param import param_capture
 from src.SOCK import sock_client
 from src.interface import lidar
 from src.misc import parser_json
@@ -20,12 +20,12 @@ def start_daemon():
         pass
 
 def stop_daemon():
-    param_py.run_thread_con = False
+    param_capture.run_thread_con = False
     terminal.addDaemon("#", "OFF", "Connection tests")
 
 def thread_test_connection():
-    param_py.run_thread_con = True
-    while param_py.run_thread_con:
+    param_capture.run_thread_con = True
+    while param_capture.run_thread_con:
         # Test connections
         https_client_con.test_hu_con()
         lidar.test_connection()
@@ -36,7 +36,7 @@ def thread_test_connection():
         update_nb_thread()
 
         # Wait for 1 second
-        time.sleep(param_py.tic_connection)
+        time.sleep(param_capture.tic_connection)
 
 def get_ip_adress():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -52,7 +52,7 @@ def get_ip_adress():
     return IP
 
 def update_nb_thread():
-    param_py.state_py["self"]["nb_thread"] = threading.active_count()
+    param_capture.state_capture["self"]["nb_thread"] = threading.active_count()
 
 def check_port_open(port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

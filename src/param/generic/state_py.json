@@ -6,9 +6,9 @@
         "l2_port": 8309,
         "http_server_port": 314
     },
-    "perf": {
-        "iperf_activated": false,
-        "iperf_port": 6970
+    "network": {
+        "inetwork_activated": false,
+        "inetwork_port": 6970
     },
     "lidar_1": {
         "connected": false,
@@ -61,7 +61,7 @@
         "ip": "192.168.1.221",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
-        "iperf_port": 6969
+        "inetwork_port": 6969
     },
     "geolocalization": {
         "country": "France"

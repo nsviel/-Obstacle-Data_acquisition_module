@@ -1,6 +1,6 @@
 {
     "self": {
-        "ip": "192.168.153.195",
+        "ip": "192.168.153.141",
         "nb_thread": 6,
         "l1_port": 8308,
         "l2_port": 8309,
@@ -30,7 +30,7 @@
         }
     },
     "lidar_2": {
-        "connected": false,
+        "connected": true,
         "activated": true,
         "running": false,
         "add": "-",
@@ -54,7 +54,7 @@
     },
     "module_edge": {
         "connected": false,
-        "ip": "192.168.153.195",
+        "ip": "192.168.153.141",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "http_server_port": 443
@@ -65,12 +65,12 @@
     "device": {
         "0": "wlp2s0",
         "1": "ztwdjfturv",
-        "2": "lo",
-        "3": "br-de470ff68a90",
-        "4": "br-fc5d7334c3b2",
-        "5": "bluetooth-monitor",
-        "6": "nfqueue",
-        "7": "dbus-session",
+        "2": "enx00e04c680731",
+        "3": "lo",
+        "4": "br-de470ff68a90",
+        "5": "br-fc5d7334c3b2",
+        "6": "bluetooth-monitor",
+        "7": "nfqueue",
         "8": "dbus-session",
         "9": "dbus-session",
         "10": "dbus-system",
