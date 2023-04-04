@@ -1,6 +1,6 @@
 {
     "local_cloud": {
-        "timestamp": 1680619960.3706448,
+        "timestamp": 1680620939.7450526,
         "throughput": {
             "value": 0,
             "min": 0,
@@ -8,16 +8,16 @@
             "mean": 0
         },
         "latency": {
-            "value": 0.034,
-            "min": 0.018,
-            "max": 0.092,
-            "mean": 0.0534
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "reliability": {
-            "value": 100.0,
-            "min": 100.0,
-            "max": 100.0,
-            "mean": 100.0
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "interruption": {
             "value": 0,
