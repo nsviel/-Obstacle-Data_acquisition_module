@@ -1,4 +1,4 @@
 #!/bin/sh
 
 cd ..
-sudo docker build -t pywardium .
+sudo docker build -t capture .
