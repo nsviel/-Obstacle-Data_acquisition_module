@@ -17,6 +17,8 @@ def manage_get(self):
         manage_capture_state(self)
     elif(command == '/network_state'):
         manage_network_state(self)
+    else:
+        print("[error] HTTP GET command not known")
 
 def manage_capture_state(self):
     data = parser_json.load_state_utf8(param_capture.path_state_capture)

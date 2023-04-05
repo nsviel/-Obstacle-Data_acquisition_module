@@ -20,6 +20,8 @@ def manage_post(self):
         manage_capture_state(self)
     elif(command == '/capture_param'):
         manage_capture_param(self)
+    else:
+        print("[error] HTTP POST command not known")
 
 def manage_capture_state(self):
     payload = https_server_fct.retrieve_post_data(self)

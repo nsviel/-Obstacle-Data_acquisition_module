@@ -5,8 +5,8 @@ from src.interface import lidar
 
 
 def manage_command(lvl1, lvl2, lvl3):
-    if(lvl1 == "module_edge" and lvl2 == "ip"):
-        param_capture.state_capture["module_edge"]["ip"] = lvl3
+    if(lvl1 == "edge" and lvl2 == "ip"):
+        param_capture.state_capture["edge"]["ip"] = lvl3
     elif(lvl1 != None and lvl1 != "null"):
         param_capture.state_capture[lvl1][lvl2] = lvl3
         if(str(lvl2) == "device"):

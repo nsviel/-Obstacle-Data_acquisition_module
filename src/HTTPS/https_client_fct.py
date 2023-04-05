@@ -6,8 +6,8 @@ import http.client
 
 def network_info(dest):
     if(dest == "edge" or dest == "network"):
-        ip = param_capture.state_capture["module_edge"]["ip"]
-        port = param_capture.state_capture["module_edge"]["http_server_port"]
+        ip = param_capture.state_capture["edge"]["ip"]
+        port = param_capture.state_capture["edge"]["http_server_port"]
 
     return [ip, port]
 

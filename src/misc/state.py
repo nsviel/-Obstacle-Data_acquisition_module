@@ -19,7 +19,7 @@ def load_json_file():
 
 def init_state_capture():
     param_capture.state_capture["self"]["ip"] = connection.get_ip_adress()
-    param_capture.state_capture["module_edge"]["connected"] = False
+    param_capture.state_capture["edge"]["connected"] = False
 
     param_capture.state_capture["lidar_1"]["connected"] = False
     param_capture.state_capture["lidar_1"]["running"] = False
@@ -86,9 +86,9 @@ def load_config_file():
     param_capture.state_capture["lidar_2"]["activated"] = config["lidar_2"]["activated"]
     param_capture.state_capture["lidar_2"]["speed"] = config["lidar_2"]["speed"]
 
-    param_capture.state_capture["module_edge"]["sock_server_l1_port"] = config["module_edge"]["sock_server_l1_port"]
-    param_capture.state_capture["module_edge"]["sock_server_l2_port"] = config["module_edge"]["sock_server_l2_port"]
-    param_capture.state_capture["module_edge"]["http_server_port"] = config["module_edge"]["http_server_port"]
+    param_capture.state_capture["edge"]["sock_server_l1_port"] = config["edge"]["sock_server_l1_port"]
+    param_capture.state_capture["edge"]["sock_server_l2_port"] = config["edge"]["sock_server_l2_port"]
+    param_capture.state_capture["edge"]["http_server_port"] = config["edge"]["http_server_port"]
 
     # Check if existing device exists, else take the config one
     if(device.check_if_device_exists(param_capture.state_capture["lidar_1"]["device"]) == False):

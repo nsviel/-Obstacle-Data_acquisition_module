@@ -13,12 +13,12 @@ def test_hu_con():
         test_hu_con.hu_has_been_co = True
         test_hu_con.hu_has_been_deco = False
         terminal.addConnection("edge", "on")
-        param_capture.state_capture["module_edge"]["connected"] = True
+        param_capture.state_capture["edge"]["connected"] = True
     elif(connected == False and test_hu_con.hu_has_been_co):
         test_hu_con.hu_has_been_co = False
         test_hu_con.hu_has_been_deco = True
         terminal.addConnection("edge", "off")
-        param_capture.state_capture["module_edge"]["connected"] = False
+        param_capture.state_capture["edge"]["connected"] = False
 
 test_hu_con.hu_has_been_co = False
 test_hu_con.hu_has_been_deco = True

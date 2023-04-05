@@ -20,26 +20,29 @@ def compute_timestamp():
     param_capture.state_network["local_cloud"]["timestamp"] = timestamp
 
 def make_ping():
-    ip = param_capture.state_capture["module_edge"]["ip"]
+    ip = param_capture.state_capture["edge"]["ip"]
     os.system("ping -c 50 -i 0.002 -t 1 " + ip + " > src/state/ping/ping.txt 2>/dev/null")
     with open('src/state/ping/ping.txt', 'r') as file:
         data = file.read().rstrip()
     return data
 
 def compute_latency(data, list_latency):
-    if(param_capture.state_capture["module_edge"]["connected"] == True):
-        id_b = data.find("time=") + 5
-        id_e = data.find(" ms")
-        latency = float(data[id_b:id_e])
-        specific.list_stack(list_latency, latency, 10)
+    if(param_capture.state_capture["edge"]["connected"] == True):
+        try:
+            id_b = data.find("time=") + 5
+            id_e = data.find(" ms")
+            latency = float(data[id_b:id_e])
+            specific.list_stack(list_latency, latency, 10)
 
-        param_capture.state_network["local_cloud"]["latency"]["value"] = latency
-        param_capture.state_network["local_cloud"]["latency"]["min"] = min(list_latency)
-        param_capture.state_network["local_cloud"]["latency"]["max"] = max(list_latency)
-        param_capture.state_network["local_cloud"]["latency"]["mean"] = specific.mean(list_latency)
+            param_capture.state_network["local_cloud"]["latency"]["value"] = latency
+            param_capture.state_network["local_cloud"]["latency"]["min"] = min(list_latency)
+            param_capture.state_network["local_cloud"]["latency"]["max"] = max(list_latency)
+            param_capture.state_network["local_cloud"]["latency"]["mean"] = specific.mean(list_latency)
+        except:
+            pass
 
 def compute_reliability(data, list_reliability):
-    if(param_capture.state_capture["module_edge"]["connected"] == True):
+    if(param_capture.state_capture["edge"]["connected"] == True):
         packetloss = float([x for x in data.split('\n') if x.find('packet loss') != -1][0].split('%')[0].split(' ')[-1])
         reliability = 100 - packetloss
         specific.list_stack(list_reliability, reliability, 10)
@@ -50,7 +53,7 @@ def compute_reliability(data, list_reliability):
         param_capture.state_network["local_cloud"]["reliability"]["mean"] = specific.mean(list_reliability)
 
 def compute_interruption(list_interruption):
-    if(param_capture.state_capture["module_edge"]["connected"] == True):
+    if(param_capture.state_capture["edge"]["connected"] == True):
         # Compute network interruption time
         if(param_capture.has_been_deconnected):
             interruption_end = datetime.datetime.now()
@@ -66,7 +69,7 @@ def compute_interruption(list_interruption):
         param_capture.has_been_deconnected = False
 
     # If any, compute interruption time
-    if(param_capture.state_capture["module_edge"]["connected"] == False and param_capture.has_been_connected):
+    if(param_capture.state_capture["edge"]["connected"] == False and param_capture.has_been_connected):
         param_capture.has_been_connected = False
         param_capture.has_been_deconnected = True
         param_capture.interruption_time = datetime.datetime.now()

@@ -1,7 +1,7 @@
 {
     "self": {
-        "ip": "192.168.153.141",
-        "nb_thread": 7,
+        "ip": "192.168.249.42",
+        "nb_thread": 6,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314
@@ -13,7 +13,7 @@
         "add": "-",
         "ip": "192.168.1.201",
         "port": 2368,
-        "device": "enx00e04c680731",
+        "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "throughput": {
             "value": 0,
@@ -30,31 +30,31 @@
         }
     },
     "lidar_2": {
-        "connected": true,
+        "connected": false,
         "activated": true,
-        "running": true,
+        "running": false,
         "add": "-",
         "ip": "192.168.2.201",
         "port": 2369,
-        "device": "enx00e04c680731",
+        "device": "ztwdjfturv",
         "speed": 600,
         "throughput": {
-            "value": 0.956,
-            "min": 0.953,
-            "max": 0.962,
-            "mean": 0.9586666666666667
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "packet": {
-            "value": 75416,
+            "value": 0,
             "min": 0,
             "max": 0,
             "mean": 0,
             "sent": 0
         }
     },
-    "module_edge": {
-        "connected": true,
-        "ip": "192.168.153.141",
+    "edge": {
+        "connected": false,
+        "ip": "192.168.249.42",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "http_server_port": 443
@@ -65,8 +65,7 @@
     "device": {
         "0": "wlp2s0",
         "1": "ztwdjfturv",
-        "2": "enx00e04c680731",
-        "3": "br-de470ff68a90",
-        "4": "br-fc5d7334c3b2"
+        "2": "br-de470ff68a90",
+        "3": "br-fc5d7334c3b2"
     }
 }
