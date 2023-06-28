@@ -1,8 +1,8 @@
 #---------------------------------------------
 from src.param import param_capture
-from src.HTTPS import https_server_get
-from src.HTTPS import https_server_post
-from src.misc import terminal
+from src.connection.HTTPS import https_server_get
+from src.connection.HTTPS import https_server_post
+from src.utils import terminal
 from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 
 import threading

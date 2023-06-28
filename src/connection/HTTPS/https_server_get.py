@@ -5,8 +5,8 @@
 #---------------------------------------------
 
 from src.param import param_capture
-from src.HTTPS import https_server_fct
-from src.misc import parser_json
+from src.connection.HTTPS import https_server_fct
+from src.utils import parser_json
 
 
 def manage_get(self):

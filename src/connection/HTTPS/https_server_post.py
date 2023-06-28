@@ -5,10 +5,10 @@
 #---------------------------------------------
 
 from src.param import param_capture
-from src.HTTPS import https_server_fct
-from src.misc import parser_json
+from src.connection.HTTPS import https_server_fct
+from src.utils import parser_json
 from src.interface import command
-from src.misc import terminal
+from src.utils import terminal
 from src.interface import capture
 
 import json

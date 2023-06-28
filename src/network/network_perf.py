@@ -1,8 +1,8 @@
 #---------------------------------------------
 from src.param import param_capture
 from src.network import network_ping
-from src.misc import parser_json
-from src.misc import terminal
+from src.utils import parser_json
+from src.utils import terminal
 
 import threading
 import time

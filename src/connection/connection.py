@@ -1,11 +1,11 @@
 #---------------------------------------------
 from src.param import param_capture
-from src.SOCK import sock_client
+from src.connection.SOCK import sock_client
 from src.interface import lidar
-from src.misc import parser_json
+from src.utils import parser_json
 from src.interface import device
-from src.misc import terminal
-from src.HTTPS import https_client_con
+from src.utils import terminal
+from src.connection.HTTPS import https_client_con
 import threading
 import socket
 import time

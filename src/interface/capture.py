@@ -1,9 +1,9 @@
 #---------------------------------------------
 from src.param import param_capture
-from src.SOCK import sock_client
+from src.connection.SOCK import sock_client
 from src.interface import device
-from src.misc import connection
-from src.misc import terminal
+from src.connection import connection
+from src.utils import terminal
 
 import threading
 import pcapy

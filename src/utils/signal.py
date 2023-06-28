@@ -1,6 +1,6 @@
 #---------------------------------------------
-from src.misc import connection
-from src.misc import terminal
+from src.connection import connection
+from src.utils import terminal
 from src.param import param_capture
 
 import socket

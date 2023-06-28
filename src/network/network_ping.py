@@ -1,7 +1,7 @@
 #---------------------------------------------
 from src.param import param_capture
-from src.misc import specific
-from src.misc import terminal
+from src.utils import specific
+from src.utils import terminal
 
 import datetime
 import time

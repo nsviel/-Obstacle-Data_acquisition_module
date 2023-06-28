@@ -1,7 +1,7 @@
 #---------------------------------------------
 from src.param import param_capture
 from src.interface import capture
-from src.misc import terminal
+from src.utils import terminal
 
 from requests.exceptions import ConnectionError
 

@@ -1,6 +1,6 @@
 #---------------------------------------------
-from src.SOCK import sock_client_fct
-from src.misc import terminal
+from src.connection.SOCK import sock_client_fct
+from src.utils import terminal
 
 
 def connection():
