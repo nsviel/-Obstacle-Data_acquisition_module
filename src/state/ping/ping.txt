@@ -51,5 +51,5 @@ From 192.168.152.1 icmp_seq=49 Time to live exceeded
 From 192.168.152.1 icmp_seq=50 Time to live exceeded
 
 --- 192.168.249.42 ping statistics ---
-50 packets transmitted, 0 received, +50 errors, 100% packet loss, time 135ms
+50 packets transmitted, 0 received, +50 errors, 100% packet loss, time 128ms
 

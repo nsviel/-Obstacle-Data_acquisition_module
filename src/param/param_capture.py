@@ -35,5 +35,5 @@ interruption_time = 0
 
 # Path
 path_state_capture = "src/state/system/state_capture.json"
-path_state_network = "src/state/system/state_network.json"
+path_state_network = "src/state/system/state_perf.json"
 path_config = "config.json"

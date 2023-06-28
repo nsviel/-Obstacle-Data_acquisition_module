@@ -3,8 +3,8 @@ from src.param import param_capture
 
 from src.connection.HTTPS import https_server
 from src.connection.SOCK import sock_client
-from src.network import network_throughput
-from src.network import network_perf
+from src.perf import network_throughput
+from src.perf import network_perf
 
 from src.connection import connection
 from src.state import state

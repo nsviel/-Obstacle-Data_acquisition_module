@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_capture
-from src.network import network_ping
+from src.perf import network_ping
 from src.utils import parser_json
 from src.utils import terminal
 
