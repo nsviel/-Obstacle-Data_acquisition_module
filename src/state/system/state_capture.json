@@ -1,6 +1,6 @@
 {
     "self": {
-        "ip": "192.168.154.127",
+        "ip": "192.168.152.40",
         "nb_thread": 6,
         "l1_port": 8308,
         "l2_port": 8309,
@@ -36,7 +36,7 @@
         "add": "-",
         "ip": "192.168.2.201",
         "port": 2369,
-        "device": "ztwdjfturv",
+        "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "throughput": {
             "value": 0,
@@ -54,7 +54,7 @@
     },
     "edge": {
         "connected": false,
-        "ip": "192.168.249.42",
+        "ip": "192.168.154.127",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "http_server_port": 443
@@ -66,7 +66,6 @@
         "0": "wlp2s0",
         "1": "ztwdjfturv",
         "2": "br-de470ff68a90",
-        "3": "br-fc5d7334c3b2",
-        "4": "enx00e04c680731"
+        "3": "br-fc5d7334c3b2"
     }
 }

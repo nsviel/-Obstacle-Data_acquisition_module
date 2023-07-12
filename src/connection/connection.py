@@ -5,27 +5,15 @@ from src.interface import lidar
 from src.utils import parser_json
 from src.interface import device
 from src.utils import terminal
+from src.utils import daemon
 from src.connection.HTTPS import https_client_con
-import threading
+
 import socket
-import time
+import threading
 
 
-def start_daemon():
-    try:
-        thread_con = threading.Thread(target = thread_test_connection)
-        thread_con.start()
-        terminal.addDaemon("#", "ON", "Connection tests")
-    except:
-        pass
-
-def stop_daemon():
-    param_capture.run_thread_con = False
-    terminal.addDaemon("#", "OFF", "Connection tests")
-
-def thread_test_connection():
-    param_capture.run_thread_con = True
-    while param_capture.run_thread_con:
+class Connection(daemon.Daemon):
+    def thread_function(self):
         # Test connections
         https_client_con.test_hu_con()
         lidar.test_connection()
@@ -35,8 +23,8 @@ def thread_test_connection():
         parser_json.upload_state()
         update_nb_thread()
 
-        # Wait for 1 second
-        time.sleep(param_capture.tic_connection)
+    name = "Connection";
+    run_sleep = 0.5;
 
 def get_ip_adress():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

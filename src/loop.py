@@ -3,7 +3,8 @@ from src.param import param_capture
 
 from src.connection.HTTPS import https_server
 from src.connection.SOCK import sock_client
-from src.perf import network_throughput
+from src.perf import throughput_l1
+from src.perf import throughput_l2
 from src.perf import network_perf
 
 from src.connection import connection
@@ -16,6 +17,11 @@ from src.interface import lidar
 
 import time
 
+
+daemon_connection = connection.Connection()
+daemon_network = network_perf.Network()
+daemon_throughput_l1 = throughput_l1.Throughput_l1()
+daemon_throughput_l2 = throughput_l2.Throughput_l2()
 
 #Main function
 def program():
@@ -35,9 +41,10 @@ def init():
     sock_client.connection()
     lidar.display_connection_status()
     https_server.start_daemon()
-    network_throughput.start_daemon()
-    network_perf.start_daemon()
-    connection.start_daemon()
+    daemon_throughput_l1.start_daemon()
+    daemon_throughput_l2.start_daemon()
+    daemon_network.start_daemon()
+    daemon_connection.start_daemon()
     terminal.addLog("OK", "Program initialized")
     terminal.addLine()
 
@@ -48,8 +55,9 @@ def end():
     terminal.shutdown()
     parser_json.upload_file(param_capture.path_state_capture, param_capture.state_capture)
     capture.stop_lidar_capture()
-    connection.stop_daemon()
+    daemon_connection.stop_daemon()
     https_server.stop_daemon()
-    network_throughput.stop_daemon()
-    network_perf.stop_daemon()
+    daemon_throughput_l1.stop_daemon()
+    daemon_throughput_l2.stop_daemon()
+    daemon_network.stop_daemon()
     terminal.delai()
