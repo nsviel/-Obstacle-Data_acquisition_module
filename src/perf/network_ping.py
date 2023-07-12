@@ -21,7 +21,7 @@ def compute_timestamp():
 
 def make_ping():
     ip = param_capture.state_capture["edge"]["ip"]
-    os.system("ping -c 50 -i 0.002 -t 1 " + ip + " > src/state/ping/ping.txt 2>/dev/null")
+    os.system('timeout 1s [ping -c 50 -i 0.002 -t 1 " + ip + " > src/state/ping/ping.txt 2>/dev/null]')
     with open('src/state/ping/ping.txt', 'r') as file:
         data = file.read().rstrip()
     return data
