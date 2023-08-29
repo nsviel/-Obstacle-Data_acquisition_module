@@ -46,8 +46,8 @@ def upload_file(path, data):
         pass
 
 def upload_state():
-    file = open(param_capture.path_state_capture, "w")
-    json.dump(param_capture.state_capture, file, indent=4)
+    file = open(param_capture.path_state_ground, "w")
+    json.dump(param_capture.state_ground, file, indent=4)
 
 def update_state_file(path, data):
     if(len(data) != 0):

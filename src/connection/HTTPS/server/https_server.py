@@ -1,7 +1,7 @@
 #---------------------------------------------
 from src.param import param_capture
-from src.connection.HTTPS import https_server_get
-from src.connection.HTTPS import https_server_post
+from src.connection.HTTPS.server import https_server_get
+from src.connection.HTTPS.server import https_server_post
 from src.utils import terminal
 from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 
@@ -19,9 +19,9 @@ class S(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         return
 
-def start_daemon(server_class=HTTPServer, handler_class=S):
+def start_server(server_class=HTTPServer, handler_class=S):
     try:
-        address = ("", param_capture.state_capture["self"]["http_server_port"])
+        address = ("", param_capture.state_ground["capture"]["http"]["server_port"])
 
         param_capture.https_server = ThreadingHTTPServer(address, handler_class)
         param_capture.http_server_daemon = threading.Thread(target=param_capture.https_server.serve_forever)
@@ -32,7 +32,7 @@ def start_daemon(server_class=HTTPServer, handler_class=S):
         terminal.fatal_error()
         os.system("sudo kill -9 $(ps -A | grep python | awk '{print $1}')")
 
-def stop_daemon():
+def stop_server():
     param_capture.https_server.shutdown()
     param_capture.http_server_daemon.join()
     terminal.addDaemon("#", "OFF", "HTTPS server")

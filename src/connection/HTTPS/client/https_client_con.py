@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_capture
-from src.connection.HTTPS import https_client_fct
+from src.connection.HTTPS.client import https_client_fct
 from src.utils import terminal
 
 
@@ -13,12 +13,12 @@ def test_hu_con():
         test_hu_con.hu_has_been_co = True
         test_hu_con.hu_has_been_deco = False
         terminal.addConnection("edge", "on")
-        param_capture.state_capture["edge"]["connected"] = True
+        param_capture.state_ground["edge"]["connected"] = True
     elif(connected == False and test_hu_con.hu_has_been_co):
         test_hu_con.hu_has_been_co = False
         test_hu_con.hu_has_been_deco = True
         terminal.addConnection("edge", "off")
-        param_capture.state_capture["edge"]["connected"] = False
+        param_capture.state_ground["edge"]["connected"] = False
 
 test_hu_con.hu_has_been_co = False
 test_hu_con.hu_has_been_deco = True

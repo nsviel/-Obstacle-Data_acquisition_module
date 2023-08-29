@@ -1,7 +1,7 @@
 #---------------------------------------------
 
 # State
-state_capture = {}
+state_ground = {}
 state_network = {}
 
 # Thread
@@ -33,7 +33,5 @@ has_been_connected = False
 has_been_deconnected = False
 interruption_time = 0
 
-# Path
-path_state_capture = "src/state/system/state_capture.json"
-path_state_network = "src/state/system/state_perf.json"
-path_config = "config.json"
+path_state_current = "src/state/current/"
+path_state_initial = "src/state/initial/"

@@ -1,0 +1,90 @@
+{
+    "capture": {
+        "info": {
+            "ip": "127.0.0.1",
+            "add": "-",
+            "status": "Offline",
+            "nb_thread": 0
+        },
+        "socket": {
+            "server_l1_port": 8308,
+            "server_l2_port": 8309,
+            "l1_connected": false,
+            "l2_connected": false
+        },
+        "http": {
+            "server_port": 314
+        }
+    },
+    "lidar_1": {
+        "info": {
+            "ip": "192.168.1.201",
+            "add": "-",
+            "status": "Offline",
+            "connected": false,
+            "activated": true,
+            "port": 2368,
+            "device": "enxf8e43b6cdf6c"
+        },
+        "motor": {
+            "running": false,
+            "speed": 600
+        },
+        "throughput": {
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
+        },
+        "packet": {
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "sent": 0
+        }
+    },
+    "lidar_2": {
+        "info": {
+            "ip": "192.168.2.201",
+            "add": "-",
+            "status": "Offline",
+            "connected": false,
+            "activated": true,
+            "port": 2369,
+            "device": "enxf8e43b6cdf6c"
+        },
+        "motor": {
+            "running": false,
+            "speed": 600
+        },
+        "throughput": {
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
+        },
+        "packet": {
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "sent": 0
+        }
+    },
+    "device": {
+        "0": "wlp2s0",
+        "1": "ztwdjfturv",
+        "2": "lo",
+        "3": "br-de470ff68a90",
+        "4": "br-fc5d7334c3b2",
+        "5": "bluetooth-monitor",
+        "6": "nfqueue",
+        "7": "dbus-session",
+        "8": "dbus-session",
+        "9": "dbus-session",
+        "10": "dbus-system",
+        "11": "veth5fd752f",
+        "12": "veth83826ab"
+    }
+}

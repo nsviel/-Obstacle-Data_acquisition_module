@@ -1,0 +1,61 @@
+{
+    "mongodb": {
+        "ip": "127.0.0.1",
+        "add": "-",
+        "status": "Offline",
+        "port": 27017,
+        "database": "test_db",
+        "collection": "test_collection_1",
+        "username": "",
+        "password": "",
+        "nb_data": 50,
+        "connected": false
+    },
+    "local_cloud": {
+        "timestamp": 0,
+        "throughput": {
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
+        },
+        "latency": {
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
+        },
+        "reliability": {
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
+        },
+        "interruption": {
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
+        }
+    },
+    "cloud_local": {
+        "timestamp": 1693327059.447574,
+        "latency": {
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
+        },
+        "reliability": {
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
+        }
+    },
+    "time": {
+        "slam": 0,
+        "ai": 0,
+        "total": 0
+    }
+}

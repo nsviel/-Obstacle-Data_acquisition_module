@@ -5,7 +5,7 @@
 #---------------------------------------------
 
 from src.param import param_capture
-from src.connection.HTTPS import https_server_fct
+from src.connection.HTTPS.server import https_server_fct
 from src.utils import parser_json
 from src.interface import command
 from src.utils import terminal
@@ -21,14 +21,14 @@ def manage_post(self):
     elif(command == '/capture_param'):
         manage_capture_param(self)
     else:
-        print("[error] HTTP POST command not known")
+        print("[error] HTTP POST command not known [%s]"% command)
 
 def manage_capture_state(self):
     payload = https_server_fct.retrieve_post_data(self)
     if(payload != None):
         data = json.loads(payload)
-        param_capture.state_capture = data
-        parser_json.upload_state()
+        param_capture.state_ground = data
+        #parser_json.upload_state()
         terminal.addLog("post", "New state received")
         capture.restart_lidar_capture()
 

@@ -7,10 +7,10 @@ def update_list():
     devices = get_all_device()
 
     cpt = 0
-    param_capture.state_capture["device"].clear()
+    param_capture.state_ground["device"].clear()
     for d in devices :
         y = {str(cpt): str(d)}
-        param_capture.state_capture["device"].update(y)
+        param_capture.state_ground["device"].update(y)
         cpt = cpt + 1
 
 def get_all_device():
