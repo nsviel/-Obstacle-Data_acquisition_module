@@ -1,6 +1,6 @@
 #---------------------------------------------
 # Possible GET command:
-# - /test_http_conn
+# - /http_ping
 # - /capture_state
 #---------------------------------------------
 
@@ -11,7 +11,7 @@ from src.utils import parser_json
 
 def manage_get(self):
     command = str(self.path)
-    if(command == '/test_http_conn'):
+    if(command == '/http_ping'):
         self.send_response(200)
     elif(command == '/capture_state'):
         manage_capture_state(self)

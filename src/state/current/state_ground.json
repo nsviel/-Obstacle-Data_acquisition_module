@@ -14,7 +14,7 @@
             "server_port": 314
         },
         "interface": {
-            "edge_http_connected": false
+            "edge_http_connected": true
         },
         "ip": "192.168.152.40",
         "nb_thread": 6

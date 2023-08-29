@@ -15,7 +15,7 @@ def send_https_ping(ip, port):
     client = http.client.HTTPConnection(ip, port, timeout=0.1)
     connected = False
     try:
-        client.request("GET", "/test_http_conn")
+        client.request("GET", "/http_ping")
         connected = True
     except:
         connected = False

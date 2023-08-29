@@ -27,7 +27,7 @@ def make_ping():
     return data
 
 def compute_latency(data, list_latency):
-    if(param_capture.state_ground["capture"]["interface"]["edge_http_connected"] == True):
+    if(param_capture.state_ground["capture"]["interface"]["edge_http_connected"] == True and data != ""):
         try:
             id_b = data.find("time=") + 5
             id_e = data.find(" ms")
@@ -42,7 +42,7 @@ def compute_latency(data, list_latency):
             pass
 
 def compute_reliability(data, list_reliability):
-    if(param_capture.state_ground["capture"]["interface"]["edge_http_connected"] == True):
+    if(param_capture.state_ground["capture"]["interface"]["edge_http_connected"] == True and data != ""):
         packetloss = float([x for x in data.split('\n') if x.find('packet loss') != -1][0].split('%')[0].split(' ')[-1])
         reliability = 100 - packetloss
         specific.list_stack(list_reliability, reliability, 10)
