@@ -25,13 +25,13 @@ def addCstLog(type, message):
 
 def addConnection(dest, state):
     if(dest == "edge"):
-        dest = "Edge AI module"
+        dest = "Edge"
     elif(dest == "capture"):
-        dest = "Train module"
+        dest = "Capture"
     elif(dest == "ve"):
-        dest = "Data processing component"
+        dest = "SLAM"
     elif(dest == "ai"):
-        dest = "AI component"
+        dest = "AI"
 
     if(state == "on"):
         print("[\033[1;36mCON\033[0m]   Connection \033[1;32mON\033[0m  - "+ dest)

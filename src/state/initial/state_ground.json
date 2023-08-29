@@ -12,6 +12,9 @@
       },
       "http":{
         "server_port": 314
+      },
+      "interface":{
+        "edge_http_connected": false
       }
     },
     "lidar_1": {

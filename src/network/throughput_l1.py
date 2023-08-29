@@ -13,7 +13,7 @@ import psutil
 class Throughput_l1(daemon.Daemon):
     def thread_function(self):
         try:
-            if(param_capture.state_ground["lidar_1"]["connected"] and param_capture.state_ground["lidar_1"]["activated"]):
+            if(param_capture.state_ground["lidar_1"]["info"]["connected"] and param_capture.state_ground["lidar_1"]["activated"]):
                 l1_mbs = throughput.network_device(param_capture.state_ground["lidar_1"]["device"])
                 [tgp_list, tgp_min, tgp_mean, tgp_max] = throughput.compute_throughput(l1_mbs, tgp_list, tgp_min, tgp_max)
 

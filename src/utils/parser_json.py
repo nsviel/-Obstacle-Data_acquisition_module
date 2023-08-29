@@ -45,10 +45,6 @@ def upload_file(path, data):
         print("problem dumping state file")
         pass
 
-def upload_state():
-    file = open(param_capture.path_state_ground, "w")
-    json.dump(param_capture.state_ground, file, indent=4)
-
 def update_state_file(path, data):
     if(len(data) != 0):
         file = open(path, 'w')

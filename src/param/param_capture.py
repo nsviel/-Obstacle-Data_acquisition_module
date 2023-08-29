@@ -3,6 +3,7 @@
 # State
 state_ground = {}
 state_network = {}
+state_edge = {}
 
 # Thread
 run_loop = True;

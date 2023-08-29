@@ -2,7 +2,7 @@
 from src.param import param_capture
 from src.connection.SOCK import sock_client
 from src.interface import lidar
-from src.utils import state
+from src.state import state
 from src.interface import device
 from src.utils import terminal
 from src.base import daemon
@@ -15,7 +15,7 @@ import threading
 class Connection(daemon.Daemon):
     def thread_function(self):
         # Test connections
-        https_client_con.test_hu_con()
+        https_client_con.test_edge_con()
         lidar.test_connection()
         device.update_list()
 
@@ -40,7 +40,7 @@ def get_ip_adress():
     return IP
 
 def update_nb_thread():
-    param_capture.state_ground["self"]["nb_thread"] = threading.active_count()
+    param_capture.state_ground["capture"]["nb_thread"] = threading.active_count()
 
 def check_port_open(port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
