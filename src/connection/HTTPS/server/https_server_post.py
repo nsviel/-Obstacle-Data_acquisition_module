@@ -22,9 +22,9 @@ def manage_post(self):
 
     # POST state
     if(command == '/post_state_ground'):
-        param_edge.state_ground = json.loads(payload)
+        param_capture.state_ground = json.loads(payload)
     elif(command == '/post_state_edge'):
-        param_edge.state_edge = json.loads(payload)
+        param_capture.state_edge = json.loads(payload)
     else:
         print("[error] HTTP POST command not known [%s]"% command)
 

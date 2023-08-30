@@ -15,7 +15,7 @@ import threading
 class Connection(daemon.Daemon):
     def thread_function(self):
         # Test connections
-        https_client_con.test_edge_con()
+        https_client_con.test_connection_edge()
         lidar.test_connection()
         device.update_list()
 
