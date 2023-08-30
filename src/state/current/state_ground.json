@@ -80,7 +80,7 @@
     },
     "interface": {
         "edge": {
-            "http_connected": false
+            "http_connected": true
         }
     }
 }
