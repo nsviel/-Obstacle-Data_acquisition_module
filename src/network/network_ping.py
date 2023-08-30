@@ -2,29 +2,35 @@
 from src.param import param_capture
 from src.utils import specific
 from src.utils import terminal
-
+import subprocess
 import datetime
 import time
 import os
 
 
-def compute_ping(list_latency, list_interruption, list_reliability):
+def compute_ping(self):
     data = make_ping()
-    compute_timestamp()
-    compute_latency(data, list_latency)
-    compute_reliability(data, list_reliability)
-    compute_interruption(list_interruption)
+    if(data != None):
+        compute_timestamp()
+        compute_latency(data, self.list_latency)
+        compute_reliability(data, self.list_reliability)
+        compute_interruption(self.list_interruption)
+
+def make_ping():
+    ip = param_capture.state_edge["hub"]["info"]["ip"]
+    try:
+        response = subprocess.check_output(
+            ['ping', '-c', '3', '-i', '0.002', '-t', '1', ip],
+            stderr=subprocess.DEVNULL,
+            universal_newlines=True
+        )
+    except subprocess.CalledProcessError:
+        response = None
+    return response
 
 def compute_timestamp():
     timestamp = time.time()
     param_capture.state_network["local_cloud"]["timestamp"] = timestamp
-
-def make_ping():
-    ip = param_capture.state_edge["hub"]["info"]["ip"]
-    os.system('timeout 1s [ping -c 50 -i 0.002 -t 1 " + ip + " > src/state/ping/ping.txt 2>/dev/null]')
-    with open('src/state/ping/ping.txt', 'r') as file:
-        data = file.read().rstrip()
-    return data
 
 def compute_latency(data, list_latency):
     if(param_capture.state_ground["interface"]["edge"]["http_connected"] == True and data != ""):
