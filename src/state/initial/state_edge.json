@@ -15,15 +15,6 @@
       },
       "http":{
         "server_port": 443
-      },
-      "interface":{
-        "ai_http_connected": false,
-        "slam_sock_connected": false,
-        "slam_http_connected": false,
-        "operator_broker_connected": false,
-        "capture_l1_connected": false,
-        "capture_l2_connected": false,
-        "capture_http_connected": false
       }
     },
     "slam": {
@@ -31,9 +22,11 @@
         "status": "Offline"
       },
       "socket":{
+        "connected": false,
         "server_port": 2370
       },
       "http":{
+        "connected": false,
         "server_port": 8888
       },
       "parameter":{
@@ -46,6 +39,7 @@
         "status": "Offline"
       },
       "http":{
+        "connected": false,
         "server_port": 8080
       },
       "parameter":{
@@ -56,5 +50,15 @@
     "data": {
         "nb_frame": 0,
         "nb_prediction": 0
+    },
+    "interface":{
+      "operator":{
+        "broker_connected": false
+      },
+      "capture":{
+        "sock_l1_connected": false,
+        "sock_l2_connected": false,
+        "http_connected": false
+      }
     }
 }

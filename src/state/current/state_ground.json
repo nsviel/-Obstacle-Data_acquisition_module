@@ -13,10 +13,7 @@
         "http": {
             "server_port": 314
         },
-        "interface": {
-            "edge_http_connected": true
-        },
-        "ip": "192.168.152.40",
+        "ip": "192.168.39.42",
         "nb_thread": 6
     },
     "lidar_1": {
@@ -80,5 +77,10 @@
         "1": "ztwdjfturv",
         "2": "br-de470ff68a90",
         "3": "br-fc5d7334c3b2"
+    },
+    "interface": {
+        "edge": {
+            "http_connected": true
+        }
     }
 }

@@ -12,9 +12,6 @@
       },
       "http":{
         "server_port": 314
-      },
-      "interface":{
-        "edge_http_connected": false
       }
     },
     "lidar_1": {
@@ -87,5 +84,10 @@
         "10": "dbus-system",
         "11": "veth5fd752f",
         "12": "veth83826ab"
+    },
+    "interface":{
+      "edge":{
+        "http_connected": false
+      }
     }
 }
