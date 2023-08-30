@@ -18,9 +18,11 @@ class Daemon:
 
     def restart_daemon(self):
         terminal.addDaemon("#", "restart", self.name)
-        self.stop_daemon()
+        self.run_thread = False
         time.sleep(1)
-        self.start_daemon()
+        self.run_thread = True
+        thread = threading.Thread(target = self.thread_loop)
+        thread.start()
 
     def thread_loop(self):
         self.thread_init()

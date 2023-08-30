@@ -37,5 +37,5 @@ def manage_capture_param(self):
     if(payload != None):
         data = json.loads(payload)
         [lvl1, lvl2, lvl3] = https_server_fct.decipher_json(data)
-        terminal.addPost("capture", lvl1, lvl2, lvl3)
+        terminal.add_post_command("capture", lvl1, lvl2, lvl3)
         command.manage_command(lvl1, lvl2, lvl3)

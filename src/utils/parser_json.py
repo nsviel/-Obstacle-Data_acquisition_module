@@ -11,12 +11,7 @@ def load_state(path):
         data = json.load(file)
         return data
     except:
-        dir = os.path.dirname(os.path.abspath(path))
-        name = os.path.basename(path)
-        generic = dir + "/generic/" + name
-        file = open(generic, "r")
-        data = json.load(file)
-        return data
+        print("[error] Problem loading state at %s"% path)
 
 def load_data_from_file(path):
     file = open(path, "r")
@@ -27,15 +22,6 @@ def load_data_from_file_b(path):
     f = open(path)
     data = json.dumps(json.load(f))
     return data
-
-def load_state_utf8(path):
-    try:
-        file = open(path)
-        data = json.load(file)
-        data_encoded = json.dumps(data).encode(encoding='utf_8')
-        return data_encoded
-    except:
-        pass
 
 def upload_file(path, data):
     try:

@@ -38,7 +38,7 @@ def addConnection(dest, state):
     elif(state == "off"):
         print("[\033[1;36mCON\033[0m]   Connection \033[1;31mOFF\033[0m - "+ dest)
 
-def addPost(dest, c1, c2, c3):
+def add_post_command(dest, c1, c2, c3):
     if(dest == "capture"):
         message = "Received [%s, %s, %s]"%(c1, c2, c3)
     else:
@@ -58,11 +58,11 @@ def addDaemon(type, status, message):
         print("[\033[1;31merror\033[0m] Daemon ", flush=True, end='')
 
     if(status == "ON"):
-        print("\033[1;32m"+status+"\033[0m - "+message)
+        print("\033[1;32mON\033[0m - "+message)
     elif(status == "OFF"):
-        print("\033[1;31m"+status+"\033[0m - "+message)
+        print("\033[1;31mOFF\033[0m - "+message)
     elif(status == "restart"):
-        print("\033[1;34m"+status+"\033[0m - "+message)
+        print("\033[1;30mRESTART\033[0m - "+message)
 
     time.sleep(param_capture.tic_message)
 

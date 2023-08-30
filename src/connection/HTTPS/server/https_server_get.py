@@ -21,9 +21,9 @@ def manage_get(self):
         print("[error] HTTP GET command not known")
 
 def manage_capture_state(self):
-    data = parser_json.load_state_utf8(param_capture.path_state_current + "state_ground.json")
+    data = parser_json.load_state(param_capture.path_state_current + "state_ground.json")
     https_server_fct.send_get_response(self, data, "application/json")
 
 def manage_network_state(self):
-    data = parser_json.load_state_utf8(param_capture.path_state_current + "state_network.json")
+    data = parser_json.load_state(param_capture.path_state_current + "state_network.json")
     https_server_fct.send_get_response(self, data, "application/json")
