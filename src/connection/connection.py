@@ -13,6 +13,10 @@ import threading
 
 
 class Connection(daemon.Daemon):
+    def __init__(self):
+        self.name = "Connection";
+        self.run_sleep = 0.5;
+
     def thread_function(self):
         # Test connections
         https_client_con.test_connection_edge()
@@ -22,9 +26,6 @@ class Connection(daemon.Daemon):
         # Update state
         state.upload_states()
         update_nb_thread()
-
-    name = "Connection";
-    run_sleep = 0.5;
 
 def get_ip_adress():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -40,7 +41,7 @@ def get_ip_adress():
     return IP
 
 def update_nb_thread():
-    param_capture.state_ground["capture"]["nb_thread"] = threading.active_count()
+    param_capture.state_ground["capture"]["info"]["nb_thread"] = threading.active_count()
 
 def check_port_open(port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_capture
-from src.connection.SOCK import sock_client
+from src.connection.SOCK import socket_client
 from src.interface import device
 from src.connection import connection
 from src.utils import terminal
@@ -28,6 +28,7 @@ def restart_lidar_capture():
 def start_l1_capture():
     l1_device = param_capture.state_ground["lidar_1"]["info"]["device"]
     l1_port = param_capture.state_ground["capture"]["socket"]["server_l1_port"]
+    socket = socket_client.Socket_client()
 
     # Check device
     device_ok = device.check_if_device_exists(l1_device)
@@ -53,7 +54,7 @@ def start_l1_capture():
             if(param_capture.state_ground["lidar_1"]["info"]["activated"]):
                 (header, packet) = listener.next()
                 if(packet != None):
-                    param_capture.sock_client.sendto(packet, (ip, port))
+                    socket.socket.sendto(packet, (ip, port))
                     if(len(packet) == 1248):
                         param_capture.state_ground["lidar_1"]["packet"]["value"] += 1
                         terminal.addCstLog("cap", "LiDAR 2: [\033[1;32m%s\033[0m] packets"% param_capture.state_ground["lidar_2"]["packet"]["value"])
@@ -62,6 +63,7 @@ def start_l1_capture():
 def start_l2_capture():
     l2_device = param_capture.state_ground["lidar_2"]["info"]["device"]
     l2_port = param_capture.state_ground["capture"]["socket"]["server_l2_port"]
+    socket = socket_client.Socket_client()
 
     # Check device
     device_ok = device.check_if_device_exists(l2_device)
@@ -87,7 +89,7 @@ def start_l2_capture():
             if(param_capture.state_ground["lidar_2"]["info"]["activated"]):
                 (header, packet) = listener.next()
                 if(packet != None):
-                    param_capture.sock_client.sendto(packet, (ip, port))
+                    socket.socket.sendto(packet, (ip, port))
                     if(len(packet) == 1248):
                         param_capture.state_ground["lidar_2"]["packet"]["value"] += 1
                         terminal.addCstLog("cap", "LiDAR 2: [\033[1;32m%s\033[0m] packets"% param_capture.state_ground["lidar_2"]["packet"]["value"])

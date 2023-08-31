@@ -1,7 +1,6 @@
 #---------------------------------------------
 from src.param import param_capture
 from src.connection.HTTPS.server import https_server
-from src.connection.SOCK import sock_client
 from src.state import state
 from src.interface import capture
 from src.utils import parser_json
@@ -26,7 +25,6 @@ def program():
 #Sub-function
 def init():
     state.load_configuration()
-    sock_client.connection()
     lidar.display_connection_status()
     https_server.start_server()
     daemon.start_daemons()
