@@ -25,7 +25,10 @@ def manage_post(self):
         param_capture.state_ground = json.loads(payload)
     elif(command == '/post_state_edge'):
         param_capture.state_edge = json.loads(payload)
-    else:
-        print("[error] HTTP POST command not known [%s]"% command)
 
     # POST command
+    elif(command == '/post_command_ground'):
+        if(payload == "reset"):
+            capture.restart_lidar_capture()
+    else:
+        print("[error] HTTP POST command not known [%s]"% command)

@@ -38,14 +38,8 @@ def addConnection(dest, state):
     elif(state == "off"):
         print("[\033[1;36mCON\033[0m]   Connection \033[1;31mOFF\033[0m - "+ dest)
 
-def add_post_command(dest, c1, c2, c3):
-    if(dest == "capture"):
-        message = "Received [%s, %s, %s]"%(c1, c2, c3)
-    else:
-        message = "To %s [%s, %s, %s]"%(dest, c1, c2, c3)
-    if(c1 == "" and c2 == "" and c3 == ""):
-        message = dest
-
+def add_post_command(dest, payload):
+    message = "To %s [%s]"%(dest, payload)
     print("[\033[1;30mPOST\033[0m]  " + message)
     time.sleep(param_capture.tic_message)
 

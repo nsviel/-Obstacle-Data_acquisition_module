@@ -1,5 +1,6 @@
 #---------------------------------------------
 from src.param import param_capture
+from src.network import throughput
 from src.utils import terminal
 from src.base import daemon
 
@@ -7,35 +8,52 @@ import threading
 import queue
 import time
 import psutil
+import statistics
 
 
-def compute_throughput(value, list, min, max):
-    # Mean
-    list.append(value)
-    if(len(list) == 25):
-        list.pop(0)
-    val_mean = 0
-    for bdw in list:
-        val_mean += bdw
-    val_mean /= len(list)
+class Throughput(daemon.Daemon):
+    def __init__(self, name):
+        self.name = name
+        self.run_sleep = 0.05;
+        self.tgp_min = 1000
+        self.tgp_max = 0
+        self.tgp_mean = 0
+        self.tgp_list = [0]
 
-    # Min & max
-    if(value > max):
-        val_max = value
-    else:
-        val_max = max
-    if(value < min):
-        val_min = value
-    else:
-        val_min = min
-    return [list, val_min, val_mean, val_max]
+    def thread_function(self):
+        try:
+            if(param_capture.state_ground[self.name]["info"]["connected"] and param_capture.state_ground[self.name]["info"]["activated"]):
+                l2_mbs = self.compute_throughput(param_capture.state_ground[self.name]["info"]["device"])
+                self.compute_throughput_range(l2_mbs)
 
-def network_device(device):
-    # Compute throughput
-    net_stat = psutil.net_io_counters(pernic=True, nowrap=True)[device]
-    net_in_1 = net_stat.bytes_recv
-    time.sleep(1)
-    net_stat = psutil.net_io_counters(pernic=True, nowrap=True)[device]
-    net_in_2 = net_stat.bytes_recv
-    net_in = round((net_in_2 - net_in_1) / 1024 / 1024, 3)
-    return net_in
+                param_capture.state_ground[self.name]["throughput"]["value"] = l2_mbs
+                param_capture.state_ground[self.name]["throughput"]["min"] = self.tgp_min
+                param_capture.state_ground[self.name]["throughput"]["mean"] = self.tgp_mean
+                param_capture.state_ground[self.name]["throughput"]["max"] = self.tgp_max
+            else:
+                param_capture.state_ground[self.name]["throughput"]["value"] = 0
+                param_capture.state_ground[self.name]["throughput"]["min"] = 0
+                param_capture.state_ground[self.name]["throughput"]["mean"] = 0
+                param_capture.state_ground[self.name]["throughput"]["max"] = 0
+                param_capture.state_ground[self.name]["packet"]["value"] = 0
+                time.sleep(1)
+        except:
+            time.sleep(1)
+
+    # Compute function
+    def compute_throughput(self, device):
+        net_stat = psutil.net_io_counters(pernic=True, nowrap=True)[device]
+        net_in_1 = net_stat.bytes_recv
+        time.sleep(1)
+        net_stat = psutil.net_io_counters(pernic=True, nowrap=True)[device]
+        net_in_2 = net_stat.bytes_recv
+        net_in = round((net_in_2 - net_in_1) / 1024 / 1024, 3)
+        return net_in
+    def compute_throughput_range(self, value):
+        self.tgp_list.append(value)
+        if(len(self.tgp_list) == 20):
+            self.tgp_list.pop(0)
+
+        self.tgp_mean = statistics.mean(self.tgp_list)
+        self.tgp_min = min(self.tgp_list)
+        self.tgp_max = max(self.tgp_list)

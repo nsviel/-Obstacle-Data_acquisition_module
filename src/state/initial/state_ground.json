@@ -35,11 +35,7 @@
             "mean": 0
         },
         "packet": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0,
-            "sent": 0
+            "value": 0
         }
     },
     "lidar_2": {
@@ -50,7 +46,7 @@
           "connected": false,
           "activated": true,
           "port": 2369,
-          "device": "enxf8e43b6cdf6c"
+          "device": "enxa0cec8737a9e"
         },
         "motor":{
           "running": false,
@@ -63,11 +59,7 @@
             "mean": 0
         },
         "packet": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0,
-            "sent": 0
+            "value": 0
         }
     },
     "device": {

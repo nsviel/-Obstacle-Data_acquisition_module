@@ -13,8 +13,8 @@
         "http": {
             "server_port": 314
         },
-        "ip": "192.168.39.42",
-        "nb_thread": 6
+        "ip": "192.168.152.40",
+        "nb_thread": 7
     },
     "lidar_1": {
         "info": {
@@ -37,11 +37,7 @@
             "mean": 0
         },
         "packet": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0,
-            "sent": 0
+            "value": 0
         }
     },
     "lidar_2": {
@@ -49,38 +45,36 @@
             "ip": "192.168.2.201",
             "add": "-",
             "status": "Offline",
-            "connected": false,
+            "connected": true,
             "activated": true,
             "port": 2369,
-            "device": "enxf8e43b6cdf6c"
+            "device": "enxa0cec8737a9e"
         },
         "motor": {
             "running": false,
             "speed": 600
         },
         "throughput": {
-            "value": 0,
+            "value": 0.956,
             "min": 0,
-            "max": 0,
-            "mean": 0
+            "max": 0.961,
+            "mean": 0.9030588235294117
         },
         "packet": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0,
-            "sent": 0
-        }
+            "value": 12950
+        },
+        "running": true
     },
     "device": {
         "0": "wlp2s0",
         "1": "ztwdjfturv",
-        "2": "br-de470ff68a90",
-        "3": "br-fc5d7334c3b2"
+        "2": "enxa0cec8737a9e",
+        "3": "br-de470ff68a90",
+        "4": "br-fc5d7334c3b2"
     },
     "interface": {
         "edge": {
-            "http_connected": true
+            "http_connected": false
         }
     }
 }
