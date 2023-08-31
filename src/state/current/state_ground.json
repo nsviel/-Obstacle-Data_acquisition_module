@@ -2,13 +2,15 @@
     "capture": {
         "info": {
             "ip": "127.0.0.1",
-            "add": "-",
+            "add": "localhost",
             "status": "Online",
-            "nb_thread": 9
+            "nb_thread": 8
         },
         "socket": {
             "server_l1_port": 8308,
-            "server_l2_port": 8309
+            "server_l2_port": 8309,
+            "l1_connected": false,
+            "l2_connected": false
         },
         "http": {
             "server_port": 314
@@ -20,7 +22,7 @@
             "add": "-",
             "status": "Offline",
             "connected": false,
-            "activated": true,
+            "activated": false,
             "port": 2368,
             "device": "enxf8e43b6cdf6c"
         },
@@ -35,7 +37,10 @@
             "mean": 0
         },
         "packet": {
-            "value": 0
+            "value": 0,
+            "min": 0,
+            "mean": 0,
+            "max": 0
         }
     },
     "lidar_2": {
@@ -49,17 +54,20 @@
             "device": "enxa0cec8737a9e"
         },
         "motor": {
-            "running": false,
+            "running": true,
             "speed": 600
         },
         "throughput": {
-            "value": 0.958,
+            "value": 0.961,
             "min": 0.955,
             "max": 0.962,
-            "mean": 0.959421052631579
+            "mean": 0.9592105263157894
         },
         "packet": {
-            "value": 125751
+            "value": 101871,
+            "min": 0,
+            "mean": 0,
+            "max": 0
         },
         "running": true
     },

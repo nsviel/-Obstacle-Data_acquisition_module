@@ -67,51 +67,53 @@ def send_lidar_parameter(ip, data):
 # LiDAR 1 motor
 def start_l1_motor():
     ip = param_capture.state_ground["lidar_1"]["info"]["ip"]
-    speed = param_capture.state_ground["lidar_1"]["speed"]
+    speed = param_capture.state_ground["lidar_1"]["motor"]["speed"]
     data = {'rpm': str(speed),}
     if(send_lidar_parameter(ip, data)):
         terminal.addLog("com", "LiDAR \033[96m1\033[0m motor \033[1;32mON\033[0m at \033[96m%d\033[0m rpm" % speed)
-        param_capture.state_ground["lidar_1"]["running"] = True
+        param_capture.state_ground["lidar_1"]["motor"]["running"] = True
 def stop_l1_motor():
     ip = param_capture.state_ground["lidar_1"]["info"]["ip"]
     data = {'rpm': '0',}
     if(send_lidar_parameter(ip, data)):
         terminal.addLog("com", "LiDAR \033[96m1\033[0m motor \033[1;31mOFF\033[0m")
-        param_capture.state_ground["lidar_1"]["running"] = False
+        param_capture.state_ground["lidar_1"]["motor"]["running"] = False
 def restart_l1_motor():
     terminal.addLog("com", "LiDAR \033[96m1\033[0m motor \033[1;34mRESTART\033[0m")
     stop_l1_motor()
     start_l1_motor()
 def change_l1_speed():
     ip = param_capture.state_ground["lidar_1"]["info"]["ip"]
-    speed = param_capture.state_ground["lidar_1"]["speed"]
+    speed = param_capture.state_ground["lidar_1"]["motor"]["speed"]
     data = {'rpm': str(speed),}
     if(send_lidar_parameter(ip, data)):
         terminal.addLog("com", "LiDAR \033[96m1\033[0m motor \033[1;32mON\033[0m at \033[96m%d\033[0m rpm" % speed)
-        param_capture.state_ground["lidar_1"]["running"] = True
+        param_capture.state_ground["lidar_1"]["motor"]["running"] = True
 
 # LiDAR 2 motor
 def start_l2_motor():
     ip = param_capture.state_ground["lidar_2"]["info"]["ip"]
-    speed = param_capture.state_ground["lidar_2"]["speed"]
+    speed = param_capture.state_ground["lidar_2"]["motor"]["speed"]
     data = {'rpm': speed,}
     if(send_lidar_parameter(ip, data)):
         terminal.addLog("com", "LiDAR \033[96m2\033[0m motor \033[1;32mON\033[0m at \033[96m%d\033[0m rpm" % speed)
-        param_capture.state_ground["lidar_2"]["running"] = True
+        param_capture.state_ground["lidar_2"]["motor"]["running"] = True
 def stop_l2_motor():
     ip = param_capture.state_ground["lidar_2"]["info"]["ip"]
     data = {'rpm': '0',}
+    print(ip)
     if(send_lidar_parameter(ip, data)):
+        print("ok")
         terminal.addLog("com", "LiDAR \033[96m2\033[0m motor \033[1;31mOFF\033[0m")
-        param_capture.state_ground["lidar_2"]["running"] = False
+        param_capture.state_ground["lidar_2"]["motor"]["running"] = False
 def restart_l2_motor():
     terminal.addLog("com", "LiDAR \033[96m2\033[0m motor \033[1;34mRESTART\033[0m")
     stop_l2_motor()
     start_l2_motor()
 def change_l2_speed():
     ip = param_capture.state_ground["lidar_2"]["info"]["ip"]
-    speed = param_capture.state_ground["lidar_2"]["speed"]
+    speed = param_capture.state_ground["lidar_2"]["motor"]["speed"]
     data = {'rpm': speed,}
     if(send_lidar_parameter(ip, data)):
         terminal.addLog("com", "LiDAR \033[96m2\033[0m motor \033[1;32mON\033[0m at \033[96m%d\033[0m rpm" % speed)
-        param_capture.state_ground["lidar_2"]["running"] = True
+        param_capture.state_ground["lidar_2"]["motor"]["running"] = True

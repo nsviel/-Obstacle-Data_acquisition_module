@@ -40,7 +40,7 @@ def start_l1_capture():
     connected = param_capture.state_ground["lidar_1"]["info"]["connected"]
     if(connected and device_ok):
         param_capture.state_ground["lidar_1"]["packet"]["value"] = 0
-        param_capture.state_ground["lidar_1"]["running"] = True
+        param_capture.state_ground["lidar_1"]["motor"]["running"] = True
         param_capture.run_thread_l1 = True
         ip = param_capture.state_edge["hub"]["info"]["ip"]
         port = param_capture.state_edge["hub"]["socket"]["server_l2_port"]
@@ -75,7 +75,7 @@ def start_l2_capture():
     connected = param_capture.state_ground["lidar_2"]["info"]["connected"]
     if(connected and device_ok):
         param_capture.state_ground["lidar_2"]["packet"]["value"] = 0
-        param_capture.state_ground["lidar_2"]["running"] = True
+        param_capture.state_ground["lidar_2"]["motor"]["running"] = True
         param_capture.run_thread_l2 = True
         ip = param_capture.state_edge["hub"]["info"]["ip"]
         port = param_capture.state_edge["hub"]["socket"]["server_l2_port"]
