@@ -3,18 +3,19 @@
         "info": {
             "ip": "127.0.0.1",
             "add": "-",
-            "status": "Offline",
+            "status": "Online",
             "nb_thread": 0
         },
         "socket": {
             "server_l1_port": 8308,
-            "server_l2_port": 8309
+            "server_l2_port": 8309,
+            "l1_connected": false,
+            "l2_connected": false
         },
         "http": {
             "server_port": 314
         },
-        "ip": "192.168.152.40",
-        "nb_thread": 7
+        "nb_thread": 9
     },
     "lidar_1": {
         "info": {
@@ -44,8 +45,8 @@
         "info": {
             "ip": "192.168.2.201",
             "add": "-",
-            "status": "Offline",
-            "connected": true,
+            "status": "Online",
+            "connected": false,
             "activated": true,
             "port": 2369,
             "device": "enxa0cec8737a9e"
@@ -55,26 +56,26 @@
             "speed": 600
         },
         "throughput": {
-            "value": 0.956,
+            "value": 0,
             "min": 0,
-            "max": 0.961,
-            "mean": 0.9030588235294117
+            "max": 0,
+            "mean": 0
         },
         "packet": {
-            "value": 12950
+            "value": 0
         },
         "running": true
     },
     "device": {
         "0": "wlp2s0",
         "1": "ztwdjfturv",
-        "2": "enxa0cec8737a9e",
-        "3": "br-de470ff68a90",
-        "4": "br-fc5d7334c3b2"
+        "2": "br-de470ff68a90",
+        "3": "br-fc5d7334c3b2",
+        "4": "enxa0cec8737a9e"
     },
     "interface": {
         "edge": {
-            "http_connected": false
+            "http_connected": true
         }
     }
 }
