@@ -58,7 +58,7 @@ def display_connection_status():
 def send_lidar_parameter(ip, data):
     address = "http://" + str(ip) + "/cgi/setting"
     try:
-        response = requests.post(address, data=data, timeout=1)
+        response = requests.post(address, data=data, timeout=2)
         time.sleep(1)
         return True
     except:

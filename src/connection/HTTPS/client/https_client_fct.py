@@ -12,7 +12,7 @@ def network_info(dest):
     return [ip, port]
 
 def send_https_ping(ip, port):
-    client = http.client.HTTPConnection(ip, port, timeout=0.1)
+    client = http.client.HTTPConnection(ip, port, timeout=2)
     connected = False
     try:
         client.request("GET", "/http_ping")
