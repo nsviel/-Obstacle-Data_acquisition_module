@@ -11,7 +11,7 @@
         "nb_data": 50,
         "connected": false
     },
-    "local_cloud": {
+    "ground_to_edge": {
         "timestamp": 0,
         "throughput": {
             "value": 0,
@@ -38,7 +38,7 @@
             "mean": 0
         }
     },
-    "cloud_local": {
+    "edge_to_ground": {
         "timestamp": 0,
         "latency": {
             "value": 0,

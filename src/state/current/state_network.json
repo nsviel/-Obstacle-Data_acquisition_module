@@ -11,8 +11,8 @@
         "nb_data": 50,
         "connected": false
     },
-    "local_cloud": {
-        "timestamp": 1694080862.871766,
+    "ground_to_edge": {
+        "timestamp": 1694512672.43949,
         "throughput": {
             "value": 0,
             "min": 0,
@@ -20,16 +20,16 @@
             "mean": 0
         },
         "latency": {
-            "value": 27.0,
-            "min": 24.7,
-            "max": 61.1,
-            "mean": 31.73
+            "value": 0.087,
+            "min": 0.024,
+            "max": 0.087,
+            "mean": 0.058899999999999994
         },
         "reliability": {
-            "value": 33.333299999999994,
-            "min": 33.333299999999994,
+            "value": 100.0,
+            "min": 100.0,
             "max": 100.0,
-            "mean": 93.33333
+            "mean": 100.0
         },
         "interruption": {
             "value": 0,
@@ -38,7 +38,7 @@
             "mean": 0
         }
     },
-    "cloud_local": {
+    "edge_to_ground": {
         "timestamp": 0,
         "latency": {
             "value": 0,

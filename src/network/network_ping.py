@@ -30,7 +30,7 @@ def make_ping():
 
 def compute_timestamp():
     timestamp = time.time()
-    param_capture.state_network["local_cloud"]["timestamp"] = timestamp
+    param_capture.state_network["ground_to_edge"]["timestamp"] = timestamp
 
 def compute_latency(data, list_latency):
     if(param_capture.state_ground["interface"]["edge"]["http_connected"] == True and data != ""):
@@ -40,10 +40,10 @@ def compute_latency(data, list_latency):
             latency = float(data[id_b:id_e])
             specific.list_stack(list_latency, latency, 10)
 
-            param_capture.state_network["local_cloud"]["latency"]["value"] = latency
-            param_capture.state_network["local_cloud"]["latency"]["min"] = min(list_latency)
-            param_capture.state_network["local_cloud"]["latency"]["max"] = max(list_latency)
-            param_capture.state_network["local_cloud"]["latency"]["mean"] = specific.mean(list_latency)
+            param_capture.state_network["ground_to_edge"]["latency"]["value"] = latency
+            param_capture.state_network["ground_to_edge"]["latency"]["min"] = min(list_latency)
+            param_capture.state_network["ground_to_edge"]["latency"]["max"] = max(list_latency)
+            param_capture.state_network["ground_to_edge"]["latency"]["mean"] = specific.mean(list_latency)
         except:
             pass
 
@@ -53,10 +53,10 @@ def compute_reliability(data, list_reliability):
         reliability = 100 - packetloss
         specific.list_stack(list_reliability, reliability, 10)
 
-        param_capture.state_network["local_cloud"]["reliability"]["value"] = reliability;
-        param_capture.state_network["local_cloud"]["reliability"]["min"] = min(list_reliability)
-        param_capture.state_network["local_cloud"]["reliability"]["max"] = max(list_reliability)
-        param_capture.state_network["local_cloud"]["reliability"]["mean"] = specific.mean(list_reliability)
+        param_capture.state_network["ground_to_edge"]["reliability"]["value"] = reliability;
+        param_capture.state_network["ground_to_edge"]["reliability"]["min"] = min(list_reliability)
+        param_capture.state_network["ground_to_edge"]["reliability"]["max"] = max(list_reliability)
+        param_capture.state_network["ground_to_edge"]["reliability"]["mean"] = specific.mean(list_reliability)
 
 def compute_interruption(list_interruption):
     if(param_capture.state_ground["interface"]["edge"]["http_connected"] == True):
@@ -66,10 +66,10 @@ def compute_interruption(list_interruption):
             delta = interruption_end - param_capture.interruption_time
             specific.list_stack(list_interruption, delta.total_seconds(), 10)
 
-            param_capture.state_network["local_cloud"]["interruption"]["value"] = delta.total_seconds()
-            param_capture.state_network["local_cloud"]["interruption"]["min"] = min(list_interruption)
-            param_capture.state_network["local_cloud"]["interruption"]["max"] = max(list_interruption)
-            param_capture.state_network["local_cloud"]["interruption"]["mean"] = specific.mean(list_interruption)
+            param_capture.state_network["ground_to_edge"]["interruption"]["value"] = delta.total_seconds()
+            param_capture.state_network["ground_to_edge"]["interruption"]["min"] = min(list_interruption)
+            param_capture.state_network["ground_to_edge"]["interruption"]["max"] = max(list_interruption)
+            param_capture.state_network["ground_to_edge"]["interruption"]["mean"] = specific.mean(list_interruption)
 
         param_capture.has_been_connected = True
         param_capture.has_been_deconnected = False

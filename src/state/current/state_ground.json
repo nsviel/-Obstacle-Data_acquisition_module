@@ -1,16 +1,14 @@
 {
     "capture": {
         "info": {
-            "ip": "10.17.235.73",
-            "add": "control_real",
+            "ip": "127.0.0.1",
+            "add": "-",
             "status": "Offline",
             "nb_thread": 6
         },
         "socket": {
             "server_l1_port": 8308,
-            "server_l2_port": 8309,
-            "l1_connected": false,
-            "l2_connected": false
+            "server_l2_port": 8309
         },
         "http": {
             "server_port": 314
@@ -19,10 +17,10 @@
     "lidar_1": {
         "info": {
             "ip": "192.168.1.201",
-            "add": "lidar_1_static",
+            "add": "-",
             "status": "Offline",
             "connected": false,
-            "activated": false,
+            "activated": true,
             "port": 2368,
             "device": "enxf8e43b6cdf6c"
         },
@@ -37,19 +35,16 @@
             "mean": 0
         },
         "packet": {
-            "value": 0,
-            "min": 0,
-            "mean": 0,
-            "max": 0
+            "value": 0
         }
     },
     "lidar_2": {
         "info": {
             "ip": "192.168.2.201",
-            "add": "lidar_2_static",
+            "add": "-",
             "status": "Offline",
             "connected": false,
-            "activated": false,
+            "activated": true,
             "port": 2369,
             "device": "enxf8e43b6cdf6c"
         },
@@ -64,18 +59,14 @@
             "mean": 0
         },
         "packet": {
-            "value": 0,
-            "min": 0,
-            "mean": 0,
-            "max": 0
+            "value": 0
         }
     },
     "device": {
         "0": "wlp2s0",
         "1": "ztwdjfturv",
-        "2": "vpn0",
-        "3": "br-de470ff68a90",
-        "4": "br-fc5d7334c3b2"
+        "2": "br-de470ff68a90",
+        "3": "br-fc5d7334c3b2"
     },
     "interface": {
         "edge": {
