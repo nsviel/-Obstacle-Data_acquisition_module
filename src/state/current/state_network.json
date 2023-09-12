@@ -2,7 +2,7 @@
     "mongodb": {
         "ip": "127.0.0.1",
         "add": "-",
-        "status": "Offline",
+        "status": "Online",
         "port": 27017,
         "database": "test_db",
         "collection": "test_collection_1",
