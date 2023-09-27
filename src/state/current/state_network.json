@@ -12,7 +12,7 @@
         "connected": false
     },
     "ground_to_edge": {
-        "timestamp": 1694512672.43949,
+        "timestamp": 1695114062.2069392,
         "throughput": {
             "value": 0,
             "min": 0,
@@ -20,10 +20,10 @@
             "mean": 0
         },
         "latency": {
-            "value": 0.087,
-            "min": 0.024,
-            "max": 0.087,
-            "mean": 0.058899999999999994
+            "value": 0.028,
+            "min": 0.027,
+            "max": 0.059,
+            "mean": 0.038
         },
         "reliability": {
             "value": 100.0,
