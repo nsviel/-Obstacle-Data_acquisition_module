@@ -70,6 +70,8 @@ def compute_interruption(list_interruption):
             param_capture.state_network["ground_to_edge"]["interruption"]["min"] = min(list_interruption)
             param_capture.state_network["ground_to_edge"]["interruption"]["max"] = max(list_interruption)
             param_capture.state_network["ground_to_edge"]["interruption"]["mean"] = specific.mean(list_interruption)
+        else:
+            param_capture.state_network["ground_to_edge"]["interruption"]["value"] = 0
 
         param_capture.has_been_connected = True
         param_capture.has_been_deconnected = False
