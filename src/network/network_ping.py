@@ -20,7 +20,7 @@ def make_ping():
     ip = param_capture.state_edge["hub"]["info"]["ip"]
     try:
         response = subprocess.check_output(
-            ['ping', '-c', '100', '-i', '0.01', ip],
+            ['ping', '-c', '100', '-i', '0.0001', ip],
             stderr=subprocess.DEVNULL,
             universal_newlines=True
         )
