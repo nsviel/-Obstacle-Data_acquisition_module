@@ -11,7 +11,7 @@ import time
 class Network(daemon.Daemon):
     def __init__(self):
         self.name = "Network performance";
-        self.run_sleep = 0.5;
+        self.run_sleep = 2;
         self.list_reliability = []
         self.list_latency = []
         self.list_interruption = []
