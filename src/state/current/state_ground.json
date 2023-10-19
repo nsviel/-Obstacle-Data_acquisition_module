@@ -12,7 +12,8 @@
         },
         "http": {
             "server_port": 314
-        }
+        },
+        "ip": "192.168.73.42"
     },
     "lidar_1": {
         "info": {
@@ -46,7 +47,7 @@
             "connected": false,
             "activated": true,
             "port": 2369,
-            "device": "enxf8e43b6cdf6c"
+            "device": "enxa0cec8737a9e"
         },
         "motor": {
             "running": false,
@@ -66,12 +67,11 @@
         "0": "wlp2s0",
         "1": "ztwdjfturv",
         "2": "br-de470ff68a90",
-        "3": "br-fc5d7334c3b2",
-        "4": "enx00e04c680731"
+        "3": "br-fc5d7334c3b2"
     },
     "interface": {
         "edge": {
-            "http_connected": true
+            "http_connected": false
         }
     }
 }
