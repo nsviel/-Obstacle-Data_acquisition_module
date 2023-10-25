@@ -2,26 +2,27 @@
     "capture": {
         "info": {
             "ip": "127.0.0.1",
-            "add": "-",
-            "status": "Online",
+            "add": "localhost",
+            "status": "Offline",
             "nb_thread": 6
         },
         "socket": {
             "server_l1_port": 8308,
-            "server_l2_port": 8309
+            "server_l2_port": 8309,
+            "l1_connected": false,
+            "l2_connected": false
         },
         "http": {
             "server_port": 314
-        },
-        "ip": "192.168.73.42"
+        }
     },
     "lidar_1": {
         "info": {
             "ip": "192.168.1.201",
-            "add": "-",
-            "status": "Online",
+            "add": "lidar_1_static",
+            "status": "Offline",
             "connected": false,
-            "activated": true,
+            "activated": false,
             "port": 2368,
             "device": "enxf8e43b6cdf6c"
         },
@@ -36,18 +37,21 @@
             "mean": 0
         },
         "packet": {
-            "value": 0
+            "value": 0,
+            "min": 0,
+            "mean": 0,
+            "max": 0
         }
     },
     "lidar_2": {
         "info": {
             "ip": "192.168.2.201",
-            "add": "-",
-            "status": "Online",
+            "add": "lidar_2_static",
+            "status": "Offline",
             "connected": false,
-            "activated": true,
+            "activated": false,
             "port": 2369,
-            "device": "enxa0cec8737a9e"
+            "device": "enxf8e43b6cdf6c"
         },
         "motor": {
             "running": false,
@@ -60,18 +64,22 @@
             "mean": 0
         },
         "packet": {
-            "value": 0
+            "value": 0,
+            "min": 0,
+            "mean": 0,
+            "max": 0
         }
     },
     "device": {
         "0": "wlp2s0",
         "1": "ztwdjfturv",
-        "2": "br-de470ff68a90",
-        "3": "br-fc5d7334c3b2"
+        "2": "vpn0",
+        "3": "br-de470ff68a90",
+        "4": "br-fc5d7334c3b2"
     },
     "interface": {
         "edge": {
-            "http_connected": false
+            "http_connected": true
         }
     }
 }

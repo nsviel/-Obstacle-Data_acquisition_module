@@ -10,6 +10,7 @@ def test_connection_edge():
     [ip, port] = https_client_fct.network_info("edge")
     connected = https_client_fct.send_https_ping(ip, port)
     param_capture.state_ground["interface"]["edge"]["http_connected"] = connected
+
     if(connected == True and test_connection_edge.hu_has_been_deco):
         test_connection_edge.hu_has_been_co = True
         test_connection_edge.hu_has_been_deco = False
