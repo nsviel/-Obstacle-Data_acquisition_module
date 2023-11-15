@@ -9,6 +9,7 @@ import time
 import requests
 
 
+
 # LiDAR connection
 def test_connection():
     l1_ip = param_capture.state_ground["lidar_1"]["info"]["ip"]
@@ -39,7 +40,7 @@ def test_connection():
         param_capture.state_ground["lidar_1"]["throughput"]["value"] = 0
         param_capture.state_ground["lidar_2"]["packet"]["value"] = 0
         param_capture.state_ground["lidar_2"]["throughput"]["value"] = 0
-        capture.start_lidar_capture()
+    capture.start_lidar_capture()
 def display_connection_status():
     l1_ip = param_capture.state_ground["lidar_1"]["info"]["ip"]
     l2_ip = param_capture.state_ground["lidar_2"]["info"]["ip"]

@@ -2,6 +2,7 @@
 from src.connection import connection
 from src.network import network
 from src.network import throughput
+from src.param import param_capture
 
 
 daemon_connection = connection.Connection()
@@ -11,11 +12,13 @@ daemon_throughput_l2 = throughput.Throughput("lidar_2")
 
 def start_daemons():
     daemon_connection.start_daemon()
+    daemon_connection.start_lidar_simulation()
     daemon_network.start_daemon()
     daemon_throughput_l1.start_daemon()
     daemon_throughput_l2.start_daemon()
 
 def stop_daemons():
+    param_capture.run_thread_lidar_simulation = False
     daemon_connection.stop_daemon()
     daemon_network.stop_daemon()
     daemon_throughput_l1.stop_daemon()

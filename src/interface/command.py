@@ -10,9 +10,9 @@ def manage_command(lvl1, lvl2, lvl3):
     elif(lvl1 != None and lvl1 != "null"):
         param_capture.state_ground[lvl1][lvl2] = lvl3
         if(str(lvl2) == "device"):
-            capture.restart_capture()
+            capture.restart_lidar_capture()
         if(str(lvl2) == "ip"):
-            capture.restart_capture()
+            capture.restart_lidar_capture()
         if(str(lvl2) == "speed"):
             lidar.start_l1_motor()
             lidar.start_l2_motor()

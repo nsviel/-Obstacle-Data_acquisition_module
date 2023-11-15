@@ -27,6 +27,9 @@ class Connection(daemon.Daemon):
         state.upload_states()
         update_nb_thread()
 
+    def start_lidar_simulation(self):
+        pass#lidar.loop_over_pcap("media/file_25.pcap");
+
 def get_ip_adress():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.settimeout(0)
