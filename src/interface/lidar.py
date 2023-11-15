@@ -33,14 +33,20 @@ def test_connection():
             terminal.addLog("#", "LiDAR \033[1;34m2\033[0m connection \033[1;31mOFF\033[0m")
 
     param_capture.state_ground["lidar_1"]["info"]["connected"] = l1_ok
+    param_capture.state_ground["lidar_1"]["info"]["simulated"] = l1_simu
     param_capture.state_ground["lidar_2"]["info"]["connected"] = l2_ok
+    param_capture.state_ground["lidar_1"]["info"]["simulated"] = l2_simu
 
+    once = True
+    if((l1_simu or l2_simu) && once):
+        capture.start_lidar_capture()
+        once = False
     if(l1_connected == False and l1_ok or l2_connected == False and l2_ok):
         param_capture.state_ground["lidar_1"]["packet"]["value"] = 0
         param_capture.state_ground["lidar_1"]["throughput"]["value"] = 0
         param_capture.state_ground["lidar_2"]["packet"]["value"] = 0
         param_capture.state_ground["lidar_2"]["throughput"]["value"] = 0
-    capture.start_lidar_capture()
+        capture.start_lidar_capture()
 def display_connection_status():
     l1_ip = param_capture.state_ground["lidar_1"]["info"]["ip"]
     l2_ip = param_capture.state_ground["lidar_2"]["info"]["ip"]
