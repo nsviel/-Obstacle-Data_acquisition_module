@@ -3,14 +3,12 @@
         "info": {
             "ip": "127.0.0.1",
             "add": "localhost",
-            "status": "Offline",
-            "nb_thread": 6
+            "status": "Online",
+            "nb_thread": 7
         },
         "socket": {
             "server_l1_port": 8308,
-            "server_l2_port": 8309,
-            "l1_connected": false,
-            "l2_connected": false
+            "server_l2_port": 8309
         },
         "http": {
             "server_port": 314
@@ -19,10 +17,10 @@
     "lidar_1": {
         "info": {
             "ip": "192.168.1.201",
-            "add": "lidar_1_static",
+            "add": "-",
             "status": "Offline",
             "connected": false,
-            "activated": false,
+            "activated": true,
             "port": 2368,
             "device": "enxf8e43b6cdf6c"
         },
@@ -37,45 +35,37 @@
             "mean": 0
         },
         "packet": {
-            "value": 0,
-            "min": 0,
-            "mean": 0,
-            "max": 0
+            "value": 0
         }
     },
     "lidar_2": {
         "info": {
             "ip": "192.168.2.201",
-            "add": "lidar_2_static",
-            "status": "Offline",
-            "connected": false,
-            "activated": false,
+            "add": "-",
+            "status": "Online",
+            "connected": true,
+            "activated": true,
             "port": 2369,
-            "device": "enxf8e43b6cdf6c"
+            "device": "enxa0cec8737a9e"
         },
         "motor": {
-            "running": false,
+            "running": true,
             "speed": 600
         },
         "throughput": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 7.68,
+            "min": 0.956,
+            "max": 0.962,
+            "mean": 0.9594736842105263
         },
         "packet": {
-            "value": 0,
-            "min": 0,
-            "mean": 0,
-            "max": 0
+            "value": 192735
         }
     },
     "device": {
-        "0": "wlp2s0",
-        "1": "ztwdjfturv",
-        "2": "vpn0",
-        "3": "br-de470ff68a90",
-        "4": "br-fc5d7334c3b2"
+        "0": "wlp0s20f3",
+        "1": "enxa0cec8737a9e",
+        "2": "vpn0"
     },
     "interface": {
         "edge": {

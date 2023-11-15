@@ -12,7 +12,7 @@
         "connected": false
     },
     "ground_to_edge": {
-        "timestamp": 1698252995.018763,
+        "timestamp": 1700059966.6494672,
         "throughput": {
             "value": 0,
             "min": 0,
@@ -20,10 +20,10 @@
             "mean": 0
         },
         "latency": {
-            "value": 0.101,
-            "min": 0.031,
-            "max": 0.101,
-            "mean": 0.0445
+            "value": 0.2,
+            "min": 0.025,
+            "max": 0.2,
+            "mean": 0.053200000000000004
         },
         "reliability": {
             "value": 100.0,
@@ -33,9 +33,9 @@
         },
         "interruption": {
             "value": 0,
-            "min": 4.006918,
-            "max": 4.006918,
-            "mean": 4.006918
+            "min": 3.643774,
+            "max": 27.363762,
+            "mean": 9.218576142857144
         }
     },
     "edge_to_ground": {
