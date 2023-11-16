@@ -36,7 +36,7 @@
             "connected": false
         },
         "http": {
-            "server_port": 8888
+            "server_port": 8889
         },
         "parameter": {
             "with_slam": 0,

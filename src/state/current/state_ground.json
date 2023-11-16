@@ -12,8 +12,7 @@
         },
         "http": {
             "server_port": 314
-        },
-        "ip": "10.17.235.178"
+        }
     },
     "lidar_1": {
         "info": {
@@ -45,34 +44,34 @@
             "ip": "192.168.2.201",
             "add": "-",
             "status": "Online",
-            "connected": false,
+            "connected": true,
             "activated": true,
             "simulated": false,
             "port": 2369,
             "device": "enxa0cec8737a9e"
         },
         "motor": {
-            "running": false,
+            "running": true,
             "speed": 600
         },
         "throughput": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "value": 7.688,
+            "min": 7.64,
+            "max": 7.696,
+            "mean": 7.672421052631579
         },
         "packet": {
-            "value": 0
+            "value": 472939
         }
     },
     "device": {
         "0": "wlp0s20f3",
-        "1": "vpn0",
-        "2": "enxa0cec8737a9e"
+        "1": "enxa0cec8737a9e",
+        "2": "vpn0"
     },
     "interface": {
         "edge": {
-            "http_connected": false
+            "http_connected": true
         }
     }
 }
