@@ -24,7 +24,7 @@ def start_lidar_capture():
     thread_l1 = threading.Thread(target = start_l1_capture)
     thread_l2 = threading.Thread(target = start_l2_capture)
     thread_pcap = threading.Thread(target = start_pcap_capture)
-    thread_l1.start()
+    #thread_l1.start()
     #thread_l2.start()
     thread_pcap.start();
 def stop_lidar_capture():
@@ -148,9 +148,21 @@ def pcap_reader(socket):
             # Loop over each packet and process it continuously
             pcap = dpkt.pcap.Reader(pcap_file)
 
+            start_time = time.time()
+            total_bytes = 0
+
             for ts, buf in pcap:
                 packet = bytes(buf)
-                socket.socket.sendto(packet, ("localhost", 8308))
+                socket.socket.sendto(packet, (dest_ip, dest_port))
+                total_bytes += len(packet)
+                time.sleep(0.0000001)
+
+            # Calculate throughput in bytes per second
+            end_time = time.time()
+            elapsed_time = end_time - start_time
+            throughput_bps = total_bytes / elapsed_time
+            throughput_mbps = throughput_bps / 1_000_000
+            param_capture.state_ground["lidar_1"]["throughput"]["value"] = throughput_mbps
 
             # Wait for the process to complete (optional)
             process.terminate()

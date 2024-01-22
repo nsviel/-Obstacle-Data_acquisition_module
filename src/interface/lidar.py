@@ -42,7 +42,7 @@ def test_connection():
 
     if(param_capture.run_thread_l1 == False and param_capture.run_thread_l2 == False and param_capture.run_thread_pcap == False):
         param_capture.state_ground["lidar_1"]["packet"]["value"] = 0
-        param_capture.state_ground["lidar_1"]["throughput"]["value"] = 0
+        #param_capture.state_ground["lidar_1"]["throughput"]["value"] = 0
         param_capture.state_ground["lidar_2"]["packet"]["value"] = 0
         param_capture.state_ground["lidar_2"]["throughput"]["value"] = 0
         #capture.start_lidar_capture()

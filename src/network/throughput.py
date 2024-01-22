@@ -31,7 +31,7 @@ class Throughput(daemon.Daemon):
                 param_capture.state_ground[self.name]["throughput"]["mean"] = self.tgp_mean * 8
                 param_capture.state_ground[self.name]["throughput"]["max"] = self.tgp_max * 8
             else:
-                param_capture.state_ground[self.name]["throughput"]["value"] = 0
+                #param_capture.state_ground[self.name]["throughput"]["value"] = 0
                 param_capture.state_ground[self.name]["throughput"]["min"] = 0
                 param_capture.state_ground[self.name]["throughput"]["mean"] = 0
                 param_capture.state_ground[self.name]["throughput"]["max"] = 0

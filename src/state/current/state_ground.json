@@ -32,7 +32,7 @@
             "speed": 600
         },
         "throughput": {
-            "value": 0,
+            "value": 16.995246431710218,
             "min": 0,
             "max": 0,
             "mean": 0
