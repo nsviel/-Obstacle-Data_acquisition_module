@@ -12,7 +12,6 @@ daemon_throughput_l2 = throughput.Throughput("lidar_2")
 
 def start_daemons():
     daemon_connection.start_daemon()
-    daemon_connection.start_lidar_simulation()
     daemon_network.start_daemon()
     daemon_throughput_l1.start_daemon()
     daemon_throughput_l2.start_daemon()
@@ -23,3 +22,6 @@ def stop_daemons():
     daemon_network.stop_daemon()
     daemon_throughput_l1.stop_daemon()
     daemon_throughput_l2.stop_daemon()
+    param_capture.run_thread_l1 = False
+    param_capture.run_thread_l2 = False
+    param_capture.run_thread_pcap = False

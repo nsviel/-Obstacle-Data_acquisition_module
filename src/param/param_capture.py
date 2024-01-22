@@ -11,6 +11,7 @@ run_thread_con = False
 run_thread_perf = False
 run_thread_l1 = False
 run_thread_l2 = False
+run_thread_pcap = False
 run_thread_lidar_simulation = True
 run_thread_perf = False
 
@@ -37,4 +38,4 @@ interruption_time = 0
 
 path_state_current = "src/state/current/"
 path_state_initial = "src/state/initial/"
-path_pcap = "media/file_25.pcap"
+path_pcap = "media/test.pcap"

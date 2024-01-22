@@ -4,7 +4,7 @@
             "ip": "127.0.0.1",
             "add": "-",
             "status": "Online",
-            "nb_thread": 8
+            "nb_thread": 9
         },
         "socket": {
             "server_l1_port": 8308,
@@ -12,7 +12,8 @@
         },
         "http": {
             "server_port": 314
-        }
+        },
+        "ip": "192.168.73.197"
     },
     "lidar_1": {
         "info": {
@@ -44,34 +45,32 @@
             "ip": "192.168.2.201",
             "add": "-",
             "status": "Online",
-            "connected": true,
+            "connected": false,
             "activated": true,
             "simulated": false,
             "port": 2369,
             "device": "enxa0cec8737a9e"
         },
         "motor": {
-            "running": true,
+            "running": false,
             "speed": 600
         },
         "throughput": {
-            "value": 7.688,
-            "min": 7.64,
-            "max": 7.696,
-            "mean": 7.672421052631579
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "packet": {
-            "value": 472939
+            "value": 0
         }
     },
     "device": {
-        "0": "wlp0s20f3",
-        "1": "enxa0cec8737a9e",
-        "2": "vpn0"
+        "0": "wlp0s20f3"
     },
     "interface": {
         "edge": {
-            "http_connected": true
+            "http_connected": false
         }
     }
 }

@@ -35,7 +35,7 @@ def manage_post(self):
     # POST command
     elif(command == '/post_command_ground'):
         if(payload == "reset"):
-            capture.restart_lidar_capture()
+            pass#capture.restart_lidar_capture()
     elif(command == '/post_command_lidar_1'):
         if(payload == "start"):
             lidar.start_l1_motor()

@@ -39,7 +39,8 @@ def test_connection():
     if(l1_simu or l2_simu):
         #capture.start_lidar_capture()
         once = False
-    if(l1_connected == False and l1_ok or l2_connected == False and l2_ok):
+
+    if(param_capture.run_thread_l1 == False and param_capture.run_thread_l2 == False and param_capture.run_thread_pcap == False):
         param_capture.state_ground["lidar_1"]["packet"]["value"] = 0
         param_capture.state_ground["lidar_1"]["throughput"]["value"] = 0
         param_capture.state_ground["lidar_2"]["packet"]["value"] = 0
