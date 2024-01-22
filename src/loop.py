@@ -28,6 +28,7 @@ def init():
     lidar.display_connection_status()
     https_server.start_server()
     daemon.start_daemons()
+    capture.start_lidar_capture()
     terminal.addLog("OK", "Program initialized")
     terminal.addLine()
 

@@ -12,18 +12,28 @@ import subprocess
 import os
 import time
 
+thread_l2 = None
+thread_l1 = None
+thread_pcap = None
+
 
 def start_lidar_capture():
     thread_l1 = threading.Thread(target = start_l1_capture)
     thread_l2 = threading.Thread(target = start_l2_capture)
     thread_pcap = threading.Thread(target = start_pcap_capture)
-    thread_l1.start()
-    thread_l2.start()
+    #thread_l1.start()
+    #thread_l2.start()
     thread_pcap.start();
 def stop_lidar_capture():
     param_capture.run_thread_l1 = False
     param_capture.run_thread_l2 = False
     param_capture.run_thread_pcap = False
+    if thread_l1 is not None:
+        thread_l1.join()
+    if thread_l2 is not None:
+        thread_l2.join()
+    if thread_pcap is not None:
+        thread_pcap.join()
 def restart_lidar_capture():
     terminal.addDaemon("#", "restart", "LiDAR capture")
     stop_lidar_capture()
@@ -142,13 +152,12 @@ def pcap_reader(socket):
     try:
         while param_capture.run_thread_pcap:
             # Run tcpdump and read the packet details, redirecting output to subprocess.PIPE
-            process = subprocess.Popen(['tcpdump', '-r', path, '-n', '-v', '-tttt', '-l'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-            print("hello")
-
+            absolute_path = os.path.abspath(path)
+            process = subprocess.Popen(['tcpdump', '-r', absolute_path, '-n', '-v', '-tttt', '-l'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
             # Loop over each line (packet) and process it continuously
             while param_capture.run_thread_pcap:
-                
+
                 # loop check if lidar 1 & lidar 2 are not connected
                 while not l1_connected and l2_connected:
                     time.sleep(0.5)
@@ -182,4 +191,4 @@ def pcap_reader(socket):
         with open(path, 'rb') as file:
             file.seek(initial_file_size)
 
-    terminal.addDaemon("#", "OFF", "LiDAR 1 pcap")
+    terminal.addDaemon("#", "OFF", "LiDAR pcap")

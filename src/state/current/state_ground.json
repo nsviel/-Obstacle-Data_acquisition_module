@@ -4,7 +4,7 @@
             "ip": "127.0.0.1",
             "add": "-",
             "status": "Online",
-            "nb_thread": 9
+            "nb_thread": 7
         },
         "socket": {
             "server_l1_port": 8308,
@@ -13,7 +13,7 @@
         "http": {
             "server_port": 314
         },
-        "ip": "192.168.73.197"
+        "ip": "192.168.153.49"
     },
     "lidar_1": {
         "info": {

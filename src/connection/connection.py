@@ -7,6 +7,7 @@ from src.interface import device
 from src.utils import terminal
 from src.base import daemon
 from src.connection.HTTPS.client import https_client_con
+from src.interface import capture
 
 import socket
 import threading
@@ -26,6 +27,11 @@ class Connection(daemon.Daemon):
         # Update state
         state.upload_states()
         update_nb_thread()
+
+    def stop_daemon(self):
+        self.run_thread = False
+        terminal.addDaemon("#", "OFF", self.name)
+        capture.stop_lidar_capture();
 
 def get_ip_adress():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
