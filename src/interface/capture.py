@@ -136,7 +136,7 @@ def pcap_reader(socket):
     while param_capture.run_thread_pcap:
         # Run tcpdump and read the packet details, redirecting output to subprocess.PIPE
         absolute_path = os.path.abspath(path)
-        command = "tcpdump -r {} -w {}".format(shlex.quote(absolute_path), "aa.dat")
+        command = "tcpdump -r {} -w {}".format(shlex.quote(absolute_path), "media/temp.dat")
 
         # Run the command and redirect both stdout and stderr to null devices
         with open(os.devnull, 'w') as null_device:
@@ -144,7 +144,7 @@ def pcap_reader(socket):
             process.wait()
 
         # Open the temporary pcap file for reading
-        with open("aa.dat", 'rb') as pcap_file:
+        with open("media/temp.dat", 'rb') as pcap_file:
             # Loop over each packet and process it continuously
             pcap = dpkt.pcap.Reader(pcap_file)
 

@@ -38,4 +38,4 @@ interruption_time = 0
 
 path_state_current = "src/state/current/"
 path_state_initial = "src/state/initial/"
-path_pcap = "media/test.pcap"
+path_pcap = "media/truc_2.pcap"

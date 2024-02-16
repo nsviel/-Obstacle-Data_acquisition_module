@@ -2,15 +2,13 @@
     "capture": {
         "info": {
             "ip": "127.0.0.1",
-            "add": "localhost",
-            "status": "Offline",
+            "add": "-",
+            "status": "Online",
             "nb_thread": 7
         },
         "socket": {
             "server_l1_port": 8308,
-            "server_l2_port": 8309,
-            "l1_connected": false,
-            "l2_connected": false
+            "server_l2_port": 8309
         },
         "http": {
             "server_port": 314
@@ -19,10 +17,10 @@
     "lidar_1": {
         "info": {
             "ip": "192.168.1.201",
-            "add": "lidar_1_static",
-            "status": "Offline",
+            "add": "-",
+            "status": "Online",
             "connected": false,
-            "activated": false,
+            "activated": true,
             "simulated": true,
             "port": 2368,
             "device": "enxf8e43b6cdf6c"
@@ -32,25 +30,22 @@
             "speed": 600
         },
         "throughput": {
-            "value": 16.995246431710218,
+            "value": 16.305305217268263,
             "min": 0,
             "max": 0,
             "mean": 0
         },
         "packet": {
-            "value": 0,
-            "min": 0,
-            "mean": 0,
-            "max": 0
+            "value": 0
         }
     },
     "lidar_2": {
         "info": {
             "ip": "192.168.2.201",
-            "add": "lidar_2_static",
-            "status": "Offline",
+            "add": "-",
+            "status": "Online",
             "connected": false,
-            "activated": false,
+            "activated": true,
             "simulated": false,
             "port": 2369,
             "device": "enxa0cec8737a9e"
@@ -66,19 +61,16 @@
             "mean": 0
         },
         "packet": {
-            "value": 0,
-            "min": 0,
-            "mean": 0,
-            "max": 0
+            "value": 0
         }
     },
     "device": {
         "0": "wlp0s20f3",
-        "1": "vethdf7a986"
+        "1": "vpn0"
     },
     "interface": {
         "edge": {
-            "http_connected": true
+            "http_connected": false
         }
     }
 }
