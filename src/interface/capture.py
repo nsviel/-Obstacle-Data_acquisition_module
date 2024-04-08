@@ -127,25 +127,15 @@ def pcap_reader(socket):
     dest_port = param_capture.state_edge["hub"]["socket"]["server_l1_port"]
     path = param_capture.path_pcap
 
-
     # Get the initial file size
     initial_file_size = os.path.getsize(path)
+
+    # Display a message indicating that LiDAR pcap is ON
     terminal.addDaemon("#", "ON", "LiDAR 1 pcap")
     param_capture.run_thread_pcap = True
 
     while param_capture.run_thread_pcap:
-        # Run tcpdump and read the packet details, redirecting output to subprocess.PIPE
-        absolute_path = os.path.abspath(path)
-        command = "tcpdump -r {} -w {}".format(shlex.quote(absolute_path), "media/temp.dat")
-
-        # Run the command and redirect both stdout and stderr to null devices
-        with open(os.devnull, 'w') as null_device:
-            process = subprocess.Popen(command, stdout=null_device, stderr=null_device, shell=True)
-            process.wait()
-
-        # Open the temporary pcap file for reading
-        with open("media/temp.dat", 'rb') as pcap_file:
-            # Loop over each packet and process it continuously
+        with open(path, 'rb') as pcap_file:
             pcap = dpkt.pcap.Reader(pcap_file)
 
             start_time = time.time()
@@ -155,7 +145,12 @@ def pcap_reader(socket):
                 packet = bytes(buf)
                 socket.socket.sendto(packet, (dest_ip, dest_port))
                 total_bytes += len(packet)
-                time.sleep(0.0000001)
+
+                # Add a short sleep time for smoother operation
+                time.sleep(0.0005)  # Adjust as needed for your desired speed
+
+                if(param_capture.run_thread_pcap == False):
+                    break
 
             # Calculate throughput in bytes per second
             end_time = time.time()
@@ -164,7 +159,5 @@ def pcap_reader(socket):
             throughput_mbps = throughput_bps / 1_000_000
             param_capture.state_ground["lidar_1"]["throughput"]["value"] = throughput_mbps
 
-            # Wait for the process to complete (optional)
-            process.terminate()
-
+    # Display a message indicating that LiDAR pcap is OFF
     terminal.addDaemon("#", "OFF", "LiDAR pcap")
