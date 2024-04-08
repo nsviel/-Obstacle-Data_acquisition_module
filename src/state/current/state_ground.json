@@ -8,9 +8,7 @@
         },
         "socket": {
             "server_l1_port": 8308,
-            "server_l2_port": 8309,
-            "l1_connected": false,
-            "l2_connected": false
+            "server_l2_port": 8309
         },
         "http": {
             "server_port": 314
@@ -32,7 +30,7 @@
             "speed": 600
         },
         "throughput": {
-            "value": 2.0636917669235593,
+            "value": 2.050581703962417,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -71,7 +69,7 @@
     },
     "interface": {
         "edge": {
-            "http_connected": true
+            "http_connected": false
         }
     }
 }
