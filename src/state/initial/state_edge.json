@@ -23,7 +23,7 @@
       },
       "socket":{
         "connected": false,
-        "server_port": 2370
+        "server_port": 55555
       },
       "http":{
         "connected": false,

@@ -30,7 +30,7 @@
             "speed": 600
         },
         "throughput": {
-            "value": 2.050581703962417,
+            "value": 2.0218907687337593,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -69,7 +69,7 @@
     },
     "interface": {
         "edge": {
-            "http_connected": false
+            "http_connected": true
         }
     }
 }
