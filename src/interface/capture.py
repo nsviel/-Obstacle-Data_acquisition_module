@@ -24,8 +24,8 @@ def start_lidar_capture():
     thread_l1 = threading.Thread(target = start_l1_capture)
     thread_l2 = threading.Thread(target = start_l2_capture)
     thread_pcap = threading.Thread(target = start_pcap_capture)
-    #thread_l1.start()
-    #thread_l2.start()
+    thread_l1.start()
+    thread_l2.start()
     thread_pcap.start();
 def stop_lidar_capture():
     param_capture.run_thread_l1 = False
@@ -72,7 +72,7 @@ def start_l2_capture():
         param_capture.state_ground["lidar_2"]["motor"]["running"] = True
         param_capture.run_thread_l2 = True
         ip = param_capture.state_edge["hub"]["info"]["ip"]
-        port = param_capture.state_edge["hub"]["socket"]["server_l2_port"]
+        port = param_capture.state_edge["hub"]["socket"]["server_l1_port"]
 
         listener = pcapy.open_live(l2_device, 1500, 0 , 1)
         filter = "udp port 2368 or 2369 or port 8308 or port 8309"
@@ -80,13 +80,12 @@ def start_l2_capture():
         terminal.addDaemon("#", "ON", "LiDAR 2 capture on [\033[1;32m%s\033[0m]"%l2_device)
 
         while param_capture.run_thread_l2 and param_capture.state_ground["lidar_2"]["info"]["connected"]:
-            if(param_capture.state_ground["lidar_2"]["info"]["activated"]):
-                (header, packet) = listener.next()
-                if(packet != None):
-                    socket.socket.sendto(packet, (ip, port))
-                    if(len(packet) == 1248):
-                        param_capture.state_ground["lidar_2"]["packet"]["value"] += 1
-                        terminal.addCstLog("cap", "LiDAR 2: [\033[1;32m%s\033[0m] packets"% param_capture.state_ground["lidar_2"]["packet"]["value"])
+            (header, packet) = listener.next()
+            if(packet != None):
+                socket.socket.sendto(packet, (ip, port))
+                if(len(packet) == 1248):
+                    param_capture.state_ground["lidar_2"]["packet"]["value"] += 1
+                    terminal.addCstLog("cap", "LiDAR 2: [\033[1;32m%s\033[0m] packets"% param_capture.state_ground["lidar_2"]["packet"]["value"])
         terminal.addDaemon("#", "OFF", "LiDAR 2 capture")
 def start_pcap_capture():
     socket = socket_client.Socket_client()
@@ -142,6 +141,9 @@ def pcap_reader(socket):
             total_bytes = 0
 
             for ts, buf in pcap:
+                if(param_capture.state_ground["lidar_2"]["info"]["connected"] or param_capture.state_ground["lidar_1"]["info"]["connected"]):
+                    break;
+
                 packet = bytes(buf)
                 socket.socket.sendto(packet, (dest_ip, dest_port))
                 total_bytes += len(packet)

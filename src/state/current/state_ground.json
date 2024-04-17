@@ -4,11 +4,13 @@
             "ip": "127.0.0.1",
             "add": "-",
             "status": "Online",
-            "nb_thread": 7
+            "nb_thread": 8
         },
         "socket": {
             "server_l1_port": 8308,
-            "server_l2_port": 8309
+            "server_l2_port": 8309,
+            "l1_connected": false,
+            "l2_connected": false
         },
         "http": {
             "server_port": 314
@@ -30,7 +32,7 @@
             "speed": 600
         },
         "throughput": {
-            "value": 2.034695843197628,
+            "value": 0.0,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -44,28 +46,29 @@
             "ip": "192.168.2.201",
             "add": "-",
             "status": "Online",
-            "connected": false,
+            "connected": true,
             "activated": true,
             "simulated": false,
             "port": 2369,
             "device": "enxa0cec8737a9e"
         },
         "motor": {
-            "running": false,
+            "running": true,
             "speed": 600
         },
         "throughput": {
             "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0
+            "min": 7.64,
+            "max": 7.696,
+            "mean": 7.674947368421052
         },
         "packet": {
-            "value": 0
+            "value": 17364
         }
     },
     "device": {
-        "0": "wlp0s20f3"
+        "0": "wlp0s20f3",
+        "1": "enxa0cec8737a9e"
     },
     "interface": {
         "edge": {
