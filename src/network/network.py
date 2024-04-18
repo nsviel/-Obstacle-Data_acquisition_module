@@ -18,3 +18,7 @@ class Network(daemon.Daemon):
 
     def thread_function(self):
         network_ping.compute_ping(self)
+
+    def stop_daemon(self):
+        self.run_thread = False
+        terminal.addDaemon("#", "OFF", self.name)

@@ -8,8 +8,8 @@ import time
 class Daemon:
     def start_daemon(self):
         self.run_thread = True
-        thread = threading.Thread(target = self.thread_loop)
-        thread.start()
+        self.thread = threading.Thread(target = self.thread_loop)
+        self.thread.start()
         terminal.addDaemon("#", "ON", self.name)
 
     def stop_daemon(self):
@@ -21,8 +21,9 @@ class Daemon:
         self.run_thread = False
         time.sleep(1)
         self.run_thread = True
-        thread = threading.Thread(target = self.thread_loop)
-        thread.start()
+        self.thread.join()
+        self.thread = threading.Thread(target = self.thread_loop)
+        self.thread.start()
 
     def thread_loop(self):
         self.thread_init()
@@ -40,6 +41,7 @@ class Daemon:
     def thread_end(self):
         pass
 
+    thread = None
     run_thread = False;
     run_sleep = 1;
-    name = "";
+    name = "default";

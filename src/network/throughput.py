@@ -41,6 +41,11 @@ class Throughput(daemon.Daemon):
         except:
             time.sleep(1)
 
+    def stop_daemon(self):
+        self.run_thread = False
+        terminal.addDaemon("#", "OFF", self.name)
+
+
     # Compute function
     def compute_throughput(self, device):
         net_stat = psutil.net_io_counters(pernic=True, nowrap=True)[device]
