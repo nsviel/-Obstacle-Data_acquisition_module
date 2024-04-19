@@ -25,8 +25,8 @@ class Throughput(daemon.Daemon):
             if(param_capture.state_ground[self.name]["info"]["connected"] and param_capture.state_ground[self.name]["info"]["activated"]):
                 l2_mbs = self.compute_throughput(param_capture.state_ground[self.name]["info"]["device"])
                 self.compute_throughput_range(l2_mbs)
-
-                param_capture.state_ground["lidar_1"]["throughput"]["value"] = l2_mbs * 8
+                
+                param_capture.state_ground[self.name]["throughput"]["value"] = l2_mbs * 8
                 param_capture.state_network["ground_to_edge"]["throughput"]["value"] = l2_mbs * 8
                 param_capture.state_ground[self.name]["throughput"]["min"] = self.tgp_min * 8
                 param_capture.state_ground[self.name]["throughput"]["mean"] = self.tgp_mean * 8

@@ -2,26 +2,27 @@
     "capture": {
         "info": {
             "ip": "127.0.0.1",
-            "add": "-",
-            "status": "Online",
-            "nb_thread": 0
+            "add": "localhost",
+            "status": "Offline",
+            "nb_thread": 7
         },
         "socket": {
             "server_l1_port": 8308,
-            "server_l2_port": 8309
+            "server_l2_port": 8309,
+            "l1_connected": false,
+            "l2_connected": false
         },
         "http": {
             "server_port": 314
-        },
-        "ip": "192.168.152.43"
+        }
     },
     "lidar_1": {
         "info": {
             "ip": "192.168.1.201",
-            "add": "-",
-            "status": "Online",
+            "add": "lidar_1_static",
+            "status": "Offline",
             "connected": false,
-            "activated": true,
+            "activated": false,
             "simulated": true,
             "port": 2368,
             "device": "enxf8e43b6cdf6c"
@@ -31,28 +32,31 @@
             "speed": 600
         },
         "throughput": {
-            "value": 2.11877199490348,
+            "value": 2.0755201614706653,
             "min": 0,
             "max": 0,
             "mean": 0
         },
         "packet": {
-            "value": 0
+            "value": 0,
+            "min": 0,
+            "mean": 0,
+            "max": 0
         }
     },
     "lidar_2": {
         "info": {
             "ip": "192.168.2.201",
-            "add": "-",
-            "status": "Online",
-            "connected": false,
-            "activated": true,
+            "add": "lidar_2_static",
+            "status": "Offline",
+            "connected": true,
+            "activated": false,
             "simulated": false,
             "port": 2369,
             "device": "enxa0cec8737a9e"
         },
         "motor": {
-            "running": false,
+            "running": true,
             "speed": 600
         },
         "throughput": {
@@ -62,15 +66,19 @@
             "mean": 0
         },
         "packet": {
-            "value": 0
+            "value": 0,
+            "min": 0,
+            "mean": 0,
+            "max": 0
         }
     },
     "device": {
-        "0": "wlp0s20f3"
+        "0": "wlp0s20f3",
+        "1": "enxa0cec8737a9e"
     },
     "interface": {
         "edge": {
-            "http_connected": false
+            "http_connected": true
         }
     }
 }

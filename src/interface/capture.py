@@ -54,11 +54,15 @@ def start_l2_capture():
     l2_port = param_capture.state_ground["capture"]["socket"]["server_l2_port"]
     socket = socket_client.Socket_client()
 
+    param_capture.run_thread_l2 = True
+
+
     # wait for lidar connection
     connected = False
     while not connected and param_capture.run_thread_l2:
         connected = param_capture.state_ground["lidar_2"]["info"]["connected"]
         time.sleep(0.5)
+
 
     # Check device
     device_ok = device.check_if_device_exists(l2_device)
@@ -66,11 +70,13 @@ def start_l2_capture():
         terminal.addLog("error", "Device \033[1;32m%s\033[0m does not exists"% l2_device)
         return
 
+
+
     # Start capture
     if(connected and device_ok):
+        print("start")
         param_capture.state_ground["lidar_2"]["packet"]["value"] = 0
         param_capture.state_ground["lidar_2"]["motor"]["running"] = True
-        param_capture.run_thread_l2 = True
         ip = param_capture.state_edge["hub"]["info"]["ip"]
         port = param_capture.state_edge["hub"]["socket"]["server_l1_port"]
 
@@ -163,6 +169,11 @@ def pcap_reader(socket):
             throughput_bps = total_bytes / elapsed_time
             throughput_mbps = throughput_bps / 1_000_000
             param_capture.state_ground["lidar_1"]["throughput"]["value"] = throughput_mbps
+            param_capture.state_network["ground_to_edge"]["throughput"]["value"] = throughput_mbps
+
+
+            if(param_capture.state_ground["lidar_2"]["info"]["connected"] or param_capture.state_ground["lidar_1"]["info"]["connected"]):
+                break;
 
 
     # Display a message indicating that LiDAR pcap is OFF
